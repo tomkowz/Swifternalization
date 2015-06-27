@@ -19,5 +19,4 @@ class ExpressionTests: XCTestCase {
     func testExpressionCannotBeCreated() {
         XCTAssertTrue(Expression.expressionFromString("abc") == nil, "There is no expression here")
     }
-
 }

@@ -8,16 +8,35 @@
 
 import Foundation
 
-struct Expression {
-    let pattern: String
+enum ExpressionType: String {
+    case Inequality = "ie:"
+}
+
+class Expression {
+    private let pattern: String
+    private var type: ExpressionType!
+    private var matcher: ExpressionMatcher!
     
     static func expressionFromString(str: String) -> Expression? {
-        let regexp = NSRegularExpression(pattern: "(?<=\\{)(.+)(?=\\})", options: .CaseInsensitive, error: nil)
-        if let match = regexp?.firstMatchInString(str, options: NSMatchingOptions.ReportCompletion, range: NSMakeRange(0, count(str))) {
-            let startRange = advance(str.startIndex, match.range.location)
-            let endRange = advance(startRange, match.range.length)
-            
-            return Expression(pattern: str.substringWithRange(Range(start: startRange, end: endRange)))
+        if let pattern = Regex.firstMatchInString(str, pattern: "(?<=\\{)(.+)(?=\\})") {
+            return Expression(pattern: pattern)
+        }
+        return nil
+    }
+    
+    init(pattern: String) {
+        self.pattern = pattern
+        if let type = parseExpressionType() {
+            switch type {
+            case .Inequality:
+                matcher = InequalityExpressionParser(pattern).parse()
+            }
+        }
+    }
+    
+    private func parseExpressionType() -> ExpressionType? {
+        if let result = Regex.firstMatchInString(pattern, pattern: "^.*:") {
+            return ExpressionType(rawValue: result)
         }
         
         return nil

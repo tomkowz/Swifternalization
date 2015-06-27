@@ -24,6 +24,16 @@
 		6D6282951B3F05DE00E65FCD /* Pair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5004651B3EF92600A54B36 /* Pair.swift */; };
 		6D6282961B3F063A00E65FCD /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282911B3F04C800E65FCD /* Expression.swift */; };
 		6D6282981B3F13C300E65FCD /* ExpressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282971B3F13C300E65FCD /* ExpressionTests.swift */; };
+		6D62829A1B3F17CA00E65FCD /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282991B3F17CA00E65FCD /* Regex.swift */; };
+		6D62829B1B3F17FE00E65FCD /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282991B3F17CA00E65FCD /* Regex.swift */; };
+		6D62829D1B3F19CC00E65FCD /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D62829C1B3F19CC00E65FCD /* RegexTests.swift */; };
+		6D62829F1B3F1FA000E65FCD /* InequalityExpressionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D62829E1B3F1FA000E65FCD /* InequalityExpressionParser.swift */; };
+		6D6282A31B3F247000E65FCD /* ExpressionMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282A21B3F247000E65FCD /* ExpressionMatcher.swift */; };
+		6D6282A51B3F24A800E65FCD /* ExpressionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282A41B3F24A800E65FCD /* ExpressionParser.swift */; };
+		6D6282A61B3F25B900E65FCD /* InequalityExpressionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D62829E1B3F1FA000E65FCD /* InequalityExpressionParser.swift */; };
+		6D6282A71B3F25BE00E65FCD /* ExpressionMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282A21B3F247000E65FCD /* ExpressionMatcher.swift */; };
+		6D6282A91B3F25DC00E65FCD /* InequalityExpressionParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282A81B3F25DC00E65FCD /* InequalityExpressionParserTests.swift */; };
+		6D6282AA1B3F269900E65FCD /* ExpressionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282A41B3F24A800E65FCD /* ExpressionParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +74,12 @@
 		6D6282911B3F04C800E65FCD /* Expression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
 		6D6282931B3F052B00E65FCD /* PairTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairTests.swift; sourceTree = "<group>"; };
 		6D6282971B3F13C300E65FCD /* ExpressionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpressionTests.swift; sourceTree = "<group>"; };
+		6D6282991B3F17CA00E65FCD /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		6D62829C1B3F19CC00E65FCD /* RegexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
+		6D62829E1B3F1FA000E65FCD /* InequalityExpressionParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InequalityExpressionParser.swift; sourceTree = "<group>"; };
+		6D6282A21B3F247000E65FCD /* ExpressionMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpressionMatcher.swift; sourceTree = "<group>"; };
+		6D6282A41B3F24A800E65FCD /* ExpressionParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpressionParser.swift; sourceTree = "<group>"; };
+		6D6282A81B3F25DC00E65FCD /* InequalityExpressionParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InequalityExpressionParserTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,11 +131,15 @@
 		6D50044A1B3EF91600A54B36 /* Swifternalization */ = {
 			isa = PBXGroup;
 			children = (
-				6D5004641B3EF92600A54B36 /* Swifternalization.swift */,
-				6D5004651B3EF92600A54B36 /* Pair.swift */,
 				6D6282911B3F04C800E65FCD /* Expression.swift */,
+				6D6282A21B3F247000E65FCD /* ExpressionMatcher.swift */,
+				6D62829E1B3F1FA000E65FCD /* InequalityExpressionParser.swift */,
+				6D5004651B3EF92600A54B36 /* Pair.swift */,
+				6D6282991B3F17CA00E65FCD /* Regex.swift */,
+				6D5004641B3EF92600A54B36 /* Swifternalization.swift */,
 				6D50044B1B3EF91600A54B36 /* Supporting Files */,
 				6D50044D1B3EF91600A54B36 /* Swifternalization.h */,
+				6D6282A41B3F24A800E65FCD /* ExpressionParser.swift */,
 			);
 			path = Swifternalization;
 			sourceTree = "<group>";
@@ -136,7 +156,9 @@
 			isa = PBXGroup;
 			children = (
 				6D6282971B3F13C300E65FCD /* ExpressionTests.swift */,
+				6D6282A81B3F25DC00E65FCD /* InequalityExpressionParserTests.swift */,
 				6D6282931B3F052B00E65FCD /* PairTests.swift */,
+				6D62829C1B3F19CC00E65FCD /* RegexTests.swift */,
 				6D50045A1B3EF91600A54B36 /* SwifternalizationTests.swift */,
 				6D5004581B3EF91600A54B36 /* Supporting Files */,
 				6D5004941B3EFF6D00A54B36 /* Localizable.strings */,
@@ -316,8 +338,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D6282A31B3F247000E65FCD /* ExpressionMatcher.swift in Sources */,
 				6D5004661B3EF92600A54B36 /* Swifternalization.swift in Sources */,
+				6D62829A1B3F17CA00E65FCD /* Regex.swift in Sources */,
 				6D5004671B3EF92600A54B36 /* Pair.swift in Sources */,
+				6D62829F1B3F1FA000E65FCD /* InequalityExpressionParser.swift in Sources */,
+				6D6282A51B3F24A800E65FCD /* ExpressionParser.swift in Sources */,
 				6D6282921B3F04C800E65FCD /* Expression.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,9 +354,15 @@
 			files = (
 				6D6282981B3F13C300E65FCD /* ExpressionTests.swift in Sources */,
 				6D50045B1B3EF91600A54B36 /* SwifternalizationTests.swift in Sources */,
+				6D6282A61B3F25B900E65FCD /* InequalityExpressionParser.swift in Sources */,
+				6D6282A71B3F25BE00E65FCD /* ExpressionMatcher.swift in Sources */,
 				6D6282941B3F052B00E65FCD /* PairTests.swift in Sources */,
 				6D6282951B3F05DE00E65FCD /* Pair.swift in Sources */,
 				6D6282961B3F063A00E65FCD /* Expression.swift in Sources */,
+				6D62829D1B3F19CC00E65FCD /* RegexTests.swift in Sources */,
+				6D6282A91B3F25DC00E65FCD /* InequalityExpressionParserTests.swift in Sources */,
+				6D6282AA1B3F269900E65FCD /* ExpressionParser.swift in Sources */,
+				6D62829B1B3F17FE00E65FCD /* Regex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
