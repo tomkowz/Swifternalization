@@ -22,22 +22,27 @@ class InequalityExtendedExpressionParser: ExpressionParser {
         return InequalityExtendedExpressionMatcher(left: leftMatcher, right: rightMatcher)
     }
     
+    // Get first number
     private func firstValue() -> Int {
         return Regex.firstMatchInString(expression, pattern: "(?<=^iex:)\\d+")!.toInt()!
     }
     
+    // Get first inequality sign - this one is inverted to fit the logic in the pattern
     private func firstSign() -> InequalitySign {
         return InequalitySign(rawValue:Regex.firstMatchInString(expression, pattern: "(?<=^iex:.)(<=|<|=|>=|>)")!)!.invert()
     }
     
+    // Get value type, Int.
     private func valueType() -> ValueType {
         return ValueType(rawValue: Regex.firstMatchInString(expression, pattern: "(%[d])")!)!
     }
     
+    // Get second inequality sign
     private func secondSign() -> InequalitySign {
         return InequalitySign(rawValue: Regex.firstMatchInString(expression, pattern: "(?<=%[d])(<=|<|=|>=|>)")!)!
     }
     
+    // Get second value
     private func secondValue() -> Int {
         return Regex.firstMatchInString(expression, pattern: "(?<=%[d]<=|<|=|>=|>)(\\d+)")!.toInt()!
     }    

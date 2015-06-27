@@ -20,6 +20,7 @@ class RegexExpressionParser: ExpressionParser {
         return RegexExpressionMatcher(pattern: regexPattern())
     }
     
+    // Get regular expression from the pattern
     private func regexPattern() -> RegexPattern {
         return Regex.firstMatchInString(expression, pattern: "(?<=^exp:).*")!
     }

@@ -17,6 +17,14 @@ public class Swifternalization {
     private let bundle: NSBundle
     private var pairs = [Pair]()
     
+    /** 
+    Initialize with bundle when Localizable.strings file is located.
+    This method return instance of the class but you don't need it.
+    Shared instance is automatically set so you can start using class method.
+    
+    It get the Localizable.strings file version based on language set on the device using 'preferredLocations' property of NSBUndle.
+    If version for specific language isn't found it tries with Base version.
+    */
     public init(bundle: NSBundle) {
         self.bundle = bundle
         Swifternalization.setSharedInstance(self)

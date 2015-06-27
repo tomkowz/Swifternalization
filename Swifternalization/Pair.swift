@@ -34,6 +34,7 @@ struct Pair {
         return expression!.validate(value)
     }
     
+    // If entire key is: "cars{ie:%d=1}" it returns "cars"
     var keyWithoutExpression: String {
         if hasExpression == false { return key }
         return Regex.firstMatchInString(key, pattern: "^(.*?)(?=\\{)")!

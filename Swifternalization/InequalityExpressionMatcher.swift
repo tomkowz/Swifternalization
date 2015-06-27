@@ -9,6 +9,7 @@
 import Foundation
 
 struct InequalityExpressionMatcher: ExpressionMatcher {
+    // It supports only Int
     let valueType: ValueType
     let sign: InequalitySign
     let value: Int

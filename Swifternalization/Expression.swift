@@ -9,13 +9,20 @@
 import Foundation
 
 enum ExpressionType: String {
+    // works on Int only, e.g. %d<5, %d=3
     case Inequality = "ie"
+    
+    // works on Int only, e.g. 4<%d<10, 1<=%d<18
     case InequalityExtended = "iex"
+    
+    // regular expression, e.g. [02-9]+
     case Regex = "exp"
 }
 
+typealias ExpressionPattern = String
+
 class Expression {
-    private let pattern: String
+    private let pattern: ExpressionPattern
     private var type: ExpressionType!
     private var matcher: ExpressionMatcher!
     
@@ -26,8 +33,10 @@ class Expression {
         return nil
     }
     
-    init(pattern: String) {
+    init(pattern: ExpressionPattern) {
         self.pattern = pattern
+        
+        // build correct expression matcher
         if let type = parseExpressionType() {
             switch type {
             case .Inequality:
@@ -44,6 +53,8 @@ class Expression {
         return matcher.validate(value)
     }
     
+    
+    /// Get expression type
     private func parseExpressionType() -> ExpressionType? {
         if let result = Regex.firstMatchInString(pattern, pattern: "(^.{2,3})(?=:)") {
             return ExpressionType(rawValue: result)

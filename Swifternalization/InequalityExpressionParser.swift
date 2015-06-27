@@ -20,14 +20,17 @@ class InequalityExpressionParser: ExpressionParser {
         return InequalityExpressionMatcher(valueType: valueType(), sign: sign(), value: value())
     }
     
+    // Get value type: parses to find e.g. %d - Int is only one supported for now.
     private func valueType() -> ValueType {
         return ValueType(rawValue: Regex.firstMatchInString(expression, pattern: "(?<=^ie:)\\S{2}")!)!
     }
     
+    // Get mathematical inequality sign
     private func sign() -> InequalitySign {
         return InequalitySign(rawValue: Regex.firstMatchInString(expression, pattern: "(<=|<|=|>=|>)")!)!
     }
     
+    // Get value from the pattern
     private func value() -> Int {
         return Regex.firstMatchInString(expression, pattern: "\\d+")!.toInt()!
     }
