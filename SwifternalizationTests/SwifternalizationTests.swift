@@ -28,4 +28,8 @@ class SwifternalizationTests: XCTestCase {
     func testShouldReturnKeyWhenNotTranslated() {
         XCTAssertEqual(Swifternalization.localizedString("not-found"), "not-found", "Should return key")
     }
+    
+    func testShouldReturnDefaultValueInsteadOfKeyWhenNotTranslated() {
+        XCTAssertEqual(Swifternalization.localizedString("not-found", value: "something"), "something", "Should return alternative value")
+    }
 }

@@ -80,11 +80,21 @@ public extension Swifternalization {
     /// Returns localized string if found, otherwise the passed one
     public class func localizedString(key: String) -> String {
         if sharedInstance() == nil { return key }
-        
+        var result: String? = localizedValue(key)
+        return result != nil ? result! : key
+    }
+    
+    public class func localizedString(key: String, value: String) -> String {
+        if sharedInstance() == nil { return key }
+        var result: String? = localizedValue(key)
+        return result != nil ? result! : value
+    }
+    
+    private class func localizedValue(key: String) -> String? {
         for pair in sharedInstance().pairs {
             if pair.key == key { return pair.value }
         }
-        
-        return key
+
+        return nil
     }
 }
