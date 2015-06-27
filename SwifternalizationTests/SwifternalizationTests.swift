@@ -60,5 +60,9 @@ class SwifternalizationTests: XCTestCase {
     func testRegex3() {
         XCTAssertEqual(Swifternalization.localizedExpressionString("pl-police-cars", value: "5"), "%d samochodów policyjnych", "should be equal '%d samochodów policyjnych")
     }
+    
+    func testRegex4() {
+        XCTAssertEqual(Swifternalization.localizedExpressionString("pl-police-cars", value: 13), "%d samochodów policyjnych", "should be equal '%d samochodów policyjnych")
+    }
 }
 

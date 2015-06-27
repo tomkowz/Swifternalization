@@ -104,3 +104,10 @@ public extension Swifternalization {
         return (defaultValue != nil) ? defaultValue! : key
     }
 }
+
+// Int support
+public extension Swifternalization {
+    public class func localizedExpressionString(key: String, value: Int, defaultValue: String? = nil) -> String {
+        return self.localizedExpressionString(key, value: "\(value)", defaultValue: defaultValue)
+    }
+}
