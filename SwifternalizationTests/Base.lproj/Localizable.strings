@@ -12,6 +12,6 @@
 // Polish tricky language support
 "pl-police-cars{ie:%d=1}" = "1 samochód policyjny";
 "pl-police-cars{exp:(((?!1).[2-4]{1})$)|(^[2-4]$)}" = "%d samochody policyjne";
-"pl-police-cars{exp:(.*(?=1).[0-9]$)|(^[5-9]$)|(.*(?!1).[0156789])}" = "%d samochodów policyjnych";
+"pl-police-cars{exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])}" = "%d samochodów policyjnych";
 
 

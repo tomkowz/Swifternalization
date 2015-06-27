@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DemoOrdering.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>Swifternalization.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -28,6 +33,36 @@
 			<true/>
 		</dict>
 		<key>6D50047F1B3EF94000A54B36</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6D6282D11B3F5C3500E65FCD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6D6282E51B3F5C3500E65FCD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6D6282F71B3F5C5300E65FCD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6D62830B1B3F5C5300E65FCD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6D6283241B3F613D00E65FCD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6D6283381B3F613D00E65FCD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
