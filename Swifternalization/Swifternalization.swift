@@ -10,9 +10,6 @@ import Foundation
 
 public typealias I18N = Swifternalization
 
-typealias Key = String
-typealias Value = String
-
 public class Swifternalization {
     typealias Language = String
     private let BaseLanguage: Language = "Base"

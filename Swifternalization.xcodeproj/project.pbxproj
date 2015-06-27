@@ -19,6 +19,11 @@
 		6D50047B1B3EF94000A54B36 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D5004791B3EF94000A54B36 /* LaunchScreen.xib */; };
 		6D5004921B3EFF6D00A54B36 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D5004941B3EFF6D00A54B36 /* Localizable.strings */; };
 		6D5004961B3EFFC100A54B36 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D5004591B3EF91600A54B36 /* Info.plist */; };
+		6D6282921B3F04C800E65FCD /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282911B3F04C800E65FCD /* Expression.swift */; };
+		6D6282941B3F052B00E65FCD /* PairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282931B3F052B00E65FCD /* PairTests.swift */; };
+		6D6282951B3F05DE00E65FCD /* Pair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5004651B3EF92600A54B36 /* Pair.swift */; };
+		6D6282961B3F063A00E65FCD /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282911B3F04C800E65FCD /* Expression.swift */; };
+		6D6282981B3F13C300E65FCD /* ExpressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282971B3F13C300E65FCD /* ExpressionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +61,9 @@
 		6D50047A1B3EF94000A54B36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6D5004931B3EFF6D00A54B36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6D5004951B3EFFC100A54B36 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6D6282911B3F04C800E65FCD /* Expression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
+		6D6282931B3F052B00E65FCD /* PairTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairTests.swift; sourceTree = "<group>"; };
+		6D6282971B3F13C300E65FCD /* ExpressionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpressionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,10 +115,11 @@
 		6D50044A1B3EF91600A54B36 /* Swifternalization */ = {
 			isa = PBXGroup;
 			children = (
-				6D50044D1B3EF91600A54B36 /* Swifternalization.h */,
 				6D5004641B3EF92600A54B36 /* Swifternalization.swift */,
 				6D5004651B3EF92600A54B36 /* Pair.swift */,
+				6D6282911B3F04C800E65FCD /* Expression.swift */,
 				6D50044B1B3EF91600A54B36 /* Supporting Files */,
+				6D50044D1B3EF91600A54B36 /* Swifternalization.h */,
 			);
 			path = Swifternalization;
 			sourceTree = "<group>";
@@ -126,9 +135,11 @@
 		6D5004571B3EF91600A54B36 /* SwifternalizationTests */ = {
 			isa = PBXGroup;
 			children = (
+				6D6282971B3F13C300E65FCD /* ExpressionTests.swift */,
+				6D6282931B3F052B00E65FCD /* PairTests.swift */,
 				6D50045A1B3EF91600A54B36 /* SwifternalizationTests.swift */,
-				6D5004941B3EFF6D00A54B36 /* Localizable.strings */,
 				6D5004581B3EF91600A54B36 /* Supporting Files */,
+				6D5004941B3EFF6D00A54B36 /* Localizable.strings */,
 			);
 			path = SwifternalizationTests;
 			sourceTree = "<group>";
@@ -307,6 +318,7 @@
 			files = (
 				6D5004661B3EF92600A54B36 /* Swifternalization.swift in Sources */,
 				6D5004671B3EF92600A54B36 /* Pair.swift in Sources */,
+				6D6282921B3F04C800E65FCD /* Expression.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +326,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D6282981B3F13C300E65FCD /* ExpressionTests.swift in Sources */,
 				6D50045B1B3EF91600A54B36 /* SwifternalizationTests.swift in Sources */,
+				6D6282941B3F052B00E65FCD /* PairTests.swift in Sources */,
+				6D6282951B3F05DE00E65FCD /* Pair.swift in Sources */,
+				6D6282961B3F063A00E65FCD /* Expression.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

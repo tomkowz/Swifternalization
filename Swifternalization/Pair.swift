@@ -8,11 +8,14 @@
 
 import Foundation
 
+typealias Key = String
+typealias Value = String
+
 struct Pair {
     let key: Key
     let value: Value
     
-    private var expression: String? = nil
+    private var expression: Expression? = nil
     
     var hasExpression: Bool { return expression != nil }
     
@@ -23,12 +26,7 @@ struct Pair {
     }
     
     mutating func findExpression() {
-        let regexp = NSRegularExpression(pattern: "{(.*)?}", options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
-        if let match = regexp?.firstMatchInString(key, options: NSMatchingOptions.ReportCompletion, range: NSMakeRange(0, count(key))) {
-            let startRange = advance(key.startIndex, match.range.location)
-            let endRange = advance(startRange, match.range.length)
-            self.expression = key.substringWithRange(Range(start: startRange, end: endRange))
-        }
+        self.expression = Expression.expressionFromString(key)
     }
 }
 
@@ -37,20 +35,3 @@ extension Pair: Printable {
         return "\(key) = \(value)"
     }
 }
-
-
-
-///
-
-//"%d cars" = "%d samochodów";
-//
-//"welcome" = "cześć";
-//
-//"things" = "rzeczy";
-//
-//"%d cars{1}" = "%d samochód";
-//"%d cars{2-4}" = "%d samochody";
-//"%d cars{5-21}" = "%d samochodów";
-//"%d cars{22-24}" = "%d samochody";
-//"%d cars{25-31}" = "%d samochodów";
-//"%d cars{32-34}" = "%d samochody";
