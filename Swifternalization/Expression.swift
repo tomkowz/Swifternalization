@@ -9,9 +9,9 @@
 import Foundation
 
 enum ExpressionType: String {
-    case Inequality = "ie:"
-    case InequalityExtended = "iex:"
-    case Regex = "exp:"
+    case Inequality = "ie"
+    case InequalityExtended = "iex"
+    case Regex = "exp"
 }
 
 class Expression {
@@ -45,7 +45,7 @@ class Expression {
     }
     
     private func parseExpressionType() -> ExpressionType? {
-        if let result = Regex.firstMatchInString(pattern, pattern: "^.*:") {
+        if let result = Regex.firstMatchInString(pattern, pattern: "(^.*)(?=:)") {
             return ExpressionType(rawValue: result)
         }
         
