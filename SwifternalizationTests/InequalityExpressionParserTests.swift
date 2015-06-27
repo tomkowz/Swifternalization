@@ -12,33 +12,38 @@ import Swifternalization
 
 class InequalityExpressionParserTests: XCTestCase {
 
-    func testValidation1() {
+    func testParser1() {
         let matcher = InequalityExpressionParser("ie:%d=3").parse() as! InequalityExpressionMatcher
-        XCTAssertTrue(matcher.validate("3"), "should be true")
-        XCTAssertFalse(matcher.validate("5"), "should be true")
+        XCTAssertTrue(matcher.valueType == .Integer, "should be integer")
+        XCTAssertTrue(matcher.sign == .Equal, "should be equal")
+        XCTAssertTrue(matcher.value == 3, "should be 3")
     }
     
-    func testValidation2() {
-        let matcher = InequalityExpressionParser("ie:%d<=3").parse() as! InequalityExpressionMatcher
-        XCTAssertTrue(matcher.validate("3"), "should be true")
-        XCTAssertTrue(matcher.validate("2"), "should be true")
-    }
-    
-    func testValidation3() {
-        let matcher = InequalityExpressionParser("ie:%d>=3").parse() as! InequalityExpressionMatcher
-        XCTAssertTrue(matcher.validate("3"), "should be true")
-        XCTAssertTrue(matcher.validate("4"), "should be true")
-    }
-    
-    func testValidation4() {
+    func testParser2() {
         let matcher = InequalityExpressionParser("ie:%d>3").parse() as! InequalityExpressionMatcher
-        XCTAssertTrue(matcher.validate("4"), "should be true")
-        XCTAssertFalse(matcher.validate("3"), "should be true")
+        XCTAssertTrue(matcher.valueType == .Integer, "should be integer")
+        XCTAssertTrue(matcher.sign == .GreaterThan, "should be equal")
+        XCTAssertTrue(matcher.value == 3, "should be 3")
     }
     
-    func testValidation5() {
+    func testParser3() {
         let matcher = InequalityExpressionParser("ie:%d<3").parse() as! InequalityExpressionMatcher
-        XCTAssertTrue(matcher.validate("2"), "should be true")
-        XCTAssertFalse(matcher.validate("3"), "should be true")
+        XCTAssertTrue(matcher.valueType == .Integer, "should be integer")
+        XCTAssertTrue(matcher.sign == .LessThan, "should be equal")
+        XCTAssertTrue(matcher.value == 3, "should be 3")
+    }
+    
+    func testParser4() {
+        let matcher = InequalityExpressionParser("ie:%d<=3").parse() as! InequalityExpressionMatcher
+        XCTAssertTrue(matcher.valueType == .Integer, "should be integer")
+        XCTAssertTrue(matcher.sign == .LessThanOrEqual, "should be equal")
+        XCTAssertTrue(matcher.value == 3, "should be 3")
+    }
+    
+    func testParser5() {
+        let matcher = InequalityExpressionParser("ie:%d>=3").parse() as! InequalityExpressionMatcher
+        XCTAssertTrue(matcher.valueType == .Integer, "should be integer")
+        XCTAssertTrue(matcher.sign == .GreaterThanOrEqual, "should be equal")
+        XCTAssertTrue(matcher.value == 3, "should be 3")
     }
 }

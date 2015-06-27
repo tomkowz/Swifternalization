@@ -1,7 +1,17 @@
 "welcome-key" = "welcome";
 
-"cars-formatter{ie:%d=1}" = "one car";
-"cars-formatter{ie:%d>=2}" = "%d cars";
+// English examples
+"en-cars{ie:%d=1}" = "one car";
+"en-cars{ie:%d>=2}" = "%d cars";
 
-"pl-cars-formatter{ie:%d=1}" = "jeden samochód";
-"pl-cars-formatter{iex:2<=%d<=4}" = "%d samochody";
+// Polish examples
+"pl-cars{ie:%d=1}" = "jeden samochód";
+"pl-cars{iex:2<=%d<=4}" = "%d samochody";
+
+
+// Polish tricky language support
+"pl-police-cars{ie:%d=1}" = "1 samochód policyjny";
+"pl-police-cars{exp:(((?!1).[2-4]{1})$)|(^[2-4]$)}" = "%d samochody policyjne";
+"pl-police-cars{exp:(.*(?=1).[0-9]$)|(^[5-9]$)|(.*(?!1).[0156789])}" = "%d samochodów policyjnych";
+
+

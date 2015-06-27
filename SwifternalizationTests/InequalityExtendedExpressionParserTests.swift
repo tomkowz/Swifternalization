@@ -10,32 +10,59 @@ import UIKit
 import XCTest
 
 class InequalityExtendedExpressionParserTests: XCTestCase {
-
-    func testValidation1() {
-        let matcher = InequalityExtendedExpressionParser("iex:4<%d<6").parse() as! InequalityExtendedExpressionMatcher
-        XCTAssertTrue(matcher.validate("5"), "should be true")
-        XCTAssertFalse(matcher.validate("4"), "should be false")
-        XCTAssertFalse(matcher.validate("6"), "should be false")
+    
+    func testMatcher1() {
+        let matcher = InequalityExtendedExpressionParser("iex:4<%d<10").parse() as! InequalityExtendedExpressionMatcher
+        XCTAssertEqual(matcher.leftMatcher.valueType, .Integer, "should be integer")
+        XCTAssertEqual(matcher.leftMatcher.sign, .GreaterThan, "should be less than")
+        XCTAssertEqual(matcher.leftMatcher.value, 4, "should be 4")
+        
+        XCTAssertEqual(matcher.rightMatcher.valueType, .Integer, "should be integer")
+        XCTAssertEqual(matcher.rightMatcher.sign, .LessThan, "should be less than")
+        XCTAssertEqual(matcher.rightMatcher.value, 10, "should be 10")
     }
     
-    func testValidation2() {
-        let matcher = InequalityExtendedExpressionParser("iex:4<=%d<10").parse() as! InequalityExtendedExpressionMatcher
-        XCTAssertTrue(matcher.validate("4"), "should be true")
-        XCTAssertFalse(matcher.validate("10"), "should be false")
-        XCTAssertFalse(matcher.validate("11"), "should be false")
+    func testMatcher2() {
+        let matcher = InequalityExtendedExpressionParser("iex:4<=%d<=10").parse() as! InequalityExtendedExpressionMatcher
+        XCTAssertEqual(matcher.leftMatcher.valueType, .Integer, "should be integer")
+        XCTAssertEqual(matcher.leftMatcher.sign, .GreaterThanOrEqual, "should be less than")
+        XCTAssertEqual(matcher.leftMatcher.value, 4, "should be 4")
+        
+        XCTAssertEqual(matcher.rightMatcher.valueType, .Integer, "should be integer")
+        XCTAssertEqual(matcher.rightMatcher.sign, .LessThanOrEqual, "should be less than")
+        XCTAssertEqual(matcher.rightMatcher.value, 10, "should be 10")
     }
     
-    func testValidation3() {
-        let matcher = InequalityExtendedExpressionParser("iex:4>%d<10").parse() as! InequalityExtendedExpressionMatcher
-        XCTAssertTrue(matcher.validate("3"), "should be true")
-        XCTAssertFalse(matcher.validate("5"), "should be false")
-        XCTAssertFalse(matcher.validate("11"), "should be false")
+    func testMatcher3() {
+        let matcher = InequalityExtendedExpressionParser("iex:4>=%d>=10").parse() as! InequalityExtendedExpressionMatcher
+        XCTAssertEqual(matcher.leftMatcher.valueType, .Integer, "should be integer")
+        XCTAssertEqual(matcher.leftMatcher.sign, .LessThanOrEqual, "should be less than")
+        XCTAssertEqual(matcher.leftMatcher.value, 4, "should be 4")
+        
+        XCTAssertEqual(matcher.rightMatcher.valueType, .Integer, "should be integer")
+        XCTAssertEqual(matcher.rightMatcher.sign, .GreaterThanOrEqual, "should be less than")
+        XCTAssertEqual(matcher.rightMatcher.value, 10, "should be 10")
     }
     
-    func testValidation4() {
-        let matcher = InequalityExtendedExpressionParser("iex:4=%d=10").parse() as! InequalityExtendedExpressionMatcher
-        XCTAssertFalse(matcher.validate("4"), "should be false")
-        XCTAssertFalse(matcher.validate("10"), "should be false")
-        XCTAssertFalse(matcher.validate("8"), "should be false")
+    func testMatcher4() {
+        let matcher = InequalityExtendedExpressionParser("iex:4>%d>10").parse() as! InequalityExtendedExpressionMatcher
+        XCTAssertEqual(matcher.leftMatcher.valueType, .Integer, "should be integer")
+        XCTAssertEqual(matcher.leftMatcher.sign, .LessThan, "should be less than")
+        XCTAssertEqual(matcher.leftMatcher.value, 4, "should be 4")
+        
+        XCTAssertEqual(matcher.rightMatcher.valueType, .Integer, "should be integer")
+        XCTAssertEqual(matcher.rightMatcher.sign, .GreaterThan, "should be less than")
+        XCTAssertEqual(matcher.rightMatcher.value, 10, "should be 10")
+    }
+    
+    func testMatcher5() {
+        let matcher = InequalityExtendedExpressionParser("iex:4>=%d<10").parse() as! InequalityExtendedExpressionMatcher
+        XCTAssertEqual(matcher.leftMatcher.valueType, .Integer, "should be integer")
+        XCTAssertEqual(matcher.leftMatcher.sign, .LessThanOrEqual, "should be less than")
+        XCTAssertEqual(matcher.leftMatcher.value, 4, "should be 4")
+        
+        XCTAssertEqual(matcher.rightMatcher.valueType, .Integer, "should be integer")
+        XCTAssertEqual(matcher.rightMatcher.sign, .LessThan, "should be less than")
+        XCTAssertEqual(matcher.rightMatcher.value, 10, "should be 10")
     }
 }

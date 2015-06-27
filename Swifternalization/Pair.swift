@@ -36,6 +36,6 @@ struct Pair {
     
     var keyWithoutExpression: String {
         if hasExpression == false { return key }
-        return Regex.firstMatchInString(key, pattern: "(.*)(?=\\{)")!
+        return Regex.firstMatchInString(key, pattern: "^(.*?)(?=\\{)")!
     }
 }

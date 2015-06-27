@@ -11,6 +11,7 @@ import Foundation
 enum ExpressionType: String {
     case Inequality = "ie:"
     case InequalityExtended = "iex:"
+    case Regex = "exp:"
 }
 
 class Expression {
@@ -33,6 +34,8 @@ class Expression {
                 matcher = InequalityExpressionParser(pattern).parse()
             case .InequalityExtended:
                 matcher = InequalityExtendedExpressionParser(pattern).parse()
+            case .Regex:
+                matcher = RegexExpressionParser(pattern).parse()
             }
         }
     }

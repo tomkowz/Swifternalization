@@ -1,5 +1,5 @@
 //
-//  InequalityExpressionMatcherTests.swift
+//  RegexExpressionMatcherTests.swift
 //  Swifternalization
 //
 //  Created by Tomasz Szulc on 27/06/15.
@@ -9,8 +9,8 @@
 import UIKit
 import XCTest
 
-class InequalityExpressionMatcherTests: XCTestCase {
-   
+class RegexExpressionMatcherTests: XCTestCase {
+    
     func testValidation1() {
         let matcher = InequalityExpressionParser("ie:%d=3").parse() as! InequalityExpressionMatcher
         XCTAssertTrue(matcher.validate("3"), "should be true")
