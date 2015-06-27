@@ -45,7 +45,7 @@ class Expression {
     }
     
     private func parseExpressionType() -> ExpressionType? {
-        if let result = Regex.firstMatchInString(pattern, pattern: "(^.*)(?=:)") {
+        if let result = Regex.firstMatchInString(pattern, pattern: "(^.{2,3})(?=:)") {
             return ExpressionType(rawValue: result)
         }
         
