@@ -2,3 +2,6 @@
 
 "cars-formatter{ie:%d=1}" = "one car";
 "cars-formatter{ie:%d>=2}" = "%d cars";
+
+"pl-cars-formatter{ie:%d=1}" = "jeden samochód";
+"pl-cars-formatter{iex:2<=%d<=4}" = "%d samochody";

@@ -13,6 +13,12 @@ struct InequalityExpressionMatcher: ExpressionMatcher {
     let sign: InequalitySign
     let value: Int
     
+    init(valueType: ValueType, sign: InequalitySign, value: Int) {
+        self.valueType = valueType
+        self.sign = sign
+        self.value = value
+    }
+    
     func validate(val: String) -> Bool {
         switch valueType {
         case .Integer:
@@ -25,11 +31,5 @@ struct InequalityExpressionMatcher: ExpressionMatcher {
             case .GreaterThan: return n > value
             }
         }
-    }
-}
-
-extension InequalityExpressionMatcher: Printable {
-    var description: String {
-        return "\(valueType.rawValue), \(sign.rawValue), \(value)"
     }
 }

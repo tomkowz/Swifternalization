@@ -10,6 +10,7 @@ import Foundation
 
 enum ExpressionType: String {
     case Inequality = "ie:"
+    case InequalityExtended = "iex:"
 }
 
 class Expression {
@@ -30,6 +31,8 @@ class Expression {
             switch type {
             case .Inequality:
                 matcher = InequalityExpressionParser(pattern).parse()
+            case .InequalityExtended:
+                matcher = InequalityExtendedExpressionParser(pattern).parse()
             }
         }
     }
@@ -44,11 +47,5 @@ class Expression {
         }
         
         return nil
-    }
-}
-
-extension Expression: Printable {
-    var description: String {
-        return "\(pattern), \(type), \(matcher.description)"
     }
 }

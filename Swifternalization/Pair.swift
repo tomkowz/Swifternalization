@@ -39,13 +39,3 @@ struct Pair {
         return Regex.firstMatchInString(key, pattern: "(.*)(?=\\{)")!
     }
 }
-
-extension Pair: Printable {
-    var description: String {
-        if self.hasExpression {
-            return "\(key), \(value), expression= \(expression!.description)"
-        } else {
-            return "\(key) = \(value)"
-        }
-    }
-}

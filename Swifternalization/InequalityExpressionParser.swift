@@ -8,18 +8,6 @@
 
 import Foundation
 
-enum ValueType: String {
-    case Integer = "%d"
-}
-
-enum InequalitySign: String {
-    case LessThan = "<"
-    case LessThanOrEqual = "<="
-    case Equal = "="
-    case GreaterThanOrEqual = ">="
-    case GreaterThan = ">"
-}
-
 class InequalityExpressionParser: ExpressionParser {
     
     private let expression: String

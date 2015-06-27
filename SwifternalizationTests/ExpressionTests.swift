@@ -12,11 +12,15 @@ import Swifternalization
 
 class ExpressionTests: XCTestCase {
 
-    func testExpressionShouldBeCreated() {
+    func testIE() {
         XCTAssertTrue(Expression.expressionFromString("abc{ie:%d=2}") != nil, "Expression should be created")
     }
     
-    func testExpressionCannotBeCreated() {
+    func testIEX() {
+        XCTAssertTrue(Expression.expressionFromString("abc{iex:4<%d<=5}") != nil, "Expression should be created")
+    }
+    
+    func testNone() {
         XCTAssertTrue(Expression.expressionFromString("abc") == nil, "There is no expression here")
     }
 }

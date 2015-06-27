@@ -39,6 +39,9 @@ class SwifternalizationTests: XCTestCase {
     
     func testShouldReturnValueForGreaterThanOrEqualCase() {
         XCTAssertEqual(Swifternalization.localizedExpressionString("cars-formatter", value: "2"), "%d cars", "should be equal 'one car'")
-        XCTAssertEqual(Swifternalization.localizedExpressionString("cars-formatter", value: "4"), "%d cars", "should be equal 'one car'")
+    }
+    
+    func testIEX1() {
+        XCTAssertEqual(Swifternalization.localizedExpressionString("pl-cars-formatter", value: "4"), "%d samochody", "")
     }
 }
