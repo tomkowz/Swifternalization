@@ -34,11 +34,21 @@ class Expression {
         }
     }
     
+    func validate(value: String) -> Bool {
+        return matcher.validate(value)
+    }
+    
     private func parseExpressionType() -> ExpressionType? {
         if let result = Regex.firstMatchInString(pattern, pattern: "^.*:") {
             return ExpressionType(rawValue: result)
         }
         
         return nil
+    }
+}
+
+extension Expression: Printable {
+    var description: String {
+        return "\(pattern), \(type), \(matcher.description)"
     }
 }

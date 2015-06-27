@@ -1,1 +1,4 @@
 "welcome-key" = "welcome";
+
+"cars-formatter{ie:%d=1}" = "one car";
+"cars-formatter{ie:%d>=2}" = "%d cars";

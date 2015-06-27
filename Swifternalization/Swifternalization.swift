@@ -72,26 +72,35 @@ extension Swifternalization {
     }
 }
 
+/**
+Simple key
+*/
 public extension Swifternalization {
     
-    /// Returns localized string if found, otherwise the passed one
-    public class func localizedString(key: String) -> String {
-        if sharedInstance() == nil { return key }
-        var result: String? = localizedValue(key)
-        return result != nil ? result! : key
-    }
-    
-    public class func localizedString(key: String, value: String) -> String {
-        if sharedInstance() == nil { return key }
-        var result: String? = localizedValue(key)
-        return result != nil ? result! : value
-    }
-    
-    private class func localizedValue(key: String) -> String? {
+    // Return localized string if found, otherwise the passed one
+    public class func localizedString(key: String, defaultValue: String? = nil) -> String {
+        if sharedInstance() == nil { return (defaultValue != nil) ? defaultValue! : key }
         for pair in sharedInstance().pairs {
             if pair.key == key { return pair.value }
         }
+        
+        return (defaultValue != nil) ? defaultValue! : key
+    }
+}
 
-        return nil
+/**
+Inequality expression keys
+*/
+public extension Swifternalization {
+    public class func localizedExpressionString(key: String, value: String, defaultValue: String? = nil) -> String {
+        if sharedInstance() == nil { return (defaultValue != nil) ? defaultValue! : key }
+        
+        for pair in sharedInstance().pairs.filter({$0.hasExpression == true && $0.keyWithoutExpression == key}) {
+            if pair.validate(value) {
+                return pair.value
+            }
+        }
+        
+        return (defaultValue != nil) ? defaultValue! : key
     }
 }

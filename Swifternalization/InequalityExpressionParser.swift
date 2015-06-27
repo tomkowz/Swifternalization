@@ -20,26 +20,6 @@ enum InequalitySign: String {
     case GreaterThan = ">"
 }
 
-struct InequalityExpressionMatcher: ExpressionMatcher {
-    let valueType: ValueType
-    let sign: InequalitySign
-    let value: Int
-    
-    func validate(val: String) -> Bool {
-        switch valueType {
-        case .Integer:
-            let n = val.toInt()!
-            switch sign {
-            case .LessThan: return n < value
-            case .LessThanOrEqual: return n <= value
-            case .Equal: return n == value
-            case .GreaterThanOrEqual: return n >= value
-            case .GreaterThan: return n > value
-            }
-        }
-    }
-}
-
 class InequalityExpressionParser: ExpressionParser {
     
     private let expression: String

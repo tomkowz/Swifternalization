@@ -16,4 +16,10 @@ class RegexTests: XCTestCase {
         let matches = Regex.matchesInString("ie:%d=2", pattern: "^(ie:)")
         XCTAssertTrue(matches.count == 1, "Should found 1 match")
     }
+    
+    func testRegexShouldFindTextWithoutExpression() {
+        let match = Regex.firstMatchInString("cars{%d=1}", pattern: "(.*)(?=\\{)")
+        XCTAssertTrue(match != nil, "Match should not be nil")
+        XCTAssertEqual(match!, "cars", "Should be equal 'cars'")
+    }
 }

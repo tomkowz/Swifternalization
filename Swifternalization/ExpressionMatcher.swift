@@ -6,6 +6,6 @@
 //  Copyright (c) 2015 Tomasz Szulc. All rights reserved.
 //
 
-protocol ExpressionMatcher {
+protocol ExpressionMatcher: Printable {
     func validate(val: String) -> Bool
 }

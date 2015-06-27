@@ -13,7 +13,7 @@ import Swifternalization
 class ExpressionTests: XCTestCase {
 
     func testExpressionShouldBeCreated() {
-        XCTAssertTrue(Expression.expressionFromString("abc{=2}") != nil, "Expression should be created")
+        XCTAssertTrue(Expression.expressionFromString("abc{ie:%d=2}") != nil, "Expression should be created")
     }
     
     func testExpressionCannotBeCreated() {

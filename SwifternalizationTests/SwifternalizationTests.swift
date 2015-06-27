@@ -30,6 +30,15 @@ class SwifternalizationTests: XCTestCase {
     }
     
     func testShouldReturnDefaultValueInsteadOfKeyWhenNotTranslated() {
-        XCTAssertEqual(Swifternalization.localizedString("not-found", value: "something"), "something", "Should return alternative value")
+        XCTAssertEqual(Swifternalization.localizedString("not-found", defaultValue: "something"), "something", "Should return alternative value")
+    }
+    
+    func testShouldReturnValueForEqualCase() {
+        XCTAssertEqual(Swifternalization.localizedExpressionString("cars-formatter", value: "1"), "one car", "should be equal 'one car'")
+    }
+    
+    func testShouldReturnValueForGreaterThanOrEqualCase() {
+        XCTAssertEqual(Swifternalization.localizedExpressionString("cars-formatter", value: "2"), "%d cars", "should be equal 'one car'")
+        XCTAssertEqual(Swifternalization.localizedExpressionString("cars-formatter", value: "4"), "%d cars", "should be equal 'one car'")
     }
 }

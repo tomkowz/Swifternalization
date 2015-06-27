@@ -22,16 +22,30 @@ struct Pair {
     init(key: Key, value: Value) {
         self.key = key
         self.value = value
-        findExpression()
+        parseExpression()
     }
     
-    mutating func findExpression() {
+    mutating func parseExpression() {
         self.expression = Expression.expressionFromString(key)
+    }
+    
+    func validate(value: String) -> Bool {
+        if hasExpression == false { return false }
+        return expression!.validate(value)
+    }
+    
+    var keyWithoutExpression: String {
+        if hasExpression == false { return key }
+        return Regex.firstMatchInString(key, pattern: "(.*)(?=\\{)")!
     }
 }
 
 extension Pair: Printable {
     var description: String {
-        return "\(key) = \(value)"
+        if self.hasExpression {
+            return "\(key), \(value), expression= \(expression!.description)"
+        } else {
+            return "\(key) = \(value)"
+        }
     }
 }
