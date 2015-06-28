@@ -25,7 +25,7 @@ The same with minutes and hours. This is easy. Localization file for English wil
     "many-seconds" = "%d seconds ago";
     
     "one-minute" = "1 minute ago";    
-    "many-minutes" = "%d minutes ago"";
+    "many-minutes" = "%d minutes ago";
 
 	"one-hour" = "1 hour ago";
 	"many-hours" = "%d hours ago";
