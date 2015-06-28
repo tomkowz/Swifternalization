@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias I18N = Swifternalization
+public typealias I18n = Swifternalization
 
 typealias Language = String
 
