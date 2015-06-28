@@ -1,4 +1,4 @@
-![Swifternalization: localize apps smarter](https://raw.githubusercontent.com/tomkowz/Swifternalization/master/page-assets/swifternalization-header.png?token=ACMkyQivvzfGCObsBPBdJgD16iKEy0Ccks5VmYMUwA%3D%3D)
+![Swifternalization: localize apps smarter](https://raw.githubusercontent.com/tomkowz/Swifternalization/master/page-assets/swifternalization-header.png)
 
 # Swifternalization
 Swifternalization helps in localizing apps in a smarter way. It has been created because of necessary to solve Polish language internalization problems but it is universal and works with every language. 
