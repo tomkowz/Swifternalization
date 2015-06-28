@@ -31,38 +31,46 @@ class SwifternalizationTests: XCTestCase {
     
     // Primitive
     func testPrimitive1() {
-        XCTAssertEqual(Swifternalization.localizedString("welcome-key"), "welcome", "Should equal 'welcome'")
+        XCTAssertEqual(Swifternalization.localizedString("welcome-key"), "welcome", "")
     }
     
     // Inequality
     func testInequality1() {
-        XCTAssertEqual(Swifternalization.localizedExpressionString("en-cars", value: "1"), "one car", "should be equal 'one car'")
+        XCTAssertEqual(Swifternalization.localizedExpressionString("cars", value: "1"), "one car", "")
+    }
+
+    func testInequality2() {
+        XCTAssertEqual(Swifternalization.localizedExpressionString("cars", value: "2"), "%d cars", "")
     }
     
-    func testInequality2() {
-        XCTAssertEqual(Swifternalization.localizedExpressionString("en-cars", value: "2"), "%d cars", "should be equal 'one car'")
+    
+    /// Polish
+    
+    // Inequality
+    func testPLInequality1() {
+        XCTAssertEqual(Swifternalization.localizedExpressionString("pl-cars", value: "1"), "jeden samochód", "")
     }
     
     // Inequality Extended
-    func testInequalityExtended1() {
-        XCTAssertEqual(Swifternalization.localizedExpressionString("pl-cars", value: "4"), "%d samochody", "")
+    func testPLInequalityExtended2() {
+        XCTAssertEqual(Swifternalization.localizedExpressionString("pl-cars", value: "2"), "%d samochody", "")
     }
     
     // Regex
-    func testRegex1() {
-        XCTAssertEqual(Swifternalization.localizedExpressionString("pl-police-cars", value: "1"), "1 samochód policyjny", "should be equal '1 samochód policyjny")
+    func testPLRegex1() {
+        XCTAssertEqual(Swifternalization.localizedExpressionString("pl-police-cars", value: "1"), "1 samochód policyjny", "")
     }
     
-    func testRegex2() {
-        XCTAssertEqual(Swifternalization.localizedExpressionString("pl-police-cars", value: "2"), "%d samochody policyjne", "should be equal '%d samochody policyjne")
+    func testPLRegex2() {
+        XCTAssertEqual(Swifternalization.localizedExpressionString("pl-police-cars", value: "2"), "%d samochody policyjne", "")
     }
     
-    func testRegex3() {
-        XCTAssertEqual(Swifternalization.localizedExpressionString("pl-police-cars", value: "5"), "%d samochodów policyjnych", "should be equal '%d samochodów policyjnych")
+    func testPLRegex3() {
+        XCTAssertEqual(Swifternalization.localizedExpressionString("pl-police-cars", value: "5"), "%d samochodów policyjnych", "")
     }
     
-    func testRegex4() {
-        XCTAssertEqual(Swifternalization.localizedExpressionString("pl-police-cars", value: 13), "%d samochodów policyjnych", "should be equal '%d samochodów policyjnych")
+    func testPLRegex4() {
+        XCTAssertEqual(Swifternalization.localizedExpressionString("pl-police-cars", value: 13), "%d samochodów policyjnych", "")
     }
 }
 

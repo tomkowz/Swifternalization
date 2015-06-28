@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     func order() {
         Swifternalization(bundle: NSBundle.mainBundle())
         
+        println(Swifternalization.localizedString("hello-base-test"))
+        
         for num in 0...1000 {
             let format = Swifternalization.localizedExpressionString("cars", value: "\(num)")
             let localizedString = String(format: format, num)

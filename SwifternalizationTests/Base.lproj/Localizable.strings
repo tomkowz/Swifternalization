@@ -1,17 +1,15 @@
 "welcome-key" = "welcome";
 
-// English examples
-"en-cars{ie:%d=1}" = "one car";
-"en-cars{ie:%d>=2}" = "%d cars";
+"only-in-base" = "this is from base";
 
-// Polish examples
+"cars{ie:%d=1}" = "one car";
+"cars{ie:%d>=2}" = "%d cars";
+
+/// Polish language
 "pl-cars{ie:%d=1}" = "jeden samochód";
 "pl-cars{iex:2<=%d<=4}" = "%d samochody";
-
 
 // Polish tricky language support
 "pl-police-cars{ie:%d=1}" = "1 samochód policyjny";
 "pl-police-cars{exp:(((?!1).[2-4]{1})$)|(^[2-4]$)}" = "%d samochody policyjne";
 "pl-police-cars{exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])}" = "%d samochodów policyjnych";
-
-

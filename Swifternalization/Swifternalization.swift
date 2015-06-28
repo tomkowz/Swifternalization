@@ -12,10 +12,17 @@ public typealias I18N = Swifternalization
 
 public class Swifternalization {
     typealias Language = String
+    
     private let BaseLanguage: Language = "Base"
 
     private let bundle: NSBundle
-    private var pairs = [Pair]()
+    private var preferredLanguage: Language!
+    
+    // Pairs from base Localizable.strings file
+    private var basePairs = [Pair]()
+    
+    // Pairs from preferred language Localizable.strings file
+    private var preferredPairs = [Pair]()
     
     /** 
     Initialize with bundle when Localizable.strings file is located.
@@ -27,6 +34,7 @@ public class Swifternalization {
     */
     public init(bundle: NSBundle) {
         self.bundle = bundle
+        self.preferredLanguage = getPreferredLanguage()
         Swifternalization.setSharedInstance(self)
         load()
     }
@@ -35,26 +43,34 @@ public class Swifternalization {
     // MARK: Private
     private func load() {
         // Get file url for localization
-        var fileURL = localizableFileURLForLanguage(preferredLanguage())
-        if fileURL == nil {
-            fileURL = localizableFileURLForLanguage(BaseLanguage)
+        if let localizableStringsFileURL = localizableFileURLForLanguage(self.preferredLanguage) {
+            // load content of existing file
+            preferredPairs = parse(localizableStringsFileURL)
         }
         
-        if fileURL == nil { return }
-        
-        // load content of existing file
-        if let dictionary = NSDictionary(contentsOfURL: fileURL!) as? Dictionary<Key, Value> {
-            parse(dictionary)
+        if let baseStringsFileURL = localizableFileURLForLanguage(BaseLanguage) {
+            // load content of existing file
+            basePairs = parse(baseStringsFileURL)
         }
     }
     
-    private func parse(dictionary: Dictionary<Key, Value>) {
+    private func parse(fileURL: NSURL) -> [Pair] {
+        var pairs = [Pair]()
+        if let dictionary = NSDictionary(contentsOfURL: fileURL) as? Dictionary<Key, Value> {
+            pairs += parse(dictionary)
+        }
+        return pairs
+    }
+    
+    private func parse(dictionary: Dictionary<Key, Value>) -> [Pair] {
+        var pairs = [Pair]()
         for (k, v) in dictionary {
             pairs.append(Pair(key: k, value: v))
         }
+        return pairs
     }
     
-    private func preferredLanguage() -> Language {
+    private func getPreferredLanguage() -> Language {
         // Get preferred language, the one which is set on user's device
         return bundle.preferredLocalizations.first as! Language
     }
@@ -88,8 +104,13 @@ public extension Swifternalization {
     // Return localized string if found, otherwise the passed one
     public class func localizedString(key: String, defaultValue: String? = nil) -> String {
         if sharedInstance() == nil { return (defaultValue != nil) ? defaultValue! : key }
-        for pair in sharedInstance().pairs {
-            if pair.key == key { return pair.value }
+        
+        for pair in sharedInstance().preferredPairs.filter({$0.key == key}) {
+            return pair.value
+        }
+        
+        for pair in sharedInstance().basePairs.filter({$0.key == key}) {
+            return pair.value
         }
         
         return (defaultValue != nil) ? defaultValue! : key
@@ -103,7 +124,19 @@ public extension Swifternalization {
     public class func localizedExpressionString(key: String, value: String, defaultValue: String? = nil) -> String {
         if sharedInstance() == nil { return (defaultValue != nil) ? defaultValue! : key }
         
-        for pair in sharedInstance().pairs.filter({$0.hasExpression == true && $0.keyWithoutExpression == key}) {
+        let filter = {(pair: Pair) -> Bool  in
+            return pair.hasExpression == true && pair.keyWithoutExpression == key
+        }
+        
+        // Filter preferred pairs
+        for pair in sharedInstance().preferredPairs.filter(filter) {
+            if pair.validate(value) {
+                return pair.value
+            }
+        }
+        
+        // Filter base pairs
+        for pair in sharedInstance().basePairs.filter(filter) {
             if pair.validate(value) {
                 return pair.value
             }
