@@ -117,6 +117,9 @@ Simple key
 public extension Swifternalization {
     
     // Return localized string if found, otherwise the passed one
+    // key - key in Localizable.strings
+    // defaultValue - will be return when nothing can be found
+    // otherwise will return key
     public class func localizedString(key: String, defaultValue: String? = nil) -> String {
         if sharedInstance() == nil { return (defaultValue != nil) ? defaultValue! : key }
         
