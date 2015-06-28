@@ -24,6 +24,7 @@ struct InequalityExpressionMatcher: ExpressionMatcher {
         switch valueType {
         case .Integer:
             let n = val.toInt()!
+            
             switch sign {
             case .LessThan: return n < value
             case .LessThanOrEqual: return n <= value

@@ -23,11 +23,12 @@ typealias ExpressionPattern = String
 
 class Expression {
     let pattern: ExpressionPattern
+    
     private var type: ExpressionType!
     private var matcher: ExpressionMatcher!
     
     static func expressionFromString(str: String) -> Expression? {
-        if let pattern = Regex.firstMatchInString(str, pattern: "(?<=\\{)(.+)(?=\\})") {
+        if let pattern = Regex.firstMatchInString(str, pattern: InternalPatterns.Expression.rawValue) {
             return Expression(pattern: pattern)
         }
         return nil
@@ -41,8 +42,10 @@ class Expression {
             switch type {
             case .Inequality:
                 matcher = InequalityExpressionParser(pattern).parse()
+                
             case .InequalityExtended:
                 matcher = InequalityExtendedExpressionParser(pattern).parse()
+                
             case .Regex:
                 matcher = RegexExpressionParser(pattern).parse()
             }
@@ -56,10 +59,9 @@ class Expression {
     
     /// Get expression type
     private func parseExpressionType() -> ExpressionType? {
-        if let result = Regex.firstMatchInString(pattern, pattern: "(^.{2,3})(?=:)") {
+        if let result = Regex.firstMatchInString(pattern, pattern: InternalPatterns.ExpressionType.rawValue) {
             return ExpressionType(rawValue: result)
         }
-        
         return nil
     }
 }

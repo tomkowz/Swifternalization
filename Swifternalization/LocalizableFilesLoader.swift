@@ -29,7 +29,6 @@ class LocalizableFilesLoader {
         var preferredPairs = KVDict()
         
         // Get file url for localization
-        
         if let localizableStringsFileURL = localizableFileURLForLanguage(fileType, language: language) {
             // load content of existing file
             preferredPairs = parse(localizableStringsFileURL)
@@ -51,7 +50,6 @@ class LocalizableFilesLoader {
         if let dictionary = NSDictionary(contentsOfURL: fileURL) as? KVDict {
             return dictionary
         }
-        
         return KVDict()
     }
 }

@@ -34,6 +34,6 @@ struct TranslablePair: KeyValue {
     // If entire key is: "cars{ie:%d=1}" it returns "cars"
     var keyWithoutExpression: String {
         if hasExpression == false { return key }
-        return Regex.firstMatchInString(key, pattern: "^(.*?)(?=\\{)")!
+        return Regex.firstMatchInString(key, pattern: InternalPatterns.KeyWithoutExpression.rawValue)!
     }
 }

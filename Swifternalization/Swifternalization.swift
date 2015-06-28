@@ -79,7 +79,7 @@ public class Swifternalization {
                     if let updatedExpression = Expression.expressionFromString("{" + sharedExpression.expression + "}") {
                         
                         // Add translable pair with this new updated expression
-                        if let keyWithoutExpression = Regex.firstMatchInString(tKey, pattern: "^(.*?)(?=\\{)") {
+                        if let keyWithoutExpression = Regex.firstMatchInString(tKey, pattern: InternalPatterns.KeyWithoutExpression.rawValue) {
                             pairs.append(TranslablePair(key: keyWithoutExpression + "{" + updatedExpression.pattern + "}", value: tValue))
                             continue
                         }
