@@ -10,6 +10,7 @@ import Foundation
 
 typealias Key = String
 typealias Value = String
+typealias KVDict = Dictionary<Key, Value>
 
 protocol KeyValue {
     var key: Key {get set}

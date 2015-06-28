@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias BasePrefDicts = (base: KVDict, pref: KVDict)
+
 enum StringsFileType: String {
     case Localizable = "Localizable"
     case Expressions = "Expressions"
@@ -22,13 +24,13 @@ class LocalizableFilesLoader {
         self.bundle = bundle
     }
     
-    func loadContentFromBaseAndPreferredLanguageFiles(fileType: StringsFileType) -> (base: Dictionary<Key, Value>, preferred: Dictionary<Key, Value>) {
-        var basePairs = Dictionary<Key, Value>()
-        var preferredPairs = Dictionary<Key, Value>()
+    func loadContentFromBaseAndPreferredLanguageFiles(fileType: StringsFileType, language: Language) -> BasePrefDicts {
+        var basePairs = KVDict()
+        var preferredPairs = KVDict()
         
         // Get file url for localization
         
-        if let localizableStringsFileURL = localizableFileURLForLanguage(fileType, language: getPreferredLanguage()) {
+        if let localizableStringsFileURL = localizableFileURLForLanguage(fileType, language: language) {
             // load content of existing file
             preferredPairs = parse(localizableStringsFileURL)
         }
@@ -45,16 +47,11 @@ class LocalizableFilesLoader {
         return bundle.URLForResource(fileType.rawValue, withExtension: "strings", subdirectory: language + ".lproj")
     }
     
-    private func getPreferredLanguage() -> Language {
-        // Get preferred language, the one which is set on user's device
-        return bundle.preferredLocalizations.first as! Language
-    }
-    
-    private func parse(fileURL: NSURL) -> Dictionary<Key, Value> {
-        if let dictionary = NSDictionary(contentsOfURL: fileURL) as? Dictionary<Key, Value> {
+    private func parse(fileURL: NSURL) -> KVDict {
+        if let dictionary = NSDictionary(contentsOfURL: fileURL) as? KVDict {
             return dictionary
         }
         
-        return Dictionary<Key, Value>()
+        return KVDict()
     }
 }

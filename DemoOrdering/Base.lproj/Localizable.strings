@@ -8,5 +8,5 @@
 
 "hello-base-test" = "Welcome!";
 
-"cars{ie:%d=1}" = "%d car";
-"cars{exp:(^[^1])|(^\\d{2,})}" = "%d cars";
+"cars{one}" = "%d car";
+"cars{other}" = "%d cars";

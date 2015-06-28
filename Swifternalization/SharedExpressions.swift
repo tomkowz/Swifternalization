@@ -22,7 +22,7 @@ protocol SharedExpressionProtocol {
     static func allExpressions() -> [SharedExpression]
 }
 
-class GlobalExpressions: SharedExpressionProtocol {
+class BaseExpressions: SharedExpressionProtocol {
     static func allExpressions() -> [SharedExpression] {
         return [
             // 1

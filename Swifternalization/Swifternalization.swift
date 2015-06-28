@@ -14,8 +14,6 @@ typealias Language = String
 
 public class Swifternalization {
     
-    typealias KVDict = Dictionary<Key, Value>
-    
     private let bundle: NSBundle
     
     // Pairs from base Localizable.strings file
@@ -41,33 +39,52 @@ public class Swifternalization {
     
     // MARK: Private
     private func load() {
-        let translationPairs = LocalizableFilesLoader(bundle).loadContentFromBaseAndPreferredLanguageFiles(.Localizable)
-        let expressionPairs = LocalizableFilesLoader(bundle).loadContentFromBaseAndPreferredLanguageFiles(.Expressions)
+        // Get language
+        let language = getPreferredLanguage()
         
-        basePairs = createTranslablePairsWithTranslationAndExpressionDicts(translationPairs.base, expressions: expressionPairs.base)
-        preferredPairs = createTranslablePairsWithTranslationAndExpressionDicts(translationPairs.preferred, expressions: expressionPairs.preferred)
+        // Get expressions pairs from Expressions.strings files
+        let expPairsDicts = LocalizableFilesLoader(bundle).loadContentFromBaseAndPreferredLanguageFiles(.Expressions, language: language)
+        
+        // Get shared expressions for Base and preferred language including Framwork's shared expressions
+        let sharedExp = SharedExpressionsConfigurator.configureExpressions(expPairsDicts, language: language)
+        
+        // Get key-value translation pairs from Localizable.strings files
+        let translablePairsDicts = LocalizableFilesLoader(bundle).loadContentFromBaseAndPreferredLanguageFiles(.Localizable, language: language)
+
+        basePairs = createTranslablePairs(translablePairsDicts.base, expressions: sharedExp.base)
+        preferredPairs = createTranslablePairs(translablePairsDicts.pref, expressions: sharedExp.pref)
+    }
+    
+    private func getPreferredLanguage() -> Language {
+        // Get preferred language, the one which is set on user's device
+        return bundle.preferredLocalizations.first as! Language
     }
     
     /**
     Enumerate through translation pairs dicts and check if there are some shared patterns that needs to be replaced with custom expressions.
     Next create translable pair with this updated pattern
     */
-    private func createTranslablePairsWithTranslationAndExpressionDicts(translations: KVDict, expressions: KVDict) -> [TranslablePair] {
+    private func createTranslablePairs(translationDict: KVDict, expressions: [SharedExpression]) -> [TranslablePair] {
         var pairs = [TranslablePair]()
         
-        for (tKey, tValue) in translations {
-            var updatedExpression: Expression?
-            
+        for (tKey, tValue) in translationDict {
+
+            // Check if there is expression in tKey
             if let existingExpression = Expression.expressionFromString(tKey) {
-                if let value = expressions[existingExpression.pattern] {
+                
+                // If there is pattern to replace with original
+                if let sharedExpression = expressions.filter({$0.key == existingExpression.pattern}).first {
                     
-                    if let updatedExpression = Expression.expressionFromString("{" + value + "}") {
+                    // Create expression with pattern from Expressions.strings and it it is correct use it
+                    if let updatedExpression = Expression.expressionFromString("{" + sharedExpression.expression + "}") {
                         
+                        // Add translable pair with this new updated expression
                         if let keyWithoutExpression = Regex.firstMatchInString(tKey, pattern: "^(.*?)(?=\\{)") {
                             pairs.append(TranslablePair(key: keyWithoutExpression + "{" + updatedExpression.pattern + "}", value: tValue))
                             continue
                         }
                     }
+
                 }
             }
             

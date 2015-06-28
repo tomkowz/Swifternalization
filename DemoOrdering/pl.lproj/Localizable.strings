@@ -6,6 +6,6 @@
   Copyright (c) 2015 Tomasz Szulc. All rights reserved.
 */
 
-"cars{ie:%d=1}" = "%d samochód";
-"cars{exp:(((?!1).[2-4]{1})$)|(^[2-4]$)}" = "%d samochody";
-"cars{exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])}" = "%d samochodów";
+"cars{one}" = "%d samochód";
+"cars{few}" = "%d samochody";
+"cars{many}" = "%d samochodów";
