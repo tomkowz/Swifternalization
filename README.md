@@ -106,6 +106,29 @@ or with `I18n` *typealias* (*I-18-letters-n, Internalization*):
 
 There is easy way to add you own expression to handle your specific case with Swifternalization.
 
+Swifternalization also drops need for having *.stringdicts* files like this one:
+
+	<plist version="1.0">
+	    <dict>
+	        <key>%d file(s) remaining</key>
+	        <dict>
+	            <key>NSStringLocalizedFormatKey</key>
+	            <string>%#@files@</string>
+	            <key>files</key>
+	            <dict>
+	                <key>NSStringFormatSpecTypeKey</key>
+	                <string>NSStringPluralRuleType</string>
+	                <key>NSStringFormatValueTypeKey</key>
+	                <string>d</string>
+	                <key>one</key>
+	                <string>%d file remaining</string>
+	                <key>other</key>
+	                <string>%d files remaining</string>
+	            </dict>
+	        </dict>
+	    </dict>
+	</plist>
+
 ## Installation
 
 Pod is not created yet, will be soon. If you want to integrate it with your project just import files from *Swifternalization/Swifternalization* directory.
