@@ -106,6 +106,10 @@ or with `I18n` *typealias* (*I-18-letters-n, Internalization*):
 
 There is easy way to add you own expression to handle your specific case with Swifternalization.
 
+## Installation
+
+Pod is not created yet, will be soon. If you want to integrate it with your project just import files from *Swifternalization/Swifternalization* directory.
+
 ## Getting Started
 
 Configuration is simple. The one thing that Swifternalization needs to works is `NSBundle` where `Localizable.strings` are placed.
