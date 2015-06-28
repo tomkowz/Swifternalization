@@ -3,8 +3,6 @@
 # Swifternalization
 Swifternalization helps in localizing apps in a smarter way. It has been created because of necessary to solve Polish language internalization problems but it is universal and works with every language. 
 
-In Polish there is no simple singular and plural form of words like "car" and "cars". Instead there are more cases to cover. 
-
 ## Real Example
 
 Let's take a look on practical usage of Swifternalization. App supports both English and Polish languages. Naturally app contains two *Localizable.strings* files - one is Base for English (or English for English) and one is Polish... for Polish, obviously :)
@@ -108,7 +106,7 @@ or with `I18n` *typealias* (*I-18-letters-n, Internalization*):
 
 There is easy way to add you own expression to handle your specific case with Swifternalization.
 
-# Getting Started
+## Getting Started
 
 Configuration is simple. The one thing that Swifternalization needs to works is `NSBundle` where `Localizable.strings` are placed.
 
@@ -143,7 +141,7 @@ As the method takes some `String` as a `value` and you probably will deal with `
 
 
 
-# Expressions
+## Expressions
 
 As mentioned there are few *expression types*. Every expression type has their own *parser* and *matcher*.
 
@@ -209,7 +207,7 @@ This feature is called *"Shared Expression"* and is covered below.
 
 
 
-# Shared Expressions
+## Shared Expressions
 
 The functionality allows developer to observance of DRY principle and to avoid mistakes that exist because of reapeating the code in many places.
 
@@ -254,12 +252,12 @@ There is some duplication in Base and Polish version of expressions - *custom-1*
 
 Swifternalization also handles the case of overriding built-in expressions. It gives you just few expressions for now like: `one`, `>one`, `two`, `other` as base expressions and `few` and `many` for Polish. If any of your *Expressions.strings* version of file will override it Swifternalization will use your version.
 
-# Contribution and change or feature requests
+## Contribution and change or feature requests
 
 Swifternalization is open sources so everyone may contribute if want to. If you want to develop it just fork the repo, do you work and create pull request. If you have some idea or question feel free to create issue and add proper tag for it.
 
 
-# Built-in expressions
+## Built-in expressions
 
 As mentioned in previous chapter Swifternalization has some built-in expressions and is ready to extend. If you want to add expressions specific for your country you can do it by creating class which conforms to `SharedExpressionProtocol`. Methods from protocol returns all expressions for your country. There is already `SharedBaseExpression` with some basic expressions and `SharedPolishExpression` with polish expressions for helping ordering numbers.
 
@@ -292,11 +290,17 @@ Example of the file ready for pull request should looks like this:
 
 Also this is required to cover all shared expressions for a country with unit tests. You can find examples in the repo for e.g. Polish expressions.
 
-# Swift 2
+## Swift 2
 
 Swifternalization supports Swift 2 and works on Xcode 7 beta 2. Please check *swift2* branch for that.
 
 
-# LICENSE
+## Things to do in future release:
+
+- Add logs ASAP. There is no logs in the app. If something goes wrong it simply crash. It crashed in 99.99% because of wrong syntax of expression in *Localizable.strings* or *Expressions.strings*.
+- Add handling to wrongly passed expressions instead of crashing.
+- Add more built-in expressions for another countries.
+
+## LICENSE
 
 Swifternalization is released under the MIT license.
