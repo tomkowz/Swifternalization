@@ -10,19 +10,19 @@ import Foundation
 
 public typealias I18N = Swifternalization
 
-public class Swifternalization {
-    typealias Language = String
-    
-    private let BaseLanguage: Language = "Base"
+typealias Language = String
 
+public class Swifternalization {
+    
+    typealias KVDict = Dictionary<Key, Value>
+    
     private let bundle: NSBundle
-    private var preferredLanguage: Language!
     
     // Pairs from base Localizable.strings file
-    private var basePairs = [Pair]()
+    private var basePairs = [TranslablePair]()
     
     // Pairs from preferred language Localizable.strings file
-    private var preferredPairs = [Pair]()
+    private var preferredPairs = [TranslablePair]()
     
     /** 
     Initialize with bundle when Localizable.strings file is located.
@@ -34,7 +34,6 @@ public class Swifternalization {
     */
     public init(bundle: NSBundle) {
         self.bundle = bundle
-        self.preferredLanguage = getPreferredLanguage()
         Swifternalization.setSharedInstance(self)
         load()
     }
@@ -42,41 +41,40 @@ public class Swifternalization {
     
     // MARK: Private
     private func load() {
-        // Get file url for localization
-        if let localizableStringsFileURL = localizableFileURLForLanguage(self.preferredLanguage) {
-            // load content of existing file
-            preferredPairs = parse(localizableStringsFileURL)
+        let translationPairs = LocalizableFilesLoader(bundle).loadContentFromBaseAndPreferredLanguageFiles(.Localizable)
+        let expressionPairs = LocalizableFilesLoader(bundle).loadContentFromBaseAndPreferredLanguageFiles(.Expressions)
+        
+        basePairs = createTranslablePairsWithTranslationAndExpressionDicts(translationPairs.base, expressions: expressionPairs.base)
+        preferredPairs = createTranslablePairsWithTranslationAndExpressionDicts(translationPairs.preferred, expressions: expressionPairs.preferred)
+    }
+    
+    /**
+    Enumerate through translation pairs dicts and check if there are some shared patterns that needs to be replaced with custom expressions.
+    Next create translable pair with this updated pattern
+    */
+    private func createTranslablePairsWithTranslationAndExpressionDicts(translations: KVDict, expressions: KVDict) -> [TranslablePair] {
+        var pairs = [TranslablePair]()
+        
+        for (tKey, tValue) in translations {
+            var updatedExpression: Expression?
+            
+            if let existingExpression = Expression.expressionFromString(tKey) {
+                if let value = expressions[existingExpression.pattern] {
+                    
+                    if let updatedExpression = Expression.expressionFromString("{" + value + "}") {
+                        
+                        if let keyWithoutExpression = Regex.firstMatchInString(tKey, pattern: "^(.*?)(?=\\{)") {
+                            pairs.append(TranslablePair(key: keyWithoutExpression + "{" + updatedExpression.pattern + "}", value: tValue))
+                            continue
+                        }
+                    }
+                }
+            }
+            
+            pairs.append(TranslablePair(key: tKey, value: tValue))
         }
         
-        if let baseStringsFileURL = localizableFileURLForLanguage(BaseLanguage) {
-            // load content of existing file
-            basePairs = parse(baseStringsFileURL)
-        }
-    }
-    
-    private func parse(fileURL: NSURL) -> [Pair] {
-        var pairs = [Pair]()
-        if let dictionary = NSDictionary(contentsOfURL: fileURL) as? Dictionary<Key, Value> {
-            pairs += parse(dictionary)
-        }
         return pairs
-    }
-    
-    private func parse(dictionary: Dictionary<Key, Value>) -> [Pair] {
-        var pairs = [Pair]()
-        for (k, v) in dictionary {
-            pairs.append(Pair(key: k, value: v))
-        }
-        return pairs
-    }
-    
-    private func getPreferredLanguage() -> Language {
-        // Get preferred language, the one which is set on user's device
-        return bundle.preferredLocalizations.first as! Language
-    }
-    
-    private func localizableFileURLForLanguage(language: Language) -> NSURL? {
-        return bundle.URLForResource("Localizable", withExtension: "strings", subdirectory: language + ".lproj")
     }
 }
 
@@ -105,12 +103,12 @@ public extension Swifternalization {
     public class func localizedString(key: String, defaultValue: String? = nil) -> String {
         if sharedInstance() == nil { return (defaultValue != nil) ? defaultValue! : key }
         
-        for pair in sharedInstance().preferredPairs.filter({$0.key == key}) {
-            return pair.value
+        for TranslablePair in sharedInstance().preferredPairs.filter({$0.key == key}) {
+            return TranslablePair.value
         }
         
-        for pair in sharedInstance().basePairs.filter({$0.key == key}) {
-            return pair.value
+        for TranslablePair in sharedInstance().basePairs.filter({$0.key == key}) {
+            return TranslablePair.value
         }
         
         return (defaultValue != nil) ? defaultValue! : key
@@ -124,7 +122,7 @@ public extension Swifternalization {
     public class func localizedExpressionString(key: String, value: String, defaultValue: String? = nil) -> String {
         if sharedInstance() == nil { return (defaultValue != nil) ? defaultValue! : key }
         
-        let filter = {(pair: Pair) -> Bool  in
+        let filter = {(pair: TranslablePair) -> Bool  in
             return pair.hasExpression == true && pair.keyWithoutExpression == key
         }
         

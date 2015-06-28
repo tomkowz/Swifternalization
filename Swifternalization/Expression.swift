@@ -22,7 +22,7 @@ enum ExpressionType: String {
 typealias ExpressionPattern = String
 
 class Expression {
-    private let pattern: ExpressionPattern
+    let pattern: ExpressionPattern
     private var type: ExpressionType!
     private var matcher: ExpressionMatcher!
     

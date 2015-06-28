@@ -43,6 +43,15 @@ class SwifternalizationTests: XCTestCase {
         XCTAssertEqual(Swifternalization.localizedExpressionString("cars", value: "2"), "%d cars", "")
     }
     
+    // Shared Expression
+    func testSharedExpression1() {
+        XCTAssertEqual(Swifternalization.localizedExpressionString("things", value: 10), "10 things", "")
+    }
+    
+    func testSharedExpression2() {
+        XCTAssertEqual(Swifternalization.localizedExpressionString("things", value: 26), ">20 things", "")
+    }
+    
     
     /// Polish
     

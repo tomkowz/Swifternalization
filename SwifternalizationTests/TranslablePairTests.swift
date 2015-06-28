@@ -10,13 +10,13 @@ import UIKit
 import XCTest
 import Swifternalization
 
-class PairTests: XCTestCase {
+class TranslableTests: XCTestCase {
     
     func testShouldNotHaveExpression() {
-        XCTAssertFalse(Pair(key: "abc", value: "def").hasExpression, "Shouldn't have expression")
+        XCTAssertFalse(TranslablePair(key: "abc", value: "def").hasExpression, "Shouldn't have expression")
     }
     
     func testShouldHaveExpression() {
-        XCTAssertTrue(Pair(key: "abc{=2}", value: "def").hasExpression, "Should have expression")
+        XCTAssertTrue(TranslablePair(key: "abc{=2}", value: "def").hasExpression, "Should have expression")
     }
 }

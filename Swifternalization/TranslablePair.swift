@@ -8,14 +8,11 @@
 
 import Foundation
 
-typealias Key = String
-typealias Value = String
-
-struct Pair {
-    let key: Key
-    let value: Value
+struct TranslablePair: KeyValue {
+    var key: Key
+    var value: Value
     
-    private var expression: Expression? = nil
+    var expression: Expression? = nil
     
     var hasExpression: Bool { return expression != nil }
     
@@ -24,7 +21,7 @@ struct Pair {
         self.value = value
         parseExpression()
     }
-    
+
     mutating func parseExpression() {
         self.expression = Expression.expressionFromString(key)
     }
