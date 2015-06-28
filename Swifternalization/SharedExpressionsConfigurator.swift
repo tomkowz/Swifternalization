@@ -18,13 +18,13 @@ class SharedExpressionsConfigurator {
         var countryExpressions = [SharedExpression]()
         
         switch language {
-        case "pl": countryExpressions = PolishExpressions.allExpressions()
+        case "pl": countryExpressions = SharedPolishExpression.allExpressions()
         
         default:
             break
         }
         
-        let baseExpressions = BaseExpressions.allExpressions()
+        let baseExpressions = SharedBaseExpression.allExpressions()
         
         // add expressions that are not in country expressions
         for exp in baseExpressions {
