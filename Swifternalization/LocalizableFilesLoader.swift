@@ -42,6 +42,8 @@ class LocalizableFilesLoader {
         return (basePairs, preferredPairs)
     }
     
+    
+    // MARK: Private
     private func localizableFileURLForLanguage(fileType: StringsFileType, language: Language) -> NSURL? {
         return bundle.URLForResource(fileType.rawValue, withExtension: "strings", subdirectory: language + ".lproj")
     }
