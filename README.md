@@ -279,6 +279,10 @@ There is some duplication in Base and Polish version of expressions - *custom-1*
 
 Swifternalization also handles the case of overriding built-in expressions. It gives you just few expressions for now like: `one`, `>one`, `two`, `other` as base expressions and `few` and `many` for Polish. If any of your *Expressions.strings* version of file will override it Swifternalization will use your version.
 
+## Demo
+
+There is demo project included in the repo. Just switch to proper target and run. It enumerated cars from 1 to 1000 and print them out to the console. Base (English) and Polish languages are supported. You can find there example of using simple primitive no-expression translation and also with experssions.
+
 ## Contribution and change or feature requests
 
 Swifternalization is open sources so everyone may contribute if want to. If you want to develop it just fork the repo, do you work and create pull request. If you have some idea or question feel free to create issue and add proper tag for it.
