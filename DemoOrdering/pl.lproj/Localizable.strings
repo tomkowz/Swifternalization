@@ -9,3 +9,5 @@
 "cars{one}" = "%d samochód";
 "cars{few}" = "%d samochody";
 "cars{many}" = "%d samochodów";
+
+"tomato{ten}" = "10 tomatos";

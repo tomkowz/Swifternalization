@@ -34,7 +34,15 @@ class SharedExpressionsConfigurator {
         }
         
         let baseSharedExp = expressionsWith(baseExpressions, expressionsDict: dicts.base)
-        let prefSharedExp = expressionsWith(countryExpressions, expressionsDict: dicts.pref)
+        var prefSharedExp = expressionsWith(countryExpressions, expressionsDict: dicts.pref)
+        
+        /// Add expressions from baseSharedExp to prefSharedExp
+        for exp in baseSharedExp {
+            if prefSharedExp.filter({$0.key == exp.key}).first == nil {
+                prefSharedExp.append(exp)
+            }
+        }
+        
         
         return (baseSharedExp, prefSharedExp)
     }

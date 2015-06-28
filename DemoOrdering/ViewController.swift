@@ -19,6 +19,10 @@ class ViewController: UIViewController {
     func order() {
         Swifternalization(bundle: NSBundle.mainBundle())
         
+        /// shared expression
+        println(Swifternalization.localizedExpressionString("tomato", value: 10));
+        
+        /// simple key
         println(Swifternalization.localizedString("hello-base-test"))
         
         for num in 0...1000 {

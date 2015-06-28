@@ -71,6 +71,7 @@
 		6DBB6C811B406606002F39A3 /* SharedExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBB6C7F1B4065E7002F39A3 /* SharedExpression.swift */; };
 		6DBB6C831B40661D002F39A3 /* SharedBaseExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBB6C821B40661D002F39A3 /* SharedBaseExpression.swift */; };
 		6DBB6C841B40664B002F39A3 /* SharedBaseExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBB6C821B40661D002F39A3 /* SharedBaseExpression.swift */; };
+		6DBB6C871B40718F002F39A3 /* Expressions.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6DBB6C891B40718F002F39A3 /* Expressions.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,8 @@
 		6DBB6C6B1B40431D002F39A3 /* LocalizableFilesLoaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableFilesLoaderTests.swift; sourceTree = "<group>"; };
 		6DBB6C7F1B4065E7002F39A3 /* SharedExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedExpression.swift; sourceTree = "<group>"; };
 		6DBB6C821B40661D002F39A3 /* SharedBaseExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedBaseExpression.swift; sourceTree = "<group>"; };
+		6DBB6C881B40718F002F39A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Expressions.strings; sourceTree = "<group>"; };
+		6DBB6C8A1B407190002F39A3 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Expressions.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				6D6283491B3F622A00E65FCD /* Localizable.strings */,
+				6DBB6C891B40718F002F39A3 /* Expressions.strings */,
 				6D6283291B3F613D00E65FCD /* AppDelegate.swift */,
 				6D62832B1B3F613D00E65FCD /* ViewController.swift */,
 				6D6283471B3F615000E65FCD /* Resources */,
@@ -410,6 +414,7 @@
 			files = (
 				6D6283501B3F62B100E65FCD /* LaunchScreen.xib in Resources */,
 				6D62834B1B3F622A00E65FCD /* Localizable.strings in Resources */,
+				6DBB6C871B40718F002F39A3 /* Expressions.strings in Resources */,
 				6D6283311B3F613D00E65FCD /* Images.xcassets in Resources */,
 				6D62834E1B3F628000E65FCD /* Main.storyboard in Resources */,
 			);
@@ -526,6 +531,15 @@
 			isa = PBXVariantGroup;
 			children = (
 				6DBB6C5A1B4026B8002F39A3 /* Base */,
+			);
+			name = Expressions.strings;
+			sourceTree = "<group>";
+		};
+		6DBB6C891B40718F002F39A3 /* Expressions.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6DBB6C881B40718F002F39A3 /* Base */,
+				6DBB6C8A1B407190002F39A3 /* pl */,
 			);
 			name = Expressions.strings;
 			sourceTree = "<group>";
