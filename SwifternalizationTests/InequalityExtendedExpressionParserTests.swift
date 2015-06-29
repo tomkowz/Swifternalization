@@ -65,4 +65,16 @@ class InequalityExtendedExpressionParserTests: XCTestCase {
         XCTAssertEqual(matcher.rightMatcher.sign, .LessThan, "should be less than")
         XCTAssertEqual(matcher.rightMatcher.value, 10, "should be 10")
     }
+    
+    func testMatcher6() {
+        let matcher = InequalityExtendedExpressionParser("iex:-4<=%d<-10").parse() as! InequalityExtendedExpressionMatcher
+        XCTAssertEqual(matcher.leftMatcher.valueType, .Integer, "should be integer")
+        XCTAssertEqual(matcher.leftMatcher.sign, .LessThanOrEqual, "should be less than")
+        XCTAssertEqual(matcher.leftMatcher.value, -4, "should be -4")
+        
+        XCTAssertEqual(matcher.rightMatcher.valueType, .Integer, "should be integer")
+        XCTAssertEqual(matcher.rightMatcher.sign, .LessThan, "should be less than")
+        XCTAssertEqual(matcher.rightMatcher.value, -10, "should be -10")
+    }
+
 }

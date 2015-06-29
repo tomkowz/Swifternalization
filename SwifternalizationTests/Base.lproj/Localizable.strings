@@ -4,10 +4,12 @@
 
 "cars{one}" = "one car";
 "cars{ie:%d>=2}" = "%d cars";
+"cars{ie:%d<=-2}" = "minus %d cars";
 
-/// Polish language
+// Polish language
 "pl-cars{one}" = "jeden samochód";
 "pl-cars{iex:2<=%d<=4}" = "%d samochody";
+"pl-cars{iex:-4>=%d<=-2}" = "-2 - -4 samochody";
 
 // Polish tricky language support
 "pl-police-cars{ie:%d=1}" = "1 samochód policyjny";

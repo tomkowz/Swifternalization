@@ -43,6 +43,10 @@ class SwifternalizationTests: XCTestCase {
         XCTAssertEqual(Swifternalization.localizedExpressionString("cars", value: "2"), "%d cars", "")
     }
     
+    func testInequality3() {
+        XCTAssertEqual(Swifternalization.localizedExpressionString("cars", value: "-3"), "minus %d cars", "")
+    }
+    
     // Shared Expression
     func testSharedExpression1() {
         XCTAssertEqual(Swifternalization.localizedExpressionString("things", value: 10), "10 things", "")
@@ -63,6 +67,10 @@ class SwifternalizationTests: XCTestCase {
     // Inequality Extended
     func testPLInequalityExtended2() {
         XCTAssertEqual(Swifternalization.localizedExpressionString("pl-cars", value: "2"), "%d samochody", "")
+    }
+    
+    func testPLInequalityExtended3() {
+        XCTAssertEqual(Swifternalization.localizedExpressionString("pl-cars", value: "-3"), "-2 - -4 samochody", "")
     }
     
     // Regex

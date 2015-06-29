@@ -12,11 +12,15 @@ class InequalityExtendedExpressionParser: InequalityExpressionParser {
     
     override func parse() -> ExpressionMatcher? {
         if let valueType = valueType(),
-            let firstSign = firstSign(),
+            var firstSign = firstSign(),
             let firstValue = firstValue(),
             let secondSign = secondSign(),
             let secondValue = secondValue() {
-                let leftMatcher = InequalityExpressionMatcher(valueType: valueType, sign: firstSign.invert(), value: firstValue)
+                
+                // Invert first sign if number is positive or zero
+                firstSign = firstValue < 0 ? firstSign : firstSign.invert()
+                
+                let leftMatcher = InequalityExpressionMatcher(valueType: valueType, sign: firstSign, value: firstValue)
                 let rightMatcher = InequalityExpressionMatcher(valueType: valueType, sign: secondSign, value: secondValue)
                 return InequalityExtendedExpressionMatcher(left: leftMatcher, right: rightMatcher)
         }
@@ -24,13 +28,13 @@ class InequalityExtendedExpressionParser: InequalityExpressionParser {
         return nil
     }
     
-
+    // MARK: Private
     private func firstValue() -> Int? {
-        return getValue("(?<=^iex:)\\d+", failureMessage: "Cannot find first value")
+        return getValue("(?<=^iex:)((\\d+)|(-\\d+))", failureMessage: "Cannot find first value")
     }
     
     private func firstSign() -> InequalitySign? {
-        return getSign("(?<=^iex:.)(<=|<|=|>=|>)", failureMessage: "Cannot find first sign")
+        return getSign("(?<=^iex:-.|^iex:.)(<=|<|=|>=|>)", failureMessage: "Cannot find first sign")
     }
     
     private func valueType() -> ValueType? {
@@ -42,6 +46,6 @@ class InequalityExtendedExpressionParser: InequalityExpressionParser {
     }
     
     private func secondValue() -> Int? {
-        return getValue("(?<=%[d]<=|<|=|>=|>)(\\d+)", failureMessage: "Cannot find second value")
+        return getValue("(?<=%[d]<=|<|=|>=|>)((\\d+)|(-\\d+))", failureMessage: "Cannot find second value")
     }
 }

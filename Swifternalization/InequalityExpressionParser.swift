@@ -37,7 +37,7 @@ class InequalityExpressionParser: ExpressionParser {
     
     // Get value from the pattern
     private func value() -> Int? {
-        return getValue("\\d+", failureMessage: "Cannot find any value")
+        return getValue("(\\d+)|(-\\d+)", failureMessage: "Cannot find any value")
     }
     
     

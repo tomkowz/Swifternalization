@@ -53,4 +53,11 @@ class InequalityExpressionParserTests: XCTestCase {
         XCTAssertTrue(matcher.sign == .Equal, "should be equal")
         XCTAssertTrue(matcher.value == 11, "should be 11")
     }
+    
+    func testParser7() {
+        let matcher = InequalityExpressionParser("ie:%d=-5").parse() as! InequalityExpressionMatcher
+        XCTAssertTrue(matcher.valueType == .Integer, "should be integer")
+        XCTAssertTrue(matcher.sign == .Equal, "should be equal")
+        XCTAssertTrue(matcher.value == -5, "should be -5")
+    }
 }
