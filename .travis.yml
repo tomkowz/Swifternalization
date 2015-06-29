@@ -10,4 +10,4 @@ osx_image: beta-xcode6.3
 xcode_sdk: iphonesimulator8.3 
 
 script:
-- xcodebuild test -project Swifternalization.xcodeproj -scheme SwifternalizationTests -sdk iphonesimulator -configuration Debug
+- xcodebuild test -project Swifternalization.xcodeproj -scheme SwifternalizationTests
