@@ -9,28 +9,14 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6D6283241B3F613D00E65FCD"
-               BuildableName = "DemoOrdering.app"
-               BlueprintName = "DemoOrdering"
-               ReferencedContainer = "container:Swifternalization.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6D6283381B3F613D00E65FCD"
-               BuildableName = "DemoOrderingTests.xctest"
-               BlueprintName = "DemoOrderingTests"
+               BlueprintIdentifier = "6D5004521B3EF91600A54B36"
+               BuildableName = "SwifternalizationTests.xctest"
+               BlueprintName = "SwifternalizationTests"
                ReferencedContainer = "container:Swifternalization.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6D6283381B3F613D00E65FCD"
-               BuildableName = "DemoOrderingTests.xctest"
-               BlueprintName = "DemoOrderingTests"
+               BlueprintIdentifier = "6D5004521B3EF91600A54B36"
+               BuildableName = "SwifternalizationTests.xctest"
+               BlueprintName = "SwifternalizationTests"
                ReferencedContainer = "container:Swifternalization.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6D6283241B3F613D00E65FCD"
-            BuildableName = "DemoOrdering.app"
-            BlueprintName = "DemoOrdering"
+            BlueprintIdentifier = "6D5004521B3EF91600A54B36"
+            BuildableName = "SwifternalizationTests.xctest"
+            BlueprintName = "SwifternalizationTests"
             ReferencedContainer = "container:Swifternalization.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -72,16 +58,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6D6283241B3F613D00E65FCD"
-            BuildableName = "DemoOrdering.app"
-            BlueprintName = "DemoOrdering"
+            BlueprintIdentifier = "6D5004521B3EF91600A54B36"
+            BuildableName = "SwifternalizationTests.xctest"
+            BlueprintName = "SwifternalizationTests"
             ReferencedContainer = "container:Swifternalization.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -91,16 +76,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6D6283241B3F613D00E65FCD"
-            BuildableName = "DemoOrdering.app"
-            BlueprintName = "DemoOrdering"
+            BlueprintIdentifier = "6D5004521B3EF91600A54B36"
+            BuildableName = "SwifternalizationTests.xctest"
+            BlueprintName = "SwifternalizationTests"
             ReferencedContainer = "container:Swifternalization.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
