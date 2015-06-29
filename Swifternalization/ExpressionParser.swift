@@ -7,5 +7,8 @@
 //
 
 protocol ExpressionParser {
-    func parse() -> ExpressionMatcher
+    var pattern: ExpressionPattern {get}
+
+    func parse() -> ExpressionMatcher?
+    init(_ pattern: ExpressionPattern)
 }

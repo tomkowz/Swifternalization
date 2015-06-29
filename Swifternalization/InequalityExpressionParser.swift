@@ -9,29 +9,66 @@
 import Foundation
 
 class InequalityExpressionParser: ExpressionParser {
+    let pattern: ExpressionPattern
     
-    private let expression: String
-    
-    init(_ expression: String) {
-        self.expression = expression
+    required init(_ pattern: ExpressionPattern) {
+        self.pattern = pattern
     }
     
-    func parse() -> ExpressionMatcher {
-        return InequalityExpressionMatcher(valueType: valueType(), sign: sign(), value: value())
+    func parse() -> ExpressionMatcher? {
+        if let valueType = valueType(),
+            let sign = sign(),
+            let value = value() {
+                return InequalityExpressionMatcher(valueType: valueType, sign: sign, value: value)
+        } else {
+            return nil
+        }
     }
     
     // Get value type: parses to find e.g. %d - Int is only one supported for now.
-    private func valueType() -> ValueType {
-        return ValueType(rawValue: Regex.firstMatchInString(expression, pattern: "(?<=^ie:)\\S{2}")!)!
+    private func valueType() -> ValueType? {
+        return getValueType("(?<=^ie:)\\S{2}", failureMessage: "Cannot find value type [%d]")
     }
     
     // Get mathematical inequality sign
-    private func sign() -> InequalitySign {
-        return InequalitySign(rawValue: Regex.firstMatchInString(expression, pattern: "(<=|<|=|>=|>)")!)!
+    private func sign() -> InequalitySign? {
+        return getSign("(<=|<|=|>=|>)", failureMessage: "Cannot find any sign")
     }
     
     // Get value from the pattern
-    private func value() -> Int {
-        return Regex.firstMatchInString(expression, pattern: "\\d+")!.toInt()!
+    private func value() -> Int? {
+        return getValue("\\d+", failureMessage: "Cannot find any value")
+    }
+    
+    
+    // MARK: Helpers
+    func getValue(regex: String, failureMessage: String) -> Int? {
+        if let value = Regex.firstMatchInString(pattern, pattern: regex)?.toInt() {
+            return value
+        } else {
+            println("\(failureMessage), pattern: \(pattern), regex: \(regex)")
+            return nil
+        }
+    }
+    
+    func getSign(regex: String, failureMessage: String) -> InequalitySign? {
+        if let rawValue = Regex.firstMatchInString(pattern, pattern: regex),
+            let sign = InequalitySign(rawValue: rawValue) {
+                return sign
+        } else {
+            println("\(failureMessage), pattern: \(pattern), regex: \(regex)")
+            return nil
+        }
+    }
+    
+    func getValueType(regex: String, failureMessage: String) -> ValueType? {
+        if let rawValue = Regex.firstMatchInString(pattern, pattern: regex),
+            let value = ValueType(rawValue:rawValue) {
+                return value
+                
+        } else {
+            println("\(failureMessage), pattern: \(pattern), regex: \(regex)")
+            return nil
+        }
     }
 }

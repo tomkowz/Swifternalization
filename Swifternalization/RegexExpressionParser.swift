@@ -9,19 +9,27 @@
 import Foundation
 
 class RegexExpressionParser: ExpressionParser {
-    
-    private let expression: String
-    
-    init(_ expression: String) {
-        self.expression = expression
+    let pattern: ExpressionPattern
+
+    required init(_ pattern: ExpressionPattern) {
+        self.pattern = pattern
     }
-    
-    func parse() -> ExpressionMatcher {
-        return RegexExpressionMatcher(pattern: regexPattern())
+
+    func parse() -> ExpressionMatcher? {
+        if let regex = regexPattern() {
+            return RegexExpressionMatcher(pattern: regex)
+        } else {
+            return nil
+        }
     }
     
     // Get regular expression from the pattern
-    private func regexPattern() -> RegexPattern {
-        return Regex.firstMatchInString(expression, pattern: "(?<=^exp:).*")!
+    private func regexPattern() -> RegexPattern? {
+        if let regex = Regex.firstMatchInString(pattern, pattern: "(?<=^exp:).*") {
+            return regex
+        } else {
+            println("Cannot find any regular expression, pattern: \(pattern)")
+            return nil
+        }
     }
 }

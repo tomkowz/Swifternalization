@@ -8,42 +8,40 @@
 
 import Foundation
 
-class InequalityExtendedExpressionParser: ExpressionParser {
+class InequalityExtendedExpressionParser: InequalityExpressionParser {
     
-    private let expression: String
-    
-    init(_ expression: String) {
-        self.expression = expression
+    override func parse() -> ExpressionMatcher? {
+        if let valueType = valueType(),
+            let firstSign = firstSign(),
+            let firstValue = firstValue(),
+            let secondSign = secondSign(),
+            let secondValue = secondValue() {
+                let leftMatcher = InequalityExpressionMatcher(valueType: valueType, sign: firstSign.invert(), value: firstValue)
+                let rightMatcher = InequalityExpressionMatcher(valueType: valueType, sign: secondSign, value: secondValue)
+                return InequalityExtendedExpressionMatcher(left: leftMatcher, right: rightMatcher)
+        }
+        
+        return nil
     }
     
-    func parse() -> ExpressionMatcher {
-        let leftMatcher = InequalityExpressionMatcher(valueType: valueType(), sign: firstSign(), value: firstValue())
-        let rightMatcher = InequalityExpressionMatcher(valueType: valueType(), sign: secondSign(), value: secondValue())
-        return InequalityExtendedExpressionMatcher(left: leftMatcher, right: rightMatcher)
+
+    private func firstValue() -> Int? {
+        return getValue("(?<=^iex:)\\d+", failureMessage: "Cannot find first value")
     }
     
-    // Get first number
-    private func firstValue() -> Int {
-        return Regex.firstMatchInString(expression, pattern: "(?<=^iex:)\\d+")!.toInt()!
+    private func firstSign() -> InequalitySign? {
+        return getSign("(?<=^iex:.)(<=|<|=|>=|>)", failureMessage: "Cannot find first sign")
     }
     
-    // Get first inequality sign - this one is inverted to fit the logic in the pattern
-    private func firstSign() -> InequalitySign {
-        return InequalitySign(rawValue:Regex.firstMatchInString(expression, pattern: "(?<=^iex:.)(<=|<|=|>=|>)")!)!.invert()
+    private func valueType() -> ValueType? {
+        return getValueType("(%[d])", failureMessage: "Cannot find type of value [%d]")
     }
     
-    // Get value type, Int.
-    private func valueType() -> ValueType {
-        return ValueType(rawValue: Regex.firstMatchInString(expression, pattern: "(%[d])")!)!
+    private func secondSign() -> InequalitySign? {
+        return getSign("(?<=%[d])(<=|<|=|>=|>)", failureMessage: "Cannot find second sign")
     }
     
-    // Get second inequality sign
-    private func secondSign() -> InequalitySign {
-        return InequalitySign(rawValue: Regex.firstMatchInString(expression, pattern: "(?<=%[d])(<=|<|=|>=|>)")!)!
+    private func secondValue() -> Int? {
+        return getValue("(?<=%[d]<=|<|=|>=|>)(\\d+)", failureMessage: "Cannot find second value")
     }
-    
-    // Get second value
-    private func secondValue() -> Int {
-        return Regex.firstMatchInString(expression, pattern: "(?<=%[d]<=|<|=|>=|>)(\\d+)")!.toInt()!
-    }    
 }

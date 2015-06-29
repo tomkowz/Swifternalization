@@ -38,7 +38,7 @@ class Expression {
         if let pattern = Regex.firstMatchInString(str, pattern: InternalPatterns.Expression.rawValue) {
             return pattern
         } else {
-            println("Cannot get expression pattern from string: \(str).")
+//            println("Cannot get expression pattern from string: \(str).")
             return nil
         }
     }
@@ -61,6 +61,10 @@ class Expression {
             
             // build correct expression matcher
             buildMatcher()
+            if matcher == nil {
+                println("Cannot create expression because expression pattern cannot be parsed: \(pattern)")
+                return nil
+            }
         } else {
             println("Cannot create expression with pattern: \(pattern).")
             return nil
