@@ -1,3 +1,4 @@
-language: swift
+language: objective-c
+
 xcode_project: Swifternalization/Swifternalization.xcodeproj
 xcode_scheme: SwifternalizationTests
