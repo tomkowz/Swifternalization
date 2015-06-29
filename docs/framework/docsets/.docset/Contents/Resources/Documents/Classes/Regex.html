@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Regex Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/Regex" class="dashAnchor"></a>
+    <a title="Regex Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="http://github.com/tomkowz/Swifternalization"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Regex Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+          <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Expression.html">Expression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InequalityExpressionParser.html">InequalityExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InequalityExtendedExpressionParser.html">InequalityExtendedExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LocalizableFilesLoader.html">LocalizableFilesLoader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Regex.html">Regex</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RegexExpressionParser.html">RegexExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedBaseExpression.html">SharedBaseExpression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedExpressionsConfigurator.html">SharedExpressionsConfigurator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedPolishExpression.html">SharedPolishExpression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Swifternalization.html">Swifternalization</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ExpressionType.html">ExpressionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/InequalitySign.html">InequalitySign</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/InternalPattern.html">InternalPattern</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/StringsFileType.html">StringsFileType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ValueType.html">ValueType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/ExpressionMatcher.html">ExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ExpressionParser.html">ExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/KeyValue.html">KeyValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SharedExpressionProtocol.html">SharedExpressionProtocol</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/InequalityExpressionMatcher.html">InequalityExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/InequalityExtendedExpressionMatcher.html">InequalityExtendedExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RegexExpressionMatcher.html">RegexExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SharedExpression.html">SharedExpression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TranslatablePair.html">TranslatablePair</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization13BasePrefDicts">BasePrefDicts</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization17ExpressionPattern">ExpressionPattern</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization4I18n">I18n</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization6KVDict">KVDict</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization3Key">Key</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization8Language">Language</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization12RegexPattern">RegexPattern</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization5Value">Value</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Regex</h1>
+            <p>Class uses NSRegularExpression internally and simplifies its usability.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC17Swifternalization5Regex18firstMatchInStringFMS0_FTSS7patternSS_GSqSS_"></a>
+                    <a name="//apple_ref/swift/Method/firstMatchInString(_:pattern:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization5Regex18firstMatchInStringFMS0_FTSS7patternSS_GSqSS_">firstMatchInString(_:pattern:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return first match in a string.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">firstMatchInString</span><span class="p">(</span><span class="nv">str</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">pattern</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>str</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string that will be matched.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pattern</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A regexp pattern.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>String</code> that matches pattern or nil.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC17Swifternalization5Regex15matchesInStringFMS0_FTSS7patternSS_GSaSS_"></a>
+                    <a name="//apple_ref/swift/Method/matchesInString(_:pattern:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization5Regex15matchesInStringFMS0_FTSS7patternSS_GSaSS_">matchesInString(_:pattern:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return all matches in a string.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">matchesInString</span><span class="p">(</span><span class="nv">str</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">pattern</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>str</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string that will be matched.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pattern</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A regexp pattern.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Array of <code>Strings</code>s. If nothing found empty array is returned.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC17Swifternalization5RegexP33_9571CA383E2182CDB51CAD23D3332DEE6regexpFMS0_FSSGSqCSo19NSRegularExpression_"></a>
+                    <a name="//apple_ref/swift/Method/regexp(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization5RegexP33_9571CA383E2182CDB51CAD23D3332DEE6regexpFMS0_FSSGSqCSo19NSRegularExpression_">regexp(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns new <code>NSRegularExpression</code> object.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">regexp</span><span class="p">(</span><span class="nv">pattern</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSRegularExpression</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pattern</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A regexp pattern.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>NSRegularExpression</code> object or nil if it cannot be created.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC17Swifternalization5RegexP33_9571CA383E2182CDB51CAD23D3332DEE9substringFMS0_FTSS5rangeVSC8_NSRange_SS"></a>
+                    <a name="//apple_ref/swift/Method/substring(_:range:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization5RegexP33_9571CA383E2182CDB51CAD23D3332DEE9substringFMS0_FTSS5rangeVSC8_NSRange_SS">substring(_:range:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method that substring string with passed range.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">substring</span><span class="p">(</span><span class="nv">str</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">range</span><span class="p">:</span> <span class="kt">NSRange</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>str</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string that is source of substraction.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>range</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A range that tells which part of <code>str</code> will be substracted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A string contained in <code>range</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="http://szulctomasz.com" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-06-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

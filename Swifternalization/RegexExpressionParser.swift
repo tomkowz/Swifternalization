@@ -8,13 +8,28 @@
 
 import Foundation
 
+/**
+Parser that parses expressions that contains regular expressions.
+*/
 class RegexExpressionParser: ExpressionParser {
+    /// Expression pattern - regular expression.
     let pattern: ExpressionPattern
 
+    /**
+    Parser initializer.
+    
+    :param: pattern Expression pattern that should be regular expression.
+    */
     required init(_ pattern: ExpressionPattern) {
         self.pattern = pattern
     }
 
+    /**
+    Parses pattern passed during initialization and returns 
+    expression matcher if pattern is valid.
+    
+    :returns: `ExpressionMatcher` object or nil if pattern is not valid.
+    */
     func parse() -> ExpressionMatcher? {
         if let regex = regexPattern() {
             return RegexExpressionMatcher(pattern: regex)
@@ -23,7 +38,12 @@ class RegexExpressionParser: ExpressionParser {
         }
     }
     
-    // Get regular expression from the pattern
+    /**
+    Get regular expression pattern from pattern passed during initialization.
+    
+    :returns: `RegexPattern` or nil when there is no regular expression 
+            in the pattern.
+    */
     private func regexPattern() -> RegexPattern? {
         if let regex = Regex.firstMatchInString(pattern, pattern: "(?<=^exp:).*") {
             return regex

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>InequalityExpressionParser Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/InequalityExpressionParser" class="dashAnchor"></a>
+    <a title="InequalityExpressionParser Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="http://github.com/tomkowz/Swifternalization"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        InequalityExpressionParser Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+          <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Expression.html">Expression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InequalityExpressionParser.html">InequalityExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InequalityExtendedExpressionParser.html">InequalityExtendedExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LocalizableFilesLoader.html">LocalizableFilesLoader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Regex.html">Regex</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RegexExpressionParser.html">RegexExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedBaseExpression.html">SharedBaseExpression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedExpressionsConfigurator.html">SharedExpressionsConfigurator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedPolishExpression.html">SharedPolishExpression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Swifternalization.html">Swifternalization</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ExpressionType.html">ExpressionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/InequalitySign.html">InequalitySign</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/InternalPattern.html">InternalPattern</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/StringsFileType.html">StringsFileType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ValueType.html">ValueType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/ExpressionMatcher.html">ExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ExpressionParser.html">ExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/KeyValue.html">KeyValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SharedExpressionProtocol.html">SharedExpressionProtocol</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/InequalityExpressionMatcher.html">InequalityExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/InequalityExtendedExpressionMatcher.html">InequalityExtendedExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RegexExpressionMatcher.html">RegexExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SharedExpression.html">SharedExpression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TranslatablePair.html">TranslatablePair</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization13BasePrefDicts">BasePrefDicts</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization17ExpressionPattern">ExpressionPattern</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization4I18n">I18n</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization6KVDict">KVDict</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization3Key">Key</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization8Language">Language</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization12RegexPattern">RegexPattern</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization5Value">Value</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>InequalityExpressionParser</h1>
+            <p>Parses inequality expression patterns. e.g. <code>ie:%d=5</code>.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17Swifternalization26InequalityExpressionParser7patternSS"></a>
+                    <a name="//apple_ref/swift/Property/pattern" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17Swifternalization26InequalityExpressionParser7patternSS">pattern</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Pattern of expression.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">pattern</span><span class="p">:</span> <span class="kt">ExpressionPattern</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17Swifternalization26InequalityExpressionParsercFMS0_FSSS0_"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17Swifternalization26InequalityExpressionParsercFMS0_FSSS0_">init(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes parser.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">required</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">pattern</span><span class="p">:</span> <span class="kt">ExpressionPattern</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pattern</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A pattern that will be parsed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17Swifternalization26InequalityExpressionParser5parseFS0_FT_GSqPS_17ExpressionMatcher__"></a>
+                    <a name="//apple_ref/swift/Method/parse()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17Swifternalization26InequalityExpressionParser5parseFS0_FT_GSqPS_17ExpressionMatcher__">parse()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Parses <code>pattern</code> passed during initialization.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">parse</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">ExpressionMatcher</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>ExpressionMatcher</code> object or nil if pattern cannot be parsed.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17Swifternalization26InequalityExpressionParserP33_9D005160C999803FBF7E317E0936910D9valueTypeFS0_FT_GSqOS_9ValueType_"></a>
+                    <a name="//apple_ref/swift/Method/valueType()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17Swifternalization26InequalityExpressionParserP33_9D005160C999803FBF7E317E0936910D9valueTypeFS0_FT_GSqOS_9ValueType_">valueType()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get <code>ValueType</code>. Finds only <q>%d</q> - Int is only one supported for now.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">valueType</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">ValueType</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>ValueType</code> or nil if value cannot be found.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17Swifternalization26InequalityExpressionParserP33_9D005160C999803FBF7E317E0936910D4signFS0_FT_GSqOS_14InequalitySign_"></a>
+                    <a name="//apple_ref/swift/Method/sign()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17Swifternalization26InequalityExpressionParserP33_9D005160C999803FBF7E317E0936910D4signFS0_FT_GSqOS_14InequalitySign_">sign()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get mathematical inequality sign.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">sign</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">InequalitySign</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>InequalitySign</code> or nil if sign cannot be found.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17Swifternalization26InequalityExpressionParserP33_9D005160C999803FBF7E317E0936910D5valueFS0_FT_GSqSi_"></a>
+                    <a name="//apple_ref/swift/Method/value()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17Swifternalization26InequalityExpressionParserP33_9D005160C999803FBF7E317E0936910D5valueFS0_FT_GSqSi_">value()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get value - Int.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">value</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>value or nil if value cannot be found</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+                <div class="task-name-container">
+                  <a name="/Helpers"></a>
+                  <a name="//apple_ref/swift/Section/Helpers" class="dashAnchor"></a>
+                  <a href="#/Helpers">
+                    <h3 class="section-name">Helpers</h3>
+                  </a>
+                </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17Swifternalization26InequalityExpressionParser8getValueFS0_FTSS14failureMessageSS_GSqSi_"></a>
+                    <a name="//apple_ref/swift/Method/getValue(_:failureMessage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17Swifternalization26InequalityExpressionParser8getValueFS0_FTSS14failureMessageSS_GSqSi_">getValue(_:failureMessage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get value with regex and prints failure message if not found.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getValue</span><span class="p">(</span><span class="nv">regex</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">failureMessage</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>regex</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A regular expression.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failureMessage</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A message that is printed out in console on failure.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A value or nil if value cannot be found.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17Swifternalization26InequalityExpressionParser7getSignFS0_FTSS14failureMessageSS_GSqOS_14InequalitySign_"></a>
+                    <a name="//apple_ref/swift/Method/getSign(_:failureMessage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17Swifternalization26InequalityExpressionParser7getSignFS0_FTSS14failureMessageSS_GSqOS_14InequalitySign_">getSign(_:failureMessage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get sign with regex and prints failure message if not found.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getSign</span><span class="p">(</span><span class="nv">regex</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">failureMessage</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">InequalitySign</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>regex</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A regular expression.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failureMessage</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A message that is printed out in console on failure.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A sign or nil if value cannot be found.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17Swifternalization26InequalityExpressionParser12getValueTypeFS0_FTSS14failureMessageSS_GSqOS_9ValueType_"></a>
+                    <a name="//apple_ref/swift/Method/getValueType(_:failureMessage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17Swifternalization26InequalityExpressionParser12getValueTypeFS0_FTSS14failureMessageSS_GSqOS_9ValueType_">getValueType(_:failureMessage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get value type with regex and prints failure message if not found.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getValueType</span><span class="p">(</span><span class="nv">regex</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">failureMessage</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ValueType</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>regex</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A regular expression.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failureMessage</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A message that is printed out in console on failure.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A value type or nil if value cannot be found.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="http://szulctomasz.com" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-06-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

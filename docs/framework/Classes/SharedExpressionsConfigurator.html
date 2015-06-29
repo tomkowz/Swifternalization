@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SharedExpressionsConfigurator Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/SharedExpressionsConfigurator" class="dashAnchor"></a>
+    <a title="SharedExpressionsConfigurator Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="http://github.com/tomkowz/Swifternalization"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        SharedExpressionsConfigurator Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+          <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Expression.html">Expression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InequalityExpressionParser.html">InequalityExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InequalityExtendedExpressionParser.html">InequalityExtendedExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LocalizableFilesLoader.html">LocalizableFilesLoader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Regex.html">Regex</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RegexExpressionParser.html">RegexExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedBaseExpression.html">SharedBaseExpression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedExpressionsConfigurator.html">SharedExpressionsConfigurator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedPolishExpression.html">SharedPolishExpression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Swifternalization.html">Swifternalization</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ExpressionType.html">ExpressionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/InequalitySign.html">InequalitySign</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/InternalPattern.html">InternalPattern</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/StringsFileType.html">StringsFileType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ValueType.html">ValueType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/ExpressionMatcher.html">ExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ExpressionParser.html">ExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/KeyValue.html">KeyValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SharedExpressionProtocol.html">SharedExpressionProtocol</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/InequalityExpressionMatcher.html">InequalityExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/InequalityExtendedExpressionMatcher.html">InequalityExtendedExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RegexExpressionMatcher.html">RegexExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SharedExpression.html">SharedExpression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TranslatablePair.html">TranslatablePair</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization13BasePrefDicts">BasePrefDicts</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization17ExpressionPattern">ExpressionPattern</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization4I18n">I18n</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization6KVDict">KVDict</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization3Key">Key</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization8Language">Language</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization12RegexPattern">RegexPattern</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization5Value">Value</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>SharedExpressionsConfigurator</h1>
+            <p>Swifternalization contains some built-in country-related shared expressions.
+Developer can create its own expressions in Expressions.strings file for 
+base and preferred language version of the file.</p>
+
+<p>The class is responsible for proper loading the built-in shared ones and 
+those loaded from project&rsquo;s files. It handles overriding of built-in and loads 
+those from Base and preferred language version.</p>
+
+<p>It always load base expressions, then looking for language specific.
+If in Base file are some expressions that overrides built-in, that&rsquo;s fine 
+the class adds or developer&rsquo;s custom expressions and add only those of built-in 
+that are not contained in the Base.</p>
+
+<p>The same is for preferred languages but also here what is important is that 
+at first preferred language file expressions are loaded, then if something 
+different is defined in Base it will be also loaded and then the built-in 
+expression that differs.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC17Swifternalization29SharedExpressionsConfigurator20configureExpressionsFMS0_FTT4baseGVSs10DictionarySSSS_4prefGS1_SSSS__8languageSS_T4baseGSaVS_16SharedExpression_4prefGSaS2___"></a>
+                    <a name="//apple_ref/swift/Method/configureExpressions(_:language:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization29SharedExpressionsConfigurator20configureExpressionsFMS0_FTT4baseGVSs10DictionarySSSS_4prefGS1_SSSS__8languageSS_T4baseGSaVS_16SharedExpression_4prefGSaS2___">configureExpressions(_:language:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method takes expression for both Base and preferred language localizations 
+and also internally loads built-in expressions, combine them and returns 
+tuple with expressions for Base and another array for preferred language 
+localization.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">configureExpressions</span><span class="p">(</span><span class="nv">dicts</span><span class="p">:</span> <span class="kt">BasePrefDicts</span><span class="p">,</span> <span class="nv">language</span><span class="p">:</span> <span class="kt">Language</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nv">base</span><span class="p">:</span> <span class="p">[</span><span class="kt">SharedExpression</span><span class="p">],</span> <span class="nv">pref</span><span class="p">:</span> <span class="p">[</span><span class="kt">SharedExpression</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dicts</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code>BasePrefDicts</code> tuple that contains two dicts of 
+shared expressions for Base and preferred language localization.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>language</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A preferred user&rsquo;s language.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Tuple with arrays of shared expressions for Base and preferred 
+language localizations.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+                <div class="task-name-container">
+                  <a name="/Private"></a>
+                  <a name="//apple_ref/swift/Section/Private" class="dashAnchor"></a>
+                  <a href="#/Private">
+                    <h3 class="section-name">Private</h3>
+                  </a>
+                </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC17Swifternalization29SharedExpressionsConfiguratorP33_EA5223A8240B6B93C53AEBF062B1BE7E7convertFMS0_FGVSs10DictionarySSSS_GSaVS_16SharedExpression_"></a>
+                    <a name="//apple_ref/swift/Method/convert(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization29SharedExpressionsConfiguratorP33_EA5223A8240B6B93C53AEBF062B1BE7E7convertFMS0_FGVSs10DictionarySSSS_GSaVS_16SharedExpression_">convert(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Converts dictionary with expressions to array of <code>SharedExpression</code> objects.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">convert</span><span class="p">(</span><span class="nv">expressionsDict</span><span class="p">:</span> <span class="kt">KVDict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">SharedExpression</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>expressionsDict</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Dictionary with key-value pair of expression 
+from Expressions.strings.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Array of <code>SharedExpression</code> objects.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC17Swifternalization29SharedExpressionsConfiguratorP33_EA5223A8240B6B93C53AEBF062B1BE7E22loadBuiltInExpressionsFMS0_FSSGSaVS_16SharedExpression_"></a>
+                    <a name="//apple_ref/swift/Method/loadBuiltInExpressions(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization29SharedExpressionsConfiguratorP33_EA5223A8240B6B93C53AEBF062B1BE7E22loadBuiltInExpressionsFMS0_FSSGSaVS_16SharedExpression_">loadBuiltInExpressions(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method loads built-in framework&rsquo;s built-in expressions for specific language.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">loadBuiltInExpressions</span><span class="p">(</span><span class="nv">language</span><span class="p">:</span> <span class="kt">Language</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">SharedExpression</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>language</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A preferred user&rsquo;s language.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Shared expressions for specific language. If there is no 
+expression for passed language empty array is returned.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC17Swifternalization29SharedExpressionsConfiguratorP33_EA5223A8240B6B93C53AEBF062B1BE7E16mergeExpressionsFMS0_FTGSaVS_16SharedExpression_10additionalGSaS1___GSaS1__"></a>
+                    <a name="//apple_ref/swift/Method/mergeExpressions(_:additional:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization29SharedExpressionsConfiguratorP33_EA5223A8240B6B93C53AEBF062B1BE7E16mergeExpressionsFMS0_FTGSaVS_16SharedExpression_10additionalGSaS1___GSaS1__">mergeExpressions(_:additional:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method that merges expressions. It takes two arrays, one is <code>source</code> and one 
+is <code>additional</code>. If the <code>source</code> does not contain some expression from 
+<code>additional</code> array this expression will be added to the <code>source</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">mergeExpressions</span><span class="p">(</span><span class="k">var</span> <span class="nv">source</span><span class="p">:</span> <span class="p">[</span><span class="kt">SharedExpression</span><span class="p">],</span> <span class="nv">additional</span><span class="p">:</span> <span class="p">[</span><span class="kt">SharedExpression</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">SharedExpression</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>source</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A source array with expressions.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>additional</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Array with additional expressions that may or may not 
+be added to <code>source</code> array.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Array with expressions that contains all elements from <code>source</code> 
+and elements from <code>additional</code> that were not in <code>source</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC17Swifternalization29SharedExpressionsConfiguratorP33_EA5223A8240B6B93C53AEBF062B1BE7E16mergeExpressionsFMS0_FTRGSaVS_16SharedExpression_10additionalGSaS1___T_"></a>
+                    <a name="//apple_ref/swift/Method/mergeExpressions(_:additional:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization29SharedExpressionsConfiguratorP33_EA5223A8240B6B93C53AEBF062B1BE7E16mergeExpressionsFMS0_FTRGSaVS_16SharedExpression_10additionalGSaS1___T_">mergeExpressions(_:additional:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is just helper method. It does the same like 
+<code>mergeExpressions(source:additional:)</code> but this one takes reference to 
+<code>source</code> array instead of pasing it by value.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">mergeExpressions</span><span class="p">(</span><span class="k">inout</span> <span class="nv">source</span><span class="p">:</span> <span class="p">[</span><span class="kt">SharedExpression</span><span class="p">],</span> <span class="nv">additional</span><span class="p">:</span> <span class="p">[</span><span class="kt">SharedExpression</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>source</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>reference to source array.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>additional</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Array of additional shared expressions.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>merged array of shared expressions.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="http://szulctomasz.com" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-06-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
