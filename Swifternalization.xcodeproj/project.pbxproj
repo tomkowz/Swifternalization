@@ -11,12 +11,12 @@
 		6D5004541B3EF91600A54B36 /* Swifternalization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5004481B3EF91600A54B36 /* Swifternalization.framework */; };
 		6D50045B1B3EF91600A54B36 /* SwifternalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D50045A1B3EF91600A54B36 /* SwifternalizationTests.swift */; };
 		6D5004661B3EF92600A54B36 /* Swifternalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5004641B3EF92600A54B36 /* Swifternalization.swift */; };
-		6D5004671B3EF92600A54B36 /* TranslablePair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5004651B3EF92600A54B36 /* TranslablePair.swift */; };
+		6D5004671B3EF92600A54B36 /* TranslatablePair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5004651B3EF92600A54B36 /* TranslatablePair.swift */; };
 		6D5004921B3EFF6D00A54B36 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D5004941B3EFF6D00A54B36 /* Localizable.strings */; };
 		6D5004961B3EFFC100A54B36 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D5004591B3EF91600A54B36 /* Info.plist */; };
 		6D6282921B3F04C800E65FCD /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282911B3F04C800E65FCD /* Expression.swift */; };
-		6D6282941B3F052B00E65FCD /* TranslablePairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282931B3F052B00E65FCD /* TranslablePairTests.swift */; };
-		6D6282951B3F05DE00E65FCD /* TranslablePair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5004651B3EF92600A54B36 /* TranslablePair.swift */; };
+		6D6282941B3F052B00E65FCD /* TranslatablePairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282931B3F052B00E65FCD /* TranslatablePairTests.swift */; };
+		6D6282951B3F05DE00E65FCD /* TranslatablePair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5004651B3EF92600A54B36 /* TranslatablePair.swift */; };
 		6D6282961B3F063A00E65FCD /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282911B3F04C800E65FCD /* Expression.swift */; };
 		6D6282981B3F13C300E65FCD /* ExpressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282971B3F13C300E65FCD /* ExpressionTests.swift */; };
 		6D62829A1B3F17CA00E65FCD /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282991B3F17CA00E65FCD /* Regex.swift */; };
@@ -94,10 +94,10 @@
 		6D5004591B3EF91600A54B36 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D50045A1B3EF91600A54B36 /* SwifternalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwifternalizationTests.swift; sourceTree = "<group>"; };
 		6D5004641B3EF92600A54B36 /* Swifternalization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swifternalization.swift; sourceTree = "<group>"; };
-		6D5004651B3EF92600A54B36 /* TranslablePair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslablePair.swift; sourceTree = "<group>"; };
+		6D5004651B3EF92600A54B36 /* TranslatablePair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslatablePair.swift; sourceTree = "<group>"; };
 		6D5004931B3EFF6D00A54B36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6D6282911B3F04C800E65FCD /* Expression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
-		6D6282931B3F052B00E65FCD /* TranslablePairTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslablePairTests.swift; sourceTree = "<group>"; };
+		6D6282931B3F052B00E65FCD /* TranslatablePairTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslatablePairTests.swift; sourceTree = "<group>"; };
 		6D6282971B3F13C300E65FCD /* ExpressionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpressionTests.swift; sourceTree = "<group>"; };
 		6D6282991B3F17CA00E65FCD /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		6D62829C1B3F19CC00E65FCD /* RegexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 				6DBB6C8B1B40767B002F39A3 /* Shared Expressions */,
 				6D5004641B3EF92600A54B36 /* Swifternalization.swift */,
 				6DBB6C641B403367002F39A3 /* SharedExpressionsConfigurator.swift */,
-				6D5004651B3EF92600A54B36 /* TranslablePair.swift */,
+				6D5004651B3EF92600A54B36 /* TranslatablePair.swift */,
 				6D6282AE1B3F3BF700E65FCD /* ValueType.swift */,
 				6D50044B1B3EF91600A54B36 /* Supporting Files */,
 				6D50044D1B3EF91600A54B36 /* Swifternalization.h */,
@@ -238,7 +238,7 @@
 				6DBB6C951B4076E8002F39A3 /* SharedBaseExpressionTests.swift */,
 				6DBB6C971B4077FA002F39A3 /* SharedPolishExpressionTests.swift */,
 				6D50045A1B3EF91600A54B36 /* SwifternalizationTests.swift */,
-				6D6282931B3F052B00E65FCD /* TranslablePairTests.swift */,
+				6D6282931B3F052B00E65FCD /* TranslatablePairTests.swift */,
 				6D5004581B3EF91600A54B36 /* Supporting Files */,
 				6D5004941B3EFF6D00A54B36 /* Localizable.strings */,
 				6DBB6C5B1B4026B8002F39A3 /* Expressions.strings */,
@@ -446,7 +446,7 @@
 				6D62829A1B3F17CA00E65FCD /* Regex.swift in Sources */,
 				6D6282AF1B3F3BF700E65FCD /* ValueType.swift in Sources */,
 				6DBB6C901B40768A002F39A3 /* SharedExpression.swift in Sources */,
-				6D5004671B3EF92600A54B36 /* TranslablePair.swift in Sources */,
+				6D5004671B3EF92600A54B36 /* TranslatablePair.swift in Sources */,
 				6D6282B51B3F3C4100E65FCD /* InequalitySign.swift in Sources */,
 				6DBB6C8F1B40768A002F39A3 /* SharedBaseExpression.swift in Sources */,
 				6D6464841B40146100C46C6D /* KeyValue.swift in Sources */,
@@ -481,12 +481,12 @@
 				6D6464851B40146600C46C6D /* KeyValue.swift in Sources */,
 				6D6282C81B3F4F6400E65FCD /* RegexExpressionMatcher.swift in Sources */,
 				6DBB6C6A1B40412D002F39A3 /* InternalPatterns.swift in Sources */,
-				6D6282941B3F052B00E65FCD /* TranslablePairTests.swift in Sources */,
+				6D6282941B3F052B00E65FCD /* TranslatablePairTests.swift in Sources */,
 				6D6282B21B3F3C2600E65FCD /* ValueType.swift in Sources */,
 				6DBB6C941B40769F002F39A3 /* SharedPolishExpression.swift in Sources */,
 				6DBB6C931B40769F002F39A3 /* SharedExpression.swift in Sources */,
 				6DBB6C521B401B8A002F39A3 /* Swifternalization.swift in Sources */,
-				6D6282951B3F05DE00E65FCD /* TranslablePair.swift in Sources */,
+				6D6282951B3F05DE00E65FCD /* TranslatablePair.swift in Sources */,
 				6D6282BF1B3F42CA00E65FCD /* InequalityExpressionMatcherTests.swift in Sources */,
 				6D6282961B3F063A00E65FCD /* Expression.swift in Sources */,
 				6DBB6C921B40769F002F39A3 /* SharedBaseExpression.swift in Sources */,

@@ -10,17 +10,19 @@ import Foundation
 
 public typealias I18n = Swifternalization
 
+
+
 typealias Language = String
 
 public class Swifternalization {
     
     private let bundle: NSBundle
     
-    // Pairs from base Localizable.strings file
-    private var basePairs = [TranslablePair]()
+    // Translable from base Localizable.strings file
+    private var basePairs = [TranslatablePair]()
     
-    // Pairs from preferred language Localizable.strings file
-    private var preferredPairs = [TranslablePair]()
+    // Translable airs from preferred language Localizable.strings file
+    private var preferredPairs = [TranslatablePair]()
     
     /** 
     Initialize with bundle when Localizable.strings file is located.
@@ -64,8 +66,8 @@ public class Swifternalization {
     Enumerate through translation pairs dicts and check if there are some shared patterns that needs to be replaced with custom expressions.
     Next create translable pair with this updated pattern
     */
-    private func createTranslablePairs(translationDict: KVDict, expressions: [SharedExpression]) -> [TranslablePair] {
-        var pairs = [TranslablePair]()
+    private func createTranslablePairs(translationDict: KVDict, expressions: [SharedExpression]) -> [TranslatablePair] {
+        var pairs = [TranslatablePair]()
         
         for (tKey, tValue) in translationDict {
 
@@ -80,7 +82,7 @@ public class Swifternalization {
                         
                         // Add translable pair with this new updated expression
                         if let keyWithoutExpression = Regex.firstMatchInString(tKey, pattern: InternalPatterns.KeyWithoutExpression.rawValue) {
-                            pairs.append(TranslablePair(key: keyWithoutExpression + "{" + updatedExpression.pattern + "}", value: tValue))
+                            pairs.append(TranslatablePair(key: keyWithoutExpression + "{" + updatedExpression.pattern + "}", value: tValue))
                             continue
                         }
                     }
@@ -88,7 +90,7 @@ public class Swifternalization {
                 }
             }
             
-            pairs.append(TranslablePair(key: tKey, value: tValue))
+            pairs.append(TranslatablePair(key: tKey, value: tValue))
         }
         
         return pairs
@@ -123,12 +125,12 @@ public extension Swifternalization {
     public class func localizedString(key: String, defaultValue: String? = nil) -> String {
         if sharedInstance() == nil { return (defaultValue != nil) ? defaultValue! : key }
         
-        for TranslablePair in sharedInstance().preferredPairs.filter({$0.key == key}) {
-            return TranslablePair.value
+        for TranslatablePair in sharedInstance().preferredPairs.filter({$0.key == key}) {
+            return TranslatablePair.value
         }
         
-        for TranslablePair in sharedInstance().basePairs.filter({$0.key == key}) {
-            return TranslablePair.value
+        for TranslatablePair in sharedInstance().basePairs.filter({$0.key == key}) {
+            return TranslatablePair.value
         }
         
         return (defaultValue != nil) ? defaultValue! : key
@@ -142,7 +144,7 @@ public extension Swifternalization {
     public class func localizedExpressionString(key: String, value: String, defaultValue: String? = nil) -> String {
         if sharedInstance() == nil { return (defaultValue != nil) ? defaultValue! : key }
         
-        let filter = {(pair: TranslablePair) -> Bool  in
+        let filter = {(pair: TranslatablePair) -> Bool  in
             return pair.hasExpression == true && pair.keyWithoutExpression == key
         }
         

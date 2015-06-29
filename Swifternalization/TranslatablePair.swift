@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TranslablePair: KeyValue {
+struct TranslatablePair: KeyValue {
     var key: Key
     var value: Value
     
