@@ -16,42 +16,51 @@ enum StringsFileType: String {
 }
 
 class LocalizableFilesLoader {
+    
     private let BaseLanguage: Language = "Base"
-
+    
+    // Bundle where files are located
     private let bundle: NSBundle
     
     init(_ bundle: NSBundle) {
         self.bundle = bundle
     }
     
-    func loadContentFromBaseAndPreferredLanguageFiles(fileType: StringsFileType, language: Language) -> BasePrefDicts {
+    func loadContentFromFilesOfType(type: StringsFileType, language: Language) -> BasePrefDicts {
         var basePairs = KVDict()
         var preferredPairs = KVDict()
         
-        // Get file url for localization
-        if let localizableStringsFileURL = localizableFileURLForLanguage(fileType, language: language) {
-            // load content of existing file
+        let getURL = URLforFile(type)
+        
+        // Get file url for preferred language .strings file and load if exist.
+        if let localizableStringsFileURL = getURL(language) {
             preferredPairs = parse(localizableStringsFileURL)
+        } else {
+            println("\(type.rawValue).strings file not found for \"\(language)\" language")
         }
-    
-        if let baseStringsFileURL = localizableFileURLForLanguage(fileType, language: BaseLanguage) {
-            // load content of existing file
+        
+        // Get file url for Base .strings file and load if exist.
+        if let baseStringsFileURL = getURL(BaseLanguage) {
             basePairs = parse(baseStringsFileURL)
+        } else {
+            println("\(type.rawValue).strings file not found for Base localization")
         }
         
         return (basePairs, preferredPairs)
     }
     
-    
     // MARK: Private
-    private func localizableFileURLForLanguage(fileType: StringsFileType, language: Language) -> NSURL? {
-        return bundle.URLForResource(fileType.rawValue, withExtension: "strings", subdirectory: language + ".lproj")
+    private func URLforFile(type: StringsFileType)(_ language: Language) -> NSURL? {
+        return bundle.URLForResource(type.rawValue, withExtension: "strings", subdirectory: language + ".lproj")
     }
     
     private func parse(fileURL: NSURL) -> KVDict {
         if let dictionary = NSDictionary(contentsOfURL: fileURL) as? KVDict {
             return dictionary
+        } else {
+            println("Cannot load Dictionary from content of URL: \(fileURL)")
         }
+        
         return KVDict()
     }
 }

@@ -23,13 +23,13 @@ class LocalizableFilesLoaderTests: XCTestCase {
     }
     
     func testLoading1() {
-        let result = loader.loadContentFromBaseAndPreferredLanguageFiles(.Localizable, language: language)
+        let result = loader.loadContentFromFilesOfType(.Localizable, language: language)
         XCTAssertTrue(result.base.count > 0, "Keys should be greater than 0")
         XCTAssertTrue(result.pref.count == 0, "There should be no preferred language dictionary")
     }
     
     func testLoading2() {
-        let result = loader.loadContentFromBaseAndPreferredLanguageFiles(.Expressions, language: language)
+        let result = loader.loadContentFromFilesOfType(.Expressions, language: language)
         XCTAssertTrue(result.base.count > 0, "Keys should be greater than 0")
         XCTAssertTrue(result.pref.count == 0, "There should be no preferred language dictionary")
     }

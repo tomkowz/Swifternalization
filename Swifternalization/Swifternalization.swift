@@ -18,41 +18,47 @@ public class Swifternalization {
     
     private let bundle: NSBundle
     
-    // Translable from base Localizable.strings file
+    // key-value from base Localizable.strings file
     private var basePairs = [TranslatablePair]()
     
-    // Translable airs from preferred language Localizable.strings file
+    // key-value airs from preferred language Localizable.strings file
     private var preferredPairs = [TranslatablePair]()
     
-    /** 
-    Initialize with bundle when Localizable.strings file is located.
-    This method return instance of the class but you don't need it.
-    Shared instance is automatically set so you can start using class method.
+    /**
+    Swifternalization takes NSBundle when Localizable.strings file is located.
+    This method return instance of the class but you don't need it because 
+    shared instance is set automatically.
     
-    It get the Localizable.strings file version based on language set on the device using 'preferredLocations' property of NSBUndle.
-    If version for specific language isn't found it tries with Base version.
+    It get Localizable.strings file version based on the first language from 
+    the prefferedLocalizations property of NSBundle. If Localizable.strings for
+    preferred language isn't exist then Base is used instead.
     */
     public init(bundle: NSBundle) {
         self.bundle = bundle
+        
+        /// Set it as shared instance
         Swifternalization.setSharedInstance(self)
+        
+        /// load all the content
         load()
     }
     
     
     // MARK: Private
     private func load() {
-        // Get language
         let language = getPreferredLanguage()
+        let loader = LocalizableFilesLoader(bundle)
         
         // Get expressions pairs from Expressions.strings files
-        let expPairsDicts = LocalizableFilesLoader(bundle).loadContentFromBaseAndPreferredLanguageFiles(.Expressions, language: language)
+        let expPairsDicts = loader.loadContentFromFilesOfType(.Expressions, language: language)
         
         // Get shared expressions for Base and preferred language including Framwork's shared expressions
         let sharedExp = SharedExpressionsConfigurator.configureExpressions(expPairsDicts, language: language)
         
-        // Get key-value translation pairs from Localizable.strings files
-        let translablePairsDicts = LocalizableFilesLoader(bundle).loadContentFromBaseAndPreferredLanguageFiles(.Localizable, language: language)
+        // Get key-value translatable pairs from Localizable.strings files
+        let translablePairsDicts = loader.loadContentFromFilesOfType(.Localizable, language: language)
 
+        // Create TranslatablePair objects
         basePairs = createTranslablePairs(translablePairsDicts.base, expressions: sharedExp.base)
         preferredPairs = createTranslablePairs(translablePairsDicts.pref, expressions: sharedExp.pref)
     }
