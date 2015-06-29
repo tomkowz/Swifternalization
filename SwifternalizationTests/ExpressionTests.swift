@@ -12,19 +12,27 @@ import Swifternalization
 
 class ExpressionTests: XCTestCase {
 
-    func testInequality() {
+    func testThatInequalityExpressionShouldBeCreated() {
         XCTAssertTrue(Expression.expressionFromString("abc{ie:%d=2}") != nil, "Expression should be created")
     }
     
-    func testInequalityExtended() {
+    func testThatInequalityExtendedExpressionShouldBeCreated() {
         XCTAssertTrue(Expression.expressionFromString("abc{iex:4<%d<=5}") != nil, "Expression should be created")
     }
     
-    func testRegex() {
+    func testThatRegexExpressionShouldBeCreated() {
         XCTAssertTrue(Expression.expressionFromString("abc{exp:.*}") != nil, "Expression should be created")
     }
     
-    func testNone() {
+    func testThatExpressionCannotBeCreated() {
         XCTAssertTrue(Expression.expressionFromString("abc") == nil, "There is no expression here")
+    }
+    
+    func testThatExpressionCannotBeFound() {
+        XCTAssertFalse(Expression.parseExpressionPattern("{abc}") == nil, "Expression should not be found")
+    }
+    
+    func testThatExpressionCanBeFound() {
+        XCTAssertTrue(Expression.parseExpressionPattern("{ie:%d>2}") != nil, "Expression should be found")
     }
 }

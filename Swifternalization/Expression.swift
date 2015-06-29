@@ -21,34 +21,49 @@ enum ExpressionType: String {
 
 typealias ExpressionPattern = String
 
+/**
+The class represents single expression that is added in curly brackets in
+key inside Localizable.strings file or as a value in Expressions.strings.
+
+It is able to validate passed strings using internal expression matcher.
+*/
 class Expression {
     let pattern: ExpressionPattern
     
     private var type: ExpressionType!
     private var matcher: ExpressionMatcher!
     
-    static func expressionFromString(str: String) -> Expression? {
+    // Returns pattern if exists in string
+    class func parseExpressionPattern(str: String) -> ExpressionPattern? {
         if let pattern = Regex.firstMatchInString(str, pattern: InternalPatterns.Expression.rawValue) {
+            return pattern
+        } else {
+            println("Cannot get expression pattern from string: \(str).")
+            return nil
+        }
+    }
+    
+    // It tries to parse string and if there is some expression in curly 
+    // brackets it will try to match it to some of the supported ExpressionTypes.
+    class func expressionFromString(str: String) -> Expression? {
+        if let pattern = parseExpressionPattern(str) {
             return Expression(pattern: pattern)
         }
         return nil
     }
     
-    init(pattern: ExpressionPattern) {
+    init?(pattern: ExpressionPattern) {
+        // pattern is assigned even if init fails because of Swift/compiler bug.
         self.pattern = pattern
-        
-        // build correct expression matcher
-        if let type = parseExpressionType() {
-            switch type {
-            case .Inequality:
-                matcher = InequalityExpressionParser(pattern).parse()
-                
-            case .InequalityExtended:
-                matcher = InequalityExtendedExpressionParser(pattern).parse()
-                
-            case .Regex:
-                matcher = RegexExpressionParser(pattern).parse()
-            }
+
+        if let type = Expression.getExpressionType(pattern) {
+            self.type = type
+            
+            // build correct expression matcher
+            buildMatcher()
+        } else {
+            println("Cannot create expression with pattern: \(pattern).")
+            return nil
         }
     }
     
@@ -57,8 +72,21 @@ class Expression {
     }
     
     
-    /// Get expression type
-    private func parseExpressionType() -> ExpressionType? {
+    // MARK: Private
+    private func buildMatcher() {
+        switch (type as ExpressionType) {
+        case .Inequality:
+            matcher = InequalityExpressionParser(pattern).parse()
+            
+        case .InequalityExtended:
+            matcher = InequalityExtendedExpressionParser(pattern).parse()
+            
+        case .Regex:
+            matcher = RegexExpressionParser(pattern).parse()
+        }
+    }
+    
+    private class func getExpressionType(pattern: ExpressionPattern) -> ExpressionType? {
         if let result = Regex.firstMatchInString(pattern, pattern: InternalPatterns.ExpressionType.rawValue) {
             return ExpressionType(rawValue: result)
         }

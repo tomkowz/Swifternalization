@@ -82,10 +82,10 @@ public class Swifternalization {
         
         for (tKey, tValue) in translatableDict {
             // Check if there is expression in tKey
-            if let existingExpression = Expression.expressionFromString(tKey),
-                let sharedExpression = expressions.filter({$0.key == existingExpression.pattern}).first,
-                // Create expression with pattern from Expressions.strings and 
-                // it it is correct use it
+            if let expressionPattern = Expression.parseExpressionPattern(tKey),
+                let sharedExpression = expressions.filter({$0.key == expressionPattern}).first,
+                // Create expression with pattern from Expressions.strings and
+                // it it is correct use it.
                 let updatedExpression = Expression.expressionFromString("{" + sharedExpression.expression + "}"),
                 // Add translable pair with this new updated expression
                 let keyWithoutExpression = Regex.firstMatchInString(tKey, pattern: InternalPatterns.KeyWithoutExpression.rawValue) {
