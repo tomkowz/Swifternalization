@@ -26,7 +26,7 @@ class SharedPolishExpression: SharedExpressionProtocol {
             - 0 samochodów, 10 samochodów, 26 samochodów, 1147 samochodów
             - 5 minut, 18 minut, 117 minut, 1009 minut
             */
-            SharedExpression(k: "many", e: "exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])"),
+            SharedExpression(k: "many", e: "exp:(^[05-9]$)|(.*(?=1).[0-9]$)|(^[0-9]{1}.*[0156789]$)"),
         ]
     }
 }
