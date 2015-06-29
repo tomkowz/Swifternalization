@@ -50,17 +50,19 @@ public class Swifternalization {
         let loader = LocalizableFilesLoader(bundle)
         
         // Get expressions pairs from Expressions.strings files
-        let expPairsDicts = loader.loadContentFromFilesOfType(.Expressions, language: language)
+        let expressionPairsDict = loader.loadContentFromFilesOfType(.Expressions, language: language)
         
-        // Get shared expressions for Base and preferred language including Framwork's shared expressions
-        let sharedExp = SharedExpressionsConfigurator.configureExpressions(expPairsDicts, language: language)
+        // Get shared expressions for Base and preferred language 
+        // including Framwork's shared expressions
+        let sharedExpressions = SharedExpressionsConfigurator.configureExpressions(expressionPairsDict, language: language)
+        
         
         // Get key-value translatable pairs from Localizable.strings files
-        let translablePairsDicts = loader.loadContentFromFilesOfType(.Localizable, language: language)
+        let translatablePairsDicts = loader.loadContentFromFilesOfType(.Localizable, language: language)
 
         // Create TranslatablePair objects
-        basePairs = createTranslablePairs(translablePairsDicts.base, expressions: sharedExp.base)
-        preferredPairs = createTranslablePairs(translablePairsDicts.pref, expressions: sharedExp.pref)
+        basePairs = createTranslablePairs(translatablePairsDicts.base, expressions: sharedExpressions.base)
+        preferredPairs = createTranslablePairs(translatablePairsDicts.pref, expressions: sharedExpressions.pref)
     }
     
     private func getPreferredLanguage() -> Language {
@@ -69,31 +71,27 @@ public class Swifternalization {
     }
     
     /**
-    Enumerate through translation pairs dicts and check if there are some shared patterns that needs to be replaced with custom expressions.
-    Next create translable pair with this updated pattern
+    Enumerate through translatable pairs dict and check if there are some shared 
+    expression identifiers that needs to be replaced with full expressions.
+    
+    Next create translatable pairs with susch updated expressions to make it
+    ready to be used by framework.
     */
-    private func createTranslablePairs(translationDict: KVDict, expressions: [SharedExpression]) -> [TranslatablePair] {
+    private func createTranslablePairs(translatableDict: KVDict, expressions: [SharedExpression]) -> [TranslatablePair] {
         var pairs = [TranslatablePair]()
         
-        for (tKey, tValue) in translationDict {
-
+        for (tKey, tValue) in translatableDict {
             // Check if there is expression in tKey
-            if let existingExpression = Expression.expressionFromString(tKey) {
-                
-                // If there is pattern to replace with original
-                if let sharedExpression = expressions.filter({$0.key == existingExpression.pattern}).first {
+            if let existingExpression = Expression.expressionFromString(tKey),
+                let sharedExpression = expressions.filter({$0.key == existingExpression.pattern}).first,
+                // Create expression with pattern from Expressions.strings and 
+                // it it is correct use it
+                let updatedExpression = Expression.expressionFromString("{" + sharedExpression.expression + "}"),
+                // Add translable pair with this new updated expression
+                let keyWithoutExpression = Regex.firstMatchInString(tKey, pattern: InternalPatterns.KeyWithoutExpression.rawValue) {
                     
-                    // Create expression with pattern from Expressions.strings and it it is correct use it
-                    if let updatedExpression = Expression.expressionFromString("{" + sharedExpression.expression + "}") {
-                        
-                        // Add translable pair with this new updated expression
-                        if let keyWithoutExpression = Regex.firstMatchInString(tKey, pattern: InternalPatterns.KeyWithoutExpression.rawValue) {
-                            pairs.append(TranslatablePair(key: keyWithoutExpression + "{" + updatedExpression.pattern + "}", value: tValue))
-                            continue
-                        }
-                    }
-
-                }
+                pairs.append(TranslatablePair(key: keyWithoutExpression + "{" + updatedExpression.pattern + "}", value: tValue))
+                continue
             }
             
             pairs.append(TranslatablePair(key: tKey, value: tValue))
@@ -103,9 +101,11 @@ public class Swifternalization {
     }
 }
 
+/**
+Internal Shared Instance support.
+*/
 extension Swifternalization {
     
-    // Shared instance support
     private struct Static {
         static var instance: Swifternalization? = nil
     }
@@ -120,7 +120,7 @@ extension Swifternalization {
 }
 
 /**
-Simple key
+Simple primitive key-value support
 */
 public extension Swifternalization {
     
@@ -144,7 +144,7 @@ public extension Swifternalization {
 }
 
 /**
-Inequality expression keys
+Expressions key-value translations support.
 */
 public extension Swifternalization {
     public class func localizedExpressionString(key: String, value: String, defaultValue: String? = nil) -> String {
@@ -172,7 +172,9 @@ public extension Swifternalization {
     }
 }
 
-// Int support
+/**
+Int support for expressions key-value translations.
+*/
 public extension Swifternalization {
     public class func localizedExpressionString(key: String, value: Int, defaultValue: String? = nil) -> String {
         return self.localizedExpressionString(key, value: "\(value)", defaultValue: defaultValue)
