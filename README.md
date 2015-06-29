@@ -19,7 +19,7 @@ Swifternalization is library that helps in localizing apps. It is written in Swi
 Swifternalization helps in localizing apps in a smarter way. It has been created because of necessary to solve Polish language internalization problems but it is universal and works with every language. 
 
 ## Failing builds (temporary section)
-I noticed that Travis CI sometimes reports that build failed. I don't know why, it can pass and fail on the same commit so this is very weird. Framework is of course working and it is covered by many unit tests. I think this is some issue with wrong Travis configuration.
+I noticed that Travis CI sometimes reports that build failed. I don't know why, it can pass and fail on the same commit so this is very weird. Framework is of course working and it is covered by many unit tests. I think this is some issue with wrong Travis configuration. [#4 Failing Travis CI builds](https://github.com/tomkowz/Swifternalization/issues/4)
 
 ## Installation
 With CocoaPods:
