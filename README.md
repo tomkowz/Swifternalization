@@ -27,6 +27,9 @@ With CocoaPods:
 Without CocoaPods:
 If you want to integrate it with your project just import files from *Swifternalization/Swifternalization* directory.
 
+## Documentation
+
+Documentation is in phase of writing... ;) You can find documentation in the latest state on [documentation branch](https://github.com/tomkowz/Swifternalization/tree/documentation/docs). It will be released in 2/3 days. - July 2nd.
 
 ## Real Example
 
