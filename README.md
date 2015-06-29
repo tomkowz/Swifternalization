@@ -327,9 +327,6 @@ Swifternalization supports Swift 2 and works on Xcode 7 beta 2. Please check *sw
 
 
 ## Things to do in future release:
-
-- Add logs ASAP. There is no logs in the app. If something goes wrong it simply crash. It crashed in 99.99% because of wrong syntax of expression in *Localizable.strings* or *Expressions.strings*.
-- Add handling to wrongly passed expressions instead of crashing.
 - Add more built-in expressions for another countries.
 
 ## LICENSE
