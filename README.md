@@ -16,6 +16,16 @@ Swifternalization is library that helps in localizing apps. It is written in Swi
 # Swifternalization 
 Swifternalization helps in localizing apps in a smarter way. It has been created because of necessary to solve Polish language internalization problems but it is universal and works with every language. 
 
+## Installation
+
+With CocoaPods:
+
+    pod 'Swifternalization', '~> 1.0.2'
+
+Without CocoaPods:
+If you want to integrate it with your project just import files from *Swifternalization/Swifternalization* directory.
+
+
 ## Real Example
 
 Let's take a look on practical usage of Swifternalization. App supports both English and Polish languages. Naturally app contains two *Localizable.strings* files - one is Base for English (or English for English) and one is Polish... for Polish, obviously :)
@@ -142,9 +152,6 @@ Swifternalization also drops need for having *.stringdicts* files like this one:
 	    </dict>
 	</plist>
 
-## Installation
-
-Pod is not created yet, will be soon. If you want to integrate it with your project just import files from *Swifternalization/Swifternalization* directory.
 
 ## Getting Started
 
