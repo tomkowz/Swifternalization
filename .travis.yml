@@ -1,5 +1,9 @@
 language: objective-c
 
+branches:
+  only:
+    - master
+
 xcode_project: Swifternalization.xcodeproj
 xcode_scheme: SwifternalizationTests
 osx_image: beta-xcode6.3
