@@ -128,7 +128,7 @@ public extension Swifternalization {
     // key - key in Localizable.strings
     // defaultValue - will be return when nothing can be found
     // otherwise will return key
-    public class func localizedString(key: String, defaultValue: String? = nil) -> String {
+    public class func localizedString(key: String, defaultValue: String? = nil, comment: String? = nil) -> String {
         if sharedInstance() == nil { return (defaultValue != nil) ? defaultValue! : key }
         
         for TranslatablePair in sharedInstance().preferredPairs.filter({$0.key == key}) {
@@ -147,7 +147,7 @@ public extension Swifternalization {
 Expressions key-value translations support.
 */
 public extension Swifternalization {
-    public class func localizedExpressionString(key: String, value: String, defaultValue: String? = nil) -> String {
+    public class func localizedExpressionString(key: String, value: String, defaultValue: String? = nil, comment: String? = nil) -> String {
         if sharedInstance() == nil { return (defaultValue != nil) ? defaultValue! : key }
         
         let filter = {(pair: TranslatablePair) -> Bool  in
@@ -176,7 +176,7 @@ public extension Swifternalization {
 Int support for expressions key-value translations.
 */
 public extension Swifternalization {
-    public class func localizedExpressionString(key: String, value: Int, defaultValue: String? = nil) -> String {
-        return self.localizedExpressionString(key, value: "\(value)", defaultValue: defaultValue)
+    public class func localizedExpressionString(key: String, value: Int, defaultValue: String? = nil, comment: String? = nil) -> String {
+        return self.localizedExpressionString(key, value: "\(value)", defaultValue: defaultValue, comment: comment)
     }
 }
