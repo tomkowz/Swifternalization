@@ -1,6 +1,8 @@
 ![Swifternalization: localize apps smarter](https://raw.githubusercontent.com/tomkowz/Swifternalization/master/page-assets/swifternalization-header.png)
 
-[![Build Status](https://travis-ci.org/tomkowz/Swifternalization.svg?branch=master)](https://travis-ci.org/tomkowz/Swifternalization) <a href="https://flattr.com/submit/auto?user_id=tomkowz&url=http%3A%2F%2Fgithub.com%2Ftomkowz%2FSwifternalization" target="_blank"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
+[![Build Status](https://travis-ci.org/tomkowz/Swifternalization.svg?branch=master)](https://travis-ci.org/tomkowz/Swifternalization) 
+![CocoaPods Status](https://img.shields.io/cocoapods/v/Swifternalization.svg)
+<a href="https://flattr.com/submit/auto?user_id=tomkowz&url=http%3A%2F%2Fgithub.com%2Ftomkowz%2FSwifternalization" target="_blank"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
 
 Swifternalization is library that helps in localizing apps. It is written in Swift.
 
