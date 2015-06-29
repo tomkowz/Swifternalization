@@ -2,3 +2,4 @@ language: objective-c
 
 xcode_project: Swifternalization.xcodeproj
 xcode_scheme: SwifternalizationTests
+osx_image: xcode6.3
