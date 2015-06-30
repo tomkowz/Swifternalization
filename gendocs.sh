@@ -1,7 +1,6 @@
 rm -rf docs
 
-jazzy -o docs/framework -a 'Tomasz Szulc' -u 'http://szulctomasz.com' -g 'http://github.com/tomkowz/Swifternalization' --min-acl private
-
-jazzy -o docs/public -a 'Tomasz Szulc' -u 'http://szulctomasz.com' -g 'http://github.com/tomkowz/Swifternalization' --min-acl public
+jazzy -o docs/framework --podspec Swifternalization.podspec --min-acl private -m "Swifternalization"
+jazzy -o docs/public --podspec Swifternalization.podspec --min-acl public -m "Swifternalization Public API"
 
 rm -rf build
