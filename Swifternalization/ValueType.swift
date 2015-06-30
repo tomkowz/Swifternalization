@@ -8,6 +8,11 @@
 
 import Foundation
 
+/** 
+Supported value types used by `InequalityExpressionMatcher` and
+`InequalityExtendedExpressionMatcher`.
+*/
 enum ValueType: String {
+    /// `Int`
     case Integer = "%d"
 }

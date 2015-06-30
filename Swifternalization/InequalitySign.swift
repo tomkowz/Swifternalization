@@ -8,13 +8,22 @@
 
 import Foundation
 
+/**
+Defines inequality signs used by inquality and inequality extended expressions.
+*/
 enum InequalitySign: String {
+    /// Less than a value
     case LessThan = "<"
+    /// Less than or equal a value
     case LessThanOrEqual = "<="
+    /// Equal a value
     case Equal = "="
+    /// Greater than or equal a value
     case GreaterThanOrEqual = ">="
+    /// Greater than a value
     case GreaterThan = ">"
     
+    /// Inverts enum
     func invert() -> InequalitySign {
         switch self {
         case .LessThan: return .GreaterThan

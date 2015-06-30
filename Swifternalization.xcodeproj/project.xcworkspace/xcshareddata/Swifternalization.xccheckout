@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>9F688064-58DF-46DE-9E10-CDA650C91152</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Swifternalization</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>5E507D4294204C7E5B5C2C4F2C3F2430E61959A1</key>
 		<string>https://github.com/tomkowz/Swifternalization.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Swifternalization.xcodeproj/project.xcworkspace</string>
+	<string>Swifternalization.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>5E507D4294204C7E5B5C2C4F2C3F2430E61959A1</key>

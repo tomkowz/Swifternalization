@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Swifternalization Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/Swifternalization" class="dashAnchor"></a>
+    <a title="Swifternalization Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="http://github.com/tomkowz/Swifternalization"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Swifternalization Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+          <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Expression.html">Expression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InequalityExpressionParser.html">InequalityExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InequalityExtendedExpressionParser.html">InequalityExtendedExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LocalizableFilesLoader.html">LocalizableFilesLoader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Regex.html">Regex</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RegexExpressionParser.html">RegexExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedBaseExpression.html">SharedBaseExpression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedExpressionsConfigurator.html">SharedExpressionsConfigurator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedPolishExpression.html">SharedPolishExpression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Swifternalization.html">Swifternalization</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ExpressionType.html">ExpressionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/InequalitySign.html">InequalitySign</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/InternalPattern.html">InternalPattern</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/StringsFileType.html">StringsFileType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ValueType.html">ValueType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/ExpressionMatcher.html">ExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ExpressionParser.html">ExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/KeyValue.html">KeyValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SharedExpressionProtocol.html">SharedExpressionProtocol</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/InequalityExpressionMatcher.html">InequalityExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/InequalityExtendedExpressionMatcher.html">InequalityExtendedExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RegexExpressionMatcher.html">RegexExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SharedExpression.html">SharedExpression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TranslatablePair.html">TranslatablePair</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization13BasePrefDicts">BasePrefDicts</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization17ExpressionPattern">ExpressionPattern</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization4I18n">I18n</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization6KVDict">KVDict</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization3Key">Key</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization8Language">Language</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization12RegexPattern">RegexPattern</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization5Value">Value</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Swifternalization</h1>
+            <p>This is the main class of Swifternalization library. It exposes methods
+that can be used to get localized keys with or without expressions from 
+Localizable.strings files.</p>
+
+<p>It also uses Expressions.strings files to manage shared expressions that
+can have theirs identifiers placed in many versions of the Localizable.strings
+file.</p>
+
+<p>Internal classes of the Swifternalization contains logic that is responsible 
+for detecting which value should be used for the given key and value.</p>
+
+<p>It is able to work with genstrings command-line tool like NSLocalizedString() 
+macro does.</p>
+
+<p>It looks for content in the NSBundle you can provide and try to find:</p>
+
+<ul>
+<li>Localizable.strings (Base),</li>
+<li>Localizable.strings of preferred language, e.g. Localizable.strings (en)</li>
+<li>Expressions.strings (Base), </li>
+<li>Expressions.strings of preferred language, e.g. Expressions.strings (en)</li>
+</ul>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:VC17Swifternalization17SwifternalizationP33_720681A663E353B3A54C8AE5B754012C6Static"></a>
+                    <a name="//apple_ref/swift/Struct/Static" class="dashAnchor"></a>
+                    <a class="token" href="#/s:VC17Swifternalization17SwifternalizationP33_720681A663E353B3A54C8AE5B754012C6Static">Static</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Struct to keep shared instance of <code>Swifternalization</code></p>
+
+                        <a href="../Classes/Swifternalization/Static.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">struct</span> <span class="kt">Static</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17Swifternalization17SwifternalizationP33_720681A663E353B3A54C8AE5B754012C6bundleCSo8NSBundle"></a>
+                    <a name="//apple_ref/swift/Property/bundle" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17Swifternalization17SwifternalizationP33_720681A663E353B3A54C8AE5B754012C6bundleCSo8NSBundle">bundle</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Bundle when Localizable and Expressions .strings files are located.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">bundle</span><span class="p">:</span> <span class="kt">NSBundle</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17Swifternalization17SwifternalizationP33_720681A663E353B3A54C8AE5B754012C9basePairsGSaVS_16TranslatablePair_"></a>
+                    <a name="//apple_ref/swift/Property/basePairs" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17Swifternalization17SwifternalizationP33_720681A663E353B3A54C8AE5B754012C9basePairsGSaVS_16TranslatablePair_">basePairs</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>key-value from base Localizable.strings file</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">basePairs</span> <span class="o">=</span> <span class="p">[</span><span class="kt">TranslatablePair</span><span class="p">]()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17Swifternalization17SwifternalizationP33_720681A663E353B3A54C8AE5B754012C14preferredPairsGSaVS_16TranslatablePair_"></a>
+                    <a name="//apple_ref/swift/Property/preferredPairs" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17Swifternalization17SwifternalizationP33_720681A663E353B3A54C8AE5B754012C14preferredPairsGSaVS_16TranslatablePair_">preferredPairs</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>key-value airs from preferred language Localizable.strings file</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">preferredPairs</span> <span class="o">=</span> <span class="p">[</span><span class="kt">TranslatablePair</span><span class="p">]()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+                <div class="task-name-container">
+                  <a name="/Public%20methods"></a>
+                  <a name="//apple_ref/swift/Section/Public methods" class="dashAnchor"></a>
+                  <a href="#/Public%20methods">
+                    <h3 class="section-name">Public methods</h3>
+                  </a>
+                </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17Swifternalization17SwifternalizationcFMS0_FT6bundleCSo8NSBundle_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(bundle:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17Swifternalization17SwifternalizationcFMS0_FT6bundleCSo8NSBundle_S0_">init(bundle:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Swifternalization takes NSBundle when Localizable.strings file is located.
+This method return instance of the class but you don&rsquo;t need it because 
+shared instance is set automatically.</p>
+
+<p>It get Localizable.strings file version based on the first language from 
+the prefferedLocalizations property of NSBundle. If Localizable.strings for
+preferred language isn&rsquo;t exist then Base is used instead.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">bundle</span><span class="p">:</span> <span class="kt">NSBundle</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bundle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>bundle when .strings files are located.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC17Swifternalization17Swifternalization15localizedStringFMS0_FTSS12defaultValueGSqSS_7commentGSqSS__SS"></a>
+                    <a name="//apple_ref/swift/Method/localizedString(_:defaultValue:comment:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization17Swifternalization15localizedStringFMS0_FTSS12defaultValueGSqSS_7commentGSqSS__SS">localizedString(_:defaultValue:comment:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns localized string for simple key that does not contain any expression.</p>
+
+<pre class="highlight plaintext"><code>I18n.localizedString("car")
+I18n.localizedString("car", defaultValue: "Audi")
+I18n.localizedString("car", defaultValue: "Audi", comment: "Comment")
+I18n.localizedString("car", comment: "Comment")
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">localizedString</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">defaultValue</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">comment</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>key placed in Localizable.strings file.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>defaultValue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>default value that will be returned when there is no 
+translation for passed key. Default is nil.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>comment</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>comment used by genstrings tool to generate description of 
+a key. Default is nil.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Returns translation for passed key if found. If not found and 
+defaultValue is not nil it return defaultValue, otherwise
+returns key.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC17Swifternalization17Swifternalization25localizedExpressionStringFMS0_FTSS5valueSS12defaultValueGSqSS_7commentGSqSS__SS"></a>
+                    <a name="//apple_ref/swift/Method/localizedExpressionString(_:value:defaultValue:comment:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization17Swifternalization25localizedExpressionStringFMS0_FTSS5valueSS12defaultValueGSqSS_7commentGSqSS__SS">localizedExpressionString(_:value:defaultValue:comment:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns localized string for key which contains expression.</p>
+
+<pre class="highlight plaintext"><code>I18n.localizedExpressionString("cars", value: "10")
+I18n.localizedExpressionString("cars", value: "10", defaultValue: "Few cars")
+I18n.localizedExpressionString("cars", value: "10", defaultValue: "10", comment: "This is a comment")
+I18n.localizedExpressionString("cars", value: "10", comment: "This is a comment")
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">localizedExpressionString</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">defaultValue</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">comment</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>key placed in Localizable.strings file.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>value used when validating expressions.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>defaultValue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>default value that will be returned when there is no 
+translation for passed key. Default is nil.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>comment</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>comment used by genstrings tool to generate description 
+of a key. Default is nil.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Returns translation for passed key if found. If not found and 
+defaultValue is not nil it return defaultValue, otherwise returns key.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC17Swifternalization17Swifternalization25localizedExpressionStringFMS0_FTSS5valueSi12defaultValueGSqSS_7commentGSqSS__SS"></a>
+                    <a name="//apple_ref/swift/Method/localizedExpressionString(_:value:defaultValue:comment:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization17Swifternalization25localizedExpressionStringFMS0_FTSS5valueSi12defaultValueGSqSS_7commentGSqSS__SS">localizedExpressionString(_:value:defaultValue:comment:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is just extension to method
+<code>localizedExpressionString(_:value:defaultValue:comment:)</code> that takes 
+<code>String</code> as a <code>value</code> parameter.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">localizedExpressionString</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">defaultValue</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">comment</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+                <div class="task-name-container">
+                  <a name="/Private%20methods"></a>
+                  <a name="//apple_ref/swift/Section/Private methods" class="dashAnchor"></a>
+                  <a href="#/Private%20methods">
+                    <h3 class="section-name">Private methods</h3>
+                  </a>
+                </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC17Swifternalization17SwifternalizationP33_720681A663E353B3A54C8AE5B754012C17setSharedInstanceFMS0_FS0_T_"></a>
+                    <a name="//apple_ref/swift/Method/setSharedInstance(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization17SwifternalizationP33_720681A663E353B3A54C8AE5B754012C17setSharedInstanceFMS0_FS0_T_">setSharedInstance(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method that set shared instance of Swifternalization</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">setSharedInstance</span><span class="p">(</span><span class="nv">instance</span><span class="p">:</span> <span class="kt">Swifternalization</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC17Swifternalization17SwifternalizationP33_720681A663E353B3A54C8AE5B754012C14sharedInstanceFMS0_FT_GSQS0__"></a>
+                    <a name="//apple_ref/swift/Method/sharedInstance()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization17SwifternalizationP33_720681A663E353B3A54C8AE5B754012C14sharedInstanceFMS0_FT_GSQS0__">sharedInstance()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method that returns shared instance of Swifternalization</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">sharedInstance</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Swifternalization</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17Swifternalization17SwifternalizationP33_720681A663E353B3A54C8AE5B754012C4loadFS0_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/load()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17Swifternalization17SwifternalizationP33_720681A663E353B3A54C8AE5B754012C4loadFS0_FT_T_">load()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method responsible for loading content into Swifternaliztion library. 
+It takes preferred language of user&rsquo;s device, and tries to find 
+Localizable.strings (Preferred Language) and Localizable.strings (Base) 
+to get keys and values of words to translate.</p>
+
+<p>It also tries to find and load Expressions.strings (Preferred Language)
+and Expressions.strings (Base) files when shared expressions might be 
+and tries to combine them together with built-in shared expression,
+and at the end enumeate through key-value pairs for translation and 
+changes keys that have only expression shortcuts to full expressions.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">load</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17Swifternalization17SwifternalizationP33_720681A663E353B3A54C8AE5B754012C20getPreferredLanguageFS0_FT_SS"></a>
+                    <a name="//apple_ref/swift/Method/getPreferredLanguage()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17Swifternalization17SwifternalizationP33_720681A663E353B3A54C8AE5B754012C20getPreferredLanguageFS0_FT_SS">getPreferredLanguage()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets preferred language of user&rsquo;s device</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">getPreferredLanguage</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Language</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17Swifternalization17SwifternalizationP33_720681A663E353B3A54C8AE5B754012C21createTranslablePairsFS0_FTGVSs10DictionarySSSS_11expressionsGSaVS_16SharedExpression__GSaVS_16TranslatablePair_"></a>
+                    <a name="//apple_ref/swift/Method/createTranslablePairs(_:expressions:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17Swifternalization17SwifternalizationP33_720681A663E353B3A54C8AE5B754012C21createTranslablePairsFS0_FTGVSs10DictionarySSSS_11expressionsGSaVS_16SharedExpression__GSaVS_16TranslatablePair_">createTranslablePairs(_:expressions:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enumerate through translatable pairs dict and check if there are some shared 
+expression identifiers that needs to be replaced with full expressions.</p>
+
+<p>Next create translatable pairs with susch updated expressions to make it
+ready to be used by framework.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">createTranslablePairs</span><span class="p">(</span><span class="nv">translatableDict</span><span class="p">:</span> <span class="kt">KVDict</span><span class="p">,</span> <span class="nv">expressions</span><span class="p">:</span> <span class="p">[</span><span class="kt">SharedExpression</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">TranslatablePair</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="http://szulctomasz.com" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-06-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
