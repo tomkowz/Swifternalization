@@ -25,7 +25,7 @@ I noticed that Travis CI sometimes reports that build failed. I don't know why, 
 ## Installation
 With CocoaPods:
 
-    pod 'Swifternalization', '~> 1.0.2'
+    pod 'Swifternalization', '~> 1.0.2.1'
 
 Without CocoaPods:
 If you want to integrate it with your project just import files from *Swifternalization/Swifternalization* directory.
