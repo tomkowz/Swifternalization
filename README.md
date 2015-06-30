@@ -30,7 +30,10 @@ Without CocoaPods:
 If you want to integrate it with your project just import files from *Swifternalization/Swifternalization* directory.
 
 ## Documentation
-Documentation is in phase of writing... ;) You can find documentation in the latest state on [documentation branch](https://github.com/tomkowz/Swifternalization/tree/documentation/docs). It will be released in 2/3 days. - July 2nd. [#3 Create documentation for the framework](https://github.com/tomkowz/Swifternalization/issues/3)
+Swifternalization documentation covers 100% of the code, Yay! Two types of documentation have been generated. One covers only public API which is great for those who only wants to use the framework without looking inside. The second one covers all the API public, internal and private. (The best for now is to download repository since I'm working on making it easily browsable).
+
+- [Public API documentation](https://github.com/tomkowz/Swifternalization/tree/master/docs/public)
+- [Full API documentation](https://github.com/tomkowz/Swifternalization/tree/master/docs/framework)
 
 ## Real Example
 
