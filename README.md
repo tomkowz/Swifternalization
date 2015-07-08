@@ -206,7 +206,7 @@ As mentioned there are few *expression types*. Every expression type has their o
 
 There are 3 types:
 
-- *inequality* - this type of expression handles simple ineuqalities like: *%d<3*, *%d>10*, *%d=5*, *%d<=3*, and so on.
+- *inequality* - this type of expression handles simple inequalities like: *%d<3*, *%d>10*, *%d=5*, *%d<=3*, and so on.
 - *inequality extended* - this is extended version of *inequality* with syntax like this: *2<%d<10*, *4<=%d<6*.
 - *regex* - this types of expression uses regular expression. This is the most powerful ;)
 
