@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D140F441B56D03D00359143 /* RandomNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D140F431B56D03D00359143 /* RandomNumbers.swift */; };
 		6D50044E1B3EF91600A54B36 /* Swifternalization.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D50044D1B3EF91600A54B36 /* Swifternalization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6D5004541B3EF91600A54B36 /* Swifternalization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5004481B3EF91600A54B36 /* Swifternalization.framework */; };
 		6D50045B1B3EF91600A54B36 /* SwifternalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D50045A1B3EF91600A54B36 /* SwifternalizationTests.swift */; };
@@ -85,6 +86,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D140F431B56D03D00359143 /* RandomNumbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomNumbers.swift; sourceTree = "<group>"; };
 		6D5004481B3EF91600A54B36 /* Swifternalization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swifternalization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D50044C1B3EF91600A54B36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D50044D1B3EF91600A54B36 /* Swifternalization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swifternalization.h; sourceTree = "<group>"; };
@@ -164,6 +166,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D140F451B56D04300359143 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6D140F431B56D03D00359143 /* RandomNumbers.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		6D50043E1B3EF91600A54B36 = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +232,7 @@
 		6D5004571B3EF91600A54B36 /* SwifternalizationTests */ = {
 			isa = PBXGroup;
 			children = (
+				6D140F451B56D04300359143 /* Helpers */,
 				6D6282971B3F13C300E65FCD /* ExpressionTests.swift */,
 				6D6282BE1B3F42CA00E65FCD /* InequalityExpressionMatcherTests.swift */,
 				6D6282A81B3F25DC00E65FCD /* InequalityExpressionParserTests.swift */,
@@ -485,6 +496,7 @@
 				6D6282961B3F063A00E65FCD /* Expression.swift in Sources */,
 				6DBB6C921B40769F002F39A3 /* SharedBaseExpression.swift in Sources */,
 				6D6282B31B3F3C2800E65FCD /* InequalityExtendedExpressionParser.swift in Sources */,
+				6D140F441B56D03D00359143 /* RandomNumbers.swift in Sources */,
 				6D6282AD1B3F327C00E65FCD /* InequalityExpressionMatcher.swift in Sources */,
 				6D62829D1B3F19CC00E65FCD /* RegexTests.swift in Sources */,
 				6D6282CB1B3F508C00E65FCD /* RegexExpressionParserTests.swift in Sources */,

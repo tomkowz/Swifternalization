@@ -12,45 +12,75 @@ import Swifternalization
 
 class InequalityExpressionParserTests: XCTestCase {
 
-    func testParser1() {
-        let matcher = InequalityExpressionParser("ie:x=3").parse() as! InequalityExpressionMatcher
-        XCTAssertTrue(matcher.sign == .Equal, "should be equal")
-        XCTAssertTrue(matcher.value == 3, "should be 3")
+    func createMatcher(pattern: ExpressionPattern) -> InequalityExpressionMatcher {
+        return InequalityExpressionParser(pattern).parse() as! InequalityExpressionMatcher
     }
     
-    func testParser2() {
-        let matcher = InequalityExpressionParser("ie:x>3").parse() as! InequalityExpressionMatcher
-        XCTAssertTrue(matcher.sign == .GreaterThan, "should be greater than")
-        XCTAssertTrue(matcher.value == 3, "should be 3")
+    // MARK: - Int
+    func testIE1() {
+        let m = createMatcher("ie:x=3")
+        XCTAssertEqual(m.sign, .Equal, "")
+        XCTAssertEqual(m.value, 3, "")
     }
     
-    func testParser3() {
-        let matcher = InequalityExpressionParser("ie:x<3").parse() as! InequalityExpressionMatcher
-        XCTAssertTrue(matcher.sign == .LessThan, "should be less than")
-        XCTAssertTrue(matcher.value == 3, "should be 3")
+    func testIE2() {
+        let m = createMatcher("ie:x>3")
+        XCTAssertEqual(m.sign, .GreaterThan, "")
+        XCTAssertEqual(m.value, 3, "")
     }
     
-    func testParser4() {
-        let matcher = InequalityExpressionParser("ie:x<=3").parse() as! InequalityExpressionMatcher
-        XCTAssertTrue(matcher.sign == .LessThanOrEqual, "should be less than or equal")
-        XCTAssertTrue(matcher.value == 3, "should be 3")
+    func testIE3() {
+        let m = createMatcher("ie:x<3")
+        XCTAssertEqual(m.sign, .LessThan, "")
+        XCTAssertEqual(m.value, 3, "")
     }
     
-    func testParser5() {
-        let matcher = InequalityExpressionParser("ie:x>=3").parse() as! InequalityExpressionMatcher
-        XCTAssertTrue(matcher.sign == .GreaterThanOrEqual, "should be greater than or equal")
-        XCTAssertTrue(matcher.value == 3, "should be 3")
+    func testIE4() {
+        let m = createMatcher("ie:x<=3")
+        XCTAssertEqual(m.sign, .LessThanOrEqual, "")
+        XCTAssertEqual(m.value, 3, "")
     }
     
-    func testParser6() {
-        let matcher = InequalityExpressionParser("ie:x=11").parse() as! InequalityExpressionMatcher
-        XCTAssertTrue(matcher.sign == .Equal, "should be equal")
-        XCTAssertTrue(matcher.value == 11, "should be 11")
+    func testIE5() {
+        let m = createMatcher("ie:x>=3")
+        XCTAssertEqual(m.sign, .GreaterThanOrEqual, "")
+        XCTAssertEqual(m.value, 3, "")
     }
     
-    func testParser7() {
-        let matcher = InequalityExpressionParser("ie:x=-5").parse() as! InequalityExpressionMatcher
-        XCTAssertTrue(matcher.sign == .Equal, "should be equal")
-        XCTAssertTrue(matcher.value == -5, "should be -5")
+    func testIE6() {
+        let m = createMatcher("ie:x=11")
+        XCTAssertEqual(m.sign, .Equal, "")
+        XCTAssertEqual(m.value, 11, "")
+    }
+    
+    func testIE7() {
+        let m = createMatcher("ie:x=-5")
+        XCTAssertEqual(m.sign, .Equal, "")
+        XCTAssertEqual(m.value, -5, "")
+    }
+    
+    // MARK: - Float
+    func testIE8() {
+        let m = createMatcher("ie:x=3.0")
+        XCTAssertEqual(m.sign, .Equal, "")
+        XCTAssertEqual(m.value, 3.0, "")
+    }
+    
+    func testIE9() {
+        let m = createMatcher("ie:x<3.6")
+        XCTAssertEqual(m.sign, .LessThan, "")
+        XCTAssertEqual(m.value, 3.6, "")
+    }
+    
+    func testIE10() {
+        let m = createMatcher("ie:x>-44.45")
+        XCTAssertEqual(m.sign, .GreaterThan, "")
+        XCTAssertEqual(m.value, -44.45, "")
+    }
+    
+    func testIE11() {
+        let m = createMatcher("ie:x>=-44.45")
+        XCTAssertEqual(m.sign, .GreaterThanOrEqual, "")
+        XCTAssertEqual(m.value, -44.45, "")
     }
 }
