@@ -9,7 +9,7 @@
 import Foundation
 
 /**
-Parses inequality extended expressions. `iex:5<%d<10`.
+Parses inequality extended expressions. `iex:5<x<10`.
 */
 class InequalityExtendedExpressionParser: InequalityExpressionParser {
     
@@ -19,17 +19,17 @@ class InequalityExtendedExpressionParser: InequalityExpressionParser {
     :returns: `ExpressionMatcher` or nil if `pattern` cannot be parsed.
     */
     override func parse() -> ExpressionMatcher? {
-        if let valueType = valueType(),
-            var firstSign = firstSign(),
+        if  var firstSign = firstSign(),
             let firstValue = firstValue(),
             let secondSign = secondSign(),
             let secondValue = secondValue() {
                 
-                // Invert first sign if number is positive or zero
-                firstSign = firstValue < 0 ? firstSign : firstSign.invert()
-                
-                let leftMatcher = InequalityExpressionMatcher(valueType: valueType, sign: firstSign, value: firstValue)
-                let rightMatcher = InequalityExpressionMatcher(valueType: valueType, sign: secondSign, value: secondValue)
+                if firstValue < secondValue {
+                    firstSign = firstSign.invert()
+                }
+                                
+                let leftMatcher = InequalityExpressionMatcher(sign: firstSign, value: firstValue)
+                let rightMatcher = InequalityExpressionMatcher(sign: secondSign, value: secondValue)
                 return InequalityExtendedExpressionMatcher(left: leftMatcher, right: rightMatcher)
         }
         
@@ -43,8 +43,8 @@ class InequalityExtendedExpressionParser: InequalityExpressionParser {
     
     :returns: `Int` or nil if value cannot be found.
     */
-    private func firstValue() -> Int? {
-        return getValue("(?<=^iex:)((\\d+)|(-\\d+))", failureMessage: "Cannot find first value")
+    private func firstValue() -> Double? {
+        return getValue(ExpressionType.InequalityExtended.rawValue+":(?<=^iex:)(-?\\d+[.]{0,1}[\\d]{0,})", failureMessage: "Cannot find first value", capturingGroupIdx: 1)
     }
     
     
@@ -54,16 +54,7 @@ class InequalityExtendedExpressionParser: InequalityExpressionParser {
     :returns: inequality sign or nil if sign cannot be found.
     */
     private func firstSign() -> InequalitySign? {
-        return getSign("(?<=^iex:-.|^iex:.)(<=|<|=|>=|>)", failureMessage: "Cannot find first sign")
-    }
-    
-    /**
-    Method parses value type.
-    
-    :returns: A `ValueType` or nil if value cannot be found.
-    */
-    private func valueType() -> ValueType? {
-        return getValueType("(%[d])", failureMessage: "Cannot find type of value [%d]")
+        return getSign(ExpressionType.InequalityExtended.rawValue+":-?\\d{0,}[.]?\\d{0,}(<=|<|)", failureMessage: "Cannot find first sign", capturingGroupIdx: 1)
     }
     
     /**
@@ -72,7 +63,7 @@ class InequalityExtendedExpressionParser: InequalityExpressionParser {
     :returns: A second sign or nil if sign cannot be found.
     */
     private func secondSign() -> InequalitySign? {
-        return getSign("(?<=%[d])(<=|<|=|>=|>)", failureMessage: "Cannot find second sign")
+        return getSign(ExpressionType.InequalityExtended.rawValue+":[-]?\\d*[.]?\\d*[<=>]{1,2}x(<=|<|)", failureMessage: "Cannot find second sign", capturingGroupIdx: 1)
     }
     
     /**
@@ -80,7 +71,7 @@ class InequalityExtendedExpressionParser: InequalityExpressionParser {
     
     :returns: A second value or nil if value cannot be found.
     */
-    private func secondValue() -> Int? {
-        return getValue("(?<=%[d]<=|<|=|>=|>)((\\d+)|(-\\d+))", failureMessage: "Cannot find second value")
+    private func secondValue() -> Double? {
+        return getValue("(?<=x<=|<)(-?\\d+[.]{0,1}[\\d]{0,})", failureMessage: "Cannot find second value", capturingGroupIdx: 1)
     }
 }

@@ -12,6 +12,33 @@ import Foundation
 Class uses NSRegularExpression internally and simplifies its usability.
 */
 class Regex {
+    
+    /**
+    Return match in a string. Optionally with index of capturing group
+    
+    :param: str A string that will be matched.
+    :param: pattern A regex pattern.
+    
+    :returns: `String` that matches pattern or nil.
+    */
+    class func matchInString(str: String, pattern: String, capturingGroupIdx: Int?) -> String? {
+        var resultString: String?
+        
+        let range = NSMakeRange(0, count(str))
+        regexp(pattern)?.enumerateMatchesInString(str, options: nil, range: range, usingBlock: { result, flags, stop in
+            if let result = result {
+                if let capturingGroupIdx = capturingGroupIdx where result.numberOfRanges > capturingGroupIdx {
+                    resultString = self.substring(str, range: result.rangeAtIndex(capturingGroupIdx))
+                } else {
+                    resultString = self.substring(str, range: result.range)
+                }
+            }
+        })
+        
+        return resultString
+    }
+    
+    
     /**
     Return first match in a string.
     

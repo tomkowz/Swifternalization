@@ -206,24 +206,24 @@ As mentioned there are few *expression types*. Every expression type has their o
 
 There are 3 types:
 
-- *inequality* - this type of expression handles simple inequalities like: *%d<3*, *%d>10*, *%d=5*, *%d<=3*, and so on.
-- *inequality extended* - this is extended version of *inequality* with syntax like this: *2<%d<10*, *4<=%d<6*.
+- *inequality* - this type of expression handles simple inequalities like: *x<3*, *x>10*, *x=5*, *x<=3*, and so on.
+- *inequality extended* - this is extended version of *inequality* with syntax like this: *2<x<10*, *4<=x<6*.
 - *regex* - this types of expression uses regular expression. This is the most powerful ;)
 
 
 ### Inequality
-It supports numbers for now (probably there will be only supports for numbers)). It is composed of several elements:
+It is composed of several elements:
 
 - *ie:* - prefix of *inequality* expression
-- *%d* - you have to always pass it, this means that *Int* will be used for this expression
+- *x* - you have to always pass it, this means here is the place for a number that will be matched. Works with Ints and floating point numbers.
 - *<, <=, =, >=, >* - use one of inequality signs
 - *1, 3, 5, 6, ...* - value to match is the last one in this expression
 
 Example:
 
-	"cars{ie:%d=1}" = "1 car";
-	"cars{ie:%d=0}" = "no cars";
-	"cars{ie:%d>1}" = "%d cars";
+	"cars{ie:x=1}" = "1 car";
+	"cars{ie:x=0}" = "no cars";
+	"cars{ie:x>1}" = "%d cars";
 	
 
 ### Inequality Extended
@@ -231,12 +231,12 @@ Example:
 This is a bit extended version of *inequality* expression. It is composed of 2 values, one value "marker" and two inequality signs.
 
 - *iex:* - prefix of *inequality extended* expression
-- *%d* - it also works only with *Int*s for now so just pass *%d* in the place of the value to be matched
-- Inequality signs and possible values are the same like with *inequality* expression
+- *x* - place for number that will be matched. Works with Ints and floating point numbers.
+- Only *<* and *<=* are accepted.
 
 Expample:
 
-	"tomatos{iex:2<%d<10}" = "%d tomatos is between 2 and 10";
+	"tomatos{iex:2<x<10}" = "%d tomatos is between 2 and 10";
 
 
 
@@ -294,13 +294,13 @@ Example:
 	
 	Expressions.strings (Base)
 	--------------------------
-	"custom-1" = "ie:%d=1";
+	"custom-1" = "ie:x=1";
 	"custom-2" = "exp:(^[^1])|(^\\d{2,})";
 	
 	
 	Expressions.strings (Polish)
 	---------------------------
-	"custom-1" = "ie:%d=1";
+	"custom-1" = "ie:x=1";
 	"custom-2" = "exp:(((?!1).[2-4]{1})$)|(^[2-4]$)";
 	"custom-3" = "exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])";
 	

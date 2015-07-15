@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D140F441B56D03D00359143 /* RandomNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D140F431B56D03D00359143 /* RandomNumbers.swift */; };
 		6D50044E1B3EF91600A54B36 /* Swifternalization.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D50044D1B3EF91600A54B36 /* Swifternalization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6D5004541B3EF91600A54B36 /* Swifternalization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5004481B3EF91600A54B36 /* Swifternalization.framework */; };
 		6D50045B1B3EF91600A54B36 /* SwifternalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D50045A1B3EF91600A54B36 /* SwifternalizationTests.swift */; };
@@ -31,9 +32,7 @@
 		6D6282AA1B3F269900E65FCD /* ExpressionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282A41B3F24A800E65FCD /* ExpressionParser.swift */; };
 		6D6282AC1B3F327800E65FCD /* InequalityExpressionMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282AB1B3F327800E65FCD /* InequalityExpressionMatcher.swift */; };
 		6D6282AD1B3F327C00E65FCD /* InequalityExpressionMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282AB1B3F327800E65FCD /* InequalityExpressionMatcher.swift */; };
-		6D6282AF1B3F3BF700E65FCD /* ValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282AE1B3F3BF700E65FCD /* ValueType.swift */; };
 		6D6282B11B3F3C1E00E65FCD /* InequalityExtendedExpressionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282B01B3F3C1E00E65FCD /* InequalityExtendedExpressionParser.swift */; };
-		6D6282B21B3F3C2600E65FCD /* ValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282AE1B3F3BF700E65FCD /* ValueType.swift */; };
 		6D6282B31B3F3C2800E65FCD /* InequalityExtendedExpressionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282B01B3F3C1E00E65FCD /* InequalityExtendedExpressionParser.swift */; };
 		6D6282B51B3F3C4100E65FCD /* InequalitySign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282B41B3F3C4100E65FCD /* InequalitySign.swift */; };
 		6D6282B81B3F3E2200E65FCD /* InequalitySign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6282B41B3F3C4100E65FCD /* InequalitySign.swift */; };
@@ -87,6 +86,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D140F431B56D03D00359143 /* RandomNumbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomNumbers.swift; sourceTree = "<group>"; };
 		6D5004481B3EF91600A54B36 /* Swifternalization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swifternalization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D50044C1B3EF91600A54B36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D50044D1B3EF91600A54B36 /* Swifternalization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swifternalization.h; sourceTree = "<group>"; };
@@ -106,7 +106,6 @@
 		6D6282A41B3F24A800E65FCD /* ExpressionParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpressionParser.swift; sourceTree = "<group>"; };
 		6D6282A81B3F25DC00E65FCD /* InequalityExpressionParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InequalityExpressionParserTests.swift; sourceTree = "<group>"; };
 		6D6282AB1B3F327800E65FCD /* InequalityExpressionMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InequalityExpressionMatcher.swift; sourceTree = "<group>"; };
-		6D6282AE1B3F3BF700E65FCD /* ValueType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueType.swift; sourceTree = "<group>"; };
 		6D6282B01B3F3C1E00E65FCD /* InequalityExtendedExpressionParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InequalityExtendedExpressionParser.swift; sourceTree = "<group>"; };
 		6D6282B41B3F3C4100E65FCD /* InequalitySign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InequalitySign.swift; sourceTree = "<group>"; };
 		6D6282B91B3F40AF00E65FCD /* InequalityExtendedExpressionMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InequalityExtendedExpressionMatcher.swift; sourceTree = "<group>"; };
@@ -167,6 +166,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D140F451B56D04300359143 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6D140F431B56D03D00359143 /* RandomNumbers.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		6D50043E1B3EF91600A54B36 = {
 			isa = PBXGroup;
 			children = (
@@ -208,7 +215,6 @@
 				6D5004641B3EF92600A54B36 /* Swifternalization.swift */,
 				6DBB6C641B403367002F39A3 /* SharedExpressionsConfigurator.swift */,
 				6D5004651B3EF92600A54B36 /* TranslatablePair.swift */,
-				6D6282AE1B3F3BF700E65FCD /* ValueType.swift */,
 				6D50044B1B3EF91600A54B36 /* Supporting Files */,
 				6D50044D1B3EF91600A54B36 /* Swifternalization.h */,
 			);
@@ -226,6 +232,7 @@
 		6D5004571B3EF91600A54B36 /* SwifternalizationTests */ = {
 			isa = PBXGroup;
 			children = (
+				6D140F451B56D04300359143 /* Helpers */,
 				6D6282971B3F13C300E65FCD /* ExpressionTests.swift */,
 				6D6282BE1B3F42CA00E65FCD /* InequalityExpressionMatcherTests.swift */,
 				6D6282A81B3F25DC00E65FCD /* InequalityExpressionParserTests.swift */,
@@ -444,7 +451,6 @@
 				6D6282A31B3F247000E65FCD /* ExpressionMatcher.swift in Sources */,
 				6D5004661B3EF92600A54B36 /* Swifternalization.swift in Sources */,
 				6D62829A1B3F17CA00E65FCD /* Regex.swift in Sources */,
-				6D6282AF1B3F3BF700E65FCD /* ValueType.swift in Sources */,
 				6DBB6C901B40768A002F39A3 /* SharedExpression.swift in Sources */,
 				6D5004671B3EF92600A54B36 /* TranslatablePair.swift in Sources */,
 				6D6282B51B3F3C4100E65FCD /* InequalitySign.swift in Sources */,
@@ -482,7 +488,6 @@
 				6D6282C81B3F4F6400E65FCD /* RegexExpressionMatcher.swift in Sources */,
 				6DBB6C6A1B40412D002F39A3 /* InternalPattern.swift in Sources */,
 				6D6282941B3F052B00E65FCD /* TranslatablePairTests.swift in Sources */,
-				6D6282B21B3F3C2600E65FCD /* ValueType.swift in Sources */,
 				6DBB6C941B40769F002F39A3 /* SharedPolishExpression.swift in Sources */,
 				6DBB6C931B40769F002F39A3 /* SharedExpression.swift in Sources */,
 				6DBB6C521B401B8A002F39A3 /* Swifternalization.swift in Sources */,
@@ -491,6 +496,7 @@
 				6D6282961B3F063A00E65FCD /* Expression.swift in Sources */,
 				6DBB6C921B40769F002F39A3 /* SharedBaseExpression.swift in Sources */,
 				6D6282B31B3F3C2800E65FCD /* InequalityExtendedExpressionParser.swift in Sources */,
+				6D140F441B56D03D00359143 /* RandomNumbers.swift in Sources */,
 				6D6282AD1B3F327C00E65FCD /* InequalityExpressionMatcher.swift in Sources */,
 				6D62829D1B3F19CC00E65FCD /* RegexTests.swift in Sources */,
 				6D6282CB1B3F508C00E65FCD /* RegexExpressionParserTests.swift in Sources */,

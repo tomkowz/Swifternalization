@@ -11,28 +11,43 @@ import XCTest
 import Swifternalization
 
 class ExpressionTests: XCTestCase {
-
-    func testThatInequalityExpressionShouldBeCreated() {
-        XCTAssertTrue(Expression.expressionFromString("abc{ie:%d=2}") != nil, "Expression should be created")
+    // MARK: - IE
+    func testIESupported1() {
+        XCTAssertTrue(Expression.parseExpressionPattern("{ie:x>2}") != nil, "")
     }
     
-    func testThatInequalityExtendedExpressionShouldBeCreated() {
-        XCTAssertTrue(Expression.expressionFromString("abc{iex:4<%d<=5}") != nil, "Expression should be created")
+    func testIESupported2() {
+        XCTAssertNotNil(Expression.parseExpressionPattern("{ie:x>0.2}"), "")
     }
     
-    func testThatRegexExpressionShouldBeCreated() {
-        XCTAssertTrue(Expression.expressionFromString("abc{exp:.*}") != nil, "Expression should be created")
+    func testIESupported3() {
+        XCTAssertTrue(Expression.expressionFromString("abc{ie:x=2}") != nil, "")
     }
     
-    func testThatExpressionCannotBeCreated() {
-        XCTAssertTrue(Expression.expressionFromString("abc") == nil, "There is no expression here")
+    // MARK: - IEX
+    func testIEXSupported1() {
+        XCTAssertNotNil(Expression.parseExpressionPattern("{iex:0.1<x<0.2}"), "")
     }
     
-    func testThatExpressionCannotBeFound() {
-        XCTAssertFalse(Expression.parseExpressionPattern("{abc}") == nil, "Expression should not be found")
+    func testIEXSupported2() {
+        XCTAssertNotNil(Expression.parseExpressionPattern("{iex:-10.1<x<9999.7676762}"), "")
     }
     
-    func testThatExpressionCanBeFound() {
-        XCTAssertTrue(Expression.parseExpressionPattern("{ie:%d>2}") != nil, "Expression should be found")
+    func testIEXSupported3() {
+        XCTAssertTrue(Expression.expressionFromString("abc{iex:4<x<=5}") != nil, "")
+    }
+    
+    // MARK: - EX
+    func testEXPSupported1() {
+        XCTAssertTrue(Expression.expressionFromString("abc{exp:.*}") != nil, "")
+    }
+    
+    // MARK: - Not supported
+    func testNotSupported1() {
+        XCTAssertFalse(Expression.parseExpressionPattern("{abc}") == nil, "")
+    }
+    
+    func testNotSupported2() {
+        XCTAssertTrue(Expression.expressionFromString("abc") == nil, "")
     }
 }

@@ -3,16 +3,16 @@
 "only-in-base" = "this is from base";
 
 "cars{one}" = "one car";
-"cars{ie:%d>=2}" = "%d cars";
-"cars{ie:%d<=-2}" = "minus %d cars";
+"cars{ie:x>=2}" = "%d cars";
+"cars{ie:x<=-2}" = "minus %d cars";
 
 // Polish language
 "pl-cars{one}" = "jeden samochód";
-"pl-cars{iex:2<=%d<=4}" = "%d samochody";
-"pl-cars{iex:-4>=%d<=-2}" = "-2 - -4 samochody";
+"pl-cars{iex:2<=x<=4}" = "%d samochody";
+"pl-cars{iex:-4<=x<=-2}" = "-2 - -4 samochody";
 
 // Polish tricky language support
-"pl-police-cars{ie:%d=1}" = "1 samochód policyjny";
+"pl-police-cars{ie:x=1}" = "1 samochód policyjny";
 "pl-police-cars{exp:(((?!1).[2-4]{1})$)|(^[2-4]$)}" = "%d samochody policyjne";
 "pl-police-cars{custom-pl-few}" = "%d samochodów policyjnych";
 

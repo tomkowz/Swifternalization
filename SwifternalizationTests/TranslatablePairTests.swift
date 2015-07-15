@@ -17,6 +17,6 @@ class TranslatablePairTests: XCTestCase {
     }
     
     func testShouldHaveExpression() {
-        XCTAssertTrue(TranslatablePair(key: "abc{ie:%d=2}", value: "def").hasExpression, "Should have expression")
+        XCTAssertTrue(TranslatablePair(key: "abc{ie:x=2}", value: "def").hasExpression, "Should have expression")
     }
 }

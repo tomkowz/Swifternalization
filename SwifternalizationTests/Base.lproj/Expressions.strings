@@ -6,7 +6,7 @@
   Copyright (c) 2015 Tomasz Szulc. All rights reserved.
 */
 
-"ten" = "ie:%d=10";
-">20" = "ie:%d>20";
+"ten" = "ie:x=10";
+">20" = "ie:x>20";
 
 "custom-pl-few" = "exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])";
