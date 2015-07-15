@@ -76,9 +76,6 @@
               <li class="nav-group-task">
                 <a href="Enums/StringsFileType.html">StringsFileType</a>
               </li>
-              <li class="nav-group-task">
-                <a href="Enums/ValueType.html">ValueType</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -155,9 +152,7 @@
             
             <p><img src="https://raw.githubusercontent.com/tomkowz/Swifternalization/master/page-assets/swifternalization-header.png" alt="Swifternalization: localize apps smarter"></p>
 
-<p><a href="https://travis-ci.org/tomkowz/Swifternalization"><img src="https://travis-ci.org/tomkowz/Swifternalization.svg?branch=master" alt="Build Status"></a> 
-<img src="https://img.shields.io/cocoapods/v/Swifternalization.svg" alt="CocoaPods Status">
-<a href="https://flattr.com/submit/auto?user_id=tomkowz&url=http%3A%2F%2Fgithub.com%2Ftomkowz%2FSwifternalization" target="_blank"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a></p>
+<p><img src="https://img.shields.io/cocoapods/v/Swifternalization.svg" alt="CocoaPods Status"></p>
 
 <p>Swifternalization is library that helps in localizing apps. It is written in Swift.</p>
 <a href='#features' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='features'>Features</h1>
@@ -175,25 +170,27 @@
 <a href='#swifternalization' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='swifternalization'>Swifternalization</h1>
 
 <p>Swifternalization helps in localizing apps in a smarter way. It has been created because of necessary to solve Polish language internalization problems but it is universal and works with every language. </p>
-<a href='#failing_builds_temporary_section' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='failing_builds_temporary_section'>Failing builds (temporary section)</h2>
-
-<p>I noticed that Travis CI sometimes reports that build failed. I don&rsquo;t know why, it can pass and fail on the same commit so this is very weird. Framework is of course working and it is covered by many unit tests. I think this is some issue with wrong Travis configuration. <a href="https://github.com/tomkowz/Swifternalization/issues/4">#4 Failing Travis CI builds</a></p>
 <a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='installation'>Installation</h2>
 
 <p>With CocoaPods:</p>
-<pre class="highlight plaintext"><code>pod 'Swifternalization', '~&gt; 1.0.2'
+<pre class="highlight plaintext"><code>pod 'Swifternalization', '~&gt; 1.0.2.1'
 </code></pre>
 
 <p>Without CocoaPods:
 If you want to integrate it with your project just import files from <em>Swifternalization/Swifternalization</em> directory.</p>
 <a href='#documentation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='documentation'>Documentation</h2>
 
-<p>Swifternalization documentation covers 100% of the code, Yay! Two types of documentation have been generated. One covers only public API which is great for those who only wants to use the framework without looking inside. The second one covers all the API public, internal and private. (The best for now is to download repository since I&rsquo;m working on making it easily browsable).</p>
+<p>Swifternalization documentation covers 100% of the code, Yay! There are two types of documentation. First covers only public API which is great for those who only want to use the framework without looking inside. The second one covers all the API - public, internal and private. </p>
 
-<ul>
-<li><a href="https://github.com/tomkowz/Swifternalization/tree/master/docs/public">Public API documentation</a></li>
-<li><a href="https://github.com/tomkowz/Swifternalization/tree/master/docs/framework">Full API documentation</a></li>
-</ul>
+<p>You can find Public API and Full documentation with docset here in <a href="https://github.com/tomkowz/Swifternalization/tree/master/docs">docs</a> directory. </p>
+
+<p>It is also hosted on <a href="http://szulctomasz.com">my blog</a>:
+- <a href="http://szulctomasz.com/docs/swifternalization/public/">Public API documentation</a>
+- <a href="http://szulctomasz.com/docs/swifternalization/framework/">Full API documentation</a></p>
+
+<p>Docsets:
+- <a href="http://szulctomasz.com/docs/swifternalization/public/docsets/Swifternalization%20Public%20API.docset.zip">Public API docset</a>
+- <a href="http://szulctomasz.com/docs/swifternalization/framework/docsets/Swifternalization.docset.zip">Full API docset</a></p>
 <a href='#real_example' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='real_example'>Real Example</h2>
 
 <p>Let&rsquo;s take a look on practical usage of Swifternalization. App supports both English and Polish languages. Naturally app contains two <em>Localizable.strings</em> files - one is Base for English (or English for English) and one is Polish&hellip; for Polish, obviously :)</p>
@@ -350,25 +347,25 @@ Localizable.strings (Polish)
 <p>There are 3 types:</p>
 
 <ul>
-<li><em>inequality</em> - this type of expression handles simple ineuqalities like: <em>%d&lt;3</em>, <em>%d&gt;10</em>, <em>%d=5</em>, <em>%d&lt;=3</em>, and so on.</li>
-<li><em>inequality extended</em> - this is extended version of <em>inequality</em> with syntax like this: <em>2&lt;%d&lt;10</em>, <em>4&lt;=%d&lt;6</em>.</li>
+<li><em>inequality</em> - this type of expression handles simple inequalities like: <em>x&lt;3</em>, <em>x&gt;10</em>, <em>x=5</em>, <em>x&lt;=3</em>, and so on.</li>
+<li><em>inequality extended</em> - this is extended version of <em>inequality</em> with syntax like this: <em>2&lt;x&lt;10</em>, <em>4&lt;=x&lt;6</em>.</li>
 <li><em>regex</em> - this types of expression uses regular expression. This is the most powerful ;)</li>
 </ul>
 <a href='#inequality' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='inequality'>Inequality</h3>
 
-<p>It supports numbers for now (probably there will be only supports for numbers)). It is composed of several elements:</p>
+<p>It is composed of several elements:</p>
 
 <ul>
 <li><em>ie:</em> - prefix of <em>inequality</em> expression</li>
-<li><em>%d</em> - you have to always pass it, this means that <em>Int</em> will be used for this expression</li>
+<li><em>x</em> - you have to always pass it, this means here is the place for a number that will be matched. Works with Ints and floating point numbers.</li>
 <li><em>&lt;, &lt;=, =, &gt;=, &gt;</em> - use one of inequality signs</li>
 <li><em>1, 3, 5, 6, &hellip;</em> - value to match is the last one in this expression</li>
 </ul>
 
 <p>Example:</p>
-<pre class="highlight plaintext"><code>"cars{ie:%d=1}" = "1 car";
-"cars{ie:%d=0}" = "no cars";
-"cars{ie:%d&gt;1}" = "%d cars";
+<pre class="highlight plaintext"><code>"cars{ie:x=1}" = "1 car";
+"cars{ie:x=0}" = "no cars";
+"cars{ie:x&gt;1}" = "%d cars";
 </code></pre>
 <a href='#inequality_extended' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='inequality_extended'>Inequality Extended</h3>
 
@@ -376,12 +373,12 @@ Localizable.strings (Polish)
 
 <ul>
 <li><em>iex:</em> - prefix of <em>inequality extended</em> expression</li>
-<li><em>%d</em> - it also works only with <em>Int*s for now so just pass *%d</em> in the place of the value to be matched</li>
-<li>Inequality signs and possible values are the same like with <em>inequality</em> expression</li>
+<li><em>x</em> - place for number that will be matched. Works with Ints and floating point numbers.</li>
+<li>Only <em>&lt;</em> and <em>&lt;=</em> are accepted.</li>
 </ul>
 
 <p>Expample:</p>
-<pre class="highlight plaintext"><code>"tomatos{iex:2&lt;%d&lt;10}" = "%d tomatos is between 2 and 10";
+<pre class="highlight plaintext"><code>"tomatos{iex:2&lt;x&lt;10}" = "%d tomatos is between 2 and 10";
 </code></pre>
 <a href='#regex' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='regex'>Regex</h3>
 
@@ -435,13 +432,13 @@ Localizable.strings (Polish)
 
 Expressions.strings (Base)
 --------------------------
-"custom-1" = "ie:%d=1";
+"custom-1" = "ie:x=1";
 "custom-2" = "exp:(^[^1])|(^\\d{2,})";
 
 
 Expressions.strings (Polish)
 ---------------------------
-"custom-1" = "ie:%d=1";
+"custom-1" = "ie:x=1";
 "custom-2" = "exp:(((?!1).[2-4]{1})$)|(^[2-4]$)";
 "custom-3" = "exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])";
 </code></pre>
@@ -503,7 +500,7 @@ Expressions.strings (Polish)
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-06-30)</p>
+          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-07-15)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
