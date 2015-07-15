@@ -10,10 +10,6 @@ import Foundation
 
 /**
 Struct that is used to validate inequality expressions.
-
-It takes value type, sign of inequality and value from expression pattern 
-and then try to use those attributes to validate passed `String` value
-that will be converted to `Int`.
 */
 struct InequalityExpressionMatcher: ExpressionMatcher {
     
@@ -21,7 +17,7 @@ struct InequalityExpressionMatcher: ExpressionMatcher {
     let sign: InequalitySign
     
     /// Value that will be used during validation to compare to passed one.
-    let value: Int
+    let value: Double
         
     /**
     Initialization method takes few parameters that has been fetched from
@@ -32,7 +28,7 @@ struct InequalityExpressionMatcher: ExpressionMatcher {
 
     :returns: inquality expression matcher.
     */
-    init(sign: InequalitySign, value: Int) {
+    init(sign: InequalitySign, value: Double) {
         self.sign = sign
         self.value = value
     }
@@ -40,12 +36,11 @@ struct InequalityExpressionMatcher: ExpressionMatcher {
     /**
     Method used to validate passed value and check if it match to expression.
     
-    :param: val value passed as `String` that will be converted to `Int` later.
+    :param: val value passed as `String` that will be converted to `Double`.
     :returns: `true` if `val` match expression pattern, otherwise `false`.
     */
     func validate(val: String) -> Bool {
-        let n = val.toInt()!
-        
+        let n = NSString(string: val).doubleValue
         switch sign {
         case .LessThan: return n < value
         case .LessThanOrEqual: return n <= value

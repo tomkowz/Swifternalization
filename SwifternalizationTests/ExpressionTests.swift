@@ -13,11 +13,11 @@ import Swifternalization
 class ExpressionTests: XCTestCase {
 
     func testThatInequalityExpressionShouldBeCreated() {
-        XCTAssertTrue(Expression.expressionFromString("abc{ie:%d=2}") != nil, "Expression should be created")
+        XCTAssertTrue(Expression.expressionFromString("abc{ie:x=2}") != nil, "Expression should be created")
     }
     
     func testThatInequalityExtendedExpressionShouldBeCreated() {
-        XCTAssertTrue(Expression.expressionFromString("abc{iex:4<%d<=5}") != nil, "Expression should be created")
+        XCTAssertTrue(Expression.expressionFromString("abc{iex:4<x<=5}") != nil, "Expression should be created")
     }
     
     func testThatRegexExpressionShouldBeCreated() {
@@ -33,6 +33,6 @@ class ExpressionTests: XCTestCase {
     }
     
     func testThatExpressionCanBeFound() {
-        XCTAssertTrue(Expression.parseExpressionPattern("{ie:%d>2}") != nil, "Expression should be found")
+        XCTAssertTrue(Expression.parseExpressionPattern("{ie:x>2}") != nil, "Expression should be found")
     }
 }

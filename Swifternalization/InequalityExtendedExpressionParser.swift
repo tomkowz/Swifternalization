@@ -9,7 +9,7 @@
 import Foundation
 
 /**
-Parses inequality extended expressions. `iex:5<%d<10`.
+Parses inequality extended expressions. `iex:5<x<10`.
 */
 class InequalityExtendedExpressionParser: InequalityExpressionParser {
     
@@ -42,8 +42,8 @@ class InequalityExtendedExpressionParser: InequalityExpressionParser {
     
     :returns: `Int` or nil if value cannot be found.
     */
-    private func firstValue() -> Int? {
-        return getValue("(?<=^iex:)((\\d+)|(-\\d+))", failureMessage: "Cannot find first value")
+    private func firstValue() -> Double? {
+        return getValue(ExpressionType.InequalityExtended.rawValue+":(?<=^iex:)(-?\\d+[.]{0,1}[\\d]{0,})", failureMessage: "Cannot find first value", capturingGroupIdx: 1)
     }
     
     
@@ -53,7 +53,7 @@ class InequalityExtendedExpressionParser: InequalityExpressionParser {
     :returns: inequality sign or nil if sign cannot be found.
     */
     private func firstSign() -> InequalitySign? {
-        return getSign("(?<=^iex:-.|^iex:.)(<=|<|=|>=|>)", failureMessage: "Cannot find first sign")
+        return getSign(ExpressionType.InequalityExtended.rawValue+":-?\\d{0,}[.]?\\d{0,}(<=|<|=|>=|>)", failureMessage: "Cannot find first sign", capturingGroupIdx: 1)
     }
     
     /**
@@ -62,7 +62,7 @@ class InequalityExtendedExpressionParser: InequalityExpressionParser {
     :returns: A second sign or nil if sign cannot be found.
     */
     private func secondSign() -> InequalitySign? {
-        return getSign("(?<=%[d])(<=|<|=|>=|>)", failureMessage: "Cannot find second sign")
+        return getSign(ExpressionType.InequalityExtended.rawValue+":[-]?\\d*[.]?\\d*[<=>]{1,2}x(<=|<|=|>=|>)", failureMessage: "Cannot find second sign", capturingGroupIdx: 1)
     }
     
     /**
@@ -70,7 +70,7 @@ class InequalityExtendedExpressionParser: InequalityExpressionParser {
     
     :returns: A second value or nil if value cannot be found.
     */
-    private func secondValue() -> Int? {
-        return getValue("(?<=%[d]<=|<|=|>=|>)((\\d+)|(-\\d+))", failureMessage: "Cannot find second value")
+    private func secondValue() -> Double? {
+        return getValue("(?<=x<=|<|=|>=|>)(-?\\d+[.]{0,1}[\\d]{0,})", failureMessage: "Cannot find second value", capturingGroupIdx: 1)
     }
 }

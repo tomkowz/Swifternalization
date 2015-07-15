@@ -14,13 +14,13 @@ class SharedBaseExpression: SharedExpressionProtocol {
         return [
             
             /// Matches value equals 1.
-            SharedExpression(key: "one", pattern: "ie:%d=1"),
+            SharedExpression(key: "one", pattern: "ie:x=1"),
             
             /// Matches value greater than 1.
-            SharedExpression(key: ">one", pattern: "ie:%d>1"),
+            SharedExpression(key: ">one", pattern: "ie:x>1"),
             
             /// Matches value equals 2.
-            SharedExpression(key: "two", pattern: "ie:%d=2"),
+            SharedExpression(key: "two", pattern: "ie:x=2"),
             
             /// Matches value other than 1.
             SharedExpression(key: "other", pattern: "exp:(^[^1])|(^\\d{2,})")
