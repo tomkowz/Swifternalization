@@ -20,7 +20,7 @@ Swifternalization helps in localizing apps in a smarter way. It has been created
 ## Installation
 With CocoaPods:
 
-    pod 'Swifternalization', '~> 1.0.2.1'
+    pod 'Swifternalization', '~> 1.1'
 
 Without CocoaPods:
 If you want to integrate it with your project just import files from *Swifternalization/Swifternalization* directory.
