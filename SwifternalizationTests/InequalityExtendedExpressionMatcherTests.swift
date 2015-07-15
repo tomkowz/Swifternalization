@@ -12,6 +12,8 @@ import Swifternalization
 
 class InequalityExtendedExpressionMatcherTests: XCTestCase {
     
+    let steps = 20_000
+    
     func createMatcher(pattern: ExpressionPattern) -> InequalityExtendedExpressionMatcher {
         return InequalityExtendedExpressionParser(pattern).parse() as! InequalityExtendedExpressionMatcher
     }
@@ -19,78 +21,30 @@ class InequalityExtendedExpressionMatcherTests: XCTestCase {
     // MARK: - Int
     func testIEX1() {
         let m = createMatcher("iex:4<x<6")
-        XCTAssertTrue(m.validate("5"), "")
-        XCTAssertFalse(m.validate("4"), "")
-        XCTAssertFalse(m.validate("6"), "")
+        for n in Float.randomNumbersStrings(lower: 4.01, upper: 5.99, count: steps) { XCTAssertTrue(m.validate(n), "") }
+        for n in Float.randomNumbersStrings(lower: -9999, upper: 4.0, count: steps) { XCTAssertFalse(m.validate(n), "") }
+        for n in Float.randomNumbersStrings(lower: 6.0, upper: 9999, count: steps) { XCTAssertFalse(m.validate(n), "") }
     }
     
     func testIEX2() {
         let m = createMatcher("iex:4<=x<10")
-        XCTAssertTrue(m.validate("4"), "")
-        XCTAssertFalse(m.validate("10"), "")
-        XCTAssertFalse(m.validate("11"), "")
-    }
-    
-    func testIEX3() {
-        let m = createMatcher("iex:4=x=10")
-        XCTAssertFalse(m.validate("4"), "")
-        XCTAssertFalse(m.validate("10"), "")
-        XCTAssertFalse(m.validate("8"), "")
+        for n in Float.randomNumbersStrings(lower: 4.00, upper: 9.99, count: steps) { XCTAssertTrue(m.validate(n), "") }
+        for n in Float.randomNumbersStrings(lower: -9999, upper: 3.99, count: steps) { XCTAssertFalse(m.validate(n), "") }
+        for n in Float.randomNumbersStrings(lower: 10.0, upper: 9999, count: steps) { XCTAssertFalse(m.validate(n), "") }
     }
     
     // MARK: - Float
-    func testIEX4() {
+    func testIEX3() {
         let m = createMatcher("iex:4.99<x<9.99")
-        XCTAssertTrue(m.validate("5.03"), "")
-        XCTAssertFalse(m.validate("4.99"), "")
-        XCTAssertFalse(m.validate("10"), "")
+        for n in Float.randomNumbersStrings(lower: 5.00, upper: 9.98, count: steps) { XCTAssertTrue(m.validate(n), "") }
+        for n in Float.randomNumbersStrings(lower: -9999, upper: 4.99, count: steps) { XCTAssertFalse(m.validate(n), "") }
+        for n in Float.randomNumbersStrings(lower: 10.0, upper: 9999, count: steps) { XCTAssertFalse(m.validate(n), "") }
     }
     
-    func testIEX5() {
+    func testIEX4() {
         let m = createMatcher("iex:-10.33<=x<10.4")
-        XCTAssertTrue(m.validate("0.16"), "")
-        XCTAssertFalse(m.validate("-10.35"), "")
-        XCTAssertFalse(m.validate("11"), "")
-    }
-    
-    func testIEX6() {
-        let m = createMatcher("iex:-13<=x<15")
-        XCTAssertTrue(m.validate("0.16"), "")
-        XCTAssertTrue(m.validate("-10.35"), "")
-        XCTAssertTrue(m.validate("11"), "")
-        XCTAssertFalse(m.validate("18"), "")
-    }
-    
-    func testIEX7() {
-        let m = createMatcher("iex:-10.5<=x<10")
-        XCTAssertTrue(m.validate("-7"), "")
-        XCTAssertFalse(m.validate("10"), "")
-        XCTAssertFalse(m.validate("11"), "")
-    }
-    
-    func testIEX8() {
-        let m = createMatcher("iex:5.5<=x<=9.7")
-        XCTAssertTrue(m.validate("5.5"), "")
-        XCTAssertTrue(m.validate("9.7"), "")
-        XCTAssertFalse(m.validate("-4.3"), "")
-        XCTAssertFalse(m.validate("4.3"), "")
-        XCTAssertFalse(m.validate("11"), "")
-    }
-    
-    func testIEX9() {
-        let m = createMatcher("iex:4.3<x<=9")
-        XCTAssertTrue(m.validate("5.5"), "")
-        XCTAssertFalse(m.validate("-4.3"), "")
-        XCTAssertFalse(m.validate("4.3"), "")
-        XCTAssertFalse(m.validate("11"), "")
-    }
-    
-    func testIEX10() {
-        let m = createMatcher("iex:-20<x<-10")
-        XCTAssertTrue(m.validate("-19"), "")
-        XCTAssertFalse(m.validate("-9"), "")
-        XCTAssertFalse(m.validate("-21"), "")
-        XCTAssertFalse(m.validate("4.3"), "")
-        XCTAssertFalse(m.validate("7"), "")
+        for n in Float.randomNumbersStrings(lower: -10.33, upper: 10.4, count: steps) { XCTAssertTrue(m.validate(n), "") }
+        for n in Float.randomNumbersStrings(lower: -9999, upper: -10.34, count: steps) { XCTAssertFalse(m.validate(n), "") }
+        for n in Float.randomNumbersStrings(lower: 10.41, upper: 9999, count: steps) { XCTAssertFalse(m.validate(n), "") }
     }
 }
