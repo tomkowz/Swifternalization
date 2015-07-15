@@ -30,22 +30,10 @@ class InequalityExpressionParser: ExpressionParser {
     :returns: `ExpressionMatcher` object or nil if pattern cannot be parsed.
     */
     func parse() -> ExpressionMatcher? {
-        if let valueType = valueType(),
-            let sign = sign(),
-            let value = value() {
-                return InequalityExpressionMatcher(valueType: valueType, sign: sign, value: value)
-        } else {
-            return nil
+        if let sign = sign(), let value = value() {
+            return InequalityExpressionMatcher(sign: sign, value: value)
         }
-    }
-    
-    /**
-    Get `ValueType`. Finds only "%d" - Int is only one supported for now.
-    
-    :returns: `ValueType` or nil if value cannot be found.
-    */
-    private func valueType() -> ValueType? {
-        return getValueType("(?<=^ie:)\\S{2}", failureMessage: "Cannot find value type [%d]")
+        return nil
     }
     
     /**
@@ -98,25 +86,6 @@ class InequalityExpressionParser: ExpressionParser {
         if let rawValue = Regex.firstMatchInString(pattern, pattern: regex),
             let sign = InequalitySign(rawValue: rawValue) {
                 return sign
-        } else {
-            println("\(failureMessage), pattern: \(pattern), regex: \(regex)")
-            return nil
-        }
-    }
-    
-    /**
-    Get value type with regex and prints failure message if not found.
-    
-    :param: regex A regular expression.
-    :param: failureMessage A message that is printed out in console on failure.
-    
-    :returns: A value type or nil if value cannot be found.
-    */
-    func getValueType(regex: String, failureMessage: String) -> ValueType? {
-        if let rawValue = Regex.firstMatchInString(pattern, pattern: regex),
-            let value = ValueType(rawValue:rawValue) {
-                return value
-                
         } else {
             println("\(failureMessage), pattern: \(pattern), regex: \(regex)")
             return nil
