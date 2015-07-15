@@ -24,9 +24,10 @@ class InequalityExtendedExpressionParser: InequalityExpressionParser {
             let secondSign = secondSign(),
             let secondValue = secondValue() {
                 
-                // Invert first sign if number is positive or zero
-                firstSign = firstValue < 0 ? firstSign : firstSign.invert()
-                
+                if firstValue < secondValue {
+                    firstSign = firstSign.invert()
+                }
+                                
                 let leftMatcher = InequalityExpressionMatcher(sign: firstSign, value: firstValue)
                 let rightMatcher = InequalityExpressionMatcher(sign: secondSign, value: secondValue)
                 return InequalityExtendedExpressionMatcher(left: leftMatcher, right: rightMatcher)

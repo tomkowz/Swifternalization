@@ -9,7 +9,7 @@
 // Polish language
 "pl-cars{one}" = "jeden samochód";
 "pl-cars{iex:2<=x<=4}" = "%d samochody";
-"pl-cars{iex:-4>=x<=-2}" = "-2 - -4 samochody";
+"pl-cars{iex:-4<=x<=-2}" = "-2 - -4 samochody";
 
 // Polish tricky language support
 "pl-police-cars{ie:x=1}" = "1 samochód policyjny";
