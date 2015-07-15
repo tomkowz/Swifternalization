@@ -355,7 +355,7 @@ Also this is required to cover all shared expressions for a country with unit te
 
 ## Swift 2
 
-Swifternalization supports Swift 2 and works on Xcode 7 beta 2. Please check *swift2* branch for that.
+Swifternalization supports Swift 2 and works on Xcode 7 beta 3. Please check *swift2* branch for that.
 
 
 ## Things to do in future release:
