@@ -1,0 +1,38 @@
+/* 
+Displayed at welcome screen
+*/
+"welcome": "welcome"
+
+/* 
+Displays string with number of cars
+1 car or X cars
+*/
+"cars" {
+	"one": "1 car"
+	"more": "%d cars"
+}
+
+/*
+Forgot password sentence displayed on login form
+*/
+"forgot-password" {
+	@100: "Forgot Password? Help."
+	@200: "Forgot Password? Get password Help."
+	@300: "Forgotten Your Password? Get password Help."
+}
+
+/*
+Sentence about cars
+*/
+"car-sentence" {
+	"one" {
+		@100: "one car"
+		@200: "just one car"
+		@300: "you've got just one car"
+	}
+
+	"more" {
+		@100: "%d cars"
+		@300: "you've got %d cars"
+	}
+}
