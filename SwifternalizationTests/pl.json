@@ -1,0 +1,28 @@
+{
+    "welcome": "witaj",
+    
+    "cars": {
+        "one": "1 samochód",
+        "ie:x=2": "2 samochody",
+        "more": "%d samochodów"
+    },
+
+    "forgot-password": {
+        "@100": "Zapomniałeś hasła? Pomoc.",
+        "@200": "Zapomniałeś hasła? Skorzystaj z Pomocy.",
+        "@300": "Zapomniałeś swojego hasła? Skorzystaj z pomocy."
+    },
+
+    "car-sentence": {
+        "one": {
+            "@100": "jeden samochód",
+            "@200": "tylko jeden samochód",
+            "@300": "posiadasz tylko jeden samochód"
+        },
+
+        "more": {
+            "@100": "%d samochodów",
+            "@300": "posiadasz %d samochodów"
+        }
+    }
+}

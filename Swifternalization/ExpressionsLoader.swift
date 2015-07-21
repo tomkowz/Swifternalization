@@ -12,9 +12,9 @@ final class ExpressionsLoader: JSONFileLoader {
     
     :returns: array of loaded expressions.
     */
-    class func loadExpressions(countryCode: CountryCode) -> [ProcessableExpression] {
+    class func loadExpressions(countryCode: CountryCode, bundle: NSBundle) -> [ProcessableExpression] {
         var expressions = [ProcessableExpression]()
-        if let json = self.load("expressions", fileType: "json", bundle: NSBundle.mainBundle()),
+        if let json = self.load("expressions", bundle: bundle),
             let expressionsDict = json[countryCode] as? Dictionary<String, String> {
                 for (identifier, pattern) in expressionsDict {
                     expressions.append(ProcessableExpression(identifier: identifier, pattern: pattern))

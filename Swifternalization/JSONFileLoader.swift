@@ -15,11 +15,11 @@ class JSONFileLoader {
     
     :return: JSON or nil.
     */
-    final class func load(fileName: String, fileType: String, bundle: NSBundle = NSBundle.mainBundle()) -> JSONDictionary? {
-        if let fileURL = bundle.URLForResource(fileName, withExtension: fileType) {
+    final class func load(fileName: String, bundle: NSBundle = NSBundle.mainBundle()) -> JSONDictionary? {
+        if let fileURL = bundle.URLForResource(fileName, withExtension: "json") {
             return load(fileURL)
         }
-        println("Cannot find file \(fileName).\(fileType).")
+        println("Cannot find file \(fileName).json.")
         return nil
     }
     

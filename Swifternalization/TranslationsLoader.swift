@@ -26,7 +26,7 @@ final class TranslationsLoader: JSONFileLoader {
     */
     class func loadTranslations(countryCode: CountryCode) -> [TranslationType] {
         var loadedTranslations = [TranslationType]()
-        let json = self.load(countryCode, fileType: "json", bundle: NSBundle.mainBundle())
+        let json = self.load(countryCode, bundle: NSBundle.mainBundle())
         if json == nil { return [TranslationType]() }
         
         for (translationKey, value) in json! {
