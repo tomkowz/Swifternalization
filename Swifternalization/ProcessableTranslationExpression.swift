@@ -3,7 +3,7 @@ import Foundation
 /** 
 Represents translation which contains expressions that are not processed yet.
 */
-struct ProcessableTranslation: TranslationType, Processable {
+struct ProcessableTranslationExpression: TranslationType, Processable {
     /// Key that identifies translation.
     let key: String
     

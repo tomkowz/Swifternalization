@@ -1,5 +1,5 @@
 //
-//  KeyValue.swift
+//  KeyValueType.swift
 //  Swifternalization
 //
 //  Created by Tomasz Szulc on 28/06/15.
@@ -21,7 +21,7 @@ internal typealias KVDict = Dictionary<Key, Value>
 Protocol that defines properties and methods that need to be implemented by
 objects that keeps key-value pair things.
 */
-protocol KeyValue {
+protocol KeyValueType {
     /// A key.
     var key: Key {get set}
     

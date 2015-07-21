@@ -13,7 +13,7 @@ Represents key-value pair from Localizable.strings files.
 It contains key, value and expression if exists for the key.
 It can also validate if text matches expression's requirements.
 */
-struct TranslatablePair: KeyValue {
+struct TranslatablePair: KeyValueType {
     /// Key from Localizable.strings.
     var key: Key
     

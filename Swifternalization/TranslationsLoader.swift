@@ -41,7 +41,7 @@ final class TranslationsLoader: JSONFileLoader {
 
                 case .TranslationWithLoadedExpressions:
                     let expressions = parseExpressions(dictionary as! DictWithStrings)
-                    loadedTranslations.append(ProcessableTranslation(key: translationKey, loadedExpressions: expressions))
+                    loadedTranslations.append(ProcessableTranslationExpression(key: translationKey, loadedExpressions: expressions))
 
                 case .TranslationWithLengthVariationsAndLoadedExpressions:
                     var expressions = [ProcessableLengthVariationExpression]()
@@ -49,7 +49,7 @@ final class TranslationsLoader: JSONFileLoader {
                         let variations = parseLengthVariations(lengthVariationsDict)
                         expressions.append(ProcessableLengthVariationExpression(identifier: expressionIdentifier, variations: variations))
                     }
-                    loadedTranslations.append(ProcessableTranslationLengthVariationExpression(key: translationKey, expressions: expressions))
+                    loadedTranslations.append(ProcessableTranslationExpressionLengthVariationExpression(key: translationKey, expressions: expressions))
                     
                 case .NotSupported:
                     // Do nothing

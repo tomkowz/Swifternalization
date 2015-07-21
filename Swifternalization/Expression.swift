@@ -8,18 +8,6 @@
 
 import Foundation
 
-/// Supported expression types
-enum ExpressionType: String {
-    /// works on Int only, e.g. `x<5`, `x=3`
-    case Inequality = "ie"
-    
-    /// works on Int only, e.g. `4<x<10`, `1<=x<18`
-    case InequalityExtended = "iex"
-    
-    /// regular expression, e.g. `[02-9]+`
-    case Regex = "exp"
-}
-
 /// String that contains expression pattern, e.g. `ie:x<5`, `exp:^1$`.
 internal typealias ExpressionPattern = String
 

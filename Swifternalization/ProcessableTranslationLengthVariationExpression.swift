@@ -3,7 +3,7 @@ import Foundation
 /** 
 Represents translation which contains expressions with length variations.
 */
-struct ProcessableTranslationLengthVariationExpression: TranslationType, Processable {
+struct ProcessableTranslationExpressionLengthVariationExpression: TranslationType, Processable {
     /// Key that identifies translation.
     let key: String
     
