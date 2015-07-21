@@ -3,7 +3,7 @@ import Foundation
 /** 
 Represents loaded expression that will be processed later.
 */
-public struct ProcessableExpression: ExpressionType, ExpressionPatternType, Processable {
+public struct ProcessableExpression: ExpressionRepresentationType, ExpressionPatternType, Processable {
     /// Identifier of expression.
     public let identifier: String
     

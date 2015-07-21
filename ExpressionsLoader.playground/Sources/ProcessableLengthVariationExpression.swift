@@ -3,7 +3,7 @@ import Foundation
 /**
 Represents processable expression with length variations.
 */
-public struct ProcessableLengthVariationExpression: ExpressionType, Processable {
+public struct ProcessableLengthVariationExpression: ExpressionRepresentationType, Processable {
     /// Identifier of expression.
     public var identifier: String
     
