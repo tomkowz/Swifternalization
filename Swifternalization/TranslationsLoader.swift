@@ -24,9 +24,9 @@ final class TranslationsLoader: JSONFileLoader {
     
     :return: translations parsed from the file.
     */
-    class func loadTranslations(countryCode: CountryCode) -> [TranslationType] {
+    class func loadTranslations(countryCode: CountryCode, bundle: NSBundle = NSBundle.mainBundle()) -> [TranslationType] {
         var loadedTranslations = [TranslationType]()
-        let json = self.load(countryCode, bundle: NSBundle.mainBundle())
+        let json = self.load(countryCode, bundle: bundle)
         if json == nil { return [TranslationType]() }
         
         for (translationKey, value) in json! {
