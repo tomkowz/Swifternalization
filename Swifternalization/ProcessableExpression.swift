@@ -3,16 +3,16 @@ import Foundation
 /** 
 Represents loaded expression that will be processed later.
 */
-struct ProcessableExpression: ExpressionRepresentationType, ExpressionPatternType, Processable {
+struct ProcessableExpressionSimple: ExpressionRepresentationType, Processable {
     /// Identifier of expression.
     let identifier: String
     
     /// Pattern of expression.
-    let pattern: String
+    let value: String
     
     /// Creates expression.
-    init(identifier: String, pattern: String) {
+    init(identifier: String, value: String) {
         self.identifier = identifier
-        self.pattern = pattern
+        self.value = value
     }
 }

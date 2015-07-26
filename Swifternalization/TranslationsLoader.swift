@@ -70,10 +70,10 @@ final class TranslationsLoader: JSONFileLoader {
         return variations
     }
     
-    private class func parseExpressions(dict: DictWithStrings) -> [ProcessableExpression] {
-        var expressions = [ProcessableExpression]()
+    private class func parseExpressions(dict: DictWithStrings) -> [ProcessableExpressionSimple] {
+        var expressions = [ProcessableExpressionSimple]()
         for (expressionKey, translationValue) in dict {
-            expressions.append(ProcessableExpression(identifier: expressionKey, pattern: translationValue))
+            expressions.append(ProcessableExpressionSimple(identifier: expressionKey, value: translationValue))
         }
         return expressions
     }

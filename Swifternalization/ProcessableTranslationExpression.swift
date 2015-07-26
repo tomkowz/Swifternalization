@@ -8,10 +8,10 @@ struct ProcessableTranslationExpression: TranslationType, Processable {
     let key: String
     
     /// Array with loaded expressions.
-    let loadedExpressions: [ProcessableExpression]
+    let loadedExpressions: [ProcessableExpressionSimple]
     
     /// Creates instances of the class.
-    init(key: String, loadedExpressions: [ProcessableExpression]) {
+    init(key: String, loadedExpressions: [ProcessableExpressionSimple]) {
         self.key = key
         self.loadedExpressions = loadedExpressions
     }
