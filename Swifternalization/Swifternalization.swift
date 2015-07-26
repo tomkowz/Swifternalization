@@ -226,7 +226,7 @@ public class Swifternalization {
         for (tKey, tValue) in translatableDict {
             // Check if there is expression in tKey
             if let expressionPattern = Expression.parseExpressionPattern(tKey),
-                let sharedExpression = expressions.filter({$0.key == expressionPattern}).first,
+                let sharedExpression = expressions.filter({$0.identifier == expressionPattern}).first,
                 // Create expression with pattern from Expressions.strings and
                 // it it is correct use it.
                 let updatedExpression = Expression.expressionFromString("{" + sharedExpression.pattern + "}"),

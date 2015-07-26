@@ -85,7 +85,7 @@ class SharedExpressionsConfigurator {
     private class func convert(expressionsDict: KVDict) -> [SharedExpression] {
         var result = [SharedExpression]()
         for (key, pattern) in expressionsDict {
-            result.append(SharedExpression(key: key, pattern: pattern))
+            result.append(SharedExpression(identifier: key, pattern: pattern))
         }
         return result
     }
@@ -117,7 +117,7 @@ class SharedExpressionsConfigurator {
     */
     private class func mergeExpressions(var source: [SharedExpression], additional: [SharedExpression]) -> [SharedExpression] {
         for additionalExp in additional {
-            if source.filter({$0.key == additionalExp.key}).first == nil {
+            if source.filter({$0.identifier == additionalExp.identifier}).first == nil {
                 source.append(additionalExp)
             }
         }

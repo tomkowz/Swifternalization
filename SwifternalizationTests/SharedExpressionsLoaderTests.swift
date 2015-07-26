@@ -9,20 +9,20 @@
 import UIKit
 import XCTest
 
-class ExpressionsLoaderTests: XCTestCase {
+class SharedExpressionsLoaderTests: XCTestCase {
     
     func testShouldLoadBase() {
-        let content = ExpressionsLoader.loadExpressions("base", bundle: NSBundle.testBundle())
+        let content = SharedExpressionsLoader.loadExpressions("base", bundle: NSBundle.testBundle())
         XCTAssertTrue(content.count > 0, "")
     }
     
     func testShouldLoadPL() {
-        let content = ExpressionsLoader.loadExpressions("pl", bundle: NSBundle.testBundle())
+        let content = SharedExpressionsLoader.loadExpressions("pl", bundle: NSBundle.testBundle())
         XCTAssertTrue(content.count > 0, "")
     }
     
     func testShouldNotLoadDE() {
-        let content = ExpressionsLoader.loadExpressions("de", bundle: NSBundle.testBundle())
+        let content = SharedExpressionsLoader.loadExpressions("de", bundle: NSBundle.testBundle())
         XCTAssertFalse(content.count > 0, "")
     }
 }

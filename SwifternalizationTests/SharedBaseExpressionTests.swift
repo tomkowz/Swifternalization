@@ -13,7 +13,7 @@ import Swifternalization
 class SharedBaseExpressionTests: XCTestCase {
 
     func testOne() {
-        let sharedExp = SharedBaseExpression.allExpressions().filter({$0.key == "one"}).first!
+        let sharedExp = SharedBaseExpression.allExpressions().filter({$0.identifier == "one"}).first!
         let expression = Expression(pattern: sharedExp.pattern)!
         
         XCTAssertTrue(expression.validate("1"), "Should match 1")
@@ -21,7 +21,7 @@ class SharedBaseExpressionTests: XCTestCase {
     }
     
     func testMoreThanOne() {
-        let sharedExp = SharedBaseExpression.allExpressions().filter({$0.key == ">one"}).first!
+        let sharedExp = SharedBaseExpression.allExpressions().filter({$0.identifier == ">one"}).first!
         let expression = Expression(pattern: sharedExp.pattern)!
         
         XCTAssertTrue(expression.validate("2"), "Should match 2")
@@ -30,7 +30,7 @@ class SharedBaseExpressionTests: XCTestCase {
     }
     
     func testTwo() {
-        let sharedExp = SharedBaseExpression.allExpressions().filter({$0.key == "two"}).first!
+        let sharedExp = SharedBaseExpression.allExpressions().filter({$0.identifier == "two"}).first!
         let expression = Expression(pattern: sharedExp.pattern)!
         
         XCTAssertTrue(expression.validate("2"), "Should match 2")
@@ -38,7 +38,7 @@ class SharedBaseExpressionTests: XCTestCase {
     }
     
     func testOther() {
-        let sharedExp = SharedBaseExpression.allExpressions().filter({$0.key == "other"}).first!
+        let sharedExp = SharedBaseExpression.allExpressions().filter({$0.identifier == "other"}).first!
         let expression = Expression(pattern: sharedExp.pattern)!
         
         XCTAssertTrue(expression.validate("0"), "Should match 0")

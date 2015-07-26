@@ -1,15 +1,16 @@
 //
-//  SharedExpression.swift
+//  ProcessableSharedExpression.swift
 //  Swifternalization
 //
-//  Created by Tomasz Szulc on 28/06/15.
+//  Created by Tomasz Szulc on 26/07/15.
 //  Copyright (c) 2015 Tomasz Szulc. All rights reserved.
 //
 
+import Foundation
 
 /**
-Protocol that is implemented by classes that contains shared expressions.
-Shared expressions are built-in expressions that user can easily use when 
+Protocol that is implemented by classes/structs that contains shared expressions.
+Shared expressions are built-in expressions that user can easily use when
 localizing app.
 
 Rules: http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html
@@ -22,21 +23,16 @@ protocol SharedExpressionProtocol {
 /**
 Represents built-in expression and expressions from Expressions.strings file.
 */
-struct SharedExpression {
-    /// Key of expression.
-    let key: Key
+struct SharedExpression: ExpressionRepresentationType, ExpressionPatternType {
+    /// Identifier of expression.
+    let identifier: String
     
     /// Pattern of expression.
-    let pattern: ExpressionPattern
+    let pattern: String
     
-    /**
-    Creates shared expression.
-    
-    :param: key A key of expression.
-    :param: pattern A pattern of expression.
-    */
-    init(key: Key, pattern: ExpressionPattern) {
-        self.key = key
+    /// Creates expression.
+    init(identifier: String, pattern: String) {
+        self.identifier = identifier
         self.pattern = pattern
     }
 }
