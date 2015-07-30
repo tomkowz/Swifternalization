@@ -27,7 +27,7 @@ class LoadedTranslationsProcessor {
     expressions as well as built-in ones. Translations are processed in shared 
     expressions processor.
     */
-    class func processTrnslations(baseTranslations: [LoadedTranslation], preferedLanguageTranslations: [LoadedTranslation], sharedExpressions: [SharedExpression]) {
+    class func processTrnslations(baseTranslations: [LoadedTranslation], preferedLanguageTranslations: [LoadedTranslation], sharedExpressions: [SharedExpression]) -> [TranslationType] {
         
         // Find those base translations that are not contained in prefered 
         // language translations.
@@ -39,32 +39,67 @@ class LoadedTranslationsProcessor {
             })
         }
         
-        var translationsReadyToProcess = preferedLanguageTranslations + uniqueBaseTranslations
-        var translations: [TranslationType] = translationsReadyToProcess.map({
+        let translationsReadyToProcess = preferedLanguageTranslations + uniqueBaseTranslations
+        
+        // Create array with translations. Array is just a map created from 
+        // loaded translations. There are few types of translations and 
+        // expressions used by the framework.
+        return translationsReadyToProcess.map({
             switch $0.type {
             case .Simple:
+                // Simple translation with key and value.
                 let value = $0.content[$0.key] as! String
-                return SimpleTranslation(key: $0.key, value: value)
+                return TranslationWithExpressions(key: $0.key, expressions: [SimpleExpression(pattern: $0.key, localizedValue: value)])
                 
             case .WithExpressions:
-                var expressions = [SimpleExpression]()
+                // Translation that contains expression.
+                // Every time when new expressions is about to create, 
+                // the shared expressions are filtered to get expression that 
+                // matches key and if there is a key it is replaced with real
+                // expression pattern.
+                var expressions = [ExpressionType]()
                 for (key, value) in $0.content as! Dictionary<String, String> {
                     let pattern = sharedExpressions.filter({$0.identifier == key}).first?.pattern ?? key
                     expressions.append(SimpleExpression(pattern: pattern, localizedValue: value))
                 }
                 return TranslationWithExpressions(key: $0.key, expressions: expressions)
                 
-                
-            // TEMPORARY
-            //
-            //
             case .WithLengthVariations:
-                return SimpleTranslation(key: $0.key, value: $0.content[$0.key]! as! String)
+                // Translation contains length expressions like @100, @200, etc.
+                var lengthVariations = [LengthVariation]()
+                for (key, value) in $0.content as! Dictionary<String, String> {
+                    lengthVariations.append(LengthVariation(length: self.parseNumberFromLengthVariation(key), value: value))
+                }
+                return LengthVariationTranslation(key: $0.key, variations: lengthVariations)
 
             case .WithExpressionsAndLengthVariations:
-                return SimpleTranslation(key: $0.key, value: $0.content[$0.key]! as! String)
-
+                // The most advanced translation type. It contains expressions 
+                // that contain length variations. THe job done here is similar 
+                // to the one in .WithExpressions and .WithLengthVariations
+                // cases. key is filtered in shared expressions to get one of 
+                // shared expressions and then method builds array of variations.
+                var expressions = [ExpressionType]()
+                for (key, value) in $0.content as! Dictionary<String, Dictionary<String, String>> {
+                    let pattern = sharedExpressions.filter({$0.identifier == key}).first?.pattern ?? key
+                    
+                    var lengthVariations = [LengthVariation]()
+                    for (lvKey, lvValue) in value as Dictionary<String, String> {
+                        lengthVariations.append(LengthVariation(length: self.parseNumberFromLengthVariation(lvKey), value: lvValue))
+                    }
+                    expressions.append(LengthVariationExpression(pattern: pattern, variations: lengthVariations))
+                }
+                return TranslationWithExpressions(key: $0.key, expressions: expressions)
             }
         })
+    }
+    
+    /**
+    Parses nubmer from length variation key.
+    
+    :param: string A string that contains length variation string like @100.
+    :returns: A number parsed from the string.
+    */
+    private class func parseNumberFromLengthVariation(string: String) -> Int {
+        return (Regex.matchInString(string, pattern: "@(\\d+)", capturingGroupIdx: 1)! as NSString).integerValue
     }
 }

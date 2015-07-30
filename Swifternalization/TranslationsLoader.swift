@@ -17,11 +17,11 @@ final class TranslationsLoader: JSONFileLoader {
         if let json = self.load(countryCode, bundle: bundle) {
             for (key, value) in json {
                 if value is String {
-                    loadedTranslations.append(LoadedTranslation(type: .Simple, content: [key: value]))
+                    loadedTranslations.append(LoadedTranslation(type: .Simple, key: key, content: [key: value]))
                 } else {
                     let dictionary = value as! JSONDictionary
                     if let type = detectElementType(dictionary) {
-                        loadedTranslations.append(LoadedTranslation(type: type, content: dictionary))
+                        loadedTranslations.append(LoadedTranslation(type: type, key: key, content: dictionary))
                     } else {
                         println("Translation type is not supported for: \(dictionary)")
                     }

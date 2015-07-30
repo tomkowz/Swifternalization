@@ -1,5 +1,5 @@
 //
-//  SimpleTranslation.swift
+//  LengthVariationTranslation.swift
 //  Swifternalization
 //
 //  Created by Tomasz Szulc on 30/07/15.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-/** 
-Represents simple key-value translation.
+/**
+Represents length variation translation.
 */
-struct SimpleTranslation: TranslationType {
+struct LengthVariationTranslation: TranslationType {
     /// Key that identifies a translation.
     let key: String
     
-    /// Localized string.
-    let value: String
+    /// Length variations.
+    let variations: [LengthVariation]
 }

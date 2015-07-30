@@ -8,25 +8,13 @@
 
 import Foundation
 
-class SimpleExpression: ExpressionType {
+/**
+Represents simple epxressions that has only pattern and localized value.
+*/
+struct SimpleExpression: ExpressionType {
     /// Pattern of expression.
     let pattern: String
 
     /// A localized value.
     let localizedValue: String
-
-    init(pattern: String, localizedValue: String) {
-        self.pattern = pattern
-        self.localizedValue = localizedValue
-    }
-    
-    /**
-    Validates passed string.
-    
-    :param: text A text to be validated.
-    :returns: True if text matches validation rules, otherwise false.
-    */
-    func validate(text: String) -> Bool {
-        return true
-    }
 }

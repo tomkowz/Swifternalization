@@ -15,11 +15,9 @@ struct LoadedTranslation {
     /// A type of translation.
     let type: LoadedTranslationType
     
+    /// Key that identifies this translation
+    var key: String
+    
     /// A content of translation just loaded from a file.
     let content: Dictionary<String, AnyObject>
-    
-    /// Key that identifies this translation
-    var key: String {
-        return content.keys.first!
-    }
 }
