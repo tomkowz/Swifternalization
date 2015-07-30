@@ -70,7 +70,7 @@ class LoadedTranslationsProcessor {
                 for (key, value) in $0.content as! Dictionary<String, String> {
                     lengthVariations.append(LengthVariation(length: self.parseNumberFromLengthVariation(key), value: value))
                 }
-                return LengthVariationTranslation(key: $0.key, variations: lengthVariations)
+                return TranslationWithExpressions(key: $0.key, expressions: [LengthVariationExpression(pattern: $0.key, variations: lengthVariations)])
 
             case .WithExpressionsAndLengthVariations:
                 // The most advanced translation type. It contains expressions 
