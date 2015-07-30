@@ -1,5 +1,5 @@
 //
-//  ExpressionType.swift
+//  ExpressionPatternType.swift
 //  Swifternalization
 //
 //  Created by Tomasz Szulc on 21/07/15.
@@ -9,7 +9,7 @@
 import Foundation
 
 /// Supported expression types
-enum ExpressionType: String {
+enum ExpressionPatternType: String {
     /// works on Int only, e.g. `x<5`, `x=3`
     case Inequality = "ie"
     

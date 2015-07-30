@@ -9,7 +9,6 @@ final class SharedExpressionsLoader: JSONFileLoader {
     Loads expressions for specified language.
     
     :param: countryCode A country code
-    
     :returns: array of loaded expressions.
     */
     class func loadExpressions(countryCode: CountryCode, bundle: NSBundle) -> [SharedExpression] {

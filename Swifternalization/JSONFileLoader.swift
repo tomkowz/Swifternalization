@@ -7,13 +7,12 @@ class JSONFileLoader {
     typealias JSONDictionary = Dictionary<String, AnyObject>
     
     /**
-    Load content of file with specified name, type and bundle.
+    Loads content of a file with specified name, type and bundle.
     
     :param: fileName A name of a file.
     :param: fileType A type of a file.
     :param: bundle A bundle when file is located.
-    
-    :return: JSON or nil.
+    :returns: JSON or nil.
     */
     final class func load(fileName: String, bundle: NSBundle = NSBundle.mainBundle()) -> JSONDictionary? {
         if let fileURL = bundle.URLForResource(fileName, withExtension: "json") {
@@ -27,8 +26,7 @@ class JSONFileLoader {
     Loads file for specified URL and try to serialize it.
     
     :params: fileURL url to JSON file.
-    
-    :return: Dictionary with content of JSON file or nil.
+    :returns: Dictionary with content of JSON file or nil.
     */
     private class func load(fileURL: NSURL) -> JSONDictionary? {
         if let data = NSData(contentsOfURL: fileURL) {

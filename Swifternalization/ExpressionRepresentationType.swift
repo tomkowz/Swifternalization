@@ -3,7 +3,7 @@ import Foundation
 /**
 Represents expressions in the framework.
 */
-protocol ExpressionRepresentationType {
-    /// Identifier of expression.
-    var identifier: String {get}
+protocol ExpressionType {
+    /// Pattern of expression.
+    var pattern: String {get}
 }

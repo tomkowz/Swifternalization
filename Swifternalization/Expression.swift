@@ -23,7 +23,7 @@ class Expression {
     let pattern: ExpressionPattern
         
     /// Type of expression computed based on `pattern`.
-    private var type: ExpressionType!
+    private var type: ExpressionPatternType!
     
     /// Matcher created based on `pattern`.
     private var matcher: ExpressionMatcher!
@@ -105,7 +105,7 @@ class Expression {
     pattern of this `Expression` object.
     */
     private func buildMatcher() {
-        switch (type as ExpressionType) {
+        switch (type as ExpressionPatternType) {
         case .Inequality:
             matcher = InequalityExpressionParser(pattern).parse()
             
@@ -118,14 +118,14 @@ class Expression {
     }
     
     /**
-    Method used to get `ExpressionType` of passed `ExpressionPattern`. 
+    Method used to get `ExpressionPatternType` of passed `ExpressionPattern`. 
     
     :param: pattern expression pattern that will be checked.
-    :returns: `ExpressionType` if pattern is supported, otherwise nil.
+    :returns: `ExpressionPatternType` if pattern is supported, otherwise nil.
     */
-    private class func getExpressionType(pattern: ExpressionPattern) -> ExpressionType? {
-        if let result = Regex.firstMatchInString(pattern, pattern: InternalPattern.ExpressionType.rawValue) {
-            return ExpressionType(rawValue: result)
+    private class func getExpressionType(pattern: ExpressionPattern) -> ExpressionPatternType? {
+        if let result = Regex.firstMatchInString(pattern, pattern: InternalPattern.ExpressionPatternType.rawValue) {
+            return ExpressionPatternType(rawValue: result)
         }
         return nil
     }

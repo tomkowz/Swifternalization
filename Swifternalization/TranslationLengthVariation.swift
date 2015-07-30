@@ -3,7 +3,7 @@ import Foundation
 /**
 Class represents translation which contains key and length variations.
 */
-struct TranslationLengthVariation: TranslationType {
+struct TranslationLengthVariation: TranslationTypeOld {
     /// Key that identifies this translation.
     let key: String
     

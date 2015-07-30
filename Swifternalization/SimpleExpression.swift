@@ -8,15 +8,25 @@
 
 import Foundation
 
-class SimpleExpression: ExpressionRepresentationType {
-    /// Identifier of expression.
-    let identifier: String
+class SimpleExpression: ExpressionType {
+    /// Pattern of expression.
+    let pattern: String
 
     /// A localized value.
-    let value: String
+    let localizedValue: String
 
-    init(identifier: String, value: String) {
-        self.identifier = identifier
-        self.value = value
+    init(pattern: String, localizedValue: String) {
+        self.pattern = pattern
+        self.localizedValue = localizedValue
+    }
+    
+    /**
+    Validates passed string.
+    
+    :param: text A text to be validated.
+    :returns: True if text matches validation rules, otherwise false.
+    */
+    func validate(text: String) -> Bool {
+        return true
     }
 }

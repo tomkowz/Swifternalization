@@ -42,7 +42,7 @@ class InequalityExpressionParser: ExpressionParser {
     :returns: `InequalitySign` or nil if sign cannot be found.
     */
     private func sign() -> InequalitySign? {
-        return getSign(ExpressionType.Inequality.rawValue+":x(<=|<|=|>=|>)", failureMessage: "Cannot find any sign", capturingGroupIdx: 1)
+        return getSign(ExpressionPatternType.Inequality.rawValue+":x(<=|<|=|>=|>)", failureMessage: "Cannot find any sign", capturingGroupIdx: 1)
     }
     
     /**
@@ -51,7 +51,7 @@ class InequalityExpressionParser: ExpressionParser {
     :returns: value or nil if value cannot be found
     */
     private func value() -> Double? {
-        return getValue(ExpressionType.Inequality.rawValue+":x[^-\\d]{1,2}(-?\\d+[.]{0,1}[\\d]{0,})", failureMessage: "Cannot find any value", capturingGroupIdx: 1)
+        return getValue(ExpressionPatternType.Inequality.rawValue+":x[^-\\d]{1,2}(-?\\d+[.]{0,1}[\\d]{0,})", failureMessage: "Cannot find any value", capturingGroupIdx: 1)
     }
     
     

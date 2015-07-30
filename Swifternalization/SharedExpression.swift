@@ -23,7 +23,7 @@ protocol SharedExpressionProtocol {
 /**
 Represents built-in expression and expressions from Expressions.strings file.
 */
-struct SharedExpression: ExpressionRepresentationType, ExpressionPatternType {
+struct SharedExpression: ExpressionType {
     /// Identifier of expression.
     let identifier: String
     

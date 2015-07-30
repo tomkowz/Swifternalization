@@ -16,7 +16,7 @@ enum InternalPattern: String {
     case Expression = "(?<=\\{)(.+)(?=\\})"
     
     /// Pattern that matches expression types.
-    case ExpressionType = "(^.{2,3})(?=:)"
+    case ExpressionPatternType = "(^.{2,3})(?=:)"
     
     /// Pattern that matches key without expression.
     case KeyWithoutExpression = "^(.*?)(?=\\{)"

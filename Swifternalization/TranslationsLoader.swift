@@ -10,7 +10,7 @@ final class TranslationsLoader: JSONFileLoader {
     
     :params: countryCode A country code.
     :params: bundle A bundle when file is placed.
-    :return: `LoadedTranslation` objects from specified file.
+    :returns: `LoadedTranslation` objects from specified file.
     */
     class func loadTranslations(countryCode: CountryCode, bundle: NSBundle = NSBundle.mainBundle()) -> [LoadedTranslation] {
         var loadedTranslations = [LoadedTranslation]()
@@ -20,9 +20,10 @@ final class TranslationsLoader: JSONFileLoader {
                     loadedTranslations.append(LoadedTranslation(type: .Simple, content: [key: value]))
                 } else {
                     let dictionary = value as! JSONDictionary
-                    let type = detectElementType(dictionary)
-                    if type != .NotSupported {
+                    if let type = detectElementType(dictionary) {
                         loadedTranslations.append(LoadedTranslation(type: type, content: dictionary))
+                    } else {
+                        println("Translation type is not supported for: \(dictionary)")
                     }
                 }
             }
@@ -37,7 +38,7 @@ final class TranslationsLoader: JSONFileLoader {
     :params: element A dictionary that will be analyzed.
     :returns: translation type of a dictionary.
     */
-    private class func detectElementType(element: JSONDictionary) -> LoadedTranslationType {
+    private class func detectElementType(element: JSONDictionary) -> LoadedTranslationType? {
         typealias DictWithStrings = Dictionary<String, String>
         typealias DictWithDicts = Dictionary<String, DictWithStrings>
         
@@ -48,6 +49,6 @@ final class TranslationsLoader: JSONFileLoader {
             return .WithExpressionsAndLengthVariations
         }
         
-        return .NotSupported
+        return nil
     }
 }

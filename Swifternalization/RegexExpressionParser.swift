@@ -45,7 +45,7 @@ class RegexExpressionParser: ExpressionParser {
             in the pattern.
     */
     private func regexPattern() -> RegexPattern? {
-        if let regex = Regex.firstMatchInString(pattern, pattern: "(?<=^\(ExpressionType.Regex.rawValue):).*") {
+        if let regex = Regex.firstMatchInString(pattern, pattern: "(?<=^\(ExpressionPatternType.Regex.rawValue):).*") {
             return regex
         } else {
             println("Cannot find any regular expression, pattern: \(pattern)")
