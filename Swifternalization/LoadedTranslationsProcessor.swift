@@ -70,7 +70,7 @@ class LoadedTranslationsProcessor {
                 for (key, value) in $0.content as! Dictionary<String, String> {
                     lengthVariations.append(LengthVariation(length: self.parseNumberFromLengthVariation(key), value: value))
                 }
-                return TranslationWithExpressions(key: $0.key, expressions: [LengthVariationExpression(pattern: $0.key, variations: lengthVariations)])
+                return TranslationWithExpressions(key: $0.key, expressions: [SimpleExpression(pattern: $0.key, localizedValue: lengthVariations.last!.value, lengthVariations: lengthVariations)])
 
             case .WithExpressionsAndLengthVariations:
                 // The most advanced translation type. It contains expressions 
@@ -87,7 +87,7 @@ class LoadedTranslationsProcessor {
                         for (lvKey, lvValue) in value as! Dictionary<String, String> {
                             lengthVariations.append(LengthVariation(length: self.parseNumberFromLengthVariation(lvKey), value: lvValue))
                         }
-                        expressions.append(LengthVariationExpression(pattern: pattern, variations: lengthVariations))
+                        expressions.append(SimpleExpression(pattern: pattern, localizedValue: lengthVariations.last!.value, lengthVariations: lengthVariations))
                     } else if value is String {
                         expressions.append(SimpleExpression(pattern:pattern, localizedValue: value as! String))
                     }

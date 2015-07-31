@@ -87,8 +87,8 @@ class LoadedTranslationsProcessorTests: XCTestCase {
         let k2Translation = translations[1] as! TranslationWithExpressions
         XCTAssertEqual(k2Translation.key, "k2", "")
         XCTAssertEqual(k2Translation.expressions.count, 1, "")
-        let k2Expression = k2Translation.expressions[0] as! LengthVariationExpression
-        XCTAssertEqual(k2Expression.variations.count, 2, "")
+        let k2Expression = k2Translation.expressions[0] as! SimpleExpression
+        XCTAssertEqual(k2Expression.lengthVariations.count, 2, "")
         
         /** 
         Check content of k3 translation

@@ -17,4 +17,10 @@ struct TranslationWithExpressions: TranslationType {
     
     /// Expressions that are related to a translation.
     let expressions: [ExpressionType]
+    
+    func validate(text: String, length: Int?) {
+        for expression in expressions {
+            // Do something
+        }
+    }
 }

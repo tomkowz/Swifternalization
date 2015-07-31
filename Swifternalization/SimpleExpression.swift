@@ -9,12 +9,23 @@
 import Foundation
 
 /**
-Represents simple epxressions that has only pattern and localized value.
+Represents simple epxressions.
 */
 struct SimpleExpression: ExpressionType {
     /// Pattern of expression.
     let pattern: String
 
-    /// A localized value.
+    /// A localized value. If `lengthVariations` array is empty or you want to 
+    /// get full localized value use this property.
     let localizedValue: String
+    
+    /// Array of length variations
+    let lengthVariations: [LengthVariation]
+    
+    // Returns expression object
+    init(pattern: String, localizedValue: String, lengthVariations: [LengthVariation] = [LengthVariation]()) {
+        self.pattern = pattern
+        self.localizedValue = localizedValue
+        self.lengthVariations = lengthVariations
+    }
 }
