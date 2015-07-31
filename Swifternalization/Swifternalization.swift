@@ -31,7 +31,18 @@ public class Swifternalization {
                 } else if  matchingExpression.lengthVariations.count == 0 {
                     return matchingExpression.localizedValue
                 } else if matchingExpression.lengthVariations.count > 0 {
-                    /// GET PROPER VARIANT
+                    let sortedVariations = matchingExpression.lengthVariations.sorted({$0.width < $1.width})
+                    
+                    var selectedValue = matchingExpression.localizedValue
+                    for variation in sortedVariations {
+                        if variation.width <= fittingWidth {
+                            selectedValue = variation.value
+                        } else {
+                            break
+                        }
+                    }
+                    
+                    return selectedValue
                 }
             }
         }
@@ -53,12 +64,12 @@ public class Swifternalization {
         let base = "base"
         let language = getPreferredLanguage(bundle)
         
-        let baseExpressions = SharedExpressionsLoader.loadExpressions(JSONFileLoader.loadExpressions(base, bundle: bundle) ?? [:])
-        let languageExpressions = SharedExpressionsLoader.loadExpressions(JSONFileLoader.loadExpressions(language, bundle: bundle) ?? [:])
+        let baseExpressions = SharedExpressionsLoader.loadExpressions(JSONFileLoader.loadExpressions(base, bundle: bundle))
+        let languageExpressions = SharedExpressionsLoader.loadExpressions(JSONFileLoader.loadExpressions(language, bundle: bundle))
         let expressions = SharedExpressionsProcessor.processSharedExpression(language, preferedLanguageExpressions: languageExpressions, baseLanguageExpressions: baseExpressions)
         
-        let baseTranslations = TranslationsLoader.loadTranslations(JSONFileLoader.loadTranslations(base, bundle: bundle) ?? [:])
-        let languageTranslations = TranslationsLoader.loadTranslations(JSONFileLoader.loadTranslations(language, bundle: bundle) ?? [:])
+        let baseTranslations = TranslationsLoader.loadTranslations(JSONFileLoader.loadTranslations(base, bundle: bundle))
+        let languageTranslations = TranslationsLoader.loadTranslations(JSONFileLoader.loadTranslations(language, bundle: bundle))
         
         translations = LoadedTranslationsProcessor.processTranslations(baseTranslations, preferedLanguageTranslations: languageTranslations, sharedExpressions: expressions)
     }

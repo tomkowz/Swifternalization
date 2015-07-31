@@ -4,8 +4,8 @@ import Foundation
 Length variation representation.
 */
 struct LengthVariation {
-    /// Length - width of a screen.
-    let length: Int
+    /// width of a screen.
+    let width: Int
     
     /// localized string.
     let value: String

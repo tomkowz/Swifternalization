@@ -17,8 +17,8 @@ final class JSONFileLoader {
     :param: bundle A bundle when file is located.
     :returns: Returns json of file or nil if cannot load a file.
     */
-    class func loadTranslations(countryCode: CountryCode, bundle: NSBundle = NSBundle.mainBundle()) -> JSONDictionary? {
-        return self.load(countryCode, bundle: bundle)
+    class func loadTranslations(countryCode: CountryCode, bundle: NSBundle = NSBundle.mainBundle()) -> JSONDictionary {
+        return self.load(countryCode, bundle: bundle) ?? [:]
     }
     
     /**
@@ -28,8 +28,8 @@ final class JSONFileLoader {
     :param: bundle A bundle when file is located.
     :returns: dictionary with expressions or nil.
     */
-    class func loadExpressions(countryCode: CountryCode, bundle: NSBundle = NSBundle.mainBundle()) -> Dictionary<String, String>? {
-        return self.load("expressions", bundle: bundle)?[countryCode] as? Dictionary<String, String>
+    class func loadExpressions(countryCode: CountryCode, bundle: NSBundle = NSBundle.mainBundle()) -> Dictionary<String, String> {
+        return self.load("expressions", bundle: bundle)?[countryCode] as? Dictionary<String, String> ?? [:]
     }
     
     /**

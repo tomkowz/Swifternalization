@@ -12,36 +12,36 @@ import XCTest
 class JSONFileLoaderTests: XCTestCase {
     
     // Expressions
-    func loadExpressions(cc: CountryCode) -> Dictionary<String, String>? {
+    func loadExpressions(cc: CountryCode) -> Dictionary<String, String> {
         return JSONFileLoader.loadExpressions(cc, bundle: NSBundle.testBundle())
     }
     
     func testShouldLoadBaseExpressions() {
-        XCTAssertNotNil(loadExpressions("base"), "")
+        XCTAssertFalse(loadExpressions("base").isEmpty, "")
     }
     
     func testShouldLoadPLExpressions() {
-        XCTAssertNotNil(loadExpressions("pl"), "")
+        XCTAssertFalse(loadExpressions("pl").isEmpty, "")
     }
     
     func testShouldNotLoadDEExpressions() {
-        XCTAssertNil(loadExpressions("de"), "")
+        XCTAssertTrue(loadExpressions("de").isEmpty, "")
     }
     
     // Translations
-    func loadTranslations(cc: CountryCode) -> JSONDictionary? {
+    func loadTranslations(cc: CountryCode) -> JSONDictionary {
         return JSONFileLoader.loadTranslations(cc, bundle: NSBundle.testBundle())
     }
 
     func testShouldLoadBaseTranslations() {
-        XCTAssertNotNil(loadTranslations("base"), "")
+        XCTAssertFalse(loadTranslations("base").isEmpty, "")
     }
     
     func testShouldLoadPLTranslations() {
-        XCTAssertNotNil(loadTranslations("pl"), "")
+        XCTAssertFalse(loadTranslations("pl").isEmpty, "")
     }
     
     func testShouldNotLoadDETranslations() {
-        XCTAssertNil(loadTranslations("de"), "")
+        XCTAssertTrue(loadTranslations("de").isEmpty, "")
     }
 }

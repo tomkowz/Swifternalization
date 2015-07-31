@@ -68,7 +68,7 @@ class LoadedTranslationsProcessor {
                 // Translation contains length expressions like @100, @200, etc.
                 var lengthVariations = [LengthVariation]()
                 for (key, value) in $0.content as! Dictionary<String, String> {
-                    lengthVariations.append(LengthVariation(length: self.parseNumberFromLengthVariation(key), value: value))
+                    lengthVariations.append(LengthVariation(width: self.parseNumberFromLengthVariation(key), value: value))
                 }
                 return Translation(key: $0.key, expressions: [Expression(pattern: $0.key, localizedValue: lengthVariations.last!.value, lengthVariations: lengthVariations)])
 
@@ -85,7 +85,7 @@ class LoadedTranslationsProcessor {
                     if value is Dictionary<String, String> {
                         var lengthVariations = [LengthVariation]()
                         for (lvKey, lvValue) in value as! Dictionary<String, String> {
-                            lengthVariations.append(LengthVariation(length: self.parseNumberFromLengthVariation(lvKey), value: lvValue))
+                            lengthVariations.append(LengthVariation(width: self.parseNumberFromLengthVariation(lvKey), value: lvValue))
                         }
                         expressions.append(Expression(pattern: pattern, localizedValue: lengthVariations.last!.value, lengthVariations: lengthVariations))
                     } else if value is String {

@@ -21,7 +21,6 @@
 		6D5004541B3EF91600A54B36 /* Swifternalization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5004481B3EF91600A54B36 /* Swifternalization.framework */; };
 		6D50045B1B3EF91600A54B36 /* SwifternalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D50045A1B3EF91600A54B36 /* SwifternalizationTests.swift */; };
 		6D5004661B3EF92600A54B36 /* Swifternalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5004641B3EF92600A54B36 /* Swifternalization.swift */; };
-		6D5004921B3EFF6D00A54B36 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D5004941B3EFF6D00A54B36 /* Localizable.strings */; };
 		6D5004961B3EFFC100A54B36 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D5004591B3EF91600A54B36 /* Info.plist */; };
 		6D5BA5F01B651796000D7E49 /* TranslationsLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5BA5EF1B651796000D7E49 /* TranslationsLoaderTests.swift */; };
 		6D5BA5F11B6517A6000D7E49 /* TranslationsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB3CC731B5EBDA600A1220F /* TranslationsLoader.swift */; };
@@ -78,7 +77,6 @@
 		6DB3CC901B5EC29600A1220F /* ExpressionPatternType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB3CC8F1B5EC29600A1220F /* ExpressionPatternType.swift */; };
 		6DB3CC911B5EC29E00A1220F /* ExpressionPatternType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB3CC8F1B5EC29600A1220F /* ExpressionPatternType.swift */; };
 		6DBB6C521B401B8A002F39A3 /* Swifternalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5004641B3EF92600A54B36 /* Swifternalization.swift */; };
-		6DBB6C591B4026B8002F39A3 /* Expressions.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6DBB6C5B1B4026B8002F39A3 /* Expressions.strings */; };
 		6DBB6C691B4040F0002F39A3 /* InternalPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBB6C681B4040F0002F39A3 /* InternalPattern.swift */; };
 		6DBB6C6A1B40412D002F39A3 /* InternalPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBB6C681B4040F0002F39A3 /* InternalPattern.swift */; };
 		6DBB6C871B40718F002F39A3 /* Expressions.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6DBB6C891B40718F002F39A3 /* Expressions.strings */; };
@@ -121,7 +119,6 @@
 		6D5004591B3EF91600A54B36 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D50045A1B3EF91600A54B36 /* SwifternalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwifternalizationTests.swift; sourceTree = "<group>"; };
 		6D5004641B3EF92600A54B36 /* Swifternalization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swifternalization.swift; sourceTree = "<group>"; };
-		6D5004931B3EFF6D00A54B36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6D5BA5EF1B651796000D7E49 /* TranslationsLoaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationsLoaderTests.swift; sourceTree = "<group>"; };
 		6D5BA5FA1B65253B000D7E49 /* SharedExpressionsProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedExpressionsProcessor.swift; sourceTree = "<group>"; };
 		6D5BA5FF1B6526F0000D7E49 /* SharedExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedExpression.swift; path = ../SharedExpression.swift; sourceTree = "<group>"; };
@@ -163,7 +160,6 @@
 		6DB3CC6A1B5EBDA600A1220F /* LengthVariation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LengthVariation.swift; sourceTree = "<group>"; };
 		6DB3CC731B5EBDA600A1220F /* TranslationsLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationsLoader.swift; sourceTree = "<group>"; };
 		6DB3CC8F1B5EC29600A1220F /* ExpressionPatternType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpressionPatternType.swift; sourceTree = "<group>"; };
-		6DBB6C5A1B4026B8002F39A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Expressions.strings; sourceTree = "<group>"; };
 		6DBB6C681B4040F0002F39A3 /* InternalPattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternalPattern.swift; sourceTree = "<group>"; };
 		6DBB6C881B40718F002F39A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Expressions.strings; sourceTree = "<group>"; };
 		6DBB6C8A1B407190002F39A3 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Expressions.strings; sourceTree = "<group>"; };
@@ -283,8 +279,6 @@
 				6D6282931B3F052B00E65FCD /* TranslatablePairTests.swift */,
 				6D140F451B56D04300359143 /* Helpers */,
 				6D5004581B3EF91600A54B36 /* Supporting Files */,
-				6D5004941B3EFF6D00A54B36 /* Localizable.strings */,
-				6DBB6C5B1B4026B8002F39A3 /* Expressions.strings */,
 				6DD3B93D1B5ED35600C79EAC /* Localizable Files */,
 			);
 			path = SwifternalizationTests;
@@ -360,8 +354,8 @@
 		6DD3B93D1B5ED35600C79EAC /* Localizable Files */ = {
 			isa = PBXGroup;
 			children = (
-				6DD3B9371B5ED35200C79EAC /* base.json */,
 				6DD3B9381B5ED35200C79EAC /* expressions.json */,
+				6DD3B9371B5ED35200C79EAC /* base.json */,
 				6DD3B9391B5ED35200C79EAC /* pl.json */,
 			);
 			name = "Localizable Files";
@@ -506,8 +500,6 @@
 				6DD3B93A1B5ED35200C79EAC /* base.json in Resources */,
 				6D5004961B3EFFC100A54B36 /* Info.plist in Resources */,
 				6DD3B93C1B5ED35200C79EAC /* pl.json in Resources */,
-				6DBB6C591B4026B8002F39A3 /* Expressions.strings in Resources */,
-				6D5004921B3EFF6D00A54B36 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,14 +626,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6D5004941B3EFF6D00A54B36 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6D5004931B3EFF6D00A54B36 /* Base */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
 		6D6283491B3F622A00E65FCD /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -649,14 +633,6 @@
 				6D62834C1B3F623200E65FCD /* pl */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		6DBB6C5B1B4026B8002F39A3 /* Expressions.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6DBB6C5A1B4026B8002F39A3 /* Base */,
-			);
-			name = Expressions.strings;
 			sourceTree = "<group>";
 		};
 		6DBB6C891B40718F002F39A3 /* Expressions.strings */ = {
