@@ -10,14 +10,38 @@ import UIKit
 import XCTest
 
 class JSONFileLoaderTests: XCTestCase {
-
-    func testJSONShouldBeLoaded() {
-        let content = JSONFileLoader.load("base", bundle: NSBundle.testBundle())
-        XCTAssertNotNil(content!, "")
+    
+    // Expressions
+    func loadExpressions(cc: CountryCode) -> Dictionary<String, String>? {
+        return JSONFileLoader.loadExpressions(cc, bundle: NSBundle.testBundle())
     }
     
-    func testFileShouldNotBeLoaded() {
-        let content = JSONFileLoader.load("not-existing", bundle: NSBundle.testBundle())
-        XCTAssertNil(content, "")
+    func testShouldLoadBaseExpressions() {
+        XCTAssertNotNil(loadExpressions("base"), "")
+    }
+    
+    func testShouldLoadPLExpressions() {
+        XCTAssertNotNil(loadExpressions("pl"), "")
+    }
+    
+    func testShouldNotLoadDEExpressions() {
+        XCTAssertNil(loadExpressions("de"), "")
+    }
+    
+    // Translations
+    func loadTranslations(cc: CountryCode) -> JSONDictionary? {
+        return JSONFileLoader.loadTranslations(cc, bundle: NSBundle.testBundle())
+    }
+
+    func testShouldLoadBaseTranslations() {
+        XCTAssertNotNil(loadTranslations("base"), "")
+    }
+    
+    func testShouldLoadPLTranslations() {
+        XCTAssertNotNil(loadTranslations("pl"), "")
+    }
+    
+    func testShouldNotLoadDETranslations() {
+        XCTAssertNil(loadTranslations("de"), "")
     }
 }

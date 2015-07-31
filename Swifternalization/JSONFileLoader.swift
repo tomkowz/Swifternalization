@@ -1,10 +1,36 @@
 import Foundation
 
 /**
+Represents json content.
+*/
+typealias JSONDictionary = Dictionary<String, AnyObject>
+
+/**
 Simple JSON loader.
 */
-class JSONFileLoader {
-    typealias JSONDictionary = Dictionary<String, AnyObject>
+final class JSONFileLoader {
+    
+    /**
+    Loads translations dict for specified language.
+    
+    :param: countryCode A country code.
+    :param: bundle A bundle when file is located.
+    :returns: Returns json of file or nil if cannot load a file.
+    */
+    class func loadTranslations(countryCode: CountryCode, bundle: NSBundle = NSBundle.mainBundle()) -> JSONDictionary? {
+        return self.load(countryCode, bundle: bundle)
+    }
+    
+    /**
+    Loads expressions dict for specified language.
+    
+    :param: countryCode A country code.
+    :param: bundle A bundle when file is located.
+    :returns: dictionary with expressions or nil.
+    */
+    class func loadExpressions(countryCode: CountryCode, bundle: NSBundle = NSBundle.mainBundle()) -> Dictionary<String, String>? {
+        return self.load("expressions", bundle: bundle)?[countryCode] as? Dictionary<String, String>
+    }
     
     /**
     Loads content of a file with specified name, type and bundle.
@@ -14,7 +40,7 @@ class JSONFileLoader {
     :param: bundle A bundle when file is located.
     :returns: JSON or nil.
     */
-    final class func load(fileName: String, bundle: NSBundle = NSBundle.mainBundle()) -> JSONDictionary? {
+    private class func load(fileName: String, bundle: NSBundle = NSBundle.mainBundle()) -> JSONDictionary? {
         if let fileURL = bundle.URLForResource(fileName, withExtension: "json") {
             return load(fileURL)
         }
@@ -33,9 +59,9 @@ class JSONFileLoader {
             var error: NSError?
             if let dictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &error) as? JSONDictionary {
                 return dictionary
-            } else {
-                print("Cannot parse JSON. It might be broken.")
             }
+            print("Cannot parse JSON. It might be broken.")
+            return nil
         }
         print("Cannot load content of file.")
         return nil

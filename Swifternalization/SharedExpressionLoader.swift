@@ -3,7 +3,7 @@ import Foundation
 /**
 Used to load content from `expressions.json` file for specified language.
 */
-final class SharedExpressionsLoader: JSONFileLoader {
+final class SharedExpressionsLoader {
     
     /**
     Loads expressions for specified language.
@@ -11,15 +11,10 @@ final class SharedExpressionsLoader: JSONFileLoader {
     :param: countryCode A country code
     :returns: array of loaded expressions.
     */
-    class func loadExpressions(countryCode: CountryCode, bundle: NSBundle) -> [SharedExpression] {
+    class func loadExpressions(json: Dictionary<String, String>) -> [SharedExpression] {
         var expressions = [SharedExpression]()
-        if let json = self.load("expressions", bundle: bundle),
-            let expressionsDict = json[countryCode] as? Dictionary<String, String> {
-                for (identifier, pattern) in expressionsDict {
-                    expressions.append(SharedExpression(identifier: identifier, pattern: pattern))
-                }
-        } else {
-            println("expressions.json file structure is incorrect.")
+        for (identifier, pattern) in json {
+            expressions.append(SharedExpression(identifier: identifier, pattern: pattern))
         }
         return expressions
     }

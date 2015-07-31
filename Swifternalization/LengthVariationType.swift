@@ -1,6 +1,8 @@
 import Foundation
 
-/// Represents length variation.
+/** 
+Represents length variation.
+*/
 protocol LengthVariationType {
     /// Length of a screen.
     var length: Int {get}

@@ -27,7 +27,7 @@ class LoadedTranslationsProcessor {
     expressions as well as built-in ones. Translations are processed in shared 
     expressions processor.
     */
-    class func processTrnslations(baseTranslations: [LoadedTranslation], preferedLanguageTranslations: [LoadedTranslation], sharedExpressions: [SharedExpression]) -> [TranslationType] {
+    class func processTranslations(baseTranslations: [LoadedTranslation], preferedLanguageTranslations: [LoadedTranslation], sharedExpressions: [SharedExpression]) -> [TranslationType] {
         
         // Find those base translations that are not contained in prefered 
         // language translations.
@@ -74,19 +74,23 @@ class LoadedTranslationsProcessor {
 
             case .WithExpressionsAndLengthVariations:
                 // The most advanced translation type. It contains expressions 
-                // that contain length variations. THe job done here is similar 
-                // to the one in .WithExpressions and .WithLengthVariations
-                // cases. key is filtered in shared expressions to get one of 
-                // shared expressions and then method builds array of variations.
+                // that contain length variations or just simple expressions. 
+                // THe job done here is similar to the one in .WithExpressions 
+                // and .WithLengthVariations cases. key is filtered in shared 
+                // expressions to get one of shared expressions and then method 
+                // builds array of variations.
                 var expressions = [ExpressionType]()
-                for (key, value) in $0.content as! Dictionary<String, Dictionary<String, String>> {
+                for (key, value) in $0.content {
                     let pattern = sharedExpressions.filter({$0.identifier == key}).first?.pattern ?? key
-                    
-                    var lengthVariations = [LengthVariation]()
-                    for (lvKey, lvValue) in value as Dictionary<String, String> {
-                        lengthVariations.append(LengthVariation(length: self.parseNumberFromLengthVariation(lvKey), value: lvValue))
+                    if value is Dictionary<String, String> {
+                        var lengthVariations = [LengthVariation]()
+                        for (lvKey, lvValue) in value as! Dictionary<String, String> {
+                            lengthVariations.append(LengthVariation(length: self.parseNumberFromLengthVariation(lvKey), value: lvValue))
+                        }
+                        expressions.append(LengthVariationExpression(pattern: pattern, variations: lengthVariations))
+                    } else if value is String {
+                        expressions.append(SimpleExpression(pattern:pattern, localizedValue: value as! String))
                     }
-                    expressions.append(LengthVariationExpression(pattern: pattern, variations: lengthVariations))
                 }
                 return TranslationWithExpressions(key: $0.key, expressions: expressions)
             }

@@ -11,18 +11,8 @@ import XCTest
 
 class SharedExpressionsLoaderTests: XCTestCase {
     
-    func testShouldLoadBase() {
-        let content = SharedExpressionsLoader.loadExpressions("base", bundle: NSBundle.testBundle())
-        XCTAssertTrue(content.count > 0, "")
-    }
-    
-    func testShouldLoadPL() {
-        let content = SharedExpressionsLoader.loadExpressions("pl", bundle: NSBundle.testBundle())
-        XCTAssertTrue(content.count > 0, "")
-    }
-    
-    func testShouldNotLoadDE() {
-        let content = SharedExpressionsLoader.loadExpressions("de", bundle: NSBundle.testBundle())
-        XCTAssertFalse(content.count > 0, "")
+    func testShouldLoadExpressions() {
+        let expressions = SharedExpressionsLoader.loadExpressions(ExpressionJSONs.base())
+        XCTAssertEqual(expressions.count, 3, "")
     }
 }

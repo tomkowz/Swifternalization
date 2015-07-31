@@ -10,13 +10,12 @@ import Foundation
 import XCTest
 
 class SharedExpressionsProcessorTests: XCTestCase {
-
-    func testThatAllExpressionsShouldBeLoadedCorreclty() {
-        let baseExpressions = SharedExpressionsLoader.loadExpressions("base", bundle: NSBundle.testBundle())
-        let preferedExpressions = SharedExpressionsLoader.loadExpressions("pl", bundle: NSBundle.testBundle())
-
-        let sharedExpressions = SharedExpressionsProcessor.processSharedExpression("pl", preferedLanguageExpressions: preferedExpressions, baseLanguageExpressions: baseExpressions)
+    
+    func testShouldProcessExpressions() {
+        let base = SharedExpressionsLoader.loadExpressions(ExpressionJSONs.base())
+        let en = SharedExpressionsLoader.loadExpressions(ExpressionJSONs.en())
         
-        XCTAssertEqual(sharedExpressions.count, 8, "")
+        let shared = SharedExpressionsProcessor.processSharedExpression("en", preferedLanguageExpressions: base, baseLanguageExpressions: en)
+        XCTAssertEqual(shared.count, 9, "")
     }
 }

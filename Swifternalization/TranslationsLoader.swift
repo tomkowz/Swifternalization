@@ -1,30 +1,28 @@
 import Foundation
 
 /**
-Class that loads translations from a file.
+Class that gets dictionary of translations and turn it into `LoadedTranslation`s.
 */
-final class TranslationsLoader: JSONFileLoader {
+final class TranslationsLoader {
     
     /**
-    Loads content from file with name equal to passed country code in a bundle.
+    Converts dictionary into array of `LoadedTranslation`s.
     
-    :params: countryCode A country code.
-    :params: bundle A bundle when file is placed.
-    :returns: `LoadedTranslation` objects from specified file.
+    :params: dictionary A dictionary with content of file which contains 
+        translations.
+    :returns: Array of `LoadedTranslation` objects from specified file.
     */
-    class func loadTranslations(countryCode: CountryCode, bundle: NSBundle = NSBundle.mainBundle()) -> [LoadedTranslation] {
+    class func loadTranslations(json: Dictionary<String, AnyObject>) -> [LoadedTranslation] {
         var loadedTranslations = [LoadedTranslation]()
-        if let json = self.load(countryCode, bundle: bundle) {
-            for (key, value) in json {
-                if value is String {
-                    loadedTranslations.append(LoadedTranslation(type: .Simple, key: key, content: [key: value]))
+        for (key, value) in json {
+            if value is String {
+                loadedTranslations.append(LoadedTranslation(type: .Simple, key: key, content: [key: value]))
+            } else {
+                let dictionary = value as! JSONDictionary
+                if let type = detectElementType(dictionary) {
+                    loadedTranslations.append(LoadedTranslation(type: type, key: key, content: dictionary))
                 } else {
-                    let dictionary = value as! JSONDictionary
-                    if let type = detectElementType(dictionary) {
-                        loadedTranslations.append(LoadedTranslation(type: type, key: key, content: dictionary))
-                    } else {
-                        println("Translation type is not supported for: \(dictionary)")
-                    }
+                    println("Translation type is not supported for: \(dictionary)")
                 }
             }
         }
@@ -42,10 +40,22 @@ final class TranslationsLoader: JSONFileLoader {
         typealias DictWithStrings = Dictionary<String, String>
         typealias DictWithDicts = Dictionary<String, DictWithStrings>
         
-        if element is DictWithStrings, let key = element.keys.first {
+        var dicts = 0
+        var strings = 0
+        
+        for (key, value) in element {
+            if value is String {
+                strings++
+            } else if value is Dictionary<String, AnyObject> {
+                dicts++
+            }
+        }
+        
+        if strings > 0 && dicts == 0 {
+            let key = element.keys.first!
             let toIndex = advance(key.startIndex, 1)
             return key.substringToIndex(toIndex) == "@" ? .WithLengthVariations : .WithExpressions
-        } else if element is DictWithDicts {
+        } else if strings >= 0 && dicts > 0 {
             return .WithExpressionsAndLengthVariations
         }
         

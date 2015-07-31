@@ -11,18 +11,8 @@ import XCTest
 
 class TranslationsLoaderTests: XCTestCase {
 
-    func testShouldLoadBase() {
-        let content = TranslationsLoader.loadTranslations("pl", bundle: NSBundle.testBundle())
-        XCTAssertTrue(content.count > 0, "")
-    }
-    
-    func testShouldLoadPL() {
-        let content = TranslationsLoader.loadTranslations("base", bundle: NSBundle.testBundle())
-        XCTAssertTrue(content.count > 0, "")
-    }
-    
-    func testShouldNotLoadDE() {
-        let content = TranslationsLoader.loadTranslations("de", bundle: NSBundle.testBundle())
-        XCTAssertFalse(content.count > 0, "")
+    func testShouldLoadTranslations() {
+        let translations = TranslationsLoader.loadTranslations(TranslationJSONs.base())
+        XCTAssertEqual(translations.count, 3, "")
     }
 }
