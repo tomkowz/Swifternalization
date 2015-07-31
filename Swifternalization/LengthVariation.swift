@@ -3,7 +3,7 @@ import Foundation
 /**
 Length variation representation.
 */
-struct LengthVariation: LengthVariationType {
+struct LengthVariation {
     /// Length - width of a screen.
     let length: Int
     

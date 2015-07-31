@@ -27,7 +27,7 @@ class LoadedTranslationsProcessor {
     expressions as well as built-in ones. Translations are processed in shared 
     expressions processor.
     */
-    class func processTranslations(baseTranslations: [LoadedTranslation], preferedLanguageTranslations: [LoadedTranslation], sharedExpressions: [SharedExpression]) -> [TranslationType] {
+    class func processTranslations(baseTranslations: [LoadedTranslation], preferedLanguageTranslations: [LoadedTranslation], sharedExpressions: [SharedExpression]) -> [Translation] {
         
         // Find those base translations that are not contained in prefered 
         // language translations.
@@ -49,7 +49,7 @@ class LoadedTranslationsProcessor {
             case .Simple:
                 // Simple translation with key and value.
                 let value = $0.content[$0.key] as! String
-                return TranslationWithExpressions(key: $0.key, expressions: [SimpleExpression(pattern: $0.key, localizedValue: value)])
+                return Translation(key: $0.key, expressions: [Expression(pattern: $0.key, localizedValue: value)])
                 
             case .WithExpressions:
                 // Translation that contains expression.
@@ -57,12 +57,12 @@ class LoadedTranslationsProcessor {
                 // the shared expressions are filtered to get expression that 
                 // matches key and if there is a key it is replaced with real
                 // expression pattern.
-                var expressions = [ExpressionType]()
+                var expressions = [Expression]()
                 for (key, value) in $0.content as! Dictionary<String, String> {
                     let pattern = sharedExpressions.filter({$0.identifier == key}).first?.pattern ?? key
-                    expressions.append(SimpleExpression(pattern: pattern, localizedValue: value))
+                    expressions.append(Expression(pattern: pattern, localizedValue: value))
                 }
-                return TranslationWithExpressions(key: $0.key, expressions: expressions)
+                return Translation(key: $0.key, expressions: expressions)
                 
             case .WithLengthVariations:
                 // Translation contains length expressions like @100, @200, etc.
@@ -70,7 +70,7 @@ class LoadedTranslationsProcessor {
                 for (key, value) in $0.content as! Dictionary<String, String> {
                     lengthVariations.append(LengthVariation(length: self.parseNumberFromLengthVariation(key), value: value))
                 }
-                return TranslationWithExpressions(key: $0.key, expressions: [SimpleExpression(pattern: $0.key, localizedValue: lengthVariations.last!.value, lengthVariations: lengthVariations)])
+                return Translation(key: $0.key, expressions: [Expression(pattern: $0.key, localizedValue: lengthVariations.last!.value, lengthVariations: lengthVariations)])
 
             case .WithExpressionsAndLengthVariations:
                 // The most advanced translation type. It contains expressions 
@@ -79,7 +79,7 @@ class LoadedTranslationsProcessor {
                 // and .WithLengthVariations cases. key is filtered in shared 
                 // expressions to get one of shared expressions and then method 
                 // builds array of variations.
-                var expressions = [ExpressionType]()
+                var expressions = [Expression]()
                 for (key, value) in $0.content {
                     let pattern = sharedExpressions.filter({$0.identifier == key}).first?.pattern ?? key
                     if value is Dictionary<String, String> {
@@ -87,12 +87,12 @@ class LoadedTranslationsProcessor {
                         for (lvKey, lvValue) in value as! Dictionary<String, String> {
                             lengthVariations.append(LengthVariation(length: self.parseNumberFromLengthVariation(lvKey), value: lvValue))
                         }
-                        expressions.append(SimpleExpression(pattern: pattern, localizedValue: lengthVariations.last!.value, lengthVariations: lengthVariations))
+                        expressions.append(Expression(pattern: pattern, localizedValue: lengthVariations.last!.value, lengthVariations: lengthVariations))
                     } else if value is String {
-                        expressions.append(SimpleExpression(pattern:pattern, localizedValue: value as! String))
+                        expressions.append(Expression(pattern:pattern, localizedValue: value as! String))
                     }
                 }
-                return TranslationWithExpressions(key: $0.key, expressions: expressions)
+                return Translation(key: $0.key, expressions: expressions)
             }
         })
     }

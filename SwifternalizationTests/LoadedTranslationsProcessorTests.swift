@@ -84,16 +84,16 @@ class LoadedTranslationsProcessorTests: XCTestCase {
         /** 
         Check content of k2 translation
         */
-        let k2Translation = translations[1] as! TranslationWithExpressions
+        let k2Translation = translations[1]
         XCTAssertEqual(k2Translation.key, "k2", "")
         XCTAssertEqual(k2Translation.expressions.count, 1, "")
-        let k2Expression = k2Translation.expressions[0] as! SimpleExpression
+        let k2Expression = k2Translation.expressions[0]
         XCTAssertEqual(k2Expression.lengthVariations.count, 2, "")
         
         /** 
         Check content of k3 translation
         */
-        let k3Translation = translations[2] as! TranslationWithExpressions
+        let k3Translation = translations[2]
         XCTAssertEqual(k3Translation.key, "k3", "")
         XCTAssertEqual(k3Translation.expressions.count, 2, "")
         
@@ -109,7 +109,7 @@ class LoadedTranslationsProcessorTests: XCTestCase {
         /**
         Check content of k4 translation
         */
-        let k4Translation = translations[3] as! TranslationWithExpressions
+        let k4Translation = translations[3]
         XCTAssertEqual(k4Translation.key, "k4", "")
         XCTAssertEqual(k4Translation.expressions.count, 3, "")
         

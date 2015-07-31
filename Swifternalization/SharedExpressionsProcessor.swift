@@ -95,7 +95,7 @@ class SharedExpressionsProcessor {
     :returns: Shared expressions for specific language. If there is no
     expression for passed language empty array is returned.
     */
-    private class func loadBuiltInExpressions(language: Language) -> [SharedExpression] {
+    private class func loadBuiltInExpressions(language: CountryCode) -> [SharedExpression] {
         switch language {
         case "pl": return SharedPolishExpression.allExpressions()
         default: return []
