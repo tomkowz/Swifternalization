@@ -38,7 +38,6 @@ class SharedExpressionsProcessor {
     :param: preferedLanguageExpressions Expressions from expressions.json
     :param: baseLanguageExpressions Expressions from base section of 
             expression.json.
-    
     :returns: array of shared expressions for Base and preferred language.
     */
     class func processSharedExpression(preferedLanguage: CountryCode, preferedLanguageExpressions: [SharedExpression], baseLanguageExpressions: [SharedExpression]) -> [SharedExpression] {
@@ -53,25 +52,15 @@ class SharedExpressionsProcessor {
         and this is good as base expression.
         2. He forgot to define such expression for prefered language.
         */
-        var uniqueBaseExpressions = baseLanguageExpressions
-        if preferedLanguageExpressions.count > 0 {
-            uniqueBaseExpressions = baseLanguageExpressions.filter({
-                let pref = $0
-                return preferedLanguageExpressions.filter({$0.identifier == pref.identifier}).count == 0
-            })
-        }
+        let uniqueBaseExpressions = baseLanguageExpressions <! preferedLanguageExpressions
         
         // Expressions from json files.
         var loadedExpressions = uniqueBaseExpressions + preferedLanguageExpressions
-
         
         // Load prefered language nad base built-in expressions. Get unique.
         let prefBuiltInExpressions = loadBuiltInExpressions(preferedLanguage)
         let baseBuiltInExpressions = SharedBaseExpression.allExpressions()
-        let uniqueBaseBuiltInExpressions = baseBuiltInExpressions.filter({
-            let pref = $0
-            return prefBuiltInExpressions.filter({$0.identifier == pref.identifier}).count == 0
-        })
+        let uniqueBaseBuiltInExpressions = baseBuiltInExpressions <! prefBuiltInExpressions
         
         // Unique built-in expressions made of base + prefered language.
         let builtInExpressions = uniqueBaseBuiltInExpressions + prefBuiltInExpressions
@@ -80,12 +69,7 @@ class SharedExpressionsProcessor {
         To get it done we must get only unique built-in expressions that are not 
         in loaded expressions.
         */
-        let uniqueBuiltInExpressions = builtInExpressions.filter({
-            let builtIn = $0
-            return loadedExpressions.filter({$0.identifier == builtIn.identifier}).count == 0
-        })
-        
-        return loadedExpressions + uniqueBuiltInExpressions
+        return loadedExpressions + (builtInExpressions <! loadedExpressions)
     }
     
     /**
@@ -101,4 +85,23 @@ class SharedExpressionsProcessor {
         default: return []
         }
     }
+}
+
+infix operator <! {}
+func <! (lhs: [SharedExpression], rhs: [SharedExpression]) -> [SharedExpression] {
+    /*
+    "Get Unique" operator. It helps in getting unique shared expressions from two arrays.
+    Content of `lhs` array will be checked in terms on uniqueness. The operator does
+    check is there is any shared expression in `lhs` that is presented in `rhs`.
+    If element from `lhs` is not in `rhs` then this element is correct and is returned
+    in new array which is a result of this operation.
+    */
+    var result = lhs
+    if rhs.count > 0 {
+        result = lhs.filter({
+            let tmp = $0
+            return rhs.filter({$0.identifier == tmp.identifier}).count == 0
+        })
+    }
+    return result
 }
