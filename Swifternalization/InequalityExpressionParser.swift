@@ -71,7 +71,7 @@ class InequalityExpressionParser: ExpressionParser {
         if let value = Regex.matchInString(pattern, pattern: regex, capturingGroupIdx: capturingGroupIdx) {
             return NSString(string: value).doubleValue
         } else {
-            println("\(failureMessage), pattern: \(pattern), regex: \(regex)")
+            print("\(failureMessage), pattern: \(pattern), regex: \(regex)")
             return nil
         }
     }
@@ -89,7 +89,7 @@ class InequalityExpressionParser: ExpressionParser {
             let sign = InequalitySign(rawValue: rawValue) {
                 return sign
         } else {
-            println("\(failureMessage), pattern: \(pattern), regex: \(regex)")
+            print("\(failureMessage), pattern: \(pattern), regex: \(regex)")
             return nil
         }
     }

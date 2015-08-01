@@ -55,7 +55,7 @@ class SharedExpressionsProcessor {
         let uniqueBaseExpressions = baseLanguageExpressions <! preferedLanguageExpressions
         
         // Expressions from json files.
-        var loadedExpressions = uniqueBaseExpressions + preferedLanguageExpressions
+        let loadedExpressions = uniqueBaseExpressions + preferedLanguageExpressions
         
         // Load prefered language nad base built-in expressions. Get unique.
         let prefBuiltInExpressions = loadBuiltInExpressions(preferedLanguage)
