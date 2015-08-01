@@ -8,44 +8,62 @@
 
 import Foundation
 
-/// String that contains expression pattern, e.g. `ie:x<5`, `exp:^1$`.
+/** 
+String that contains expression pattern, e.g. `ie:x<5`, `exp:^1$`.
+*/
 typealias ExpressionPattern = String
 
 /**
-Represents simple epxressions.
+This class contains pattern of expression and localized value as well as
+length variations if any are associated. During instance initialization pattern 
+is analyzed and correct expression matcher is created. If no matcher matches 
+the expression pattern then when validating there is only check if passed value 
+is the same like pattern (equality). If there is matcher then its internal logic 
+validates passed value.
 */
 struct Expression {
-    /// Pattern of expression.
-    let pattern: String
+    /** 
+    Pattern of an expression.
+    */
+    let pattern: ExpressionPattern
 
-    /// A localized value. If `lengthVariations` array is empty or you want to 
-    /// get full localized value use this property.
-    let localizedValue: String
+    /** 
+    A localized value. If length vartiations array is empty or you want to
+    get full localized value use this property.
+    */
+    let value: String
     
-    /// Array of length variations
+    /** 
+    Array of length variations.
+    */
     let lengthVariations: [LengthVariation]
     
-    /// Expression matcher that is used in validation
+    /** 
+    Expression matcher that is used in validation.
+    */
     private var expressionMatcher: ExpressionMatcher? = nil
     
-    // Returns expression object
-    init(pattern: String, localizedValue: String, lengthVariations: [LengthVariation] = [LengthVariation]()) {
+    /** 
+    Returns expression object.
+    */
+    init(pattern: String, value: String, lengthVariations: [LengthVariation] = [LengthVariation]()) {
         self.pattern = pattern
-        self.localizedValue = localizedValue
+        self.value = value
         self.lengthVariations = lengthVariations
         
-        // Create expression matcher
+        /* 
+        Create expression matcher if pattern matches some expression type.
+        If not matching any expression type then the pattern equality test
+        will be perfomed when during validation.
+        */
         if let type = getExpressionType(pattern) {
-            switch (type as ExpressionPatternType) {
-            case .Inequality:
-                expressionMatcher = InequalityExpressionParser(pattern).parse()
-                
-            case .InequalityExtended:
-                expressionMatcher = InequalityExtendedExpressionParser(pattern).parse()
-                
-            case .Regex:
-                expressionMatcher = RegexExpressionParser(pattern).parse()
-            }
+            expressionMatcher = {
+                switch (type as ExpressionPatternType) {
+                case .Inequality: return InequalityExpressionParser(pattern).parse()
+                case .InequalityExtended: return InequalityExtendedExpressionParser(pattern).parse()
+                case .Regex: return RegexExpressionParser(pattern).parse()
+                }
+            }()
         }
     }
     
@@ -64,7 +82,7 @@ struct Expression {
     }
     
     /**
-    Method used to get `ExpressionPatternType` of passed `ExpressionPattern`.
+    Method used to get `ExpressionPatternType` of passed expression pattern.
     
     :param: pattern expression pattern that will be checked.
     :returns: `ExpressionPatternType` if pattern is supported, otherwise nil.

@@ -18,7 +18,6 @@ class Regex {
     
     :param: str A string that will be matched.
     :param: pattern A regex pattern.
-    
     :returns: `String` that matches pattern or nil.
     */
     class func matchInString(str: String, pattern: String, capturingGroupIdx: Int?) -> String? {
@@ -44,7 +43,6 @@ class Regex {
     
     :param: str A string that will be matched.
     :param: pattern A regexp pattern.
-    
     :returns: `String` that matches pattern or nil.
     */
     class func firstMatchInString(str: String, pattern: String) -> String? {
@@ -59,7 +57,6 @@ class Regex {
     
     :param: str A string that will be matched.
     :param: pattern A regexp pattern.
-    
     :returns: Array of `Strings`s. If nothing found empty array is returned.
     */
     class func matchesInString(str: String, pattern: String) -> [String] {
@@ -77,7 +74,6 @@ class Regex {
     Returns new `NSRegularExpression` object.
     
     :param: pattern A regexp pattern.
-    
     :returns: `NSRegularExpression` object or nil if it cannot be created.
     */
     private class func regexp(pattern: String) -> NSRegularExpression? {
@@ -94,7 +90,6 @@ class Regex {
     
     :param: str A string that is source of substraction.
     :param: range A range that tells which part of `str` will be substracted.
-    
     :returns: A string contained in `range`.
     */
     private class func substring(str: String, range: NSRange) -> String {

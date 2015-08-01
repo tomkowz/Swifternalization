@@ -49,7 +49,7 @@ class LoadedTranslationsProcessor {
             case .Simple:
                 // Simple translation with key and value.
                 let value = $0.content[$0.key] as! String
-                return Translation(key: $0.key, expressions: [Expression(pattern: $0.key, localizedValue: value)])
+                return Translation(key: $0.key, expressions: [Expression(pattern: $0.key, value: value)])
                 
             case .WithExpressions:
                 // Translation that contains expression.
@@ -60,7 +60,7 @@ class LoadedTranslationsProcessor {
                 var expressions = [Expression]()
                 for (key, value) in $0.content as! Dictionary<String, String> {
                     let pattern = sharedExpressions.filter({$0.identifier == key}).first?.pattern ?? key
-                    expressions.append(Expression(pattern: pattern, localizedValue: value))
+                    expressions.append(Expression(pattern: pattern, value: value))
                 }
                 return Translation(key: $0.key, expressions: expressions)
                 
@@ -70,7 +70,7 @@ class LoadedTranslationsProcessor {
                 for (key, value) in $0.content as! Dictionary<String, String> {
                     lengthVariations.append(LengthVariation(width: self.parseNumberFromLengthVariation(key), value: value))
                 }
-                return Translation(key: $0.key, expressions: [Expression(pattern: $0.key, localizedValue: lengthVariations.last!.value, lengthVariations: lengthVariations)])
+                return Translation(key: $0.key, expressions: [Expression(pattern: $0.key, value: lengthVariations.last!.value, lengthVariations: lengthVariations)])
 
             case .WithExpressionsAndLengthVariations:
                 // The most advanced translation type. It contains expressions 
@@ -87,9 +87,9 @@ class LoadedTranslationsProcessor {
                         for (lvKey, lvValue) in value as! Dictionary<String, String> {
                             lengthVariations.append(LengthVariation(width: self.parseNumberFromLengthVariation(lvKey), value: lvValue))
                         }
-                        expressions.append(Expression(pattern: pattern, localizedValue: lengthVariations.last!.value, lengthVariations: lengthVariations))
+                        expressions.append(Expression(pattern: pattern, value: lengthVariations.last!.value, lengthVariations: lengthVariations))
                     } else if value is String {
-                        expressions.append(Expression(pattern:pattern, localizedValue: value as! String))
+                        expressions.append(Expression(pattern:pattern, value: value as! String))
                     }
                 }
                 return Translation(key: $0.key, expressions: expressions)
