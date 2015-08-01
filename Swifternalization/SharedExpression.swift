@@ -16,7 +16,9 @@ localizing app.
 Rules: http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html
 */
 protocol SharedExpressionProtocol {
-    /// Method returns all expressions for class that conform this protocol
+    /** 
+    Method returns all expressions for class that conform this protocol
+    */
     static func allExpressions() -> [SharedExpression]
 }
 
@@ -24,13 +26,19 @@ protocol SharedExpressionProtocol {
 Represents built-in expression and expressions from Expressions.strings file.
 */
 struct SharedExpression {
-    /// Identifier of expression.
+    /** 
+    Identifier of expression.
+    */
     let identifier: String
     
-    /// Pattern of expression.
+    /** 
+    Pattern of expression.
+    */
     let pattern: String
     
-    /// Creates expression.
+    /** 
+    Creates expression.
+    */
     init(identifier: String, pattern: String) {
         self.identifier = identifier
         self.pattern = pattern

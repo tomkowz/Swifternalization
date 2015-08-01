@@ -12,7 +12,9 @@ import Foundation
 Parses inequality expression patterns. e.g. `ie:x=5`.
 */
 class InequalityExpressionParser: ExpressionParser {
-    /// Pattern of expression.
+    /** 
+    A pattern of expression.
+    */
     let pattern: ExpressionPattern
     
     /**
@@ -46,7 +48,7 @@ class InequalityExpressionParser: ExpressionParser {
     }
     
     /**
-    Get value - Int.
+    Get value - Double.
     
     :returns: value or nil if value cannot be found
     */

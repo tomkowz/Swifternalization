@@ -6,10 +6,14 @@
 //  Copyright (c) 2015 Tomasz Szulc. All rights reserved.
 //
 
-/// Contains Polish expressions.
+/** 
+Contains Polish expressions.
+*/
 class SharedPolishExpression: SharedExpressionProtocol {
     
-    /// Return expressions that are valid in Poland.
+    /** 
+    Return expressions that are valid in Poland.
+    */
     static func allExpressions() -> [SharedExpression] {
         return [
             /**

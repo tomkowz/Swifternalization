@@ -8,14 +8,22 @@
 
 import Foundation
 
-/// Supported expression types
+/** 
+Supported expression types.
+*/
 enum ExpressionPatternType: String {
-    /// works on Int only, e.g. `x<5`, `x=3`
+    /** 
+    Works with Int/Float, e.g. `x<5`, `x=3`, `x<4.5`.
+    */
     case Inequality = "ie"
     
-    /// works on Int only, e.g. `4<x<10`, `1<=x<18`
+    /** 
+    Works on Int/Float only, e.g. `4<x<10`, `1<=x<18`, `1.3<=x<15.4`.
+    */
     case InequalityExtended = "iex"
     
-    /// regular expression, e.g. `[02-9]+`
+    /** 
+    Regular expression, e.g. `[02-9]+`.
+    */
     case Regex = "exp"
 }

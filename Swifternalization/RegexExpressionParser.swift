@@ -12,7 +12,9 @@ import Foundation
 Parser that parses expressions that contains regular expressions.
 */
 class RegexExpressionParser: ExpressionParser {
-    /// Expression pattern - regular expression.
+    /** 
+    Expression pattern - regular expression.
+    */
     let pattern: ExpressionPattern
 
     /**

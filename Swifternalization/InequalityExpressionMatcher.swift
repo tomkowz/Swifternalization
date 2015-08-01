@@ -13,10 +13,14 @@ Struct that is used to validate inequality expressions.
 */
 struct InequalityExpressionMatcher: ExpressionMatcher {
     
-    /// `InequalitySign` of expression to be matched.
+    /** 
+    `InequalitySign` of expression to be matched.
+    */
     let sign: InequalitySign
     
-    /// Value that will be used during validation to compare to passed one.
+    /** 
+    A value that will be used during validation to compare to passed one.
+    */
     let value: Double
         
     /**
