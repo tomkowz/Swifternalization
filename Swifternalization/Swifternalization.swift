@@ -25,7 +25,7 @@ for detecting which value should be used for the given key and value.
 Before you can get any localized value you have to configure the Swifternalization 
 first. Call `configure:` method first and then you can use other methods.
 */
-public class Swifternalization {
+final public class Swifternalization {
     /**
     Shared instance of Swifternalization used internally.
     */
@@ -98,7 +98,7 @@ public class Swifternalization {
             If `fittingWidth` is not specified then full length localized string 
             is returned if translation matches the validated `stringValue`.
             */
-            if let localizedValue = translation.validate(stringValue, length: fittingWidth) {
+            if let localizedValue = translation.validate(stringValue, fittingWidth: fittingWidth) {
                 return localizedValue
             }
         }

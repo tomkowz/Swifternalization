@@ -9,7 +9,7 @@
 import Foundation
 
 /**
-Translation processor that takes loaded translations and process them to make 
+Translation processor which takes loaded translations and process them to make
 them regular translation objects that can be used for further work.
 */
 class LoadedTranslationsProcessor {
@@ -26,11 +26,16 @@ class LoadedTranslationsProcessor {
     translations and use resolved full shared expressions from file with 
     expressions as well as built-in ones. Translations are processed in shared 
     expressions processor.
+    
+    :param: baseTranslations An array of base translations.
+    :param: prerferedLanguageTranslations An array of prefered language translations.
+    :param: sharedExpressions An array of shared expressions.
     */
     class func processTranslations(baseTranslations: [LoadedTranslation], preferedLanguageTranslations: [LoadedTranslation], sharedExpressions: [SharedExpression]) -> [Translation] {
-        
-        // Find those base translations that are not contained in prefered 
-        // language translations.
+        /*
+        Find those base translations that are not contained in prefered language 
+        translations.
+        */
         var uniqueBaseTranslations = baseTranslations
         if preferedLanguageTranslations.count > 0 {
             uniqueBaseTranslations = baseTranslations.filter({
@@ -40,10 +45,11 @@ class LoadedTranslationsProcessor {
         }
         
         let translationsReadyToProcess = preferedLanguageTranslations + uniqueBaseTranslations
-        
-        // Create array with translations. Array is just a map created from 
-        // loaded translations. There are few types of translations and 
-        // expressions used by the framework.
+        /*
+        Create array with translations. Array is just a map created from loaded 
+        translations. There are few types of translations and expressions used 
+        by the framework.
+        */
         return translationsReadyToProcess.map({
             switch $0.type {
             case .Simple:
@@ -52,11 +58,12 @@ class LoadedTranslationsProcessor {
                 return Translation(key: $0.key, expressions: [Expression(pattern: $0.key, value: value)])
                 
             case .WithExpressions:
-                // Translation that contains expression.
-                // Every time when new expressions is about to create, 
-                // the shared expressions are filtered to get expression that 
-                // matches key and if there is a key it is replaced with real
-                // expression pattern.
+                /*
+                Translation that contains expression.
+                Every time when new expressions is about to create, the shared 
+                expressions are filtered to get expression that matches key and 
+                if there is a key it is replaced with real expression pattern.
+                */
                 var expressions = [Expression]()
                 for (key, value) in $0.content as! Dictionary<String, String> {
                     let pattern = sharedExpressions.filter({$0.identifier == key}).first?.pattern ?? key
@@ -73,12 +80,14 @@ class LoadedTranslationsProcessor {
                 return Translation(key: $0.key, expressions: [Expression(pattern: $0.key, value: lengthVariations.last!.value, lengthVariations: lengthVariations)])
 
             case .WithExpressionsAndLengthVariations:
-                // The most advanced translation type. It contains expressions 
-                // that contain length variations or just simple expressions. 
-                // THe job done here is similar to the one in .WithExpressions 
-                // and .WithLengthVariations cases. key is filtered in shared 
-                // expressions to get one of shared expressions and then method 
-                // builds array of variations.
+                /*
+                The most advanced translation type. It contains expressions
+                that contain length variations or just simple expressions.
+                THe job done here is similar to the one in .WithExpressions
+                and .WithLengthVariations cases. key is filtered in shared
+                expressions to get one of shared expressions and then method
+                builds array of variations.
+                */
                 var expressions = [Expression]()
                 for (key, value) in $0.content {
                     let pattern = sharedExpressions.filter({$0.identifier == key}).first?.pattern ?? key

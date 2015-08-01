@@ -11,7 +11,7 @@ import Foundation
 /**
 Class uses NSRegularExpression internally and simplifies its usability.
 */
-class Regex {
+final class Regex {
     
     /**
     Return match in a string. Optionally with index of capturing group

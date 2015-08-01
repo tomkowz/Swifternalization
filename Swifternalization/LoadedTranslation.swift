@@ -12,12 +12,19 @@ import Foundation
 Struct that represents loaded translation.
 */
 struct LoadedTranslation {
-    /// A type of translation.
+    /** 
+    A type of translation. It is used later to convert object into translation
+    correclty.
+    */
     let type: LoadedTranslationType
     
-    /// Key that identifies this translation
+    /** 
+    Key that identifies this translation.
+    */
     var key: String
     
-    /// A content of translation just loaded from a file.
+    /** 
+    A content of translation just loaded from a file user in future processing.
+    */
     let content: Dictionary<String, AnyObject>
 }

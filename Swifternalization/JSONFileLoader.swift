@@ -6,7 +6,7 @@ Represents json content.
 typealias JSONDictionary = Dictionary<String, AnyObject>
 
 /**
-Simple JSON loader.
+Simple JSON file loader.
 */
 final class JSONFileLoader {
     
@@ -15,9 +15,9 @@ final class JSONFileLoader {
     
     :param: countryCode A country code.
     :param: bundle A bundle when file is located.
-    :returns: Returns json of file or nil if cannot load a file.
+    :returns: Returns json of file or empty dictionary if cannot load a file.
     */
-    class func loadTranslations(countryCode: CountryCode, bundle: NSBundle = NSBundle.mainBundle()) -> JSONDictionary {
+    class func loadTranslations(countryCode: CountryCode, bundle: NSBundle) -> JSONDictionary {
         return self.load(countryCode, bundle: bundle) ?? [:]
     }
     
@@ -26,9 +26,9 @@ final class JSONFileLoader {
     
     :param: countryCode A country code.
     :param: bundle A bundle when file is located.
-    :returns: dictionary with expressions or nil.
+    :returns: dictionary with expressions or empty dictionary if cannot load a file.
     */
-    class func loadExpressions(countryCode: CountryCode, bundle: NSBundle = NSBundle.mainBundle()) -> Dictionary<String, String> {
+    class func loadExpressions(countryCode: CountryCode, bundle: NSBundle) -> Dictionary<String, String> {
         return self.load("expressions", bundle: bundle)?[countryCode] as? Dictionary<String, String> ?? [:]
     }
     
@@ -38,9 +38,9 @@ final class JSONFileLoader {
     :param: fileName A name of a file.
     :param: fileType A type of a file.
     :param: bundle A bundle when file is located.
-    :returns: JSON or nil.
+    :returns: JSON or nil if file cannot be loaded.
     */
-    private class func load(fileName: String, bundle: NSBundle = NSBundle.mainBundle()) -> JSONDictionary? {
+    private class func load(fileName: String, bundle: NSBundle) -> JSONDictionary? {
         if let fileURL = bundle.URLForResource(fileName, withExtension: "json") {
             return load(fileURL)
         }
@@ -52,7 +52,7 @@ final class JSONFileLoader {
     Loads file for specified URL and try to serialize it.
     
     :params: fileURL url to JSON file.
-    :returns: Dictionary with content of JSON file or nil.
+    :returns: Dictionary with content of JSON file or nil if file cannot be loaded.
     */
     private class func load(fileURL: NSURL) -> JSONDictionary? {
         if let data = NSData(contentsOfURL: fileURL) {
