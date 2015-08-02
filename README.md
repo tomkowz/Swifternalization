@@ -17,7 +17,7 @@ Swift library that helps in localizing apps in a different, better, simpler, mor
 - [x] Full documentation
 
 # Table of Contents
-- [Introduction](#introdcution)
+- [Introduction](#introduction)
 - [Practical Usage Example](#practical-usage-example)
 - [Features](#features)
 	- [Pluralization](#pluralization)
