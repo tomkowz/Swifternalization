@@ -51,62 +51,97 @@
             <p><img src="https://raw.githubusercontent.com/tomkowz/Swifternalization/master/page-assets/swifternalization-header.png" alt="Swifternalization: localize apps smarter"></p>
 
 <p><img src="https://img.shields.io/cocoapods/v/Swifternalization.svg" alt="CocoaPods Status"></p>
+<a href='#swifternalization' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='swifternalization'>Swifternalization</h1>
 
-<p>Swifternalization is library that helps in localizing apps. It is written in Swift.</p>
+<p>Swift library that helps in localizing apps in a different, better, simpler, more powerful way than system localization does. It uses json files instead of strings files.</p>
 <a href='#features' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='features'>Features</h1>
 
 <ul>
-<li>[x] Pluralization support - Avoids using .stringdicts</li>
-<li>[x] Expressions - inequality and regular expressions in Localizable.strings</li>
-<li>[x] Shared expressions</li>
-<li>[x] Built-in expressions</li>
-<li>[x] Works similarly to NSLocalizedString() macro</li>
-<li>[x] Uses Localizable.strings file as NSLocalizedString() macro does</li>
+<li>[x] Pluralization support - Without using <em>stringdict</em> files</li>
+<li>[x] Length variations support - Supported since iOS 8.0 (instead of iOS 9.0 like system does) and avoids using <em>stringsdict</em> files</li>
+<li>[x] Expressions - inequality and regular expressions</li>
+<li>[x] Shared Expressions</li>
+<li>[x] Built-in Expressions</li>
+<li>[x] Works similarly to NSLocalizedString()</li>
+<li>[x] Uses JSON files to minimize boilerplate code</li>
 <li>[x] Comprehensive Unit Test Coverage</li>
 <li>[x] Full documentation</li>
 </ul>
-<a href='#swifternalization' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='swifternalization'>Swifternalization</h1>
-
-<p>Swifternalization helps in localizing apps in a smarter way. It has been created because of necessary to solve Polish language internalization problems but it is universal and works with every language. </p>
-<a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='installation'>Installation</h2>
-
-<p>With CocoaPods:</p>
-<pre class="highlight plaintext"><code>pod 'Swifternalization', '~&gt; 1.0.2.1'
-</code></pre>
-
-<p>Without CocoaPods:
-If you want to integrate it with your project just import files from <em>Swifternalization/Swifternalization</em> directory.</p>
-<a href='#documentation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='documentation'>Documentation</h2>
-
-<p>Swifternalization documentation covers 100% of the code, Yay! There are two types of documentation. First covers only public API which is great for those who only want to use the framework without looking inside. The second one covers all the API - public, internal and private. </p>
-
-<p>You can find Public API and Full documentation with docset here in <a href="https://github.com/tomkowz/Swifternalization/tree/master/docs">docs</a> directory. </p>
-
-<p>It is also hosted on <a href="http://szulctomasz.com">my blog</a>:
-- <a href="http://szulctomasz.com/docs/swifternalization/public/">Public API documentation</a>
-- <a href="http://szulctomasz.com/docs/swifternalization/framework/">Full API documentation</a></p>
-
-<p>Docsets:
-- <a href="http://szulctomasz.com/docs/swifternalization/public/docsets/Swifternalization%20Public%20API.docset.zip">Public API docset</a>
-- <a href="http://szulctomasz.com/docs/swifternalization/framework/docsets/Swifternalization.docset.zip">Full API docset</a></p>
-<a href='#real_example' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='real_example'>Real Example</h2>
-
-<p>Let&rsquo;s take a look on practical usage of Swifternalization. App supports both English and Polish languages. Naturally app contains two <em>Localizable.strings</em> files - one is Base for English (or English for English) and one is Polish&hellip; for Polish, obviously :)</p>
-
-<p>App displays label with information that says when objects from the backend has been updated for the last time, e.g. <q>2 minutes ago</q>.</p>
-
-<p>This shouldn&rsquo;t be problem in English:</p>
+<a href='#table_of_contents' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='table_of_contents'>Table of Contents</h1>
 
 <ul>
-<li>0, 2&hellip; second ago</li>
-<li>1 second ago</li>
-<li>&hellip;</li>
+<li><a href="#introdcution">Introduction</a></li>
+<li><a href="#practical-usage-example">Practical Usage Example</a></li>
+<li><a href="#features">Features</a>
+
+<ul>
+<li><a href="#pluralization">Pluralization</a></li>
+<li><a href="#length-variation">Length variation</a></li>
+</ul></li>
+<li><a href="#expressions">Expressions</a>
+
+<ul>
+<li><a href="#inequality-expressions">Inequality Expressions</a></li>
+<li><a href="#inequality-extended-expressions">Inequality Extended Expressions</a></li>
+<li><a href="#regex-expressions">Regex Expressions</a></li>
+<li><a href="#shared-expressions">Shared Expressions</a></li>
+<li><a href="#built-in-expressions">Built-in Expressions</a></li>
+</ul></li>
+<li><a href="#getting-started">Getting Started</a>
+
+<ul>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#creating-file-with-shared-expressions">Creating file with shared expressions</a></li>
+<li><a href="#creating-file-with-localization-per-country">Creating file with localization per country</a></li>
+<li><a href="#getting-localized-string">Getting localized string</a></li>
+</ul></li>
+<li><a href="#contribution">Contribution</a></li>
+<li><a href="#swift-2">Swift 2</a></li>
+<li><a href="#things-to-do">Things To Do</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<a href='#introduction' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='introduction'>Introduction</h2>
+
+<p>Swifternalization helps in localizing apps in a smarter way. It has been created because of necessity to solve Polish language internalization problems but it is universal and works with every language very well.</p>
+
+<p>It uses JSON files and expressions that avoid writing code to handle some cases that you have to write when not using this framework. It makes localizing process simpler.</p>
+<a href='#practical_usage_example' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='practical_usage_example'>Practical Usage Example</h2>
+
+<p>Description of practical usage example will use things that are covered later in the document so keep reading it to the end and then read about details/features presented here.</p>
+<a href='#problem' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='problem'>Problem</h3>
+
+<p>Let&rsquo;s assume the app supports English and Polish languages. Naturally app contains two <em>Localizable.strings</em> files. One is for <em>Base</em> localization which contains <em>English</em> translation and one is <em>Polish</em> language. </p>
+
+<p>App displays label with information which says when object from the backend has been updated for the last time, e.g. <q>2 minutes ago</q>, <q>3 hours ago</q>, <q>1 minute ago</q>, etc.</p>
+<a href='#analysis' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='analysis'>Analysis</h3>
+
+<p>The label displays number and a hour/minute/second word in singular or plural forms with <q>ago</q> suffix. Different languages handles pluralization/cardinal numbering in slight different ways. Here we need to support English and Polish languages.</p>
+
+<p>In English there are just two cases to cover per hour/minute/second word:</p>
+
+<ul>
+<li>1 - <q>one second ago</q></li>
+<li>0, 2, 3&hellip; <q>%d seconds ago</q></li>
+<li>Same with minutes and hours. </li>
 </ul>
 
-<p>The same with minutes and hours. This is easy. Localization file for English will looks like this one:</p>
+<p>In Polish it is more tricky because the cardinal numbers are more complicated:</p>
+
+<ul>
+<li>1 - <q>jedną sekundę temu</q></li>
+<li>0, (5 - 21) - <q>%d sekund temu</q></li>
+<li>(2 - 4), (22-24), (32-34), (42, 44), &hellip;, (162-164), &hellip; - <q>%d sekundy temu</q></li>
+<li>Same logic for minutes and hours. </li>
+</ul>
+
+<p>Following chapters will present solution without and with Swifternalization framework. Each solution describes Base (English) and Polish localizations.</p>
+
+<p>Here is a table with <a href="http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html">Language Plural Rules</a> which covers cardinal forms of numbers in many languages - Many language handle plurality in their own way.</p>
+<a href='#solution_without_swifternalization' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='solution_without_swifternalization'>Solution without Swifternalization</h3>
 <pre class="highlight plaintext"><code>Localizable.strings (Base)
 --------------------------
-
 "one-second" = "1 second ago";
 "many-seconds" = "%d seconds ago";
 
@@ -115,77 +150,84 @@ If you want to integrate it with your project just import files from <em>Swifter
 
 "one-hour" = "1 hour ago";
 "many-hours" = "%d hours ago";
-</code></pre>
 
-<p>Let&rsquo;s try with Polish language. As mentioned - this is tricky.</p>
-<pre class="highlight plaintext"><code>Localizable.strings (Polish)
-----------------------------
+Localizable.strings (Polish)
+-------------------------               
+"one-second" = "1 sekundę temu"
+"few-seconds" = "%d sekundy temu"
+"many-seconds" = "%d sekund temu""              
 
-"one-second" = "1 sekundę temu";
-"few-seconds" = "%d sekundy temu";
-"many-seconds" = "%d sekund temu";
+"one-minute" = "1 minutę temu"
+"few-minutes" = "%d minuty temu "
+"many-minutes" = "%d minut temu"            
 
-"one-minute" = "1 minutę temu";
-"few-minutes" = "%d minuty temu";
-"many-minutes" = "%d minut temu";
-
-"one-hours" = "1 hodzinę temu";
-"few-hours" = "%d godziny temu";
+"one-hours" = "1 godzinę temu"
+"few-hours" = "%d godziny temu"
 "many-hours" = "%d godzin temu";
 </code></pre>
 
-<p>Okay&hellip; there is 9 cases for now. But this is not the only thing to deal with. It depends on the number of seconds/minutes/hours to select proper one. Without some logic additional logic to find out which case should be used this is impossible to use proper one.</p>
-<pre class="highlight plaintext"><code>- 0, (5 - 21) - "few-seconds"
-- 1 - "one-second"
-- (2 - 4), (22-24), (32-34), (42, 44), ..., (162-164), ... - "many-seconds"
+<p>There are 6 cases in English and 9 cases in Polish. Notice that without additional logic we&rsquo;re not able to detect which version of a string for hour/minute/second the app should display. The logic differs among different languages. We would have to add some lines of code that handle the logic for all the languages we&rsquo;re using in the app. What if there are more than 2 languages? Don&rsquo;t even think about it - this might be not so easy.</p>
+
+<p><em>The logic is already implemented in Swifternalization framework and it fits to every language.</em></p>
+<a href='#solution_with_swifternalization' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='solution_with_swifternalization'>Solution with Swifternalization</h3>
+
+<p>This is how localizable files will look:</p>
+<pre class="highlight plaintext"><code>base.json
+---------
+"time-seconds": {
+    "one": "%d second ago"
+    "other": "%d seconds ago"
+},
+
+"time-minutes": {
+    "one": "%d minute ago"
+    "other": "%d minutes ago"
+},
+
+"time-hours": {
+    "one": "%d hours ago"
+    "other": "%d hours ago"
+}
+
+pl.json
+-------
+"time-seconds": {
+    "one": "1 sekundę temu",
+    "few": "%d sekundy temu",
+    "many": "%d sekund temu"
+},
+
+"time-minutes": {
+    "one": "1 minutę temu",
+    "few": "%d minuty temu",
+    "many": "%d minut temu"
+},
+
+"time-hours": {
+    "one": "1 godzinę temu",
+    "few": "%d godziny temu",
+    "many": "%d godzin temu"
+}
 </code></pre>
 
-<p>The same logic for minutes and hours. </p>
+<ul>
+<li><q>one</q>, <q>few</q>, <q>many</q>, <q>other</q> - those are shared expressions already built into Swifternalization - covered below.</li>
+<li>You can add own expressions to handle specific cases - covered below.</li>
+</ul>
 
-<p>Here is nice table with <a href="http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html">Language Plural Rules</a> which covers cardinal forms of numbers in many languages - Many language handle plurality in their own way.</p>
-
-<p>With Swifternalization this can be solved e.g. in this way:</p>
-<pre class="highlight plaintext"><code>Localizable.strings (Base)
---------------------------
-"time-seconds{one}" = "%d second ago";
-"time-seconds{other}" = "%d seconds ago";
-
-"time-minutes{one}" = "%d minute ago";
-"time-minutes{other}" = "%d minutes ago";
-
-"time-hours{one}" = "%d hour ago";
-"time-hours{other}" = "%d hours ago";
-
-
-
-Localizable.strings (Polish)
-----------------------------
-"time-seconds{one}" = "%d sekundę temu";
-"time-seconds{few}" = "%d sekundy temu";
-"time-seconds{many}" = "%d sekund temu";
-
-"time-minutes{one}" = "%d minutę temu";
-"time-minutes{few}" = "%d minuty temu";
-"time-minutes{many}" = "%d minut temu";
-
-"time-hours{one}" = "%d godzinę temu";
-"time-hours{few}" = "%d godziny temu";
-"time-hours{many}" = "%d godzin temu";
-</code></pre>
-
-<p>So the logic is in Swifternalization and you don&rsquo;t need write additional handling code for these cases.</p>
-
-<p>And the call will look like this:</p>
-<pre class="highlight plaintext"><code>Swifternalization.localizedExpressionString("time-seconds", value: 10)
+<p>As mentioned the logic is implemented into framework so if you want to get one of a localized string you have to make a simple call.</p>
+<pre class="highlight plaintext"><code>Swifternalization.localizedString("time-seconds", intValue: 10)
 </code></pre>
 
 <p>or with <code>I18n</code> <em>typealias</em> (<em>I-18-letters-n, Internalization</em>):</p>
-<pre class="highlight plaintext"><code>I18n.localizedExpressionString("time-seconds", value: 10)
+<pre class="highlight plaintext"><code>I18n.localizedString("time-seconds", intValue: 10)
 </code></pre>
 
-<p>There is easy way to add you own expression to handle your specific case with Swifternalization.</p>
+<p>The <em>key</em> and <em>intValue</em> parameters are validated by loaded expressions and proper version of a string is returned - covered below.</p>
+<a href='#features' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='features'>Features</h2>
+<a href='#pluralization' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='pluralization'>Pluralization</h3>
 
-<p>Swifternalization also drops need for having <em>.stringdicts</em> files like this one:</p>
+<p>Swifternalization drops necessity of using <em>stringdicts</em> files like following one to support pluralization in localized strings. Instead of that you can simply define expressions that cover such cases.</p>
 <pre class="highlight plaintext"><code>&lt;plist version="1.0"&gt;
     &lt;dict&gt;
         &lt;key&gt;%d file(s) remaining&lt;/key&gt;
@@ -207,49 +249,56 @@ Localizable.strings (Polish)
     &lt;/dict&gt;
 &lt;/plist&gt;
 </code></pre>
-<a href='#getting_started' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='getting_started'>Getting Started</h2>
 
-<p>Configuration is simple. The one thing that Swifternalization needs to works is <code>NSBundle</code> where <code>Localizable.strings</code> are placed.</p>
+<p>No more <em>stringsdict</em> files!</p>
+<a href='#length_variations' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='length_variations'>Length Variations</h3>
 
-<p>Recommended is to configure it as fast as you can to be sure that before you want to get some localized key it will be able to return you something.</p>
-<pre class="highlight plaintext"><code>    Swifternalization(bundle: NSBundle.mainBundle())
+<p>iOS 9 provides new way to select proper localized string variation depending on a screen width. It uses <em>stringsdict</em> file with <em>NSStringVariableWidthRuleType</em> key. </p>
+
+<p>Swifternalization drops necessity of using such file and it is not necessary to use this new key to use the feature. </p>
+
+<p><strong>With Swifternalization this length variations feature is available since iOS 8.0 because the framework has its own implementation of length variations.</strong></p>
+
+<p>To use length variations feature your translation file should has entries like this:</p>
+<pre class="highlight plaintext"><code>base.json
+---------
+"forgot-password": {
+    "@200": "Forgot Password? Help.",
+    "@300": "Forgot Your Password? Use Help.",
+    "@400": "Do not remember Your Password?" Use Help.""
+}
 </code></pre>
 
-<p>This call will create instance (you can get handle to it but you don&rsquo;t need it) and automatically set it as shared instance and you can easily work with it.</p>
+<p>The number after <code>@</code> sign is max width of a screen or bounds that a string fits to. E.g. the second string will be returned if passed fitting width as a paramter is be greater than 200 and less or equal 300.</p>
 
-<p>In <em>Localizable.strings</em> the syntax should looks like this:</p>
-<pre class="highlight plaintext"><code>"key" = "value";
-"key{expression}" = "value";
-</code></pre>
-<a href='#how_to_get_localized_string' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='how_to_get_localized_string'>How to get localized string</h3>
-
-<p>Swifternalization allows developer to work with its class methods. There are few to use:</p>
-<pre class="highlight plaintext"><code>localizedString(key: String, defaultValue: String? = nil) -&gt; String
+<p>To get the second localized string the call looks like below:</p>
+<pre class="highlight plaintext"><code>I18n.localizedString("forgot-password", fittingWidth: 300) // 201 - 300
 </code></pre>
 
-<p>Allows to get value for simple key. Works similar to <code>NSLocalizedString</code>. <code>key</code> is the key placed in <code>Localizable.strings</code> and <code>defaultValue</code> is the value that will be returned when there is no translation found for passed key. If <code>defaultValue</code> is nil then key will be return in such case.</p>
+<p>You can mix expressions with length variations. Following example shows it:</p>
+<pre class="highlight plaintext"><code>base.json
+---------
+"car": {
+    "ie:x=1": {
+        @100: "One car",
+        @200: "You've got one car"
+    },
 
-<p>The next one is for getting localized string with keys that contain some expressions:</p>
-<pre class="highlight plaintext"><code>localizedExpressionString(key: String, value: String, defaultValue: String? = nil) -&gt; String
-</code></pre>
-
-<p>Similarly to the one above <code>key</code> is the key in <code>Localizable.strings</code>, <code>defaultValue</code> is also the same and methods behaves the same. There is additional parameter called <code>value</code>. The value is used for expression matchers to validate expressions and return proper localized value. We&rsquo;ll cover it soon.</p>
-
-<p>As the method takes some <code>String</code> as a <code>value</code> and you probably will deal with <code>Int</code> there is alternative method to call:</p>
-<pre class="highlight plaintext"><code>localizedExpressionString(key: String, value: Int, defaultValue: String? = nil) -&gt; String
+    "more": "You've got few cars"
+}
 </code></pre>
 <a href='#expressions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='expressions'>Expressions</h2>
 
-<p>As mentioned there are few <em>expression types</em>. Every expression type has their own <em>parser</em> and <em>matcher</em>.</p>
+<p>There are few <em>expression types</em>. Every expression type has their own <em>parser</em> and <em>matcher</em> but they work internally so you don&rsquo;t need to worry about them.</p>
 
-<p>There are 3 types:</p>
+<p>There are 3 types of expressions:</p>
 
 <ul>
-<li><em>inequality</em> - this type of expression handles simple inequalities like: <em>x&lt;3</em>, <em>x&gt;10</em>, <em>x=5</em>, <em>x&lt;=3</em>, and so on.</li>
-<li><em>inequality extended</em> - this is extended version of <em>inequality</em> with syntax like this: <em>2&lt;x&lt;10</em>, <em>4&lt;=x&lt;6</em>.</li>
-<li><em>regex</em> - this types of expression uses regular expression. This is the most powerful ;)</li>
+<li><em>inequality</em> - handles simple inequalities like: <em>x&lt;3</em>, <em>x&gt;10</em>, <em>x=5</em>, <em>x&lt;=3</em>, and so on. Work with integer and float numbers.</li>
+<li><em>inequality extended</em> - extended version of <em>inequality</em> with syntax like this: <em>2&lt;x&lt;10</em>, <em>4&lt;=x&lt;6</em>. Work with integer and float numbers.</li>
+<li><em>regex</em> - uses regular expression. This is the most powerful ;)</li>
 </ul>
-<a href='#inequality' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='inequality'>Inequality</h3>
+<a href='#inequality_expressions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='inequality_expressions'>Inequality Expressions</h3>
 
 <p>It is composed of several elements:</p>
 
@@ -261,13 +310,15 @@ Localizable.strings (Polish)
 </ul>
 
 <p>Example:</p>
-<pre class="highlight plaintext"><code>"cars{ie:x=1}" = "1 car";
-"cars{ie:x=0}" = "no cars";
-"cars{ie:x&gt;1}" = "%d cars";
+<pre class="highlight plaintext"><code>"cars": {
+    "ie:x=1": "1 car",
+    "ie:x=0": "no cars",
+    "ie:x&gt;1": "%d cars"
+}
 </code></pre>
-<a href='#inequality_extended' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='inequality_extended'>Inequality Extended</h3>
+<a href='#inequality_extended_expressions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='inequality_extended_expressions'>Inequality Extended Expressions</h3>
 
-<p>This is a bit extended version of <em>inequality</em> expression. It is composed of 2 values, one value <q>marker</q> and two inequality signs.</p>
+<p>This is extended version of <em>inequality</em> expression. It is composed of 2 values, one value <q>marker</q> and two inequality signs.</p>
 
 <ul>
 <li><em>iex:</em> - prefix of <em>inequality extended</em> expression</li>
@@ -276,11 +327,13 @@ Localizable.strings (Polish)
 </ul>
 
 <p>Expample:</p>
-<pre class="highlight plaintext"><code>"tomatos{iex:2&lt;x&lt;10}" = "%d tomatos is between 2 and 10";
+<pre class="highlight plaintext"><code>"tomatos": {
+    "iex:2&lt;x&lt;10": "%d tomatos is between 2 and 10"
+}
 </code></pre>
-<a href='#regex' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='regex'>Regex</h3>
+<a href='#regex_expressions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='regex_expressions'>Regex Expressions</h3>
 
-<p>This is the most powerful type of expression and probably will be most used by developers. It takes regular expression ;)</p>
+<p>This is the most powerful type of expression. It takes regular expression ;)</p>
 
 <ul>
 <li><em>exp:</em> - prefix of <em>regex</em> expression</li>
@@ -288,108 +341,228 @@ Localizable.strings (Polish)
 </ul>
 
 <p>Example: (police cars in Polish language)</p>
-<pre class="highlight plaintext"><code>"police-cars{exp:^1$}" = "1 samochód policyjny";
-"police-cars{exp:(((?!1).[2-4]{1})$)|(^[2-4]$)}" = "%d samochody policyjne";
-"police-cars{exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])}" = "%d samochodów policyjnych";
+<pre class="highlight plaintext"><code>"police-cars": {
+    "exp:^1$": "1 samochód policyjny",
+    "exp:(((?!1).[2-4]{1})$)|(^[2-4]$)": "%d samochody policyjne",
+    "exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])": "%d samochodów policyjnych"
+}
 </code></pre>
 
 <p>Powerful stuff, isn&rsquo;t it? :&gt;</p>
 
-<p>PS. There is built in solution for Polish language so you can use it with doing just this:</p>
-<pre class="highlight plaintext"><code>"police-cars{one}" = "1 samochód policyjny";
-"police-cars{few}" = "%d samochody policyjne";
-"police-cars{many}" = "%d samochodów policyjnych";
+<p>PS. There is built-in solution for Polish language so you can use it with doing just this:</p>
+<pre class="highlight plaintext"><code>"police-cars": {
+    "one": "1 samochód policyjny",
+    "few": "%d samochody policyjne",
+    "many": "%d samochodów policyjnych"
+}   
 </code></pre>
 
-<p>This feature is called <em><q>Shared Expression</q></em> and is covered below.</p>
-<a href='#shared_expressions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='shared_expressions'>Shared Expressions</h2>
+<p>This is called <em><q>Shared Built-In Expression</q></em> and is covered below.</p>
+<a href='#shared_expressions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='shared_expressions'>Shared Expressions</h3>
+
+<p>Shared expressions are expressions available among all the localization files. They are declared in <em>expressions.json</em> file divided by language and you can use them in localization files.</p>
 
 <p>The functionality allows developer to observance of DRY principle and to avoid mistakes that exist because of reapeating the code in many places.</p>
 
-<p>It is possible to create shared expression in your project and use it with no configuration with Swifternalization.</p>
-<a href='#getting_started_of_shared_expressions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='getting_started_of_shared_expressions'>Getting Started of Shared Expressions</h3>
-
-<ol>
-<li>Create <em>Expressions.strings</em> file in the same bundle when <em>Localizable.strings</em> file is.</li>
-<li>Add shortcuts for your expressions and add your expressions ;)</li>
-</ol>
-
-<p>Example:</p>
-<pre class="highlight plaintext"><code>Localizable.strings (Base)
--------------------
-"cars{custom-1}" = "%d car";
-"cars{custom-2}" = "%d cars";
-
-
-Localizable.strings (Polish)
-----------------------------
-"cars{custom-1}" = "%d samochód";
-"cars{custom-2}" = "%d samochody";
-"cars{custom-3}" = "%d samochodów";
-
-
-Expressions.strings (Base)
---------------------------
-"custom-1" = "ie:x=1";
-"custom-2" = "exp:(^[^1])|(^\\d{2,})";
-
-
-Expressions.strings (Polish)
----------------------------
-"custom-1" = "ie:x=1";
-"custom-2" = "exp:(((?!1).[2-4]{1})$)|(^[2-4]$)";
-"custom-3" = "exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])";
+<p>Normally you declare expression like this:</p>
+<pre class="highlight plaintext"><code>...
+"ie:x&gt;1": "Localized String"
+...
 </code></pre>
 
-<p>Swifternalization load these <em>Expressions.strings</em> files and analyze them, and replace shortcuts for expressions with full expressions.</p>
+<p>If you want to use the same expression in multiple files there is no necessity to repeat the expression elsewhere. This is even problematic when you decide to improve/change expression to handle another cases you forget about - you would have to change expression in multiple places. Because of that there are Shared Expression. These feature allows you to create expression just in one place and use identifier of it in multiple places where you normally should put this expression.</p>
 
-<p>There is some duplication in Base and Polish version of expressions - <em>custom-1</em>. Instead of repeating this in entire language you want to cover you can keep it just in <em>Base</em> version of <em>Expressions.strings</em> file. Expressions that are find in <em>Base</em> and are not in preferred language file will be added to preferred language too to observance of DRY principle.</p>
+<p>What you need to do is to create <em>expressions.json</em> file with following structure:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"one"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ie:x&gt;1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
 
-<p>Swifternalization also handles the case of overriding built-in expressions. It gives you just few expressions for now like: <code>one</code>, <code>&gt;one</code>, <code>two</code>, <code>other</code> as base expressions and <code>few</code> and <code>many</code> for Polish. If any of your <em>Expressions.strings</em> version of file will override it Swifternalization will use your version.</p>
-<a href='#demo' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='demo'>Demo</h2>
+    </span><span class="nt">"pl"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="err">other</span><span class="w"> </span><span class="err">than</span><span class="w"> </span><span class="nt">"one"</span><span class="w"> </span><span class="err">because</span><span class="w"> </span><span class="nt">"one"</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">here</span><span class="w"> </span><span class="err">too.</span><span class="w">
+    </span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<p>There is demo project included in the repo. Just switch to proper target and run. It enumerated cars from 1 to 1000 and print them out to the console. Base (English) and Polish languages are supported. You can find there example of using simple primitive no-expression translation and also with experssions.</p>
+<p>Now in <em>pl.json</em>, <em>en.json</em> and so on you have to use it as below:</p>
+<pre class="highlight plaintext"><code>...
+"one": "Localized String"
+...
+</code></pre>
+
+<p>Before you decide to create your own expression take a look if there is no built-in one with the same name or whether there is such expression but named differently. Maybe you don&rsquo;t need to do this at all and just use it.</p>
+<a href='#built_in_expressions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='built_in_expressions'>Built-in expressions</h3>
+
+<p>Built-in expressions as name suggest are shared expressions built into framework and available to use with zero configuration. They are separated by country and not all country have its own built-in expressions. For now there are e.g. Base built-in expressions and Polish built-in expressions. Base expressions are available in every country and there are very generic to match all countries pluralization/cardinal numbering logic. </p>
+
+<p>List of supported built-in shared expressions:</p>
+<pre class="highlight plaintext"><code>Base (English fits to this completely)
+- one - detects if number is equal 1
+- &gt;one - detects if number is greater than 1
+- two - detects if number is equal 2
+- other - detects if number is not 1, so 0, 2, 3 and so on.
+
+Polish
+- few - matches (2-4), (22-24), (32-4), ..., (..&gt;22, ..&gt;23, ..&gt;24)
+- many - matches 0, (5-9), (10-21), (25-31), ..., (..0, ..1, ..5-9)
+</code></pre>
+
+<p>As you can see polish has no <q>one</q>, <q>>one</q>, etc. because it inherits from Base by default.</p>
+<a href='#getting_started' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='getting_started'>Getting Started</h2>
+
+<p>This chapter shows you how to start using Swifternalization and how to intergrate it with your code.</p>
+<a href='#documentation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='documentation'>Documentation</h3>
+
+<p>Documentation covers 100% of the code, Yay! There are two types of documentation. First covers only public API which is for those who only want to use the framework without looking inside. The second one covers all the API - public, internal and private. </p>
+
+<p>You can find Public API and Full documentation with docset here in <a href="https://github.com/tomkowz/Swifternalization/tree/master/docs">docs</a> directory. </p>
+
+<p>It is also hosted on <a href="http://szulctomasz.com">my blog</a>:
+- <a href="http://szulctomasz.com/docs/swifternalization/public/">Public API documentation</a>
+- <a href="http://szulctomasz.com/docs/swifternalization/framework/">Full API documentation</a></p>
+
+<p>Docsets:
+- <a href="http://szulctomasz.com/docs/swifternalization/public/docsets/Swifternalization%20Public%20API.docset.zip">Public API docset</a>
+- <a href="http://szulctomasz.com/docs/swifternalization/framework/docsets/Swifternalization.docset.zip">Full API docset</a></p>
+<a href='#instalation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='instalation'>Instalation</h3>
+
+<p>It works with iOS 8.0 and newer.</p>
+
+<p>With CocoaPods:</p>
+<pre class="highlight plaintext"><code>pod 'Swifternalization', '~&gt; 1.2'
+</code></pre>
+
+<p>If you are not using CocoaPods just import files from <em>Swifternalization/Swifternalization</em> directory to your project.</p>
+
+<p>Swifternalization also supports Carthage.</p>
+<a href='#configuration' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='configuration'>Configuration</h3>
+
+<p>Before you get a first localized string you have to configure Swifternalization by passing to it the bundle where localized json files are placed.</p>
+<pre class="highlight plaintext"><code>I18n.configure() // for NSBundle.mainBundle() - Mostly you want to call it this way
+I18n.configure(bundle) // if files are in another bundle
+</code></pre>
+<a href='#creating_file_with_shared_expressions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='creating_file_with_shared_expressions'>Creating file with Shared Expressions</h3>
+
+<p>Shared Expressions must be placed in <em>expressions.json</em>. Syntax of a file looks like below:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"ten"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ie:x=10"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"&gt;20"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ie:x&gt;20"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"custom-pl-few"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="nt">"pl"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"few"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exp:(((?!1).[2-4]{1})$)|(^[2-4]$)"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"two"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ie:x=2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"three"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ie:x=3"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>In pseudo-language:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"language-1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"shared-expression-key-1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"expression-1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"shared-expression-key-2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"expression-2"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="nt">"language-2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"shared-expression-key-1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"expression-1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Expressions from the files may be used inside localizable files. All the shared expressions for different languages are placed in the same file because there will be just few expressions for every language. Mostly the expression will be defined in <em>base</em> variant because if expression is in <em>base</em> it is also available in every other language too. So, <q>ten</q> is available in <q>pl</q>, but <q>three</q> is not available in <q>base</q>.</p>
+<a href='#creating_localizable_files' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='creating_localizable_files'>Creating Localizable Files</h3>
+
+<p>Localizable file contains translations for specific language. The files might look like below:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"welcome-key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"welcome"</span><span class="p">,</span><span class="w">
+
+    </span><span class="nt">"cars"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"one"</span><span class="p">:</span><span class="w"> </span><span class="s2">"one car"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ie:x&gt;=2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%d cars"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ie:x&lt;=-2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"minus %d cars"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Name of a file should be the same like country code. e.g. for English it is <em>en.json</em>, for Polish it is <em>pl.json</em>, for base localization it is <em>base.json</em>, etc.</p>
+
+<p>There are few things that you can place in such files. More complex file will look like below:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"welcome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"welcome"</span><span class="p">,</span><span class="w">
+
+    </span><span class="nt">"cars"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"one"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"@100"</span><span class="p">:</span><span class="w"> </span><span class="s2">"one car"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"@200"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You have one car"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"@400"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You have got one car"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+
+        </span><span class="nt">"other"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%d cars"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>In pseudo-language:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value"</span><span class="p">,</span><span class="w">
+
+    </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"expression-1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"length-variation-1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value-1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"length-variation-2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value-2"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"length-variation-3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value-3"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+
+        </span><span class="nt">"expression-2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<a href='#getting_localized_string' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='getting_localized_string'>Getting localized string</h3>
+
+<p>Swifternalization allows you to work with its one class method which exposes all the methods you need to localize an app.</p>
+
+<p>These methods have many optional paramters and you can omit them if you want. There are few common parameters:</p>
+
+<ul>
+<li><code>key</code> - A key of localized string.</li>
+<li><code>fittingWidth</code> - A width of a screen or place where you want to put a localized string. It is integer.</li>
+<li><code>defaultValue</code> - A value that will be returned if there is no localized string for a key passed to the method. If this is not specified then <code>key</code> is returned.</li>
+<li><code>comment</code> - A comment used just by developer to know a context of translation.</li>
+</ul>
+
+<p>First method called <code>localizedString(_:fittingWidth:defaultValue:comment:)</code> allows you to get value for simple key without expression.</p>
+
+<p>Examples:</p>
+<pre class="highlight plaintext"><code>I18n.localizedString("welcome")
+I18n.localizedString("welcome", fittingWidth: 200)
+I18n.localizedString("welcome", defaultValue: "Welcome", comment: "Displayed on app start")
+</code></pre>
+
+<p>Next method <code>localizedString(_:stringValue:fittingWidth:defaultValue:comment:)</code> allows you to get a localized string for string value that match an expression. Actually the string value will contain number inside in most cases or some other string that you would like to match.</p>
+<pre class="highlight plaintext"><code>I18n.localizedString("cars", stringValue: "5")
+// Other cases similar to above example
+</code></pre>
+
+<p>The last method <code>localizedString(_:intValue:fittingWidth:defaultValue:comment:)</code> allows you to get a localized string for int value. This method calls the above one and just turn the int value into string because all the framework operates on strings.</p>
+<pre class="highlight plaintext"><code>I18n.localizedString("cars", intValue: 5)
+</code></pre>
 <a href='#contribution_and_change_or_feature_requests' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='contribution_and_change_or_feature_requests'>Contribution and change or feature requests</h2>
 
-<p>Swifternalization is open sources so everyone may contribute if want to. If you want to develop it just fork the repo, do you work and create pull request. If you have some idea or question feel free to create issue and add proper tag for it.</p>
-<a href='#built_in_expressions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='built_in_expressions'>Built-in expressions</h2>
+<p>Swifternalization is open sourced so everyone may contribute if want to. If you want to develop it just fork the repo, do your work and create pull request. If you have some idea or question feel free to create issue and add proper tag for it.</p>
 
-<p>As mentioned in previous chapter Swifternalization has some built-in expressions and is ready to extend. If you want to add expressions specific for your country you can do it by creating class which conforms to <code>SharedExpressionProtocol</code>. Methods from protocol returns all expressions for your country. There is already <code>SharedBaseExpression</code> with some basic expressions and <code>SharedPolishExpression</code> with polish expressions for helping ordering numbers.</p>
-
-<p>Example of the file ready for pull request should looks like this:</p>
-<pre class="highlight plaintext"><code>class SharedPolishExpression: SharedExpressionProtocol {
-    static func allExpressions() -&gt; [SharedExpression] {
-        return [
-            /**
-            (2-4), (22-24), (32-4), ..., (..&gt;22, ..&gt;23, ..&gt;24)
-
-            e.g.
-            - 22 samochody, 1334 samochody, 53 samochody
-            - 2 minuty, 4 minuty, 23 minuty
-            */
-            SharedExpression(k: "few", e: "exp:(((?!1).[2-4]{1})$)|(^[2-4]$)"),
-
-            /**
-            0, (5-9), (10-21), (25-31), ..., (..0, ..1, ..5-9)
-
-            e.g.
-            - 0 samochodów, 10 samochodów, 26 samochodów, 1147 samochodów
-            - 5 minut, 18 minut, 117 minut, 1009 minut
-            */
-            SharedExpression(k: "many", e: "exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])"),
-        ]
-    }
-}
-</code></pre>
-
-<p>Also this is required to cover all shared expressions for a country with unit tests. You can find examples in the repo for e.g. Polish expressions.</p>
+<p>There is no guide for contributors but if you added new functionality you must write unit tests for it.</p>
 <a href='#swift_2' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='swift_2'>Swift 2</h2>
 
-<p>Swifternalization supports Swift 2 and works on Xcode 7 beta 2. Please check <em>swift2</em> branch for that.</p>
-<a href='#things_to_do_in_future_release' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='things_to_do_in_future_release'>Things to do in future release:</h2>
+<p>Swifternalization supports Swift 2 and works on Xcode 7 beta 4. Please check out <em>swift2</em> branch.</p>
+<a href='#things_to_do_in_future_releases' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='things_to_do_in_future_releases'>Things to do in future releases:</h2>
 
 <ul>
 <li>Add more built-in expressions for another countries.</li>
+<li>Add support for float numbers in built in expressions that uses regular expressions.</li>
 </ul>
 <a href='#license' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='license'>LICENSE</h2>
 
@@ -398,7 +571,7 @@ Expressions.strings (Polish)
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-07-15)</p>
+          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-08-02)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

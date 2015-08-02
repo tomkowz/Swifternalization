@@ -88,14 +88,14 @@ class SharedExpressionsProcessor {
 }
 
 infix operator <! {}
+/**
+"Get Unique" operator. It helps in getting unique shared expressions from two arrays.
+Content of `lhs` array will be checked in terms on uniqueness. The operator does
+check is there is any shared expression in `lhs` that is presented in `rhs`.
+If element from `lhs` is not in `rhs` then this element is correct and is returned
+in new array which is a result of this operation.
+*/
 func <! (lhs: [SharedExpression], rhs: [SharedExpression]) -> [SharedExpression] {
-    /*
-    "Get Unique" operator. It helps in getting unique shared expressions from two arrays.
-    Content of `lhs` array will be checked in terms on uniqueness. The operator does
-    check is there is any shared expression in `lhs` that is presented in `rhs`.
-    If element from `lhs` is not in `rhs` then this element is correct and is returned
-    in new array which is a result of this operation.
-    */
     var result = lhs
     if rhs.count > 0 {
         result = lhs.filter({

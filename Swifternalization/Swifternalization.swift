@@ -15,15 +15,14 @@ public typealias I18n = Swifternalization
 This is the main class of Swifternalization library. It exposes methods
 that can be used to get localized strings.
 
-It uses expressions.json and base.json, en.json, pl.json and so on to work.
-expressions.json file contains shared expressions that are used by other 
-files with translations.
+The framework uses json files and work with them. There are two types of files.
+First is "expressions.json" that contains shared expressions used among other 
+localizable json files. The other files are files with translation for specific 
+languages. Each file is just for one language. E.g. you can have "base.json", 
+"en.json", "pl.json" which are accordingly used for Base, English and Polish 
+localizations.
 
-Internal classes of the Swifternalization contains logic that is responsible
-for detecting which value should be used for the given key and value.
-
-Before you can get any localized value you have to configure the Swifternalization 
-first. Call `configure:` method first and then you can use other methods.
+Before calling any method that return localized string call `configure:`.
 */
 final public class Swifternalization {
     /**
@@ -50,7 +49,7 @@ final public class Swifternalization {
     /**
     Get localized value for a key.
     
-    :param: key A key.
+    :param: key A key to which localized string is assigned.
     :param: fittingWidth A max width that value should fit to. If there is no 
         value specified the full-length localized string is returned. If a
         passed fitting width is greater than highest available then a value for 
@@ -70,7 +69,7 @@ final public class Swifternalization {
     /**
     Get localized value for a key and string value.
     
-    :param: key A key.
+    :param: key A key to which localized string is assigned.
     :param: stringValue A value that is matched by expressions.
     :param: fittingWidth A max width that value should fit to. If there is no
         value specified the full-length localized string is returned. If a
@@ -113,7 +112,7 @@ final public class Swifternalization {
     /**
     Get localized value for a key and string value.
     
-    :param: key A key.
+    :param: key A key to which localized string is assigned.
     :param: intValue A value that is matched by expressions.
     :param: fittingWidth A max width that value should fit to. If there is no
         value specified the full-length localized string is returned. If a
@@ -169,7 +168,7 @@ final public class Swifternalization {
     }
     
     /** 
-    Gets preferred language of user's device
+    Get preferred language of user's device.
     */
     private func getPreferredLanguage(bundle: NSBundle) -> CountryCode {
         // Get preferred language, the one which is set on user's device

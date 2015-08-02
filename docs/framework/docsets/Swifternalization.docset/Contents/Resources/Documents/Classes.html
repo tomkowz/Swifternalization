@@ -30,16 +30,16 @@
           <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/Expression.html">Expression</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/InequalityExpressionParser.html">InequalityExpressionParser</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/InequalityExtendedExpressionParser.html">InequalityExtendedExpressionParser</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/LocalizableFilesLoader.html">LocalizableFilesLoader</a>
+                <a href="Classes/JSONFileLoader.html">JSONFileLoader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LoadedTranslationsProcessor.html">LoadedTranslationsProcessor</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/Regex.html">Regex</a>
@@ -51,7 +51,10 @@
                 <a href="Classes/SharedBaseExpression.html">SharedBaseExpression</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SharedExpressionsConfigurator.html">SharedExpressionsConfigurator</a>
+                <a href="Classes/SharedExpressionsLoader.html">SharedExpressionsLoader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SharedExpressionsProcessor.html">SharedExpressionsProcessor</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SharedPolishExpression.html">SharedPolishExpression</a>
@@ -59,13 +62,16 @@
               <li class="nav-group-task">
                 <a href="Classes/Swifternalization.html">Swifternalization</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Classes/TranslationsLoader.html">TranslationsLoader</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
           <a href="Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums/ExpressionType.html">ExpressionType</a>
+                <a href="Enums/ExpressionPatternType.html">ExpressionPatternType</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/InequalitySign.html">InequalitySign</a>
@@ -74,7 +80,15 @@
                 <a href="Enums/InternalPattern.html">InternalPattern</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/StringsFileType.html">StringsFileType</a>
+                <a href="Enums/LoadedTranslationType.html">LoadedTranslationType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:ZF17Swifternalizationoi2lnFTGSaVS_16SharedExpression_GSaS0___GSaS0__">&lt;!(_:_:)</a>
               </li>
             </ul>
           </li>
@@ -88,9 +102,6 @@
                 <a href="Protocols/ExpressionParser.html">ExpressionParser</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/KeyValue.html">KeyValue</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/SharedExpressionProtocol.html">SharedExpressionProtocol</a>
               </li>
             </ul>
@@ -99,10 +110,19 @@
           <a href="Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Structs/Expression.html">Expression</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/InequalityExpressionMatcher.html">InequalityExpressionMatcher</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/InequalityExtendedExpressionMatcher.html">InequalityExtendedExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/LengthVariation.html">LengthVariation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/LoadedTranslation.html">LoadedTranslation</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/RegexExpressionMatcher.html">RegexExpressionMatcher</a>
@@ -111,7 +131,7 @@
                 <a href="Structs/SharedExpression.html">SharedExpression</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/TranslatablePair.html">TranslatablePair</a>
+                <a href="Structs/Translation.html">Translation</a>
               </li>
             </ul>
           </li>
@@ -119,7 +139,7 @@
           <a href="Typealiases.html">Typealiases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Typealiases.html#/s:17Swifternalization13BasePrefDicts">BasePrefDicts</a>
+                <a href="Typealiases.html#/s:17Swifternalization11CountryCode">CountryCode</a>
               </li>
               <li class="nav-group-task">
                 <a href="Typealiases.html#/s:17Swifternalization17ExpressionPattern">ExpressionPattern</a>
@@ -128,19 +148,10 @@
                 <a href="Typealiases.html#/s:17Swifternalization4I18n">I18n</a>
               </li>
               <li class="nav-group-task">
-                <a href="Typealiases.html#/s:17Swifternalization6KVDict">KVDict</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Typealiases.html#/s:17Swifternalization3Key">Key</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Typealiases.html#/s:17Swifternalization8Language">Language</a>
+                <a href="Typealiases.html#/s:17Swifternalization14JSONDictionary">JSONDictionary</a>
               </li>
               <li class="nav-group-task">
                 <a href="Typealiases.html#/s:17Swifternalization12RegexPattern">RegexPattern</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Typealiases.html#/s:17Swifternalization5Value">Value</a>
               </li>
             </ul>
           </li>
@@ -154,42 +165,6 @@
 
           </section>
           <section class="section task-group-section">
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:C17Swifternalization10Expression"></a>
-                    <a name="//apple_ref/swift/Class/Expression" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C17Swifternalization10Expression">Expression</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Class represents single expression that is added in curly
-brackets inside key in Localizable.strings file or as a value in 
-Expressions.strings file.</p>
-
-<p>It is able to validate passed string using internal expression matcher.</p>
-
-                        <a href="Classes/Expression.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Expression</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
             <div class="task-group">
               <ul>
                 <li class="item">
@@ -259,9 +234,9 @@ Expressions.strings file.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C17Swifternalization22LocalizableFilesLoader"></a>
-                    <a name="//apple_ref/swift/Class/LocalizableFilesLoader" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C17Swifternalization22LocalizableFilesLoader">LocalizableFilesLoader</a>
+                    <a name="/s:C17Swifternalization14JSONFileLoader"></a>
+                    <a name="//apple_ref/swift/Class/JSONFileLoader" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C17Swifternalization14JSONFileLoader">JSONFileLoader</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -269,15 +244,48 @@ Expressions.strings file.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Class responsible for loading content from specified file type.</p>
+                        <p>Simple JSON file loader.</p>
 
-                        <a href="Classes/LocalizableFilesLoader.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/JSONFileLoader.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">LocalizableFilesLoader</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">JSONFileLoader</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C17Swifternalization27LoadedTranslationsProcessor"></a>
+                    <a name="//apple_ref/swift/Class/LoadedTranslationsProcessor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C17Swifternalization27LoadedTranslationsProcessor">LoadedTranslationsProcessor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Translation processor which takes loaded translations and process them to make
+them regular translation objects that can be used for further work.</p>
+
+                        <a href="Classes/LoadedTranslationsProcessor.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">LoadedTranslationsProcessor</span></code></pre>
 
                         </div>
                       </div>
@@ -309,7 +317,7 @@ Expressions.strings file.</p>
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Regex</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">Regex</span></code></pre>
 
                         </div>
                       </div>
@@ -387,9 +395,41 @@ Expressions.strings file.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C17Swifternalization29SharedExpressionsConfigurator"></a>
-                    <a name="//apple_ref/swift/Class/SharedExpressionsConfigurator" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C17Swifternalization29SharedExpressionsConfigurator">SharedExpressionsConfigurator</a>
+                    <a name="/s:C17Swifternalization23SharedExpressionsLoader"></a>
+                    <a name="//apple_ref/swift/Class/SharedExpressionsLoader" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C17Swifternalization23SharedExpressionsLoader">SharedExpressionsLoader</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Used to load content from <code>expressions.json</code> file for specified language.</p>
+
+                        <a href="Classes/SharedExpressionsLoader.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">SharedExpressionsLoader</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C17Swifternalization26SharedExpressionsProcessor"></a>
+                    <a name="//apple_ref/swift/Class/SharedExpressionsProcessor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C17Swifternalization26SharedExpressionsProcessor">SharedExpressionsProcessor</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -398,30 +438,30 @@ Expressions.strings file.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Swifternalization contains some built-in country-related shared expressions.
-Developer can create its own expressions in Expressions.strings file for 
-base and preferred language version of the file.</p>
+Developer can create its own expressions in expressions.json file for
+base and preferred languages.</p>
 
-<p>The class is responsible for proper loading the built-in shared ones and 
-those loaded from project&rsquo;s files. It handles overriding of built-in and loads 
+<p>The class is responsible for proper loading the built-in shared ones and
+those loaded from project&rsquo;s files. It handles overriding of built-in and loads
 those from Base and preferred language version.</p>
 
 <p>It always load base expressions, then looking for language specific.
-If in Base file are some expressions that overrides built-in, that&rsquo;s fine 
-the class adds or developer&rsquo;s custom expressions and add only those of built-in 
+If in Base are some expressions that overrides built-ins, that&rsquo;s fine.
+The class adds developer&rsquo;s custom expressions and adds only those of built-in
 that are not contained in the Base.</p>
 
-<p>The same is for preferred languages but also here what is important is that 
-at first preferred language file expressions are loaded, then if something 
-different is defined in Base it will be also loaded and then the built-in 
+<p>The same is for preferred languages but also here what is important is that
+at first preferred language file expressions are loaded, then if something
+different is defined in Base it will be also loaded and then the built-in
 expression that differs.</p>
 
-                        <a href="Classes/SharedExpressionsConfigurator.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/SharedExpressionsProcessor.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">SharedExpressionsConfigurator</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">SharedExpressionsProcessor</span></code></pre>
 
                         </div>
                       </div>
@@ -478,27 +518,16 @@ expression that differs.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This is the main class of Swifternalization library. It exposes methods
-that can be used to get localized keys with or without expressions from 
-Localizable.strings files.</p>
+that can be used to get localized strings.</p>
 
-<p>It also uses Expressions.strings files to manage shared expressions that
-can have theirs identifiers placed in many versions of the Localizable.strings
-file.</p>
+<p>The framework uses json files and work with them. There are two types of files.
+First is <q>expressions.json</q> that contains shared expressions used among other 
+localizable json files. The other files are files with translation for specific 
+languages. Each file is just for one language. E.g. you can have <q>base.json</q>, 
+<q>en.json</q>, <q>pl.json</q> which are accordingly used for Base, English and Polish 
+localizations.</p>
 
-<p>Internal classes of the Swifternalization contains logic that is responsible 
-for detecting which value should be used for the given key and value.</p>
-
-<p>It is able to work with genstrings command-line tool like NSLocalizedString() 
-macro does.</p>
-
-<p>It looks for content in the NSBundle you can provide and try to find:</p>
-
-<ul>
-<li>Localizable.strings (Base),</li>
-<li>Localizable.strings of preferred language, e.g. Localizable.strings (en)</li>
-<li>Expressions.strings (Base), </li>
-<li>Expressions.strings of preferred language, e.g. Expressions.strings (en)</li>
-</ul>
+<p>Before calling any method that return localized string call <code>configure:</code>.</p>
 
                         <a href="Classes/Swifternalization.html" class="slightly-smaller">See more</a>
                       </div>
@@ -506,7 +535,39 @@ macro does.</p>
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Swifternalization</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">Swifternalization</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C17Swifternalization18TranslationsLoader"></a>
+                    <a name="//apple_ref/swift/Class/TranslationsLoader" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C17Swifternalization18TranslationsLoader">TranslationsLoader</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Class that gets dictionary of translations and turn it into <code>LoadedTranslation</code>s.</p>
+
+                        <a href="Classes/TranslationsLoader.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">TranslationsLoader</span></code></pre>
 
                         </div>
                       </div>
@@ -518,7 +579,7 @@ macro does.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-07-15)</p>
+          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-08-02)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
