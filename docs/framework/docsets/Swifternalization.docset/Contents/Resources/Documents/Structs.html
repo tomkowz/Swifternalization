@@ -30,16 +30,16 @@
           <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/Expression.html">Expression</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/InequalityExpressionParser.html">InequalityExpressionParser</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/InequalityExtendedExpressionParser.html">InequalityExtendedExpressionParser</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/LocalizableFilesLoader.html">LocalizableFilesLoader</a>
+                <a href="Classes/JSONFileLoader.html">JSONFileLoader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LoadedTranslationsProcessor.html">LoadedTranslationsProcessor</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/Regex.html">Regex</a>
@@ -51,7 +51,10 @@
                 <a href="Classes/SharedBaseExpression.html">SharedBaseExpression</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SharedExpressionsConfigurator.html">SharedExpressionsConfigurator</a>
+                <a href="Classes/SharedExpressionsLoader.html">SharedExpressionsLoader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SharedExpressionsProcessor.html">SharedExpressionsProcessor</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SharedPolishExpression.html">SharedPolishExpression</a>
@@ -59,13 +62,16 @@
               <li class="nav-group-task">
                 <a href="Classes/Swifternalization.html">Swifternalization</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Classes/TranslationsLoader.html">TranslationsLoader</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
           <a href="Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums/ExpressionType.html">ExpressionType</a>
+                <a href="Enums/ExpressionPatternType.html">ExpressionPatternType</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/InequalitySign.html">InequalitySign</a>
@@ -74,7 +80,15 @@
                 <a href="Enums/InternalPattern.html">InternalPattern</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/StringsFileType.html">StringsFileType</a>
+                <a href="Enums/LoadedTranslationType.html">LoadedTranslationType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:ZF17Swifternalizationoi2lnFTGSaVS_16SharedExpression_GSaS0___GSaS0__">&lt;!(_:_:)</a>
               </li>
             </ul>
           </li>
@@ -88,9 +102,6 @@
                 <a href="Protocols/ExpressionParser.html">ExpressionParser</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/KeyValue.html">KeyValue</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/SharedExpressionProtocol.html">SharedExpressionProtocol</a>
               </li>
             </ul>
@@ -99,10 +110,19 @@
           <a href="Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Structs/Expression.html">Expression</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/InequalityExpressionMatcher.html">InequalityExpressionMatcher</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/InequalityExtendedExpressionMatcher.html">InequalityExtendedExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/LengthVariation.html">LengthVariation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/LoadedTranslation.html">LoadedTranslation</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/RegexExpressionMatcher.html">RegexExpressionMatcher</a>
@@ -111,7 +131,7 @@
                 <a href="Structs/SharedExpression.html">SharedExpression</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/TranslatablePair.html">TranslatablePair</a>
+                <a href="Structs/Translation.html">Translation</a>
               </li>
             </ul>
           </li>
@@ -119,7 +139,7 @@
           <a href="Typealiases.html">Typealiases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Typealiases.html#/s:17Swifternalization13BasePrefDicts">BasePrefDicts</a>
+                <a href="Typealiases.html#/s:17Swifternalization11CountryCode">CountryCode</a>
               </li>
               <li class="nav-group-task">
                 <a href="Typealiases.html#/s:17Swifternalization17ExpressionPattern">ExpressionPattern</a>
@@ -128,19 +148,10 @@
                 <a href="Typealiases.html#/s:17Swifternalization4I18n">I18n</a>
               </li>
               <li class="nav-group-task">
-                <a href="Typealiases.html#/s:17Swifternalization6KVDict">KVDict</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Typealiases.html#/s:17Swifternalization3Key">Key</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Typealiases.html#/s:17Swifternalization8Language">Language</a>
+                <a href="Typealiases.html#/s:17Swifternalization14JSONDictionary">JSONDictionary</a>
               </li>
               <li class="nav-group-task">
                 <a href="Typealiases.html#/s:17Swifternalization12RegexPattern">RegexPattern</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Typealiases.html#/s:17Swifternalization5Value">Value</a>
               </li>
             </ul>
           </li>
@@ -154,6 +165,43 @@
 
           </section>
           <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V17Swifternalization10Expression"></a>
+                    <a name="//apple_ref/swift/Struct/Expression" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V17Swifternalization10Expression">Expression</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This class contains pattern of expression and localized value as well as
+length variations if any are associated. During instance initialization pattern 
+is analyzed and correct expression matcher is created. If no matcher matches 
+the expression pattern then when validating there is only check if passed value 
+is the same like pattern (equality). If there is matcher then its internal logic 
+validates passed value.</p>
+
+                        <a href="Structs/Expression.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Expression</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
             <div class="task-group">
               <ul>
                 <li class="item">
@@ -201,7 +249,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Validates inequality extended expressions</p>
+                        <p>Validates inequality extended expressions.</p>
 
                         <a href="Structs/InequalityExtendedExpressionMatcher.html" class="slightly-smaller">See more</a>
                       </div>
@@ -210,6 +258,71 @@
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">InequalityExtendedExpressionMatcher</span><span class="p">:</span> <span class="kt">ExpressionMatcher</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V17Swifternalization15LengthVariation"></a>
+                    <a name="//apple_ref/swift/Struct/LengthVariation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V17Swifternalization15LengthVariation">LengthVariation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Length variation representation. It contains a width property which specifies 
+up to which width of a screen the text in <code>value</code> property should be presented.</p>
+
+                        <a href="Structs/LengthVariation.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">LengthVariation</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V17Swifternalization17LoadedTranslation"></a>
+                    <a name="//apple_ref/swift/Struct/LoadedTranslation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V17Swifternalization17LoadedTranslation">LoadedTranslation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Struct that represents loaded translation.</p>
+
+                        <a href="Structs/LoadedTranslation.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">LoadedTranslation</span></code></pre>
 
                         </div>
                       </div>
@@ -288,9 +401,9 @@ regular expressions.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V17Swifternalization16TranslatablePair"></a>
-                    <a name="//apple_ref/swift/Struct/TranslatablePair" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V17Swifternalization16TranslatablePair">TranslatablePair</a>
+                    <a name="/s:V17Swifternalization11Translation"></a>
+                    <a name="//apple_ref/swift/Struct/Translation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V17Swifternalization11Translation">Translation</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -298,17 +411,15 @@ regular expressions.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Represents key-value pair from Localizable.strings files.
-It contains key, value and expression if exists for the key.
-It can also validate if text matches expression&rsquo;s requirements.</p>
+                        <p>Represents translation with expressions.</p>
 
-                        <a href="Structs/TranslatablePair.html" class="slightly-smaller">See more</a>
+                        <a href="Structs/Translation.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">TranslatablePair</span><span class="p">:</span> <span class="kt">KeyValue</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Translation</span></code></pre>
 
                         </div>
                       </div>
@@ -320,7 +431,7 @@ It can also validate if text matches expression&rsquo;s requirements.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-07-15)</p>
+          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-08-02)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

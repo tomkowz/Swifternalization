@@ -2,146 +2,166 @@
 
 ![CocoaPods Status](https://img.shields.io/cocoapods/v/Swifternalization.svg)
 
-Swifternalization is library that helps in localizing apps. It is written in Swift.
+# Swifternalization
+Swift library that helps in localizing apps in a different, better, simpler, more powerful way than system localization does. It uses json files instead of strings files.
 
 # Features
-- [x] Pluralization support - Avoids using .stringdicts
-- [x] Expressions - inequality and regular expressions in Localizable.strings
-- [x] Shared expressions
-- [x] Built-in expressions
-- [x] Works similarly to NSLocalizedString() macro
-- [x] Uses Localizable.strings file as NSLocalizedString() macro does
+- [x] Pluralization support - Without using *stringdict* files
+- [x] Length variations support - Supported since iOS 8.0 (instead of iOS 9.0 like system does) and avoids using *stringsdict* files
+- [x] Expressions - inequality and regular expressions
+- [x] Shared Expressions
+- [x] Built-in Expressions
+- [x] Works similarly to NSLocalizedString()
+- [x] Uses JSON files to minimize boilerplate code
 - [x] Comprehensive Unit Test Coverage
 - [x] Full documentation
 
-# Swifternalization 
-Swifternalization helps in localizing apps in a smarter way. It has been created because of necessary to solve Polish language internalization problems but it is universal and works with every language. 
+# Table of Contents
+- [Introduction](#introdcution)
+- [Practical Usage Example](#practical-usage-example)
+- [Features](#features)
+	- [Pluralization](#pluralization)
+	- [Length variation](#length-variation)
+- [Expressions](#expressions)
+	- [Inequality Expressions](#inequality-expressions)
+	- [Inequality Extended Expressions](#inequality-extended-expressions)
+	- [Regex Expressions](#regex-expressions)
+	- [Shared Expressions](#shared-expressions)
+	- [Built-in Expressions](#built-in-expressions)
+- [Getting Started](#getting-started)
+	- [Documentation](#documentation)
+	- [Installation](#installation)
+	- [Configuration](#configuration)
+	- [Creating file with shared expressions](#creating-file-with-shared-expressions)
+	- [Creating file with localization per country](#creating-file-with-localization-per-country)
+	- [Getting localized string](#getting-localized-string)
+- [Contribution](#contribution)
+- [Swift 2](#swift-2)
+- [Things To Do](#things-to-do)
+- [License](#license)
 
-## Installation
-With CocoaPods:
+## Introduction
+Swifternalization helps in localizing apps in a smarter way. It has been created because of necessity to solve Polish language internalization problems but it is universal and works with every language very well.
 
-    pod 'Swifternalization', '~> 1.1'
+It uses JSON files and expressions that avoid writing code to handle some cases that you have to write when not using this framework. It makes localizing process simpler.
 
-Without CocoaPods:
-If you want to integrate it with your project just import files from *Swifternalization/Swifternalization* directory.
+## Practical Usage Example
+Description of practical usage example will use things that are covered later in the document so keep reading it to the end and then read about details/features presented here.
 
-## Documentation
-Swifternalization documentation covers 100% of the code, Yay! There are two types of documentation. First covers only public API which is great for those who only want to use the framework without looking inside. The second one covers all the API - public, internal and private. 
+### Problem
+Let's assume the app supports English and Polish languages. Naturally app contains two *Localizable.strings* files. One is for *Base* localization which contains *English* translation and one is *Polish* language. 
 
-You can find Public API and Full documentation with docset here in [docs](https://github.com/tomkowz/Swifternalization/tree/master/docs) directory. 
+App displays label with information which says when object from the backend has been updated for the last time, e.g. "2 minutes ago", "3 hours ago", "1 minute ago", etc.
 
-It is also hosted on [my blog](http://szulctomasz.com):
-- [Public API documentation](http://szulctomasz.com/docs/swifternalization/public/)
-- [Full API documentation](http://szulctomasz.com/docs/swifternalization/framework/)
+### Analysis
+The label displays number and a hour/minute/second word in singular or plural forms with "ago" suffix. Different languages handles pluralization/cardinal numbering in slight different ways. Here we need to support English and Polish languages.
 
-Docsets:
-- [Public API docset](http://szulctomasz.com/docs/swifternalization/public/docsets/Swifternalization%20Public%20API.docset.zip)
-- [Full API docset](http://szulctomasz.com/docs/swifternalization/framework/docsets/Swifternalization.docset.zip)
+In English there are just two cases to cover per hour/minute/second word:
 
-## Real Example
+- 1 - "one second ago"
+- 0, 2, 3... "%d seconds ago"
+- Same with minutes and hours. 
 
-Let's take a look on practical usage of Swifternalization. App supports both English and Polish languages. Naturally app contains two *Localizable.strings* files - one is Base for English (or English for English) and one is Polish... for Polish, obviously :)
+In Polish it is more tricky because the cardinal numbers are more complicated:
 
+- 1 - "jedną sekundę temu"
+- 0, (5 - 21) - "%d sekund temu"
+- (2 - 4), (22-24), (32-34), (42, 44), ..., (162-164), ... - "%d sekundy temu"
+- Same logic for minutes and hours. 
 
-App displays label with information that says when objects from the backend has been updated for the last time, e.g. "2 minutes ago".
+Following chapters will present solution without and with Swifternalization framework. Each solution describes Base (English) and Polish localizations.
 
-This shouldn't be problem in English:
+Here is a table with [Language Plural Rules](http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html) which covers cardinal forms of numbers in many languages - Many language handle plurality in their own way.
 
-- 0, 2... second ago
-- 1 second ago
-- ...
-
-The same with minutes and hours. This is easy. Localization file for English will looks like this one:
+### Solution without Swifternalization
 
 	Localizable.strings (Base)
 	--------------------------
-	
-    "one-second" = "1 second ago";
-    "many-seconds" = "%d seconds ago";
-    
-    "one-minute" = "1 minute ago";    
-    "many-minutes" = "%d minutes ago";
+	"one-second" = "1 second ago";
+	"many-seconds" = "%d seconds ago";
+
+	"one-minute" = "1 minute ago";    
+	"many-minutes" = "%d minutes ago";
 
 	"one-hour" = "1 hour ago";
 	"many-hours" = "%d hours ago";
-	
-	
-Let's try with Polish language. As mentioned - this is tricky.
 
-    Localizable.strings (Polish)
-    ----------------------------
-    
-    "one-second" = "1 sekundę temu";
-    "few-seconds" = "%d sekundy temu";
-    "many-seconds" = "%d sekund temu";
-    
-    "one-minute" = "1 minutę temu";
-    "few-minutes" = "%d minuty temu";
-    "many-minutes" = "%d minut temu";
-    
-    "one-hours" = "1 hodzinę temu";
-    "few-hours" = "%d godziny temu";
-    "many-hours" = "%d godzin temu";
-    
-  
-  
-Okay... there is 9 cases for now. But this is not the only thing to deal with. It depends on the number of seconds/minutes/hours to select proper one. Without some logic additional logic to find out which case should be used this is impossible to use proper one.
-
-    - 0, (5 - 21) - "few-seconds"
-    - 1 - "one-second"
-    - (2 - 4), (22-24), (32-34), (42, 44), ..., (162-164), ... - "many-seconds"
-    
-The same logic for minutes and hours. 
-
-
-Here is nice table with [Language Plural Rules](http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html) which covers cardinal forms of numbers in many languages - Many language handle plurality in their own way.
-
-
-With Swifternalization this can be solved e.g. in this way:
-
-
-	Localizable.strings (Base)
-	--------------------------
-	"time-seconds{one}" = "%d second ago";
-	"time-seconds{other}" = "%d seconds ago";
-	
-	"time-minutes{one}" = "%d minute ago";
-	"time-minutes{other}" = "%d minutes ago";
-
-	"time-hours{one}" = "%d hour ago";
-	"time-hours{other}" = "%d hours ago";
-	
-	
-	
 	Localizable.strings (Polish)
-	----------------------------
-	"time-seconds{one}" = "%d sekundę temu";
-	"time-seconds{few}" = "%d sekundy temu";
-	"time-seconds{many}" = "%d sekund temu";
+	-------------------------    	    	
+	"one-second" = "1 sekundę temu"
+	"few-seconds" = "%d sekundy temu"
+	"many-seconds" = "%d sekund temu""    	    	
+
+	"one-minute" = "1 minutę temu"
+	"few-minutes" = "%d minuty temu	"
+	"many-minutes" = "%d minut temu" 	    	
+
+	"one-hours" = "1 godzinę temu"
+	"few-hours" = "%d godziny temu"
+	"many-hours" = "%d godzin temu";
+    
+There are 6 cases in English and 9 cases in Polish. Notice that without additional logic we're not able to detect which version of a string for hour/minute/second the app should display. The logic differs among different languages. We would have to add some lines of code that handle the logic for all the languages we're using in the app. What if there are more than 2 languages? Don't even think about it - this might be not so easy.
+
+*The logic is already implemented in Swifternalization framework and it fits to every language.*
+
+### Solution with Swifternalization
+
+This is how localizable files will look:
+
+    base.json
+    ---------
+    "time-seconds": {
+        "one": "%d second ago"
+        "other": "%d seconds ago"
+    },
+    
+    "time-minutes": {
+        "one": "%d minute ago"
+        "other": "%d minutes ago"
+    },
+    
+    "time-hours": {
+        "one": "%d hours ago"
+        "other": "%d hours ago"
+    }
 	
-	"time-minutes{one}" = "%d minutę temu";
-	"time-minutes{few}" = "%d minuty temu";
-	"time-minutes{many}" = "%d minut temu";
+	pl.json
+	-------
+	"time-seconds": {
+		"one": "1 sekundę temu",
+		"few": "%d sekundy temu",
+		"many": "%d sekund temu"
+	},
 	
-	"time-hours{one}" = "%d godzinę temu";
-	"time-hours{few}" = "%d godziny temu";
-	"time-hours{many}" = "%d godzin temu";
+	"time-minutes": {
+		"one": "1 minutę temu",
+		"few": "%d minuty temu",
+		"many": "%d minut temu"
+	},
+	
+	"time-hours": {
+		"one": "1 godzinę temu",
+		"few": "%d godziny temu",
+		"many": "%d godzin temu"
+	}
 
-So the logic is in Swifternalization and you don't need write additional handling code for these cases.
+- "one", "few", "many", "other" - those are shared expressions already built into Swifternalization - covered below.
+- You can add own expressions to handle specific cases - covered below.
 
+As mentioned the logic is implemented into framework so if you want to get one of a localized string you have to make a simple call.
 
-And the call will look like this:
-
-	Swifternalization.localizedExpressionString("time-seconds", value: 10)
+	Swifternalization.localizedString("time-seconds", intValue: 10)
 
 or with `I18n` *typealias* (*I-18-letters-n, Internalization*):
 
-	I18n.localizedExpressionString("time-seconds", value: 10)
+	I18n.localizedString("time-seconds", intValue: 10)
 
+The *key* and *intValue* parameters are validated by loaded expressions and proper version of a string is returned - covered below.
 
-There is easy way to add you own expression to handle your specific case with Swifternalization.
+## Features
 
-Swifternalization also drops need for having *.stringdicts* files like this one:
+### Pluralization
+Swifternalization drops necessity of using *stringdicts* files like following one to support pluralization in localized strings. Instead of that you can simply define expressions that cover such cases.
 
 	<plist version="1.0">
 	    <dict>
@@ -163,55 +183,55 @@ Swifternalization also drops need for having *.stringdicts* files like this one:
 	        </dict>
 	    </dict>
 	</plist>
+	
+No more *stringsdict* files!
 
+### Length Variations
+iOS 9 provides new way to select proper localized string variation depending on a screen width. It uses *stringsdict* file with *NSStringVariableWidthRuleType* key. 
 
-## Getting Started
+Swifternalization drops necessity of using such file and it is not necessary to use this new key to use the feature. 
 
-Configuration is simple. The one thing that Swifternalization needs to works is `NSBundle` where `Localizable.strings` are placed.
+**With Swifternalization this length variations feature is available since iOS 8.0 because the framework has its own implementation of length variations.**
 
-Recommended is to configure it as fast as you can to be sure that before you want to get some localized key it will be able to return you something.
+To use length variations feature your translation file should has entries like this:
 
-        Swifternalization(bundle: NSBundle.mainBundle())
+    base.json
+    ---------
+    "forgot-password": {
+    	"@200": "Forgot Password? Help.",
+    	"@300": "Forgot Your Password? Use Help.",
+    	"@400": "Do not remember Your Password?" Use Help.""
+    }
+    
+The number after `@` sign is max width of a screen or bounds that a string fits to. E.g. the second string will be returned if passed fitting width as a paramter is be greater than 200 and less or equal 300.
+
+To get the second localized string the call looks like below:
+
+    I18n.localizedString("forgot-password", fittingWidth: 300) // 201 - 300
+    
+You can mix expressions with length variations. Following example shows it:
+
+    base.json
+    ---------
+    "car": {
+        "ie:x=1": {
+            @100: "One car",
+            @200: "You've got one car"
+        },
         
-This call will create instance (you can get handle to it but you don't need it) and automatically set it as shared instance and you can easily work with it.
-
-In *Localizable.strings* the syntax should looks like this:
-
-	"key" = "value";
-	"key{expression}" = "value";
-
-### How to get localized string
-
-Swifternalization allows developer to work with its class methods. There are few to use:
-
-	localizedString(key: String, defaultValue: String? = nil) -> String
-
-Allows to get value for simple key. Works similar to `NSLocalizedString`. `key` is the key placed in `Localizable.strings` and `defaultValue` is the value that will be returned when there is no translation found for passed key. If `defaultValue` is nil then key will be return in such case.
-
-The next one is for getting localized string with keys that contain some expressions:
-    
-    localizedExpressionString(key: String, value: String, defaultValue: String? = nil) -> String
-    
-Similarly to the one above `key` is the key in `Localizable.strings`, `defaultValue` is also the same and methods behaves the same. There is additional parameter called `value`. The value is used for expression matchers to validate expressions and return proper localized value. We'll cover it soon.
-
-As the method takes some `String` as a `value` and you probably will deal with `Int` there is alternative method to call:
-
-	localizedExpressionString(key: String, value: Int, defaultValue: String? = nil) -> String
-
-
+        "more": "You've got few cars"
+    }
 
 ## Expressions
+There are few *expression types*. Every expression type has their own *parser* and *matcher* but they work internally so you don't need to worry about them.
 
-As mentioned there are few *expression types*. Every expression type has their own *parser* and *matcher*.
+There are 3 types of expressions:
 
-There are 3 types:
+- *inequality* - handles simple inequalities like: *x<3*, *x>10*, *x=5*, *x<=3*, and so on. Work with integer and float numbers.
+- *inequality extended* - extended version of *inequality* with syntax like this: *2<x<10*, *4<=x<6*. Work with integer and float numbers.
+- *regex* - uses regular expression. This is the most powerful ;)
 
-- *inequality* - this type of expression handles simple inequalities like: *x<3*, *x>10*, *x=5*, *x<=3*, and so on.
-- *inequality extended* - this is extended version of *inequality* with syntax like this: *2<x<10*, *4<=x<6*.
-- *regex* - this types of expression uses regular expression. This is the most powerful ;)
-
-
-### Inequality
+### Inequality Expressions
 It is composed of several elements:
 
 - *ie:* - prefix of *inequality* expression
@@ -221,14 +241,15 @@ It is composed of several elements:
 
 Example:
 
-	"cars{ie:x=1}" = "1 car";
-	"cars{ie:x=0}" = "no cars";
-	"cars{ie:x>1}" = "%d cars";
+	"cars": {
+		"ie:x=1": "1 car",
+		"ie:x=0": "no cars",
+		"ie:x>1": "%d cars"
+	}
 	
 
-### Inequality Extended
-
-This is a bit extended version of *inequality* expression. It is composed of 2 values, one value "marker" and two inequality signs.
+### Inequality Extended Expressions
+This is extended version of *inequality* expression. It is composed of 2 values, one value "marker" and two inequality signs.
 
 - *iex:* - prefix of *inequality extended* expression
 - *x* - place for number that will be matched. Works with Ints and floating point numbers.
@@ -236,131 +257,243 @@ This is a bit extended version of *inequality* expression. It is composed of 2 v
 
 Expample:
 
-	"tomatos{iex:2<x<10}" = "%d tomatos is between 2 and 10";
+	"tomatos": {
+		"iex:2<x<10": "%d tomatos is between 2 and 10"
+	}
 
-
-
-### Regex
-
-This is the most powerful type of expression and probably will be most used by developers. It takes regular expression ;)
+### Regex Expressions
+This is the most powerful type of expression. It takes regular expression ;)
 
 - *exp:* - prefix of *regex* expression
 - *string* - it takes string with regular expression
 
 Example: (police cars in Polish language)
 
-	"police-cars{exp:^1$}" = "1 samochód policyjny";
-	"police-cars{exp:(((?!1).[2-4]{1})$)|(^[2-4]$)}" = "%d samochody policyjne";
-	"police-cars{exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])}" = "%d samochodów policyjnych";
-	
+	"police-cars": {
+		"exp:^1$": "1 samochód policyjny",
+		"exp:(((?!1).[2-4]{1})$)|(^[2-4]$)": "%d samochody policyjne",
+		"exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])": "%d samochodów policyjnych"
+	}
+		
 Powerful stuff, isn't it? :>
 
-PS. There is built in solution for Polish language so you can use it with doing just this:
+PS. There is built-in solution for Polish language so you can use it with doing just this:
 
-	"police-cars{one}" = "1 samochód policyjny";
-	"police-cars{few}" = "%d samochody policyjne";
-	"police-cars{many}" = "%d samochodów policyjnych";
+	"police-cars": {
+		"one": "1 samochód policyjny",
+		"few": "%d samochody policyjne",
+		"many": "%d samochodów policyjnych"
+	}	
 	
-	
-This feature is called *"Shared Expression"* and is covered below.
+This is called *"Shared Built-In Expression"* and is covered below.
 
+### Shared Expressions
 
-
-## Shared Expressions
+Shared expressions are expressions available among all the localization files. They are declared in *expressions.json* file divided by language and you can use them in localization files.
 
 The functionality allows developer to observance of DRY principle and to avoid mistakes that exist because of reapeating the code in many places.
 
-It is possible to create shared expression in your project and use it with no configuration with Swifternalization.
+Normally you declare expression like this:
 
-### Getting Started of Shared Expressions
+    ...
+    "ie:x>1": "Localized String"
+    ...
 
-1. Create *Expressions.strings* file in the same bundle when *Localizable.strings* file is.
-2. Add shortcuts for your expressions and add your expressions ;)
+If you want to use the same expression in multiple files there is no necessity to repeat the expression elsewhere. This is even problematic when you decide to improve/change expression to handle another cases you forget about - you would have to change expression in multiple places. Because of that there are Shared Expression. These feature allows you to create expression just in one place and use identifier of it in multiple places where you normally should put this expression.
 
-Example:
+What you need to do is to create *expressions.json* file with following structure:
 
-	Localizable.strings (Base)
-	-------------------
-	"cars{custom-1}" = "%d car";
-	"cars{custom-2}" = "%d cars";
+    {
+    	"base": {
+    		"one": "ie:x>1"
+    	},
 
+    	"pl": {
+    		// ... other than "one" because "one" is available here too.
+    	}
+    }
 
-	Localizable.strings (Polish)
-	----------------------------
-	"cars{custom-1}" = "%d samochód";
-	"cars{custom-2}" = "%d samochody";
-	"cars{custom-3}" = "%d samochodów";
-	
-	
-	Expressions.strings (Base)
-	--------------------------
-	"custom-1" = "ie:x=1";
-	"custom-2" = "exp:(^[^1])|(^\\d{2,})";
-	
-	
-	Expressions.strings (Polish)
-	---------------------------
-	"custom-1" = "ie:x=1";
-	"custom-2" = "exp:(((?!1).[2-4]{1})$)|(^[2-4]$)";
-	"custom-3" = "exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])";
-	
+Now in *pl.json*, *en.json* and so on you have to use it as below:
 
-Swifternalization load these *Expressions.strings* files and analyze them, and replace shortcuts for expressions with full expressions.
+    ...
+    "one": "Localized String"
+    ...
 
-There is some duplication in Base and Polish version of expressions - *custom-1*. Instead of repeating this in entire language you want to cover you can keep it just in *Base* version of *Expressions.strings* file. Expressions that are find in *Base* and are not in preferred language file will be added to preferred language too to observance of DRY principle.
+Before you decide to create your own expression take a look if there is no built-in one with the same name or whether there is such expression but named differently. Maybe you don't need to do this at all and just use it.
 
-Swifternalization also handles the case of overriding built-in expressions. It gives you just few expressions for now like: `one`, `>one`, `two`, `other` as base expressions and `few` and `many` for Polish. If any of your *Expressions.strings* version of file will override it Swifternalization will use your version.
+### Built-in expressions
 
-## Demo
+Built-in expressions as name suggest are shared expressions built into framework and available to use with zero configuration. They are separated by country and not all country have its own built-in expressions. For now there are e.g. Base built-in expressions and Polish built-in expressions. Base expressions are available in every country and there are very generic to match all countries pluralization/cardinal numbering logic. 
 
-There is demo project included in the repo. Just switch to proper target and run. It enumerated cars from 1 to 1000 and print them out to the console. Base (English) and Polish languages are supported. You can find there example of using simple primitive no-expression translation and also with experssions.
+List of supported built-in shared expressions:
 
-## Contribution and change or feature requests
+    Base (English fits to this completely)
+    - one - detects if number is equal 1
+    - >one - detects if number is greater than 1
+    - two - detects if number is equal 2
+    - other - detects if number is not 1, so 0, 2, 3 and so on.
 
-Swifternalization is open sources so everyone may contribute if want to. If you want to develop it just fork the repo, do you work and create pull request. If you have some idea or question feel free to create issue and add proper tag for it.
+    Polish
+    - few - matches (2-4), (22-24), (32-4), ..., (..>22, ..>23, ..>24)
+    - many - matches 0, (5-9), (10-21), (25-31), ..., (..0, ..1, ..5-9)
 
+As you can see polish has no "one", ">one", etc. because it inherits from Base by default.
 
-## Built-in expressions
+## Getting Started
+This chapter shows you how to start using Swifternalization and how to intergrate it with your code.
 
-As mentioned in previous chapter Swifternalization has some built-in expressions and is ready to extend. If you want to add expressions specific for your country you can do it by creating class which conforms to `SharedExpressionProtocol`. Methods from protocol returns all expressions for your country. There is already `SharedBaseExpression` with some basic expressions and `SharedPolishExpression` with polish expressions for helping ordering numbers.
+### Documentation
+Documentation covers 100% of the code, Yay! There are two types of documentation. First covers only public API which is for those who only want to use the framework without looking inside. The second one covers all the API - public, internal and private. 
 
-Example of the file ready for pull request should looks like this:
+You can find Public API and Full documentation with docset here in [docs](https://github.com/tomkowz/Swifternalization/tree/master/docs) directory. 
 
-	class SharedPolishExpression: SharedExpressionProtocol {
-	    static func allExpressions() -> [SharedExpression] {
-	        return [
-	            /**
-	            (2-4), (22-24), (32-4), ..., (..>22, ..>23, ..>24)
-	            
-	            e.g.
-	            - 22 samochody, 1334 samochody, 53 samochody
-	            - 2 minuty, 4 minuty, 23 minuty
-	            */
-	            SharedExpression(k: "few", e: "exp:(((?!1).[2-4]{1})$)|(^[2-4]$)"),
-	            
-	            /**
-	            0, (5-9), (10-21), (25-31), ..., (..0, ..1, ..5-9)
-	            
-	            e.g.
-	            - 0 samochodów, 10 samochodów, 26 samochodów, 1147 samochodów
-	            - 5 minut, 18 minut, 117 minut, 1009 minut
-	            */
-	            SharedExpression(k: "many", e: "exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])"),
-	        ]
+It is also hosted on [my blog](http://szulctomasz.com):
+- [Public API documentation](http://szulctomasz.com/docs/swifternalization/public/)
+- [Full API documentation](http://szulctomasz.com/docs/swifternalization/framework/)
+
+Docsets:
+- [Public API docset](http://szulctomasz.com/docs/swifternalization/public/docsets/Swifternalization%20Public%20API.docset.zip)
+- [Full API docset](http://szulctomasz.com/docs/swifternalization/framework/docsets/Swifternalization.docset.zip)
+
+### Instalation
+It works with iOS 8.0 and newer.
+
+With CocoaPods:
+
+    pod 'Swifternalization', '~> 1.2'
+
+If you are not using CocoaPods just import files from *Swifternalization/Swifternalization* directory to your project.
+
+Swifternalization also supports Carthage.
+
+### Configuration
+Before you get a first localized string you have to configure Swifternalization by passing to it the bundle where localized json files are placed.
+
+    I18n.configure() // for NSBundle.mainBundle() - Mostly you want to call it this way
+    I18n.configure(bundle) // if files are in another bundle
+
+### Creating file with Shared Expressions
+
+Shared Expressions must be placed in *expressions.json*. Syntax of a file looks like below:
+
+	{
+	    "base": {
+	        "ten": "ie:x=10",
+	        ">20": "ie:x>20",
+	        "custom-pl-few": "exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])"
+	    },
+	    
+	    "pl": {
+	        "few": "exp:(((?!1).[2-4]{1})$)|(^[2-4]$)",
+	        "two": "ie:x=2",
+	        "three": "ie:x=3"
 	    }
 	}
 
+In pseudo-language:
 
-Also this is required to cover all shared expressions for a country with unit tests. You can find examples in the repo for e.g. Polish expressions.
+    {
+    	"language-1": {
+    		"shared-expression-key-1": "expression-1",
+    		"shared-expression-key-2": "expression-2"
+    	},
+
+    	"language-2": {
+    		"shared-expression-key-1": "expression-1"
+    	}
+    }
+	
+Expressions from the files may be used inside localizable files. All the shared expressions for different languages are placed in the same file because there will be just few expressions for every language. Mostly the expression will be defined in *base* variant because if expression is in *base* it is also available in every other language too. So, "ten" is available in "pl", but "three" is not available in "base".
+
+
+### Creating Localizable Files
+
+Localizable file contains translations for specific language. The files might look like below:
+
+	{
+	    "welcome-key": "welcome",
+	    	    
+	    "cars": {
+	        "one": "one car",
+	        "ie:x>=2": "%d cars",
+	        "ie:x<=-2": "minus %d cars"
+	    }
+	}
+
+Name of a file should be the same like country code. e.g. for English it is *en.json*, for Polish it is *pl.json*, for base localization it is *base.json*, etc.
+
+There are few things that you can place in such files. More complex file will look like below:
+
+	{
+		"welcome": "welcome",
+
+		"cars": {
+			"one": {
+				"@100": "one car",
+				"@200": "You have one car",
+				"@400": "You have got one car"
+			},
+
+			"other": "%d cars"
+		}
+	}
+
+In pseudo-language:
+
+	{
+		"key": "value",
+
+		"key": {
+			"expression-1": {
+				"length-variation-1": "value-1",
+				"length-variation-2": "value-2",
+				"length-variation-3": "value-3"
+			},
+
+			"expression-2": "value"
+		}
+	}
+
+
+### Getting localized string
+
+Swifternalization allows you to work with its one class method which exposes all the methods you need to localize an app.
+
+These methods have many optional paramters and you can omit them if you want. There are few common parameters:
+
+- `key` - A key of localized string.
+- `fittingWidth` - A width of a screen or place where you want to put a localized string. It is integer.
+- `defaultValue` - A value that will be returned if there is no localized string for a key passed to the method. If this is not specified then `key` is returned.
+- `comment` - A comment used just by developer to know a context of translation.
+
+First method called `localizedString(_:fittingWidth:defaultValue:comment:)` allows you to get value for simple key without expression.
+
+Examples:
+
+    I18n.localizedString("welcome")
+    I18n.localizedString("welcome", fittingWidth: 200)
+    I18n.localizedString("welcome", defaultValue: "Welcome", comment: "Displayed on app start")
+
+Next method `localizedString(_:stringValue:fittingWidth:defaultValue:comment:)` allows you to get a localized string for string value that match an expression. Actually the string value will contain number inside in most cases or some other string that you would like to match.
+
+    I18n.localizedString("cars", stringValue: "5")
+    // Other cases similar to above example
+
+The last method `localizedString(_:intValue:fittingWidth:defaultValue:comment:)` allows you to get a localized string for int value. This method calls the above one and just turn the int value into string because all the framework operates on strings.
+
+	I18n.localizedString("cars", intValue: 5)
+
+## Contribution and change or feature requests
+Swifternalization is open sourced so everyone may contribute if want to. If you want to develop it just fork the repo, do your work and create pull request. If you have some idea or question feel free to create issue and add proper tag for it.
+
+There is no guide for contributors but if you added new functionality you must write unit tests for it.
 
 ## Swift 2
+Swifternalization supports Swift 2 and works on Xcode 7 beta 4. Please check out *swift2* branch.
 
-Swifternalization supports Swift 2 and works on Xcode 7 beta 3. Please check *swift2* branch for that.
-
-
-## Things to do in future release:
+## Things to do in future releases:
 - Add more built-in expressions for another countries.
+- Add support for float numbers in built in expressions that uses regular expressions.
 
 ## LICENSE
-
 Swifternalization is released under the MIT license.

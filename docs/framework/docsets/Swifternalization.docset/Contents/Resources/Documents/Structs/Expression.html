@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>LocalizableFilesLoader Class Reference</title>
+    <title>Expression Struct Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,8 +9,8 @@
     <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/LocalizableFilesLoader" class="dashAnchor"></a>
-    <a title="LocalizableFilesLoader Class Reference"></a>
+    <a name="//apple_ref/swift/Struct/Expression" class="dashAnchor"></a>
+    <a title="Expression Struct Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">Swifternalization Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">Swifternalization Reference</a>
         <img id="carat" src="../img/carat.png" />
-        LocalizableFilesLoader Class Reference
+        Expression Struct Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -31,16 +31,16 @@
           <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/Expression.html">Expression</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/InequalityExpressionParser.html">InequalityExpressionParser</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/InequalityExtendedExpressionParser.html">InequalityExtendedExpressionParser</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/LocalizableFilesLoader.html">LocalizableFilesLoader</a>
+                <a href="../Classes/JSONFileLoader.html">JSONFileLoader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LoadedTranslationsProcessor.html">LoadedTranslationsProcessor</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Regex.html">Regex</a>
@@ -52,7 +52,10 @@
                 <a href="../Classes/SharedBaseExpression.html">SharedBaseExpression</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SharedExpressionsConfigurator.html">SharedExpressionsConfigurator</a>
+                <a href="../Classes/SharedExpressionsLoader.html">SharedExpressionsLoader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedExpressionsProcessor.html">SharedExpressionsProcessor</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SharedPolishExpression.html">SharedPolishExpression</a>
@@ -60,13 +63,16 @@
               <li class="nav-group-task">
                 <a href="../Classes/Swifternalization.html">Swifternalization</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TranslationsLoader.html">TranslationsLoader</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
           <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Enums/ExpressionType.html">ExpressionType</a>
+                <a href="../Enums/ExpressionPatternType.html">ExpressionPatternType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/InequalitySign.html">InequalitySign</a>
@@ -75,7 +81,15 @@
                 <a href="../Enums/InternalPattern.html">InternalPattern</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/StringsFileType.html">StringsFileType</a>
+                <a href="../Enums/LoadedTranslationType.html">LoadedTranslationType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF17Swifternalizationoi2lnFTGSaVS_16SharedExpression_GSaS0___GSaS0__">&lt;!(_:_:)</a>
               </li>
             </ul>
           </li>
@@ -89,9 +103,6 @@
                 <a href="../Protocols/ExpressionParser.html">ExpressionParser</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/KeyValue.html">KeyValue</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/SharedExpressionProtocol.html">SharedExpressionProtocol</a>
               </li>
             </ul>
@@ -100,10 +111,19 @@
           <a href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Structs/Expression.html">Expression</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/InequalityExpressionMatcher.html">InequalityExpressionMatcher</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/InequalityExtendedExpressionMatcher.html">InequalityExtendedExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LengthVariation.html">LengthVariation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LoadedTranslation.html">LoadedTranslation</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/RegexExpressionMatcher.html">RegexExpressionMatcher</a>
@@ -112,7 +132,7 @@
                 <a href="../Structs/SharedExpression.html">SharedExpression</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/TranslatablePair.html">TranslatablePair</a>
+                <a href="../Structs/Translation.html">Translation</a>
               </li>
             </ul>
           </li>
@@ -120,7 +140,7 @@
           <a href="../Typealiases.html">Typealiases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:17Swifternalization13BasePrefDicts">BasePrefDicts</a>
+                <a href="../Typealiases.html#/s:17Swifternalization11CountryCode">CountryCode</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Typealiases.html#/s:17Swifternalization17ExpressionPattern">ExpressionPattern</a>
@@ -129,19 +149,10 @@
                 <a href="../Typealiases.html#/s:17Swifternalization4I18n">I18n</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:17Swifternalization6KVDict">KVDict</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:17Swifternalization3Key">Key</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:17Swifternalization8Language">Language</a>
+                <a href="../Typealiases.html#/s:17Swifternalization14JSONDictionary">JSONDictionary</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Typealiases.html#/s:17Swifternalization12RegexPattern">RegexPattern</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:17Swifternalization5Value">Value</a>
               </li>
             </ul>
           </li>
@@ -150,8 +161,13 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>LocalizableFilesLoader</h1>
-            <p>Class responsible for loading content from specified file type.</p>
+            <h1>Expression</h1>
+            <p>This class contains pattern of expression and localized value as well as
+length variations if any are associated. During instance initialization pattern 
+is analyzed and correct expression matcher is created. If no matcher matches 
+the expression pattern then when validating there is only check if passed value 
+is the same like pattern (equality). If there is matcher then its internal logic 
+validates passed value.</p>
 
           </section>
           <section class="section task-group-section">
@@ -160,9 +176,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17Swifternalization22LocalizableFilesLoaderP33_AFE0606581415E58482042C9E283DDFF12BaseLanguageSS"></a>
-                    <a name="//apple_ref/swift/Property/BaseLanguage" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17Swifternalization22LocalizableFilesLoaderP33_AFE0606581415E58482042C9E283DDFF12BaseLanguageSS">BaseLanguage</a>
+                    <a name="/s:vV17Swifternalization10Expression7patternSS"></a>
+                    <a name="//apple_ref/swift/Property/pattern" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV17Swifternalization10Expression7patternSS">pattern</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -170,14 +186,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Defines Base language - which is equal <q>Base</q>.</p>
+                        <p>Pattern of an expression.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">BaseLanguage</span><span class="p">:</span> <span class="kt">Language</span> <span class="o">=</span> <span class="s">"Base"</span></code></pre>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">pattern</span><span class="p">:</span> <span class="kt">ExpressionPattern</span></code></pre>
 
                         </div>
                       </div>
@@ -187,9 +203,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17Swifternalization22LocalizableFilesLoaderP33_AFE0606581415E58482042C9E283DDFF6bundleCSo8NSBundle"></a>
-                    <a name="//apple_ref/swift/Property/bundle" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17Swifternalization22LocalizableFilesLoaderP33_AFE0606581415E58482042C9E283DDFF6bundleCSo8NSBundle">bundle</a>
+                    <a name="/s:vV17Swifternalization10Expression5valueSS"></a>
+                    <a name="//apple_ref/swift/Property/value" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV17Swifternalization10Expression5valueSS">value</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -197,14 +213,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Bundle where files are located</p>
+                        <p>A localized value. If length vartiations array is empty or you want to
+get full localized value use this property.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">bundle</span><span class="p">:</span> <span class="kt">NSBundle</span></code></pre>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -214,9 +231,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17Swifternalization22LocalizableFilesLoadercFMS0_FCSo8NSBundleS0_"></a>
-                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17Swifternalization22LocalizableFilesLoadercFMS0_FCSo8NSBundleS0_">init(_:)</a>
+                    <a name="/s:vV17Swifternalization10Expression16lengthVariationsGSaVS_15LengthVariation_"></a>
+                    <a name="//apple_ref/swift/Property/lengthVariations" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV17Swifternalization10Expression16lengthVariationsGSaVS_15LengthVariation_">lengthVariations</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -224,14 +241,95 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates <code>LocalizableFilesLoader</code> instance.</p>
+                        <p>Array of length variations.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">bundle</span><span class="p">:</span> <span class="kt">NSBundle</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">lengthVariations</span><span class="p">:</span> <span class="p">[</span><span class="kt">LengthVariation</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV17Swifternalization10ExpressionP33_72BFEC5BDA19222A79A4183473099A9417expressionMatcherGSqPS_17ExpressionMatcher__"></a>
+                    <a name="//apple_ref/swift/Property/expressionMatcher" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV17Swifternalization10ExpressionP33_72BFEC5BDA19222A79A4183473099A9417expressionMatcherGSqPS_17ExpressionMatcher__">expressionMatcher</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Expression matcher that is used in validation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">expressionMatcher</span><span class="p">:</span> <span class="kt">ExpressionMatcher</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FV17Swifternalization10ExpressioncFMS0_FT7patternSS5valueSS16lengthVariationsGSaVS_15LengthVariation__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(pattern:value:lengthVariations:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV17Swifternalization10ExpressioncFMS0_FT7patternSS5valueSS16lengthVariationsGSaVS_15LengthVariation__S0_">init(pattern:value:lengthVariations:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns expression object.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">pattern</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">lengthVariations</span><span class="p">:</span> <span class="p">[</span><span class="kt">LengthVariation</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt">LengthVariation</span><span class="p">]())</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FV17Swifternalization10Expression8validateFS0_FSSSb"></a>
+                    <a name="//apple_ref/swift/Method/validate(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV17Swifternalization10Expression8validateFS0_FSSSb">validate(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method that validates passed string.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">validate</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -242,150 +340,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>bundle</em>
+                                <em>value</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>A bundle where .strings files are located.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC17Swifternalization22LocalizableFilesLoader26loadContentFromFilesOfTypeFS0_FTOS_15StringsFileType8languageSS_T4baseGVSs10DictionarySSSS_4prefGS2_SSSS__"></a>
-                    <a name="//apple_ref/swift/Method/loadContentFromFilesOfType(_:language:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17Swifternalization22LocalizableFilesLoader26loadContentFromFilesOfTypeFS0_FTOS_15StringsFileType8languageSS_T4baseGVSs10DictionarySSSS_4prefGS2_SSSS__">loadContentFromFilesOfType(_:language:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Loads content from files of specified <code>type</code> and <code>language</code>.
-Converts them to <code>BasePrefDicts</code> instance.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">loadContentFromFilesOfType</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="kt">StringsFileType</span><span class="p">,</span> <span class="nv">language</span><span class="p">:</span> <span class="kt">Language</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BasePrefDicts</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>type</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A type of files that will be loaded.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>language</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A preferred language - it will be used to find proper 
-file for specified file type.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>Returns content of files converted into key-value pairs.</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-                <div class="task-name-container">
-                  <a name="/Private"></a>
-                  <a name="//apple_ref/swift/Section/Private" class="dashAnchor"></a>
-                  <a href="#/Private">
-                    <h3 class="section-name">Private</h3>
-                  </a>
-                </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC17Swifternalization22LocalizableFilesLoaderP33_AFE0606581415E58482042C9E283DDFF10URLforFileFS0_FOS_15StringsFileTypeFSSGSqCSo5NSURL_"></a>
-                    <a name="//apple_ref/swift/Method/URLforFile(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17Swifternalization22LocalizableFilesLoaderP33_AFE0606581415E58482042C9E283DDFF10URLforFileFS0_FOS_15StringsFileTypeFSSGSqCSo5NSURL_">URLforFile(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Returns URL for file with specified type.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="kt">URLforFile</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="kt">StringsFileType</span><span class="p">)(</span><span class="n">_</span> <span class="nv">language</span><span class="p">:</span> <span class="kt">Language</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSURL</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>type</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A type of file.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>language</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A language of file. (localization).</p>
+                                  <p>value that should be matched</p>
 
                                 </div>
                               </td>
@@ -395,7 +355,7 @@ file for specified file type.</p>
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p><code>NSURL</code> to file or nil when file cannot be found.</p>
+                        <p><code>true</code> if value match expression, otherwise <code>false</code>.</p>
 
                       </div>
                     </section>
@@ -404,9 +364,9 @@ file for specified file type.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17Swifternalization22LocalizableFilesLoaderP33_AFE0606581415E58482042C9E283DDFF5parseFS0_FCSo5NSURLGVSs10DictionarySSSS_"></a>
-                    <a name="//apple_ref/swift/Method/parse(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17Swifternalization22LocalizableFilesLoaderP33_AFE0606581415E58482042C9E283DDFF5parseFS0_FCSo5NSURLGVSs10DictionarySSSS_">parse(_:)</a>
+                    <a name="/s:FV17Swifternalization10ExpressionP33_72BFEC5BDA19222A79A4183473099A9417getExpressionTypeFS0_FSSGSqOS_21ExpressionPatternType_"></a>
+                    <a name="//apple_ref/swift/Method/getExpressionType(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV17Swifternalization10ExpressionP33_72BFEC5BDA19222A79A4183473099A9417getExpressionTypeFS0_FSSGSqOS_21ExpressionPatternType_">getExpressionType(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -414,14 +374,14 @@ file for specified file type.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Parses files and return key-value pairs.</p>
+                        <p>Method used to get <code>ExpressionPatternType</code> of passed expression pattern.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">parse</span><span class="p">(</span><span class="nv">fileURL</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">KVDict</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">getExpressionType</span><span class="p">(</span><span class="nv">pattern</span><span class="p">:</span> <span class="kt">ExpressionPattern</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ExpressionPatternType</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -432,12 +392,12 @@ file for specified file type.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>fileURL</em>
+                                <em>pattern</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>URL to file.</p>
+                                  <p>expression pattern that will be checked.</p>
 
                                 </div>
                               </td>
@@ -447,7 +407,7 @@ file for specified file type.</p>
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>key-value pairs from .strings files.</p>
+                        <p><code>ExpressionPatternType</code> if pattern is supported, otherwise nil.</p>
 
                       </div>
                     </section>
@@ -458,7 +418,7 @@ file for specified file type.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-07-15)</p>
+          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-08-02)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

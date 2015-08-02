@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>KeyValue Protocol Reference</title>
+    <title>TranslationsLoader Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,8 +9,8 @@
     <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/KeyValue" class="dashAnchor"></a>
-    <a title="KeyValue Protocol Reference"></a>
+    <a name="//apple_ref/swift/Class/TranslationsLoader" class="dashAnchor"></a>
+    <a title="TranslationsLoader Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">Swifternalization Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">Swifternalization Reference</a>
         <img id="carat" src="../img/carat.png" />
-        KeyValue Protocol Reference
+        TranslationsLoader Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -31,16 +31,16 @@
           <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/Expression.html">Expression</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/InequalityExpressionParser.html">InequalityExpressionParser</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/InequalityExtendedExpressionParser.html">InequalityExtendedExpressionParser</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/LocalizableFilesLoader.html">LocalizableFilesLoader</a>
+                <a href="../Classes/JSONFileLoader.html">JSONFileLoader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LoadedTranslationsProcessor.html">LoadedTranslationsProcessor</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Regex.html">Regex</a>
@@ -52,7 +52,10 @@
                 <a href="../Classes/SharedBaseExpression.html">SharedBaseExpression</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SharedExpressionsConfigurator.html">SharedExpressionsConfigurator</a>
+                <a href="../Classes/SharedExpressionsLoader.html">SharedExpressionsLoader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedExpressionsProcessor.html">SharedExpressionsProcessor</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SharedPolishExpression.html">SharedPolishExpression</a>
@@ -60,13 +63,16 @@
               <li class="nav-group-task">
                 <a href="../Classes/Swifternalization.html">Swifternalization</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TranslationsLoader.html">TranslationsLoader</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
           <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Enums/ExpressionType.html">ExpressionType</a>
+                <a href="../Enums/ExpressionPatternType.html">ExpressionPatternType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/InequalitySign.html">InequalitySign</a>
@@ -75,7 +81,15 @@
                 <a href="../Enums/InternalPattern.html">InternalPattern</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/StringsFileType.html">StringsFileType</a>
+                <a href="../Enums/LoadedTranslationType.html">LoadedTranslationType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF17Swifternalizationoi2lnFTGSaVS_16SharedExpression_GSaS0___GSaS0__">&lt;!(_:_:)</a>
               </li>
             </ul>
           </li>
@@ -89,9 +103,6 @@
                 <a href="../Protocols/ExpressionParser.html">ExpressionParser</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/KeyValue.html">KeyValue</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/SharedExpressionProtocol.html">SharedExpressionProtocol</a>
               </li>
             </ul>
@@ -100,10 +111,19 @@
           <a href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Structs/Expression.html">Expression</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/InequalityExpressionMatcher.html">InequalityExpressionMatcher</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/InequalityExtendedExpressionMatcher.html">InequalityExtendedExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LengthVariation.html">LengthVariation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LoadedTranslation.html">LoadedTranslation</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/RegexExpressionMatcher.html">RegexExpressionMatcher</a>
@@ -112,7 +132,7 @@
                 <a href="../Structs/SharedExpression.html">SharedExpression</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/TranslatablePair.html">TranslatablePair</a>
+                <a href="../Structs/Translation.html">Translation</a>
               </li>
             </ul>
           </li>
@@ -120,7 +140,7 @@
           <a href="../Typealiases.html">Typealiases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:17Swifternalization13BasePrefDicts">BasePrefDicts</a>
+                <a href="../Typealiases.html#/s:17Swifternalization11CountryCode">CountryCode</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Typealiases.html#/s:17Swifternalization17ExpressionPattern">ExpressionPattern</a>
@@ -129,19 +149,10 @@
                 <a href="../Typealiases.html#/s:17Swifternalization4I18n">I18n</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:17Swifternalization6KVDict">KVDict</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:17Swifternalization3Key">Key</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:17Swifternalization8Language">Language</a>
+                <a href="../Typealiases.html#/s:17Swifternalization14JSONDictionary">JSONDictionary</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Typealiases.html#/s:17Swifternalization12RegexPattern">RegexPattern</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:17Swifternalization5Value">Value</a>
               </li>
             </ul>
           </li>
@@ -150,9 +161,8 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>KeyValue</h1>
-            <p>Protocol that defines properties and methods that need to be implemented by
-objects that keeps key-value pair things.</p>
+            <h1>TranslationsLoader</h1>
+            <p>Class that gets dictionary of translations and turn it into <code>LoadedTranslation</code>s.</p>
 
           </section>
           <section class="section task-group-section">
@@ -161,9 +171,9 @@ objects that keeps key-value pair things.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vP17Swifternalization8KeyValue3keySS"></a>
-                    <a name="//apple_ref/swift/Property/key" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vP17Swifternalization8KeyValue3keySS">key</a>
+                    <a name="/s:ZFC17Swifternalization18TranslationsLoader16loadTranslationsFMS0_FGVSs10DictionarySSPSs9AnyObject__GSaVS_17LoadedTranslation_"></a>
+                    <a name="//apple_ref/swift/Method/loadTranslations(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization18TranslationsLoader16loadTranslationsFMS0_FGVSs10DictionarySSPSs9AnyObject__GSaVS_17LoadedTranslation_">loadTranslations(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -171,16 +181,21 @@ objects that keeps key-value pair things.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A key.</p>
+                        <p>Converts dictionary into array of <code>LoadedTranslation</code>s.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">Key</span> <span class="p">{</span><span class="k">get</span> <span class="k">set</span><span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">loadTranslations</span><span class="p">(</span><span class="nv">json</span><span class="p">:</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">AnyObject</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">LoadedTranslation</span><span class="p">]</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Array of <code>LoadedTranslation</code> objects from specified file.</p>
+
                       </div>
                     </section>
                   </div>
@@ -188,9 +203,9 @@ objects that keeps key-value pair things.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vP17Swifternalization8KeyValue5valueSS"></a>
-                    <a name="//apple_ref/swift/Property/value" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vP17Swifternalization8KeyValue5valueSS">value</a>
+                    <a name="/s:ZFC17Swifternalization18TranslationsLoaderP33_548DD5118E9968EF216D6DFB4E132B7E17detectElementTypeFMS0_FGVSs10DictionarySSPSs9AnyObject__GSqOS_21LoadedTranslationType_"></a>
+                    <a name="//apple_ref/swift/Method/detectElementType(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization18TranslationsLoaderP33_548DD5118E9968EF216D6DFB4E132B7E17detectElementTypeFMS0_FGVSs10DictionarySSPSs9AnyObject__GSqOS_21LoadedTranslationType_">detectElementType(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -198,43 +213,21 @@ objects that keeps key-value pair things.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A value.</p>
+                        <p>Analyzes passed dictionary and checks its content to match it to some translation type.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Value</span> <span class="p">{</span><span class="k">get</span> <span class="k">set</span><span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">detectElementType</span><span class="p">(</span><span class="nv">element</span><span class="p">:</span> <span class="kt">JSONDictionary</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">LoadedTranslationType</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FP17Swifternalization8KeyValuecUS0___FMQPS0_FT3keySS5valueSS_S1_"></a>
-                    <a name="//apple_ref/swift/Method/init(key:value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP17Swifternalization8KeyValuecUS0___FMQPS0_FT3keySS5valueSS_S1_">init(key:value:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Initializer.</p>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>translation type of a dictionary.</p>
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">Key</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Value</span><span class="p">)</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -244,7 +237,7 @@ objects that keeps key-value pair things.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-07-15)</p>
+          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-08-02)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

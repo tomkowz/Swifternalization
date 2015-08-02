@@ -11,7 +11,7 @@ import Foundation
 /** 
 String that contains expression pattern, e.g. `ie:x<5`, `exp:^1$`.
 */
-typealias ExpressionPattern = String
+internal typealias ExpressionPattern = String
 
 /**
 This class contains pattern of expression and localized value as well as

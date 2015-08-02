@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JSONFileLoader Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/JSONFileLoader" class="dashAnchor"></a>
+    <a title="JSONFileLoader Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Swifternalization Docs</a> (100% documented)</p>
+        <p class="header-right"><a href=""><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Swifternalization Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        JSONFileLoader Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+          <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/InequalityExpressionParser.html">InequalityExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InequalityExtendedExpressionParser.html">InequalityExtendedExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/JSONFileLoader.html">JSONFileLoader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LoadedTranslationsProcessor.html">LoadedTranslationsProcessor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Regex.html">Regex</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RegexExpressionParser.html">RegexExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedBaseExpression.html">SharedBaseExpression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedExpressionsLoader.html">SharedExpressionsLoader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedExpressionsProcessor.html">SharedExpressionsProcessor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedPolishExpression.html">SharedPolishExpression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Swifternalization.html">Swifternalization</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TranslationsLoader.html">TranslationsLoader</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ExpressionPatternType.html">ExpressionPatternType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/InequalitySign.html">InequalitySign</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/InternalPattern.html">InternalPattern</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LoadedTranslationType.html">LoadedTranslationType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF17Swifternalizationoi2lnFTGSaVS_16SharedExpression_GSaS0___GSaS0__">&lt;!(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/ExpressionMatcher.html">ExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ExpressionParser.html">ExpressionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SharedExpressionProtocol.html">SharedExpressionProtocol</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Expression.html">Expression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/InequalityExpressionMatcher.html">InequalityExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/InequalityExtendedExpressionMatcher.html">InequalityExtendedExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LengthVariation.html">LengthVariation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LoadedTranslation.html">LoadedTranslation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RegexExpressionMatcher.html">RegexExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SharedExpression.html">SharedExpression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Translation.html">Translation</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization11CountryCode">CountryCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization17ExpressionPattern">ExpressionPattern</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization4I18n">I18n</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization14JSONDictionary">JSONDictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:17Swifternalization12RegexPattern">RegexPattern</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>JSONFileLoader</h1>
+            <p>Simple JSON file loader.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC17Swifternalization14JSONFileLoader16loadTranslationsFMS0_FTSS6bundleCSo8NSBundle_GVSs10DictionarySSPSs9AnyObject__"></a>
+                    <a name="//apple_ref/swift/Method/loadTranslations(_:bundle:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization14JSONFileLoader16loadTranslationsFMS0_FTSS6bundleCSo8NSBundle_GVSs10DictionarySSPSs9AnyObject__">loadTranslations(_:bundle:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Loads translations dict for specified language.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">loadTranslations</span><span class="p">(</span><span class="nv">countryCode</span><span class="p">:</span> <span class="kt">CountryCode</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span> <span class="kt">NSBundle</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JSONDictionary</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>countryCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A country code.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bundle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A bundle when file is located.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Returns json of file or empty dictionary if cannot load a file.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC17Swifternalization14JSONFileLoader15loadExpressionsFMS0_FTSS6bundleCSo8NSBundle_GVSs10DictionarySSSS_"></a>
+                    <a name="//apple_ref/swift/Method/loadExpressions(_:bundle:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization14JSONFileLoader15loadExpressionsFMS0_FTSS6bundleCSo8NSBundle_GVSs10DictionarySSSS_">loadExpressions(_:bundle:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Loads expressions dict for specified language.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">loadExpressions</span><span class="p">(</span><span class="nv">countryCode</span><span class="p">:</span> <span class="kt">CountryCode</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span> <span class="kt">NSBundle</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>countryCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A country code.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bundle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A bundle when file is located.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>dictionary with expressions or empty dictionary if cannot load a file.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC17Swifternalization14JSONFileLoaderP33_E17BA5F117D827B80033E427C7D66C544loadFMS0_FTSS6bundleCSo8NSBundle_GSqGVSs10DictionarySSPSs9AnyObject___"></a>
+                    <a name="//apple_ref/swift/Method/load(_:bundle:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization14JSONFileLoaderP33_E17BA5F117D827B80033E427C7D66C544loadFMS0_FTSS6bundleCSo8NSBundle_GSqGVSs10DictionarySSPSs9AnyObject___">load(_:bundle:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Loads content of a file with specified name, type and bundle.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">load</span><span class="p">(</span><span class="nv">fileName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span> <span class="kt">NSBundle</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JSONDictionary</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fileName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A name of a file.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fileType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A type of a file.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bundle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A bundle when file is located.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>JSON or nil if file cannot be loaded.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC17Swifternalization14JSONFileLoaderP33_E17BA5F117D827B80033E427C7D66C544loadFMS0_FCSo5NSURLGSqGVSs10DictionarySSPSs9AnyObject___"></a>
+                    <a name="//apple_ref/swift/Method/load(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization14JSONFileLoaderP33_E17BA5F117D827B80033E427C7D66C544loadFMS0_FCSo5NSURLGSqGVSs10DictionarySSPSs9AnyObject___">load(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Loads file for specified URL and try to serialize it.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">load</span><span class="p">(</span><span class="nv">fileURL</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JSONDictionary</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Dictionary with content of JSON file or nil if file cannot be loaded.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-08-02)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
