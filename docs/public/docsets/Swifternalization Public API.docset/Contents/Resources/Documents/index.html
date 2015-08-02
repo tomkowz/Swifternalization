@@ -70,13 +70,13 @@
 <a href='#table_of_contents' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='table_of_contents'>Table of Contents</h1>
 
 <ul>
-<li><a href="#introdcution">Introduction</a></li>
+<li><a href="#introduction">Introduction</a></li>
 <li><a href="#practical-usage-example">Practical Usage Example</a></li>
-<li><a href="#features">Features</a>
+<li><a href="#features-1">Features</a>
 
 <ul>
 <li><a href="#pluralization">Pluralization</a></li>
-<li><a href="#length-variation">Length variation</a></li>
+<li><a href="#length-variations">Length variations</a></li>
 </ul></li>
 <li><a href="#expressions">Expressions</a>
 
@@ -99,7 +99,7 @@
 </ul></li>
 <li><a href="#contribution">Contribution</a></li>
 <li><a href="#swift-2">Swift 2</a></li>
-<li><a href="#things-to-do">Things To Do</a></li>
+<li><a href="#things-to-do-in-future-releases">Things To Do</a></li>
 <li><a href="#license">License</a></li>
 </ul>
 <a href='#introduction' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='introduction'>Introduction</h2>
@@ -425,7 +425,7 @@ Polish
 <p>Docsets:
 - <a href="http://szulctomasz.com/docs/swifternalization/public/docsets/Swifternalization%20Public%20API.docset.zip">Public API docset</a>
 - <a href="http://szulctomasz.com/docs/swifternalization/framework/docsets/Swifternalization.docset.zip">Full API docset</a></p>
-<a href='#instalation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='instalation'>Instalation</h3>
+<a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='installation'>Installation</h3>
 
 <p>It works with iOS 8.0 and newer.</p>
 
@@ -474,7 +474,7 @@ I18n.configure(bundle) // if files are in another bundle
 </span></code></pre>
 
 <p>Expressions from the files may be used inside localizable files. All the shared expressions for different languages are placed in the same file because there will be just few expressions for every language. Mostly the expression will be defined in <em>base</em> variant because if expression is in <em>base</em> it is also available in every other language too. So, <q>ten</q> is available in <q>pl</q>, but <q>three</q> is not available in <q>base</q>.</p>
-<a href='#creating_localizable_files' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='creating_localizable_files'>Creating Localizable Files</h3>
+<a href='#creating_file_with_localization_per_country' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='creating_file_with_localization_per_country'>Creating file with localization per country</h3>
 
 <p>Localizable file contains translations for specific language. The files might look like below:</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -550,7 +550,7 @@ I18n.localizedString("welcome", defaultValue: "Welcome", comment: "Displayed on 
 <p>The last method <code>localizedString(_:intValue:fittingWidth:defaultValue:comment:)</code> allows you to get a localized string for int value. This method calls the above one and just turn the int value into string because all the framework operates on strings.</p>
 <pre class="highlight plaintext"><code>I18n.localizedString("cars", intValue: 5)
 </code></pre>
-<a href='#contribution_and_change_or_feature_requests' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='contribution_and_change_or_feature_requests'>Contribution and change or feature requests</h2>
+<a href='#contribution' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='contribution'>Contribution</h2>
 
 <p>Swifternalization is open sourced so everyone may contribute if want to. If you want to develop it just fork the repo, do your work and create pull request. If you have some idea or question feel free to create issue and add proper tag for it.</p>
 
@@ -558,7 +558,7 @@ I18n.localizedString("welcome", defaultValue: "Welcome", comment: "Displayed on 
 <a href='#swift_2' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='swift_2'>Swift 2</h2>
 
 <p>Swifternalization supports Swift 2 and works on Xcode 7 beta 4. Please check out <em>swift2</em> branch.</p>
-<a href='#things_to_do_in_future_releases' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='things_to_do_in_future_releases'>Things to do in future releases:</h2>
+<a href='#things_to_do_in_future_releases' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='things_to_do_in_future_releases'>Things to do in future releases</h2>
 
 <ul>
 <li>Add more built-in expressions for another countries.</li>
