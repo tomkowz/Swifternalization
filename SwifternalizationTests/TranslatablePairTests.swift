@@ -11,12 +11,12 @@ import XCTest
 import Swifternalization
 
 class TranslatablePairTests: XCTestCase {
-    
-    func testShouldNotHaveExpression() {
-        XCTAssertFalse(TranslatablePair(key: "abc", value: "def").hasExpression, "Shouldn't have expression")
-    }
-    
-    func testShouldHaveExpression() {
-        XCTAssertTrue(TranslatablePair(key: "abc{ie:x=2}", value: "def").hasExpression, "Should have expression")
-    }
+//    
+//    func testShouldNotHaveExpression() {
+//        XCTAssertFalse(TranslatablePair(key: "abc", value: "def").hasExpression, "Shouldn't have expression")
+//    }
+//    
+//    func testShouldHaveExpression() {
+//        XCTAssertTrue(TranslatablePair(key: "abc{ie:x=2}", value: "def").hasExpression, "Should have expression")
+//    }
 }

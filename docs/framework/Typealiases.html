@@ -30,16 +30,16 @@
           <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/Expression.html">Expression</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/InequalityExpressionParser.html">InequalityExpressionParser</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/InequalityExtendedExpressionParser.html">InequalityExtendedExpressionParser</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/LocalizableFilesLoader.html">LocalizableFilesLoader</a>
+                <a href="Classes/JSONFileLoader.html">JSONFileLoader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LoadedTranslationsProcessor.html">LoadedTranslationsProcessor</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/Regex.html">Regex</a>
@@ -51,7 +51,10 @@
                 <a href="Classes/SharedBaseExpression.html">SharedBaseExpression</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SharedExpressionsConfigurator.html">SharedExpressionsConfigurator</a>
+                <a href="Classes/SharedExpressionsLoader.html">SharedExpressionsLoader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SharedExpressionsProcessor.html">SharedExpressionsProcessor</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SharedPolishExpression.html">SharedPolishExpression</a>
@@ -59,13 +62,16 @@
               <li class="nav-group-task">
                 <a href="Classes/Swifternalization.html">Swifternalization</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Classes/TranslationsLoader.html">TranslationsLoader</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
           <a href="Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums/ExpressionType.html">ExpressionType</a>
+                <a href="Enums/ExpressionPatternType.html">ExpressionPatternType</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/InequalitySign.html">InequalitySign</a>
@@ -74,7 +80,15 @@
                 <a href="Enums/InternalPattern.html">InternalPattern</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/StringsFileType.html">StringsFileType</a>
+                <a href="Enums/LoadedTranslationType.html">LoadedTranslationType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:ZF17Swifternalizationoi2lnFTGSaVS_16SharedExpression_GSaS0___GSaS0__">&lt;!(_:_:)</a>
               </li>
             </ul>
           </li>
@@ -88,9 +102,6 @@
                 <a href="Protocols/ExpressionParser.html">ExpressionParser</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/KeyValue.html">KeyValue</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/SharedExpressionProtocol.html">SharedExpressionProtocol</a>
               </li>
             </ul>
@@ -99,10 +110,19 @@
           <a href="Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Structs/Expression.html">Expression</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/InequalityExpressionMatcher.html">InequalityExpressionMatcher</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/InequalityExtendedExpressionMatcher.html">InequalityExtendedExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/LengthVariation.html">LengthVariation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/LoadedTranslation.html">LoadedTranslation</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/RegexExpressionMatcher.html">RegexExpressionMatcher</a>
@@ -111,7 +131,7 @@
                 <a href="Structs/SharedExpression.html">SharedExpression</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/TranslatablePair.html">TranslatablePair</a>
+                <a href="Structs/Translation.html">Translation</a>
               </li>
             </ul>
           </li>
@@ -119,7 +139,7 @@
           <a href="Typealiases.html">Typealiases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Typealiases.html#/s:17Swifternalization13BasePrefDicts">BasePrefDicts</a>
+                <a href="Typealiases.html#/s:17Swifternalization11CountryCode">CountryCode</a>
               </li>
               <li class="nav-group-task">
                 <a href="Typealiases.html#/s:17Swifternalization17ExpressionPattern">ExpressionPattern</a>
@@ -128,19 +148,10 @@
                 <a href="Typealiases.html#/s:17Swifternalization4I18n">I18n</a>
               </li>
               <li class="nav-group-task">
-                <a href="Typealiases.html#/s:17Swifternalization6KVDict">KVDict</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Typealiases.html#/s:17Swifternalization3Key">Key</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Typealiases.html#/s:17Swifternalization8Language">Language</a>
+                <a href="Typealiases.html#/s:17Swifternalization14JSONDictionary">JSONDictionary</a>
               </li>
               <li class="nav-group-task">
                 <a href="Typealiases.html#/s:17Swifternalization12RegexPattern">RegexPattern</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Typealiases.html#/s:17Swifternalization5Value">Value</a>
               </li>
             </ul>
           </li>
@@ -154,6 +165,39 @@
 
           </section>
           <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Swifternalization11CountryCode"></a>
+                    <a name="//apple_ref/swift/Alias/CountryCode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Swifternalization11CountryCode">CountryCode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2</a> (lowercase) + <q>base</q>
+Represents country codes in framework.
+Country codes are used to get correct user device&rsquo;s language.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">internal</span> <span class="kd">typealias</span> <span class="kt">CountryCode</span> <span class="o">=</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
             <div class="task-group">
               <ul>
                 <li class="item">
@@ -190,9 +234,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:17Swifternalization6KVDict"></a>
-                    <a name="//apple_ref/swift/Alias/KVDict" class="dashAnchor"></a>
-                    <a class="token" href="#/s:17Swifternalization6KVDict">KVDict</a>
+                    <a name="/s:17Swifternalization14JSONDictionary"></a>
+                    <a name="//apple_ref/swift/Alias/JSONDictionary" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Swifternalization14JSONDictionary">JSONDictionary</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -200,105 +244,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Represent key-value pair of Key and Value from .strings file.</p>
+                        <p>Represents json content.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">internal</span> <span class="kd">typealias</span> <span class="kt">KVDict</span> <span class="o">=</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">Key</span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:17Swifternalization3Key"></a>
-                    <a name="//apple_ref/swift/Alias/Key" class="dashAnchor"></a>
-                    <a class="token" href="#/s:17Swifternalization3Key">Key</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Represents key from .strings file</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">internal</span> <span class="kd">typealias</span> <span class="kt">Key</span> <span class="o">=</span> <span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:17Swifternalization5Value"></a>
-                    <a name="//apple_ref/swift/Alias/Value" class="dashAnchor"></a>
-                    <a class="token" href="#/s:17Swifternalization5Value">Value</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Representes value from .strings file</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">internal</span> <span class="kd">typealias</span> <span class="kt">Value</span> <span class="o">=</span> <span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:17Swifternalization13BasePrefDicts"></a>
-                    <a name="//apple_ref/swift/Alias/BasePrefDicts" class="dashAnchor"></a>
-                    <a class="token" href="#/s:17Swifternalization13BasePrefDicts">BasePrefDicts</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Type that contains two dictionaries.</p>
-
-<p>base - for Base localization</p>
-
-<p>pref - for preferred language localization</p>
-
-<p>It contains <code>KVDict</code> instanes so every one has key and value.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">internal</span> <span class="kd">typealias</span> <span class="kt">BasePrefDicts</span> <span class="o">=</span> <span class="p">(</span><span class="nv">base</span><span class="p">:</span> <span class="kt">KVDict</span><span class="p">,</span> <span class="nv">pref</span><span class="p">:</span> <span class="kt">KVDict</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">internal</span> <span class="kd">typealias</span> <span class="kt">JSONDictionary</span> <span class="o">=</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">AnyObject</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -322,7 +275,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Type that represents pattern with regular expression</p>
+                        <p>Type that represents pattern with regular expression.</p>
 
                       </div>
                       <div class="declaration">
@@ -343,35 +296,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:17Swifternalization8Language"></a>
-                    <a name="//apple_ref/swift/Alias/Language" class="dashAnchor"></a>
-                    <a class="token" href="#/s:17Swifternalization8Language">Language</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Defines language selected on the user&rsquo;s device e.g. en, pl, ru.
-Language can be also Base. It used used for finding right Localizable.strings 
-and Expression.strings and to load built-in shared expressions.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">internal</span> <span class="kd">typealias</span> <span class="kt">Language</span> <span class="o">=</span> <span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:17Swifternalization4I18n"></a>
                     <a name="//apple_ref/swift/Alias/I18n" class="dashAnchor"></a>
                     <a class="token" href="#/s:17Swifternalization4I18n">I18n</a>
@@ -382,7 +306,7 @@ and Expression.strings and to load built-in shared expressions.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Handy typealias that can be used instead of long <code>Swifternalization</code></p>
+                        <p>Handy typealias that can be used instead of longer <code>Swifternalization</code></p>
 
                       </div>
                       <div class="declaration">
@@ -401,7 +325,7 @@ and Expression.strings and to load built-in shared expressions.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-07-15)</p>
+          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-08-02)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

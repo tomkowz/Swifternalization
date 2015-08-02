@@ -31,16 +31,16 @@
           <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/Expression.html">Expression</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/InequalityExpressionParser.html">InequalityExpressionParser</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/InequalityExtendedExpressionParser.html">InequalityExtendedExpressionParser</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/LocalizableFilesLoader.html">LocalizableFilesLoader</a>
+                <a href="../Classes/JSONFileLoader.html">JSONFileLoader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LoadedTranslationsProcessor.html">LoadedTranslationsProcessor</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Regex.html">Regex</a>
@@ -52,7 +52,10 @@
                 <a href="../Classes/SharedBaseExpression.html">SharedBaseExpression</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SharedExpressionsConfigurator.html">SharedExpressionsConfigurator</a>
+                <a href="../Classes/SharedExpressionsLoader.html">SharedExpressionsLoader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SharedExpressionsProcessor.html">SharedExpressionsProcessor</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SharedPolishExpression.html">SharedPolishExpression</a>
@@ -60,13 +63,16 @@
               <li class="nav-group-task">
                 <a href="../Classes/Swifternalization.html">Swifternalization</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TranslationsLoader.html">TranslationsLoader</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
           <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Enums/ExpressionType.html">ExpressionType</a>
+                <a href="../Enums/ExpressionPatternType.html">ExpressionPatternType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/InequalitySign.html">InequalitySign</a>
@@ -75,7 +81,15 @@
                 <a href="../Enums/InternalPattern.html">InternalPattern</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/StringsFileType.html">StringsFileType</a>
+                <a href="../Enums/LoadedTranslationType.html">LoadedTranslationType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF17Swifternalizationoi2lnFTGSaVS_16SharedExpression_GSaS0___GSaS0__">&lt;!(_:_:)</a>
               </li>
             </ul>
           </li>
@@ -89,9 +103,6 @@
                 <a href="../Protocols/ExpressionParser.html">ExpressionParser</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/KeyValue.html">KeyValue</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/SharedExpressionProtocol.html">SharedExpressionProtocol</a>
               </li>
             </ul>
@@ -100,10 +111,19 @@
           <a href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Structs/Expression.html">Expression</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/InequalityExpressionMatcher.html">InequalityExpressionMatcher</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/InequalityExtendedExpressionMatcher.html">InequalityExtendedExpressionMatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LengthVariation.html">LengthVariation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LoadedTranslation.html">LoadedTranslation</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/RegexExpressionMatcher.html">RegexExpressionMatcher</a>
@@ -112,7 +132,7 @@
                 <a href="../Structs/SharedExpression.html">SharedExpression</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/TranslatablePair.html">TranslatablePair</a>
+                <a href="../Structs/Translation.html">Translation</a>
               </li>
             </ul>
           </li>
@@ -120,7 +140,7 @@
           <a href="../Typealiases.html">Typealiases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:17Swifternalization13BasePrefDicts">BasePrefDicts</a>
+                <a href="../Typealiases.html#/s:17Swifternalization11CountryCode">CountryCode</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Typealiases.html#/s:17Swifternalization17ExpressionPattern">ExpressionPattern</a>
@@ -129,19 +149,10 @@
                 <a href="../Typealiases.html#/s:17Swifternalization4I18n">I18n</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:17Swifternalization6KVDict">KVDict</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:17Swifternalization3Key">Key</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:17Swifternalization8Language">Language</a>
+                <a href="../Typealiases.html#/s:17Swifternalization14JSONDictionary">JSONDictionary</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Typealiases.html#/s:17Swifternalization12RegexPattern">RegexPattern</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:17Swifternalization5Value">Value</a>
               </li>
             </ul>
           </li>
@@ -157,6 +168,33 @@
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO17Swifternalization15InternalPattern21ExpressionPatternTypeFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/ExpressionPatternType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO17Swifternalization15InternalPattern21ExpressionPatternTypeFMS0_S0_">ExpressionPatternType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Pattern that matches expression types.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">ExpressionPatternType</span> <span class="o">=</span> <span class="s">"(^.{2,3})(?=:)"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -178,33 +216,6 @@
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="k">case</span> <span class="kt">Expression</span> <span class="o">=</span> <span class="s">"(?&lt;=</span><span class="se">\\</span><span class="s">{)(.+)(?=</span><span class="se">\\</span><span class="s">})"</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO17Swifternalization15InternalPattern14ExpressionTypeFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/ExpressionType" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO17Swifternalization15InternalPattern14ExpressionTypeFMS0_S0_">ExpressionType</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Pattern that matches expression types.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">ExpressionType</span> <span class="o">=</span> <span class="s">"(^.{2,3})(?=:)"</span></code></pre>
 
                         </div>
                       </div>
@@ -243,7 +254,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-07-15)</p>
+          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-08-02)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

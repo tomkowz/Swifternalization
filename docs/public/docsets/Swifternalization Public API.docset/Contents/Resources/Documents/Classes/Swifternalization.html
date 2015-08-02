@@ -50,45 +50,34 @@
           <section class="section">
             <h1>Swifternalization</h1>
             <p>This is the main class of Swifternalization library. It exposes methods
-that can be used to get localized keys with or without expressions from 
-Localizable.strings files.</p>
+that can be used to get localized strings.</p>
 
-<p>It also uses Expressions.strings files to manage shared expressions that
-can have theirs identifiers placed in many versions of the Localizable.strings
-file.</p>
+<p>The framework uses json files and work with them. There are two types of files.
+First is <q>expressions.json</q> that contains shared expressions used among other 
+localizable json files. The other files are files with translation for specific 
+languages. Each file is just for one language. E.g. you can have <q>base.json</q>, 
+<q>en.json</q>, <q>pl.json</q> which are accordingly used for Base, English and Polish 
+localizations.</p>
 
-<p>Internal classes of the Swifternalization contains logic that is responsible 
-for detecting which value should be used for the given key and value.</p>
-
-<p>It is able to work with genstrings command-line tool like NSLocalizedString() 
-macro does.</p>
-
-<p>It looks for content in the NSBundle you can provide and try to find:</p>
-
-<ul>
-<li>Localizable.strings (Base),</li>
-<li>Localizable.strings of preferred language, e.g. Localizable.strings (en)</li>
-<li>Expressions.strings (Base), </li>
-<li>Expressions.strings of preferred language, e.g. Expressions.strings (en)</li>
-</ul>
+<p>Before calling any method that return localized string call <code>configure:</code>.</p>
 
           </section>
           <section class="section task-group-section">
             <div class="task-group">
                 <div class="task-name-container">
-                  <a name="/Public%20methods"></a>
-                  <a name="//apple_ref/swift/Section/Public methods" class="dashAnchor"></a>
-                  <a href="#/Public%20methods">
-                    <h3 class="section-name">Public methods</h3>
+                  <a name="/Public%20Methods"></a>
+                  <a name="//apple_ref/swift/Section/Public Methods" class="dashAnchor"></a>
+                  <a href="#/Public%20Methods">
+                    <h3 class="section-name">Public Methods</h3>
                   </a>
                 </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17Swifternalization17SwifternalizationcFMS0_FT6bundleCSo8NSBundle_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(bundle:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17Swifternalization17SwifternalizationcFMS0_FT6bundleCSo8NSBundle_S0_">init(bundle:)</a>
+                    <a name="/s:ZFC17Swifternalization17Swifternalization9configureFMS0_FT6bundleCSo8NSBundle_T_"></a>
+                    <a name="//apple_ref/swift/Method/configure(bundle:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization17Swifternalization9configureFMS0_FT6bundleCSo8NSBundle_T_">configure(bundle:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -96,20 +85,14 @@ macro does.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Swifternalization takes NSBundle when Localizable.strings file is located.
-This method return instance of the class but you don&rsquo;t need it because 
-shared instance is set automatically.</p>
-
-<p>It get Localizable.strings file version based on the first language from 
-the prefferedLocalizations property of NSBundle. If Localizable.strings for
-preferred language isn&rsquo;t exist then Base is used instead.</p>
+                        <p>Call the method to configure Swifternalization.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">bundle</span><span class="p">:</span> <span class="kt">NSBundle</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">configure</span><span class="p">(</span><span class="nv">bundle</span><span class="p">:</span> <span class="kt">NSBundle</span> <span class="o">=</span> <span class="kt">NSBundle</span><span class="o">.</span><span class="nf">mainBundle</span><span class="p">())</span></code></pre>
 
                         </div>
                       </div>
@@ -125,7 +108,7 @@ preferred language isn&rsquo;t exist then Base is used instead.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>bundle when .strings files are located.</p>
+                                  <p>A bundle when expressions.json and other files are located.</p>
 
                                 </div>
                               </td>
@@ -139,9 +122,9 @@ preferred language isn&rsquo;t exist then Base is used instead.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC17Swifternalization17Swifternalization15localizedStringFMS0_FTSS12defaultValueGSqSS_7commentGSqSS__SS"></a>
-                    <a name="//apple_ref/swift/Method/localizedString(_:defaultValue:comment:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC17Swifternalization17Swifternalization15localizedStringFMS0_FTSS12defaultValueGSqSS_7commentGSqSS__SS">localizedString(_:defaultValue:comment:)</a>
+                    <a name="/s:ZFC17Swifternalization17Swifternalization15localizedStringFMS0_FTSS12fittingWidthGSqSi_12defaultValueGSqSS_7commentGSqSS__SS"></a>
+                    <a name="//apple_ref/swift/Method/localizedString(_:fittingWidth:defaultValue:comment:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization17Swifternalization15localizedStringFMS0_FTSS12fittingWidthGSqSi_12defaultValueGSqSS_7commentGSqSS__SS">localizedString(_:fittingWidth:defaultValue:comment:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -149,20 +132,14 @@ preferred language isn&rsquo;t exist then Base is used instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns localized string for simple key that does not contain any expression.</p>
-
-<pre class="highlight plaintext"><code>I18n.localizedString("car")
-I18n.localizedString("car", defaultValue: "Audi")
-I18n.localizedString("car", defaultValue: "Audi", comment: "Comment")
-I18n.localizedString("car", comment: "Comment")
-</code></pre>
+                        <p>Get localized value for a key.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">localizedString</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">defaultValue</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">comment</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">localizedString</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">fittingWidth</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">defaultValue</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">comment</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -178,7 +155,23 @@ I18n.localizedString("car", comment: "Comment")
                               </td>
                               <td>
                                 <div>
-                                  <p>key placed in Localizable.strings file.</p>
+                                  <p>A key to which localized string is assigned.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fittingWidth</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A max width that value should fit to. If there is no 
+value specified the full-length localized string is returned. If a
+passed fitting width is greater than highest available then a value for 
+highest available width is returned.</p>
 
                                 </div>
                               </td>
@@ -191,8 +184,8 @@ I18n.localizedString("car", comment: "Comment")
                               </td>
                               <td>
                                 <div>
-                                  <p>default value that will be returned when there is no 
-translation for passed key. Default is nil.</p>
+                                  <p>A default value that is returned when there is no 
+localized value for passed <code>key</code>.</p>
 
                                 </div>
                               </td>
@@ -205,8 +198,8 @@ translation for passed key. Default is nil.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>comment used by genstrings tool to generate description of 
-a key. Default is nil.</p>
+                                  <p>A comment about the key and localized value. Just for 
+developer use for describing key-value pair.</p>
 
                                 </div>
                               </td>
@@ -216,9 +209,8 @@ a key. Default is nil.</p>
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Returns translation for passed key if found. If not found and 
-defaultValue is not nil it return defaultValue, otherwise
-returns key.</p>
+                        <p>localized string if found, otherwise <code>defaultValue</code> is returned if 
+specified or <code>key</code> if <code>defaultValue</code> is not specified.</p>
 
                       </div>
                     </section>
@@ -227,9 +219,9 @@ returns key.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC17Swifternalization17Swifternalization25localizedExpressionStringFMS0_FTSS5valueSS12defaultValueGSqSS_7commentGSqSS__SS"></a>
-                    <a name="//apple_ref/swift/Method/localizedExpressionString(_:value:defaultValue:comment:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC17Swifternalization17Swifternalization25localizedExpressionStringFMS0_FTSS5valueSS12defaultValueGSqSS_7commentGSqSS__SS">localizedExpressionString(_:value:defaultValue:comment:)</a>
+                    <a name="/s:ZFC17Swifternalization17Swifternalization15localizedStringFMS0_FTSS11stringValueSS12fittingWidthGSqSi_12defaultValueGSqSS_7commentGSqSS__SS"></a>
+                    <a name="//apple_ref/swift/Method/localizedString(_:stringValue:fittingWidth:defaultValue:comment:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization17Swifternalization15localizedStringFMS0_FTSS11stringValueSS12fittingWidthGSqSi_12defaultValueGSqSS_7commentGSqSS__SS">localizedString(_:stringValue:fittingWidth:defaultValue:comment:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -237,20 +229,14 @@ returns key.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns localized string for key which contains expression.</p>
-
-<pre class="highlight plaintext"><code>I18n.localizedExpressionString("cars", value: "10")
-I18n.localizedExpressionString("cars", value: "10", defaultValue: "Few cars")
-I18n.localizedExpressionString("cars", value: "10", defaultValue: "10", comment: "This is a comment")
-I18n.localizedExpressionString("cars", value: "10", comment: "This is a comment")
-</code></pre>
+                        <p>Get localized value for a key and string value.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">localizedExpressionString</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">defaultValue</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">comment</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">localizedString</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">stringValue</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">fittingWidth</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">defaultValue</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">comment</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -266,7 +252,7 @@ I18n.localizedExpressionString("cars", value: "10", comment: "This is a comment"
                               </td>
                               <td>
                                 <div>
-                                  <p>key placed in Localizable.strings file.</p>
+                                  <p>A key to which localized string is assigned.</p>
 
                                 </div>
                               </td>
@@ -274,12 +260,28 @@ I18n.localizedExpressionString("cars", value: "10", comment: "This is a comment"
                             <tr>
                               <td>
                                 <code>
-                                <em>value</em>
+                                <em>stringValue</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>value used when validating expressions.</p>
+                                  <p>A value that is matched by expressions.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fittingWidth</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A max width that value should fit to. If there is no
+value specified the full-length localized string is returned. If a
+passed fitting width is greater than highest available then a value for
+highest available width is returned.</p>
 
                                 </div>
                               </td>
@@ -292,8 +294,8 @@ I18n.localizedExpressionString("cars", value: "10", comment: "This is a comment"
                               </td>
                               <td>
                                 <div>
-                                  <p>default value that will be returned when there is no 
-translation for passed key. Default is nil.</p>
+                                  <p>A default value that is returned when there is no
+localized value for passed <code>key</code>.</p>
 
                                 </div>
                               </td>
@@ -306,8 +308,8 @@ translation for passed key. Default is nil.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>comment used by genstrings tool to generate description 
-of a key. Default is nil.</p>
+                                  <p>A comment about the key and localized value. Just for
+developer use for describing key-value pair.</p>
 
                                 </div>
                               </td>
@@ -317,8 +319,8 @@ of a key. Default is nil.</p>
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Returns translation for passed key if found. If not found and 
-defaultValue is not nil it return defaultValue, otherwise returns key.</p>
+                        <p>localized string if found, otherwise <code>defaultValue</code> is returned if
+specified or <code>key</code> if <code>defaultValue</code> is not specified.</p>
 
                       </div>
                     </section>
@@ -327,9 +329,9 @@ defaultValue is not nil it return defaultValue, otherwise returns key.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC17Swifternalization17Swifternalization25localizedExpressionStringFMS0_FTSS5valueSi12defaultValueGSqSS_7commentGSqSS__SS"></a>
-                    <a name="//apple_ref/swift/Method/localizedExpressionString(_:value:defaultValue:comment:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC17Swifternalization17Swifternalization25localizedExpressionStringFMS0_FTSS5valueSi12defaultValueGSqSS_7commentGSqSS__SS">localizedExpressionString(_:value:defaultValue:comment:)</a>
+                    <a name="/s:ZFC17Swifternalization17Swifternalization15localizedStringFMS0_FTSS8intValueSi12fittingWidthGSqSi_12defaultValueGSqSS_7commentGSqSS__SS"></a>
+                    <a name="//apple_ref/swift/Method/localizedString(_:intValue:fittingWidth:defaultValue:comment:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC17Swifternalization17Swifternalization15localizedStringFMS0_FTSS8intValueSi12fittingWidthGSqSi_12defaultValueGSqSS_7commentGSqSS__SS">localizedString(_:intValue:fittingWidth:defaultValue:comment:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -337,18 +339,99 @@ defaultValue is not nil it return defaultValue, otherwise returns key.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This method is just extension to method
-<code>localizedExpressionString(_:value:defaultValue:comment:)</code> that takes 
-<code>String</code> as a <code>value</code> parameter.</p>
+                        <p>Get localized value for a key and string value.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">localizedExpressionString</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">defaultValue</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">comment</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">localizedString</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">intValue</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">fittingWidth</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">defaultValue</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">comment</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A key to which localized string is assigned.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>intValue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A value that is matched by expressions.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fittingWidth</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A max width that value should fit to. If there is no
+value specified the full-length localized string is returned. If a
+passed fitting width is greater than highest available then a value for
+highest available width is returned.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>defaultValue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A default value that is returned when there is no
+localized value for passed <code>key</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>comment</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A comment about the key and localized value. Just for
+developer use for describing key-value pair.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>localized string if found, otherwise <code>defaultValue</code> is returned if
+specified or <code>key</code> if <code>defaultValue</code> is not specified.</p>
+
                       </div>
                     </section>
                   </div>
@@ -358,7 +441,7 @@ defaultValue is not nil it return defaultValue, otherwise returns key.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-07-15)</p>
+          <p>&copy; 2015 <a class="link" href="https://github.com/tomkowz/Swifternalization" target="_blank" rel="external">Tomasz Szulc</a>. All rights reserved. (Last updated: 2015-08-02)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

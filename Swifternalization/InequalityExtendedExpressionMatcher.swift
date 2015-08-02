@@ -9,14 +9,18 @@
 import Foundation
 
 /**
-Validates inequality extended expressions
+Validates inequality extended expressions.
 */
 struct InequalityExtendedExpressionMatcher: ExpressionMatcher {
     
-    /// Matcher that validates left side of expressions
+    /** 
+    Matcher that validates left side of expressions.
+    */
     let leftMatcher: InequalityExpressionMatcher
     
-    /// Matcher that validates right side of expressions
+    /** 
+    Matcher that validates right side of expressions.
+    */
     let rightMatcher: InequalityExpressionMatcher
     
     /**

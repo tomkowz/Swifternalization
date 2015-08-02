@@ -7,8 +7,8 @@
 //
 
 /**
-    Protocol that is the base protocol to conform for expression matchers like 
-    `InequalityExpressionMatcher` or `RegexExpressionMatcher`.
+Protocol that is the base protocol to conform for expression matchers like 
+`InequalityExpressionMatcher` or `RegexExpressionMatcher`.
 */
 protocol ExpressionMatcher {
     /**

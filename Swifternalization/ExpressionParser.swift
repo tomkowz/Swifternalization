@@ -13,7 +13,9 @@ or `RegexExpressionParser`.
 Defines methods and properties that are needed to work as parser.
 */
 protocol ExpressionParser {
-    /// pattern of expression
+    /** 
+    Pattern of expression.
+    */
     var pattern: ExpressionPattern {get}
 
     /**

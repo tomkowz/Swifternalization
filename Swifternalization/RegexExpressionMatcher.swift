@@ -8,7 +8,9 @@
 
 import Foundation
 
-/// Type that represents pattern with regular expression
+/** 
+Type that represents pattern with regular expression.
+*/
 internal typealias RegexPattern = String
 
 /**
@@ -16,7 +18,9 @@ Matcher is responsible for matching expressions that contains
 regular expressions.
 */
 struct RegexExpressionMatcher: ExpressionMatcher {
-    /// Expression pattern with regular expression inside.
+    /** 
+    Expression pattern with regular expression inside.
+    */
     let pattern: RegexPattern
     
     /**

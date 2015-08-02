@@ -1,19 +1,19 @@
 Pod::Spec.new do |s|
 
   s.name         = "Swifternalization"
-  s.version      = "1.1"
-  s.summary      = "Library that helps in localizing apps. It is written in Swift."
+  s.version      = "1.2"
+  s.summary      = "Swift Framework which helps in localizing apps."
 
   s.homepage     = "https://github.com/tomkowz/Swifternalization"
 
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
 
-  s.author             = { "Tomasz Szulc" => "szulctomasz@me.com" }
+  s.author             = { "Tomasz Szulc" => "mail@szulctomasz.com" }
   s.social_media_url = "http://twitter.com/tomkowz"
 
   s.platform     = :ios, '8.0'
 
-  s.source       = { :git => "https://github.com/tomkowz/Swifternalization.git", :tag => "v1.1" }
+  s.source       = { :git => "https://github.com/tomkowz/Swifternalization.git", :tag => "v1.2" }
   
   s.documentation_url   = 'http://szulctomasz.com/docs/swifternalization/public/'
 

@@ -1,0 +1,28 @@
+{
+    "welcome-key": "welcome",
+    
+    "only-in-base": "this is from base",
+    
+    "cars": {
+        "one": "one car",
+        "ie:x>=2": "%d cars",
+        "ie:x<=-2": "minus %d cars"
+    },
+    
+    "pl-cars": {
+        "one": "jeden samochód",
+        "iex:2<=x<=4": "%d samochody",
+        "iex:-4<=x<=-2": "-2 - -4 samochody"
+    },
+    
+    "pl-police-cars": {
+        "ie:x=1": "1 samochód policyjny",
+        "exp:(((?!1).[2-4]{1})$)|(^[2-4]$)": "%d samochody policyjne",
+        "custom-pl-few": "%d samochodów policyjnych"
+    },
+    
+    "things": {
+        "ten": "10 things",
+        ">20": ">20 things"
+    }
+}

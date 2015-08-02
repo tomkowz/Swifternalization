@@ -2,142 +2,94 @@
 //  Expression.swift
 //  Swifternalization
 //
-//  Created by Tomasz Szulc on 27/06/15.
+//  Created by Tomasz Szulc on 26/07/15.
 //  Copyright (c) 2015 Tomasz Szulc. All rights reserved.
 //
 
 import Foundation
 
-/// Supported expression types
-enum ExpressionType: String {
-    /// works on Int only, e.g. `x<5`, `x=3`
-    case Inequality = "ie"
-    
-    /// works on Int only, e.g. `4<x<10`, `1<=x<18`
-    case InequalityExtended = "iex"
-    
-    /// regular expression, e.g. `[02-9]+`
-    case Regex = "exp"
-}
-
-/// String that contains expression pattern, e.g. `ie:x<5`, `exp:^1$`.
+/** 
+String that contains expression pattern, e.g. `ie:x<5`, `exp:^1$`.
+*/
 internal typealias ExpressionPattern = String
 
 /**
-Class represents single expression that is added in curly
-brackets inside key in Localizable.strings file or as a value in 
-Expressions.strings file.
-
-It is able to validate passed string using internal expression matcher.
+This class contains pattern of expression and localized value as well as
+length variations if any are associated. During instance initialization pattern 
+is analyzed and correct expression matcher is created. If no matcher matches 
+the expression pattern then when validating there is only check if passed value 
+is the same like pattern (equality). If there is matcher then its internal logic 
+validates passed value.
 */
-class Expression {
-    /// Pattern of expression passed during initialization.
+struct Expression {
+    /** 
+    Pattern of an expression.
+    */
     let pattern: ExpressionPattern
-        
-    /// Type of expression computed based on `pattern`.
-    private var type: ExpressionType!
-    
-    /// Matcher created based on `pattern`.
-    private var matcher: ExpressionMatcher!
-        
-    /**
-    Return `ExpressionPattern` object if passed `str` parameter contains
-    some pattern. The pattern may not be one of the supported one. 
-    If the syntax of the passed string is correct it is treated as pattern.
 
-    :param: str string which may or may not contain a pattern.
-    :returns: `ExpressionPattern` object or nil when pattern is not found.
+    /** 
+    A localized value. If length vartiations array is empty or you want to
+    get full localized value use this property.
     */
-    class func parseExpressionPattern(str: String) -> ExpressionPattern? {
-        if let pattern = Regex.firstMatchInString(str, pattern: InternalPattern.Expression.rawValue) {
-            return pattern
-        } else {
-//            println("Cannot get expression pattern from string: \(str).")
-            return nil
-        }
-    }
+    let value: String
     
-    /**
-    Tries to parse passed `str` parameter and created `Expression` from it.
-    If passed string contains expression that is supported and inside logic
-    compute that this string is some supported pattern an `Expression` object 
-    will be returned.
-
-    :param: str string that may or may not contain expression pattern
-    :returns: `Expression` object or nil if pattern is not supported.
+    /** 
+    Array of length variations.
     */
-    class func expressionFromString(str: String) -> Expression? {
-        if let pattern = parseExpressionPattern(str) {
-            return Expression(pattern: pattern)
-        }
-        return nil
-    }
+    let lengthVariations: [LengthVariation]
     
-    /**
-    Initializer that takes expression pattern. It may fail when expression
-    type of passed expression is not supported.
-
-    :param: pattern pattern of expression
-    :returns: `Expression` object or nil when pattern is not supported.
+    /** 
+    Expression matcher that is used in validation.
     */
-    init?(pattern: ExpressionPattern) {
-        // pattern is assigned even if init fails because of Swift/compiler bug.
+    private var expressionMatcher: ExpressionMatcher? = nil
+    
+    /** 
+    Returns expression object.
+    */
+    init(pattern: String, value: String, lengthVariations: [LengthVariation] = [LengthVariation]()) {
         self.pattern = pattern
-
-        if let type = Expression.getExpressionType(pattern) {
-            self.type = type
-            
-            // build correct expression matcher
-            buildMatcher()
-            if matcher == nil {
-                println("Cannot create expression because expression pattern cannot be parsed: \(pattern)")
-                return nil
-            }
-        } else {
-            println("Cannot create expression with pattern: \(pattern).")
-            return nil
+        self.value = value
+        self.lengthVariations = lengthVariations
+        
+        /* 
+        Create expression matcher if pattern matches some expression type.
+        If not matching any expression type then the pattern equality test
+        will be perfomed when during validation.
+        */
+        if let type = getExpressionType(pattern) {
+            expressionMatcher = {
+                switch (type as ExpressionPatternType) {
+                case .Inequality: return InequalityExpressionParser(pattern).parse()
+                case .InequalityExtended: return InequalityExtendedExpressionParser(pattern).parse()
+                case .Regex: return RegexExpressionParser(pattern).parse()
+                }
+            }()
         }
     }
     
     /**
     Method that validates passed string.
-
+    
     :param: value value that should be matched
     :returns: `true` if value match expression, otherwise `false`.
     */
     func validate(value: String) -> Bool {
-        return matcher.validate(value)
-    }
-    
-    
-    // MARK: Private methods
-    
-    /** 
-    Method used to create `ExpressionMatcher` instance that match expression
-    pattern of this `Expression` object.
-    */
-    private func buildMatcher() {
-        switch (type as ExpressionType) {
-        case .Inequality:
-            matcher = InequalityExpressionParser(pattern).parse()
-            
-        case .InequalityExtended:
-            matcher = InequalityExtendedExpressionParser(pattern).parse()
-            
-        case .Regex:
-            matcher = RegexExpressionParser(pattern).parse()
+        if let matcher = expressionMatcher {
+            return matcher.validate(value)
+        } else {
+            return pattern == value
         }
     }
     
     /**
-    Method used to get `ExpressionType` of passed `ExpressionPattern`. 
+    Method used to get `ExpressionPatternType` of passed expression pattern.
     
     :param: pattern expression pattern that will be checked.
-    :returns: `ExpressionType` if pattern is supported, otherwise nil.
+    :returns: `ExpressionPatternType` if pattern is supported, otherwise nil.
     */
-    private class func getExpressionType(pattern: ExpressionPattern) -> ExpressionType? {
-        if let result = Regex.firstMatchInString(pattern, pattern: InternalPattern.ExpressionType.rawValue) {
-            return ExpressionType(rawValue: result)
+    private func getExpressionType(pattern: ExpressionPattern) -> ExpressionPatternType? {
+        if let result = Regex.firstMatchInString(pattern, pattern: InternalPattern.ExpressionPatternType.rawValue) {
+            return ExpressionPatternType(rawValue: result)
         }
         return nil
     }

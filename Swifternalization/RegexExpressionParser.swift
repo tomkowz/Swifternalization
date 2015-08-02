@@ -12,7 +12,9 @@ import Foundation
 Parser that parses expressions that contains regular expressions.
 */
 class RegexExpressionParser: ExpressionParser {
-    /// Expression pattern - regular expression.
+    /** 
+    Expression pattern - regular expression.
+    */
     let pattern: ExpressionPattern
 
     /**
@@ -45,7 +47,7 @@ class RegexExpressionParser: ExpressionParser {
             in the pattern.
     */
     private func regexPattern() -> RegexPattern? {
-        if let regex = Regex.firstMatchInString(pattern, pattern: "(?<=^\(ExpressionType.Regex.rawValue):).*") {
+        if let regex = Regex.firstMatchInString(pattern, pattern: "(?<=^\(ExpressionPatternType.Regex.rawValue):).*") {
             return regex
         } else {
             println("Cannot find any regular expression, pattern: \(pattern)")
