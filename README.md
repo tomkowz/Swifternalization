@@ -17,11 +17,11 @@ Swift library that helps in localizing apps in a different, better, simpler, mor
 - [x] Full documentation
 
 # Table of Contents
-- [Introduction](#introdcution)
+- [Introduction](#introduction)
 - [Practical Usage Example](#practical-usage-example)
-- [Features](#features)
+- [Features](#features-1)
 	- [Pluralization](#pluralization)
-	- [Length variation](#length-variation)
+	- [Length variations](#length-variations)
 - [Expressions](#expressions)
 	- [Inequality Expressions](#inequality-expressions)
 	- [Inequality Extended Expressions](#inequality-extended-expressions)
@@ -37,7 +37,7 @@ Swift library that helps in localizing apps in a different, better, simpler, mor
 	- [Getting localized string](#getting-localized-string)
 - [Contribution](#contribution)
 - [Swift 2](#swift-2)
-- [Things To Do](#things-to-do)
+- [Things To Do](#things-to-do-in-future-releases)
 - [License](#license)
 
 ## Introduction
@@ -355,7 +355,7 @@ Docsets:
 - [Public API docset](http://szulctomasz.com/docs/swifternalization/public/docsets/Swifternalization%20Public%20API.docset.zip)
 - [Full API docset](http://szulctomasz.com/docs/swifternalization/framework/docsets/Swifternalization.docset.zip)
 
-### Instalation
+### Installation
 It works with iOS 8.0 and newer.
 
 With CocoaPods:
@@ -406,7 +406,7 @@ In pseudo-language:
 Expressions from the files may be used inside localizable files. All the shared expressions for different languages are placed in the same file because there will be just few expressions for every language. Mostly the expression will be defined in *base* variant because if expression is in *base* it is also available in every other language too. So, "ten" is available in "pl", but "three" is not available in "base".
 
 
-### Creating Localizable Files
+### Creating file with localization per country
 
 Localizable file contains translations for specific language. The files might look like below:
 
@@ -483,7 +483,7 @@ The last method `localizedString(_:intValue:fittingWidth:defaultValue:comment:)`
 
 	I18n.localizedString("cars", intValue: 5)
 
-## Contribution and change or feature requests
+## Contribution
 Swifternalization is open sourced so everyone may contribute if want to. If you want to develop it just fork the repo, do your work and create pull request. If you have some idea or question feel free to create issue and add proper tag for it.
 
 There is no guide for contributors but if you added new functionality you must write unit tests for it.
@@ -491,7 +491,7 @@ There is no guide for contributors but if you added new functionality you must w
 ## Swift 2
 Swifternalization supports Swift 2 and works on Xcode 7 beta 4. Please check out *swift2* branch.
 
-## Things to do in future releases:
+## Things to do in future releases
 - Add more built-in expressions for another countries.
 - Add support for float numbers in built in expressions that uses regular expressions.
 
