@@ -7,6 +7,17 @@ Pod::Spec.new do |s|
   s.author = { "Tomasz Szulc" => "mail@szulctomasz.com" }
   s.social_media_url = "http://twitter.com/tomkowz"
 
+  pch_AF = <<-EOS
+#ifndef TARGET_OS_IOS
+  #define TARGET_OS_IOS TARGET_OS_IPHONE
+#endif
+
+#ifndef TARGET_OS_WATCH
+  #define TARGET_OS_WATCH 0
+#endif
+EOS
+  s.prefix_header_contents = pch_AF
+
   s.requires_arc = true
   s.ios.deployment_target = '8.0'
   s.watchos.deployment_target = '2.0'
