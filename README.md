@@ -360,7 +360,7 @@ It works with iOS 8.0 and newer.
 
 With CocoaPods:
 
-    pod 'Swifternalization', '~> 1.2'
+    pod 'Swifternalization', '~> 1.2.1'
 
 If you are not using CocoaPods just import files from *Swifternalization/Swifternalization* directory to your project.
 
