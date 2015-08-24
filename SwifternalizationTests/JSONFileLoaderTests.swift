@@ -24,6 +24,10 @@ class JSONFileLoaderTests: XCTestCase {
         XCTAssertFalse(loadExpressions("pl").isEmpty, "")
     }
     
+    func testShouldLoadRUExpressions() {
+        XCTAssertFalse(loadExpressions("ru").isEmpty, "")
+    }
+    
     func testShouldNotLoadDEExpressions() {
         XCTAssertTrue(loadExpressions("de").isEmpty, "")
     }
