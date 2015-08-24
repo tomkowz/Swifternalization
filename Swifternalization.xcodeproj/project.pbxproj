@@ -15,6 +15,7 @@
 		6D43BA181B8BA8460072DEA6 /* SharedRussianExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D43BA171B8BA8460072DEA6 /* SharedRussianExpression.swift */; };
 		6D43BA1A1B8BA8C20072DEA6 /* SharedRussianExpressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D43BA191B8BA8C20072DEA6 /* SharedRussianExpressionTests.swift */; };
 		6D43BA1B1B8BADB50072DEA6 /* SharedRussianExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D43BA171B8BA8460072DEA6 /* SharedRussianExpression.swift */; };
+		6D43BA1D1B8BBA270072DEA6 /* ru.json in Resources */ = {isa = PBXBuildFile; fileRef = 6D43BA1C1B8BBA270072DEA6 /* ru.json */; };
 		6D477E701B6D258F001F1904 /* SharedExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D477E6F1B6D258F001F1904 /* SharedExpression.swift */; };
 		6D477E711B6D258F001F1904 /* SharedExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D477E6F1B6D258F001F1904 /* SharedExpression.swift */; };
 		6D4C4EAF1B6AA48F00B7839A /* LoadedTranslation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4C4EAE1B6AA48F00B7839A /* LoadedTranslation.swift */; };
@@ -108,6 +109,7 @@
 		6D19ABDB1B6D23730063FE1E /* SharedPolishExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedPolishExpression.swift; path = Swifternalization/SharedPolishExpression.swift; sourceTree = SOURCE_ROOT; };
 		6D43BA171B8BA8460072DEA6 /* SharedRussianExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedRussianExpression.swift; path = Swifternalization/SharedRussianExpression.swift; sourceTree = SOURCE_ROOT; };
 		6D43BA191B8BA8C20072DEA6 /* SharedRussianExpressionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedRussianExpressionTests.swift; sourceTree = "<group>"; };
+		6D43BA1C1B8BBA270072DEA6 /* ru.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ru.json; sourceTree = "<group>"; };
 		6D477E6F1B6D258F001F1904 /* SharedExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedExpression.swift; path = Swifternalization/SharedExpression.swift; sourceTree = SOURCE_ROOT; };
 		6D4C4EAE1B6AA48F00B7839A /* LoadedTranslation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadedTranslation.swift; sourceTree = "<group>"; };
 		6D4C4EB21B6AAE3200B7839A /* LoadedTranslationsProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadedTranslationsProcessor.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 		6DD3B93D1B5ED35600C79EAC /* Localizable Files */ = {
 			isa = PBXGroup;
 			children = (
+				6D43BA1C1B8BBA270072DEA6 /* ru.json */,
 				6DD3B9381B5ED35200C79EAC /* expressions.json */,
 				6DD3B9371B5ED35200C79EAC /* base.json */,
 				6DD3B9391B5ED35200C79EAC /* pl.json */,
@@ -428,6 +431,7 @@
 				6DD3B93A1B5ED35200C79EAC /* base.json in Resources */,
 				6D5004961B3EFFC100A54B36 /* Info.plist in Resources */,
 				6DD3B93C1B5ED35200C79EAC /* pl.json in Resources */,
+				6D43BA1D1B8BBA270072DEA6 /* ru.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

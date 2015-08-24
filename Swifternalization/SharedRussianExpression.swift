@@ -38,7 +38,7 @@ class SharedRussianExpression: SharedExpressionProtocol {
             e.g.
             - из 2 книг за 2 дня
             */
-            SharedExpression(identifier: "few", pattern: "exp:(((?!1).[2-4]{1})$)|(^[2-4]$)"),
+            SharedExpression(identifier: "few", pattern: "exp:(^[2-4]$)|(^[2-9][2-4]$)|([1-9]+[0-9]*[^1][2-4]$)"),
             
             /**
             0, 5~20, 100, 1000, 10000, 100000, 1000000, …
