@@ -17,55 +17,55 @@ class InequalityExtendedExpressionParserTests: XCTestCase {
     
     func testMatcher1() {
         let m = createMatcher("iex:4<x<10")
-        XCTAssertEqual(m.leftMatcher.sign, .GreaterThan, "")
+        XCTAssertEqual(m.leftMatcher.sign, InequalitySign.GreaterThan, "")
         XCTAssertEqual(m.leftMatcher.value, 4, "")
         
-        XCTAssertEqual(m.rightMatcher.sign, .LessThan, "")
+        XCTAssertEqual(m.rightMatcher.sign, InequalitySign.LessThan, "")
         XCTAssertEqual(m.rightMatcher.value, 10, "")
     }
     
     func testMatcher2() {
         let m = createMatcher("iex:4<=x<=10")
-        XCTAssertEqual(m.leftMatcher.sign, .GreaterThanOrEqual, "")
+        XCTAssertEqual(m.leftMatcher.sign, InequalitySign.GreaterThanOrEqual, "")
         XCTAssertEqual(m.leftMatcher.value, 4, "")
         
-        XCTAssertEqual(m.rightMatcher.sign, .LessThanOrEqual, "")
+        XCTAssertEqual(m.rightMatcher.sign, InequalitySign.LessThanOrEqual, "")
         XCTAssertEqual(m.rightMatcher.value, 10, "")
     }
     
     func testMatcher3() {
         let m = createMatcher("iex:4<=x<=10")
-        XCTAssertEqual(m.leftMatcher.sign, .GreaterThanOrEqual, "")
+        XCTAssertEqual(m.leftMatcher.sign, InequalitySign.GreaterThanOrEqual, "")
         XCTAssertEqual(m.leftMatcher.value, 4, "")
         
-        XCTAssertEqual(m.rightMatcher.sign, .LessThanOrEqual, "")
+        XCTAssertEqual(m.rightMatcher.sign, InequalitySign.LessThanOrEqual, "")
         XCTAssertEqual(m.rightMatcher.value, 10, "")
     }
     
     func testMatcher4() {
         let m = createMatcher("iex:4<x<10")
-        XCTAssertEqual(m.leftMatcher.sign, .GreaterThan, "")
+        XCTAssertEqual(m.leftMatcher.sign, InequalitySign.GreaterThan, "")
         XCTAssertEqual(m.leftMatcher.value, 4, "")
         
-        XCTAssertEqual(m.rightMatcher.sign, .LessThan, "")
+        XCTAssertEqual(m.rightMatcher.sign, InequalitySign.LessThan, "")
         XCTAssertEqual(m.rightMatcher.value, 10, "")
     }
     
     func testMatcher5() {
         let m = createMatcher("iex:4<=x<10")
-        XCTAssertEqual(m.leftMatcher.sign, .GreaterThanOrEqual, "")
+        XCTAssertEqual(m.leftMatcher.sign, InequalitySign.GreaterThanOrEqual, "")
         XCTAssertEqual(m.leftMatcher.value, 4, "")
         
-        XCTAssertEqual(m.rightMatcher.sign, .LessThan, "")
+        XCTAssertEqual(m.rightMatcher.sign, InequalitySign.LessThan, "")
         XCTAssertEqual(m.rightMatcher.value, 10, "")
     }
     
     func testMatcher6() {
         let m = createMatcher("iex:-4<=x<-10")
-        XCTAssertEqual(m.leftMatcher.sign, .LessThanOrEqual, "")
+        XCTAssertEqual(m.leftMatcher.sign, InequalitySign.LessThanOrEqual, "")
         XCTAssertEqual(m.leftMatcher.value, -4, "")
         
-        XCTAssertEqual(m.rightMatcher.sign, .LessThan, "")
+        XCTAssertEqual(m.rightMatcher.sign, InequalitySign.LessThan, "")
         XCTAssertEqual(m.rightMatcher.value, -10, "")
     }
 
