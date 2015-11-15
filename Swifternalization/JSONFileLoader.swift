@@ -44,7 +44,7 @@ final class JSONFileLoader {
         if let fileURL = bundle.URLForResource(fileName, withExtension: "json") {
             return load(fileURL)
         }
-        println("Cannot find file \(fileName).json.")
+        print("Cannot find file \(fileName).json.")
         return nil
     }
     
@@ -56,12 +56,16 @@ final class JSONFileLoader {
     */
     private class func load(fileURL: NSURL) -> JSONDictionary? {
         if let data = NSData(contentsOfURL: fileURL) {
-            var error: NSError?
-            if let dictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &error) as? JSONDictionary {
-                return dictionary
+            do {
+                if let dictionary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? JSONDictionary {
+                    return dictionary
+                }
+                print("Cannot parse JSON. It might be broken.")
+                return nil
+            } catch {
+                print("Cannot parse JSON. It might be broken.")
+                return nil
             }
-            print("Cannot parse JSON. It might be broken.")
-            return nil
         }
         print("Cannot load content of file.")
         return nil

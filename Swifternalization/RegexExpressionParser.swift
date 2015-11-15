@@ -50,7 +50,7 @@ class RegexExpressionParser: ExpressionParser {
         if let regex = Regex.firstMatchInString(pattern, pattern: "(?<=^\(ExpressionPatternType.Regex.rawValue):).*") {
             return regex
         } else {
-            println("Cannot find any regular expression, pattern: \(pattern)")
+            print("Cannot find any regular expression, pattern: \(pattern)")
             return nil
         }
     }

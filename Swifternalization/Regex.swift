@@ -23,8 +23,8 @@ final class Regex {
     class func matchInString(str: String, pattern: String, capturingGroupIdx: Int?) -> String? {
         var resultString: String?
         
-        let range = NSMakeRange(0, count(str))
-        regexp(pattern)?.enumerateMatchesInString(str, options: nil, range: range, usingBlock: { result, flags, stop in
+        let range = NSMakeRange(0, str.startIndex.distanceTo(str.endIndex))
+        regexp(pattern)?.enumerateMatchesInString(str, options: NSMatchingOptions.ReportCompletion, range: range, usingBlock: { result, flags, stop in
             if let result = result {
                 if let capturingGroupIdx = capturingGroupIdx where result.numberOfRanges > capturingGroupIdx {
                     resultString = self.substring(str, range: result.rangeAtIndex(capturingGroupIdx))
@@ -46,7 +46,7 @@ final class Regex {
     :returns: `String` that matches pattern or nil.
     */
     class func firstMatchInString(str: String, pattern: String) -> String? {
-        if let result = regexp(pattern)?.firstMatchInString(str, options: .ReportCompletion, range: NSMakeRange(0, count(str))) {
+        if let result = regexp(pattern)?.firstMatchInString(str, options: .ReportCompletion, range: NSMakeRange(0, str.startIndex.distanceTo(str.endIndex))) {
             return substring(str, range: result.range)
         }
         return nil
@@ -61,7 +61,7 @@ final class Regex {
     */
     class func matchesInString(str: String, pattern: String) -> [String] {
         var matches = [String]()
-        if let results = regexp(pattern)?.matchesInString(str, options: .ReportCompletion, range: NSMakeRange(0, count(str))) as? [NSTextCheckingResult] {
+        if let results = regexp(pattern)?.matchesInString(str, options: .ReportCompletion, range: NSMakeRange(0, str.startIndex.distanceTo(str.endIndex))) {
             for result in results {
                 matches.append(substring(str, range: result.range))
             }
@@ -77,12 +77,12 @@ final class Regex {
     :returns: `NSRegularExpression` object or nil if it cannot be created.
     */
     private class func regexp(pattern: String) -> NSRegularExpression? {
-        var error: NSError? = nil
-        var regexp = NSRegularExpression(pattern: pattern, options: .CaseInsensitive, error: &error)
-        if error != nil {
-            println(error!)
+        do {
+            return try NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive)
+        } catch let error as NSError {
+            print(error)
         }
-        return regexp
+        return nil
     }
     
     /**
@@ -93,8 +93,8 @@ final class Regex {
     :returns: A string contained in `range`.
     */
     private class func substring(str: String, range: NSRange) -> String {
-        let startRange = advance(str.startIndex, range.location)
-        let endRange = advance(startRange, range.length)
+        let startRange = str.startIndex.advancedBy(range.location)
+        let endRange = startRange.advancedBy(range.length)
         
         return str.substringWithRange(Range(start: startRange, end: endRange))
     }

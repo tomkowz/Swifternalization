@@ -22,7 +22,7 @@ final class TranslationsLoader {
                 if let type = detectElementType(dictionary) {
                     loadedTranslations.append(LoadedTranslation(type: type, key: key, content: dictionary))
                 } else {
-                    println("Translation type is not supported for: \(dictionary)")
+                    print("Translation type is not supported for: \(dictionary)")
                 }
             }
         }
@@ -42,7 +42,7 @@ final class TranslationsLoader {
         var strings = 0
         
         // Count every string or dict occurence.
-        for (key, value) in element {
+        for (_, value) in element {
             if value is String {
                 strings++
             } else if value is Dictionary<String, AnyObject> {
@@ -57,7 +57,7 @@ final class TranslationsLoader {
         */
         if strings > 0 && dicts == 0 {
             let key = element.keys.first!
-            let toIndex = advance(key.startIndex, 1)
+            let toIndex = key.startIndex.advancedBy(1)
             return key.substringToIndex(toIndex) == "@" ? .WithLengthVariations : .WithExpressions
         } else if strings >= 0 && dicts > 0 {
             return .WithExpressionsAndLengthVariations

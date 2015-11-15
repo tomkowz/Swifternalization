@@ -14,7 +14,7 @@ class SwifternalizationTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        Swifternalization.configure(bundle: NSBundle.testBundle())
+        Swifternalization.configure(NSBundle.testBundle())
     }
     
     func testShouldReturnKeyWhenNotTranslated() {

@@ -488,9 +488,6 @@ Swifternalization is open sourced so everyone may contribute if want to. If you 
 
 There is no guide for contributors but if you added new functionality you must write unit tests for it.
 
-## Swift 2
-Swifternalization supports Swift 2 and works on Xcode 7 beta 4. Please check out *swift2* branch.
-
 ## Things to do in future releases
 - Add more built-in expressions for another countries.
 - Add support for float numbers in built in expressions that uses regular expressions.

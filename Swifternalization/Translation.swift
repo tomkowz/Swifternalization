@@ -44,7 +44,7 @@ struct Translation {
                     If variation width is shorter or equal `fittingWidth`
                     take associated value.
                     */
-                    for variation in expression.lengthVariations.sorted({$0.width < $1.width}) {
+                    for variation in expression.lengthVariations.sort({$0.width < $1.width}) {
                         if variation.width <= fittingWidth! {
                             localizedValue = variation.value
                         }

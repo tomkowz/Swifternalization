@@ -16,20 +16,20 @@ func arc4random <T: IntegerLiteralConvertible> (type: T.Type) -> T {
 }
 
 extension Float {
-    static func random(#lower: Float, upper: Float) -> Float {
+    static func random(lower lower: Float, upper: Float) -> Float {
         let r = Float(arc4random(UInt32)) / Float(UInt32.max)
         return (r * (upper - lower)) + lower
     }
     
-    static func randomNumbers(#lower: Float, upper: Float, count: Int) -> [Float] {
+    static func randomNumbers(lower lower: Float, upper: Float, count: Int) -> [Float] {
         var nums = [Float]()
-        for i in 0..<count {
+        for _ in 0..<count {
             nums.append(random(lower: lower, upper: upper))
         }
         return nums
     }
     
-    static func randomNumbersStrings(#lower: Float, upper: Float, count: Int) -> [String] {
+    static func randomNumbersStrings(lower lower: Float, upper: Float, count: Int) -> [String] {
         var numStr = [String]()
         for i in randomNumbers(lower: lower, upper: upper, count: count) {
             numStr.append(String(format: "%f", i))
