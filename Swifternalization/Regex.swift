@@ -23,7 +23,7 @@ final class Regex {
     class func matchInString(str: String, pattern: String, capturingGroupIdx: Int?) -> String? {
         var resultString: String?
         
-        let range = NSMakeRange(0, distance(str.startIndex, str.endIndex))
+        let range = NSMakeRange(0, str.startIndex.distanceTo(str.endIndex))
         regexp(pattern)?.enumerateMatchesInString(str, options: NSMatchingOptions.ReportCompletion, range: range, usingBlock: { result, flags, stop in
             if let result = result {
                 if let capturingGroupIdx = capturingGroupIdx where result.numberOfRanges > capturingGroupIdx {
@@ -46,7 +46,7 @@ final class Regex {
     :returns: `String` that matches pattern or nil.
     */
     class func firstMatchInString(str: String, pattern: String) -> String? {
-        if let result = regexp(pattern)?.firstMatchInString(str, options: .ReportCompletion, range: NSMakeRange(0, distance(str.startIndex, str.endIndex))) {
+        if let result = regexp(pattern)?.firstMatchInString(str, options: .ReportCompletion, range: NSMakeRange(0, str.startIndex.distanceTo(str.endIndex))) {
             return substring(str, range: result.range)
         }
         return nil
@@ -61,7 +61,7 @@ final class Regex {
     */
     class func matchesInString(str: String, pattern: String) -> [String] {
         var matches = [String]()
-        if let results = regexp(pattern)?.matchesInString(str, options: .ReportCompletion, range: NSMakeRange(0, distance(str.startIndex, str.endIndex))) {
+        if let results = regexp(pattern)?.matchesInString(str, options: .ReportCompletion, range: NSMakeRange(0, str.startIndex.distanceTo(str.endIndex))) {
             for result in results {
                 matches.append(substring(str, range: result.range))
             }
@@ -93,8 +93,8 @@ final class Regex {
     :returns: A string contained in `range`.
     */
     private class func substring(str: String, range: NSRange) -> String {
-        let startRange = advance(str.startIndex, range.location)
-        let endRange = advance(startRange, range.length)
+        let startRange = str.startIndex.advancedBy(range.location)
+        let endRange = startRange.advancedBy(range.length)
         
         return str.substringWithRange(Range(start: startRange, end: endRange))
     }

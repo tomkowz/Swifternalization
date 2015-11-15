@@ -31,7 +31,6 @@
 		6D5004541B3EF91600A54B36 /* Swifternalization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5004481B3EF91600A54B36 /* Swifternalization.framework */; };
 		6D50045B1B3EF91600A54B36 /* SwifternalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D50045A1B3EF91600A54B36 /* SwifternalizationTests.swift */; };
 		6D5004661B3EF92600A54B36 /* Swifternalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5004641B3EF92600A54B36 /* Swifternalization.swift */; };
-		6D5004961B3EFFC100A54B36 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D5004591B3EF91600A54B36 /* Info.plist */; };
 		6D5BA5F01B651796000D7E49 /* TranslationsLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5BA5EF1B651796000D7E49 /* TranslationsLoaderTests.swift */; };
 		6D5BA5F11B6517A6000D7E49 /* TranslationsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB3CC731B5EBDA600A1220F /* TranslationsLoader.swift */; };
 		6D5BA5F31B651809000D7E49 /* LengthVariation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB3CC6A1B5EBDA600A1220F /* LengthVariation.swift */; };
@@ -384,7 +383,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Tomasz Szulc";
 				TargetAttributes = {
 					6D5004471B3EF91600A54B36 = {
@@ -429,7 +428,6 @@
 			files = (
 				6DD3B93B1B5ED35200C79EAC /* expressions.json in Resources */,
 				6DD3B93A1B5ED35200C79EAC /* base.json in Resources */,
-				6D5004961B3EFFC100A54B36 /* Info.plist in Resources */,
 				6DD3B93C1B5ED35200C79EAC /* pl.json in Resources */,
 				6D43BA1D1B8BBA270072DEA6 /* ru.json in Resources */,
 			);
@@ -562,6 +560,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -643,6 +642,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tomaszszulc.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -663,6 +663,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tomaszszulc.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -681,6 +682,7 @@
 				);
 				INFOPLIST_FILE = SwifternalizationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tomaszszulc.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -694,6 +696,7 @@
 				);
 				INFOPLIST_FILE = SwifternalizationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tomaszszulc.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
