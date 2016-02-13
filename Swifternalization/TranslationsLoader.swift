@@ -44,9 +44,9 @@ final class TranslationsLoader {
         // Count every string or dict occurence.
         for (_, value) in element {
             if value is String {
-                strings++
+                strings += 1
             } else if value is Dictionary<String, AnyObject> {
-                dicts++
+                dicts += 1
             }
         }
         

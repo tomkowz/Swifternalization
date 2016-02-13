@@ -35,6 +35,12 @@ final public class Swifternalization {
     */
     private var translations = [Translation]()
     
+    /**
+     Determine whether Swifternalization is configured.
+     It should be considered configured after `load(bundle:)` method is called.
+     */
+    private var configured = false
+    
     // MARK: Public Methods
     
     /**
@@ -44,6 +50,16 @@ final public class Swifternalization {
     */
     public class func configure(bundle: NSBundle = NSBundle.mainBundle()) {
         sharedInstance.load(bundle)
+    }
+    
+    /**
+     Configures Swifternalization if you didn't do that before calling
+     `localizedString...` methods.
+     */
+    private class func configureIfNeeded(bundle: NSBundle = NSBundle.mainBundle()) {
+        if sharedInstance.configured == false {
+            configure(bundle)
+        }
     }
     
     /**
@@ -83,6 +99,9 @@ final public class Swifternalization {
         specified or `key` if `defaultValue` is not specified.
     */
     public class func localizedString(key: String, stringValue: String, fittingWidth: Int? = nil, defaultValue: String? = nil, comment: String? = nil) -> String {
+
+        configureIfNeeded()
+
         /**
         Filter translations and get only these that match passed `key`.
         In ideal case when all is correctly filled by a developer it should be 
@@ -165,6 +184,7 @@ final public class Swifternalization {
         
         // Store processed translations in `translations` variable for future use.
         translations = LoadedTranslationsProcessor.processTranslations(baseTranslations, preferedLanguageTranslations: languageTranslations, sharedExpressions: expressions)
+        configured = true
     }
     
     /** 
