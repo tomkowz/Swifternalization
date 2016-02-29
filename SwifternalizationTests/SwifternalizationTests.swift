@@ -52,6 +52,11 @@ class SwifternalizationTests: XCTestCase {
         XCTAssertEqual(Swifternalization.localizedString("things", intValue: 26), ">20 things", "")
     }
     
+    func testValueWithFormat() {
+        let format = Swifternalization.localizedString("put.?.here.format")
+        XCTAssertEqual(String(format: format, arguments: ["word"]), "put word here")
+    }
+
     
     /// Polish
     

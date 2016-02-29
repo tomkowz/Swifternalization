@@ -24,5 +24,7 @@
     "things": {
         "ten": "10 things",
         ">20": ">20 things"
-    }
+    },
+    
+    "put.?.here.format": "put %@ here"
 }
