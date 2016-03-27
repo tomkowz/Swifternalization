@@ -96,6 +96,6 @@ final class Regex {
         let startRange = str.startIndex.advancedBy(range.location)
         let endRange = startRange.advancedBy(range.length)
         
-        return str.substringWithRange(Range(startRange..<endRange))
+        return str.substringWithRange(startRange..<endRange)
     }
 }
