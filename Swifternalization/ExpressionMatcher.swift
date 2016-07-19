@@ -17,5 +17,5 @@ protocol ExpressionMatcher {
     :param: val string value that will be used to match expression.
     :returns: `true` if value matches expression, otherwise `false`.
     */
-    func validate(val: String) -> Bool
+    func validate(_ val: String) -> Bool
 }

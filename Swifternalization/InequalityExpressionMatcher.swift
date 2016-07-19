@@ -43,7 +43,7 @@ struct InequalityExpressionMatcher: ExpressionMatcher {
     :param: val value passed as `String` that will be converted to `Double`.
     :returns: `true` if `val` match expression pattern, otherwise `false`.
     */
-    func validate(val: String) -> Bool {
+    func validate(_ val: String) -> Bool {
         let n = NSString(string: val).doubleValue
         switch sign {
         case .LessThan: return n < value

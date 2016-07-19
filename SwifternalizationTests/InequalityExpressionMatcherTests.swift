@@ -13,7 +13,7 @@ class InequalityExpressionMatcherTests: XCTestCase {
     
     let steps: Int = 1_000
     
-    func createMatcher(expression: ExpressionPattern) -> InequalityExpressionMatcher {
+    func createMatcher(_ expression: ExpressionPattern) -> InequalityExpressionMatcher {
         return InequalityExpressionParser(expression).parse() as! InequalityExpressionMatcher
     }
     
