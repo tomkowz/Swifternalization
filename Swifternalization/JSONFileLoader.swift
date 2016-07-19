@@ -17,7 +17,7 @@ final class JSONFileLoader {
     :param: bundle A bundle when file is located.
     :returns: Returns json of file or empty dictionary if cannot load a file.
     */
-    class func loadTranslations(countryCode: CountryCode, bundle: NSBundle) -> JSONDictionary {
+    class func loadTranslations(_ countryCode: CountryCode, bundle: Bundle) -> JSONDictionary {
         return self.load(countryCode, bundle: bundle) ?? [:]
     }
     
@@ -28,7 +28,7 @@ final class JSONFileLoader {
     :param: bundle A bundle when file is located.
     :returns: dictionary with expressions or empty dictionary if cannot load a file.
     */
-    class func loadExpressions(countryCode: CountryCode, bundle: NSBundle) -> Dictionary<String, String> {
+    class func loadExpressions(_ countryCode: CountryCode, bundle: Bundle) -> Dictionary<String, String> {
         return self.load("expressions", bundle: bundle)?[countryCode] as? Dictionary<String, String> ?? [:]
     }
     
@@ -40,8 +40,8 @@ final class JSONFileLoader {
     :param: bundle A bundle when file is located.
     :returns: JSON or nil if file cannot be loaded.
     */
-    private class func load(fileName: String, bundle: NSBundle) -> JSONDictionary? {
-        if let fileURL = bundle.URLForResource(fileName, withExtension: "json") {
+    private class func load(_ fileName: String, bundle: Bundle) -> JSONDictionary? {
+        if let fileURL = bundle.urlForResource(fileName, withExtension: "json") {
             return load(fileURL)
         }
         print("Cannot find file \(fileName).json.")
@@ -54,10 +54,10 @@ final class JSONFileLoader {
     :params: fileURL url to JSON file.
     :returns: Dictionary with content of JSON file or nil if file cannot be loaded.
     */
-    private class func load(fileURL: NSURL) -> JSONDictionary? {
-        if let data = NSData(contentsOfURL: fileURL) {
+    private class func load(_ fileURL: URL) -> JSONDictionary? {
+        if let data = try? Data(contentsOf: fileURL) {
             do {
-                if let dictionary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? JSONDictionary {
+                if let dictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? JSONDictionary {
                     return dictionary
                 }
                 print("Cannot parse JSON. It might be broken.")

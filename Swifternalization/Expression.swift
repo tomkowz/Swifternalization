@@ -73,7 +73,7 @@ struct Expression {
     :param: value value that should be matched
     :returns: `true` if value match expression, otherwise `false`.
     */
-    func validate(value: String) -> Bool {
+    func validate(_ value: String) -> Bool {
         if let matcher = expressionMatcher {
             return matcher.validate(value)
         } else {
@@ -87,7 +87,7 @@ struct Expression {
     :param: pattern expression pattern that will be checked.
     :returns: `ExpressionPatternType` if pattern is supported, otherwise nil.
     */
-    private func getExpressionType(pattern: ExpressionPattern) -> ExpressionPatternType? {
+    private func getExpressionType(_ pattern: ExpressionPattern) -> ExpressionPatternType? {
         if let result = Regex.firstMatchInString(pattern, pattern: InternalPattern.ExpressionPatternType.rawValue) {
             return ExpressionPatternType(rawValue: result)
         }

@@ -27,7 +27,7 @@ struct Translation {
     :returns: A localized string if any expression validates the `text`,
         otherwise nil.
     */
-    func validate(text: String, fittingWidth: Int?) -> String? {
+    func validate(_ text: String, fittingWidth: Int?) -> String? {
         // Find first expression that validates the `text`.
         for expression in expressions {
             if expression.validate(text) {
@@ -44,7 +44,7 @@ struct Translation {
                     If variation width is shorter or equal `fittingWidth`
                     take associated value.
                     */
-                    for variation in expression.lengthVariations.sort({$0.width < $1.width}) {
+                    for variation in expression.lengthVariations.sorted(isOrderedBefore: {$0.width < $1.width}) {
                         if variation.width <= fittingWidth! {
                             localizedValue = variation.value
                         }

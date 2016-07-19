@@ -38,7 +38,7 @@ struct RegexExpressionMatcher: ExpressionMatcher {
     :param: val value that will be matched.
     :returns: `true` if value matches pattern, otherwise `false`.
     */
-    func validate(val: String) -> Bool {
+    func validate(_ val: String) -> Bool {
         return (Regex.firstMatchInString(val, pattern: pattern) != nil)
     }
 }

@@ -14,7 +14,7 @@ class InequalityExtendedExpressionMatcherTests: XCTestCase {
     
     let steps = 20_000
     
-    func createMatcher(pattern: ExpressionPattern) -> InequalityExtendedExpressionMatcher {
+    func createMatcher(_ pattern: ExpressionPattern) -> InequalityExtendedExpressionMatcher {
         return InequalityExtendedExpressionParser(pattern).parse() as! InequalityExtendedExpressionMatcher
     }
     

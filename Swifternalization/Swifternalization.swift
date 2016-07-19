@@ -48,7 +48,7 @@ final public class Swifternalization {
     
     :param: bundle A bundle when expressions.json and other files are located.
     */
-    public class func configure(bundle: NSBundle = NSBundle.mainBundle()) {
+    public class func configure(_ bundle: Bundle = Bundle.main) {
         sharedInstance.load(bundle)
     }
     
@@ -56,7 +56,7 @@ final public class Swifternalization {
      Configures Swifternalization if you didn't do that before calling
      `localizedString...` methods.
      */
-    private class func configureIfNeeded(bundle: NSBundle = NSBundle.mainBundle()) {
+    private class func configureIfNeeded(_ bundle: Bundle = Bundle.main) {
         if sharedInstance.configured == false {
             configure(bundle)
         }
@@ -77,7 +77,7 @@ final public class Swifternalization {
     :returns: localized string if found, otherwise `defaultValue` is returned if 
         specified or `key` if `defaultValue` is not specified.
     */
-    public class func localizedString(key: String, fittingWidth: Int? = nil, defaultValue: String? = nil, comment: String? = nil) -> String {
+    public class func localizedString(_ key: String, fittingWidth: Int? = nil, defaultValue: String? = nil, comment: String? = nil) -> String {
         return localizedString(key, stringValue: key, fittingWidth: fittingWidth, defaultValue: defaultValue, comment: comment)
     }
     
@@ -98,7 +98,7 @@ final public class Swifternalization {
     :returns: localized string if found, otherwise `defaultValue` is returned if
         specified or `key` if `defaultValue` is not specified.
     */
-    public class func localizedString(key: String, stringValue: String, fittingWidth: Int? = nil, defaultValue: String? = nil, comment: String? = nil) -> String {
+    public class func localizedString(_ key: String, stringValue: String, fittingWidth: Int? = nil, defaultValue: String? = nil, comment: String? = nil) -> String {
 
         configureIfNeeded()
 
@@ -144,7 +144,7 @@ final public class Swifternalization {
     :returns: localized string if found, otherwise `defaultValue` is returned if
         specified or `key` if `defaultValue` is not specified.
     */
-    public class func localizedString(key: String, intValue: Int, fittingWidth: Int? = nil, defaultValue: String? = nil, comment: String? = nil) -> String {
+    public class func localizedString(_ key: String, intValue: Int, fittingWidth: Int? = nil, defaultValue: String? = nil, comment: String? = nil) -> String {
         return localizedString(key, stringValue: "\(intValue)", fittingWidth: fittingWidth, defaultValue: defaultValue, comment: comment)
     }
     
@@ -157,7 +157,7 @@ final public class Swifternalization {
     
     :param: bundle A bundle when files are located.
     */
-    private func load(bundle: NSBundle = NSBundle.mainBundle()) {
+    private func load(_ bundle: Bundle = Bundle.main) {
         // Set base and prefered languages.
         let base = "base"
         let language = getPreferredLanguage(bundle)
@@ -190,7 +190,7 @@ final public class Swifternalization {
     /** 
     Get preferred language of user's device.
     */
-    private func getPreferredLanguage(bundle: NSBundle) -> CountryCode {
+    private func getPreferredLanguage(_ bundle: Bundle) -> CountryCode {
         // Get preferred language, the one which is set on user's device
         return bundle.preferredLocalizations.first! as CountryCode
     }
