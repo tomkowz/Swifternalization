@@ -87,7 +87,11 @@ class SharedExpressionsProcessor {
     }
 }
 
-infix operator <! {}
+precedencegroup SetPrecedence {
+    higherThan: DefaultPrecedence
+}
+
+infix operator <! : SetPrecedence
 /**
 "Get Unique" operator. It helps in getting unique shared expressions from two arrays.
 Content of `lhs` array will be checked in terms on uniqueness. The operator does

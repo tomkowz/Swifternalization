@@ -24,10 +24,10 @@ final class Regex {
         var resultString: String?
         
         let range = NSMakeRange(0, str.characters.distance(from: str.startIndex, to: str.endIndex))
-        regexp(pattern)?.enumerateMatches(in: str, options: RegularExpression.MatchingOptions.reportCompletion, range: range, using: { result, flags, stop in
+        regexp(pattern)?.enumerateMatches(in: str, options: NSRegularExpression.MatchingOptions.reportCompletion, range: range, using: { result, flags, stop in
             if let result = result {
-                if let capturingGroupIdx = capturingGroupIdx where result.numberOfRanges > capturingGroupIdx {
-                    resultString = self.substring(str, range: result.range(at: capturingGroupIdx))
+                if let capturingGroupIdx = capturingGroupIdx, result.numberOfRanges > capturingGroupIdx {
+                    resultString = self.substring(str, range: result.rangeAt(capturingGroupIdx))
                 } else {
                     resultString = self.substring(str, range: result.range)
                 }
@@ -76,9 +76,9 @@ final class Regex {
     :param: pattern A regexp pattern.
     :returns: `NSRegularExpression` object or nil if it cannot be created.
     */
-    private class func regexp(_ pattern: String) -> RegularExpression? {
+    private class func regexp(_ pattern: String) -> NSRegularExpression? {
         do {
-            return try RegularExpression(pattern: pattern, options: RegularExpression.Options.caseInsensitive)
+            return try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
         } catch let error as NSError {
             print(error)
         }

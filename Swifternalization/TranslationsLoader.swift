@@ -12,7 +12,7 @@ final class TranslationsLoader {
         translations.
     :returns: Array of `LoadedTranslation` objects from specified file.
     */
-    class func loadTranslations(_ json: Dictionary<String, AnyObject>) -> [LoadedTranslation] {
+    class func loadTranslations(_ json: [String : Any]) -> [LoadedTranslation] {
         var loadedTranslations = [LoadedTranslation]()
         for (key, value) in json {
             if value is String {
@@ -45,7 +45,7 @@ final class TranslationsLoader {
         for (_, value) in element {
             if value is String {
                 strings += 1
-            } else if value is Dictionary<String, AnyObject> {
+            } else if value is [String : Any] {
                 dicts += 1
             }
         }

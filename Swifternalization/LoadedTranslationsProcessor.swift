@@ -65,7 +65,7 @@ class LoadedTranslationsProcessor {
                 if there is a key it is replaced with real expression pattern.
                 */
                 var expressions = [Expression]()
-                for (key, value) in $0.content as! Dictionary<String, String> {
+                for (key, value) in $0.content as! [String : String] {
                     let pattern = sharedExpressions.filter({$0.identifier == key}).first?.pattern ?? key
                     expressions.append(Expression(pattern: pattern, value: value))
                 }
@@ -74,7 +74,7 @@ class LoadedTranslationsProcessor {
             case .withLengthVariations:
                 // Translation contains length expressions like @100, @200, etc.
                 var lengthVariations = [LengthVariation]()
-                for (key, value) in $0.content as! Dictionary<String, String> {
+                for (key, value) in $0.content as! [String : String] {
                     lengthVariations.append(LengthVariation(width: self.parseNumberFromLengthVariation(key), value: value))
                 }
                 return Translation(key: $0.key, expressions: [Expression(pattern: $0.key, value: lengthVariations.last!.value, lengthVariations: lengthVariations)])
@@ -91,9 +91,9 @@ class LoadedTranslationsProcessor {
                 var expressions = [Expression]()
                 for (key, value) in $0.content {
                     let pattern = sharedExpressions.filter({$0.identifier == key}).first?.pattern ?? key
-                    if value is Dictionary<String, String> {
+                    if value is [String : String] {
                         var lengthVariations = [LengthVariation]()
-                        for (lvKey, lvValue) in value as! Dictionary<String, String> {
+                        for (lvKey, lvValue) in value as! [String : String] {
                             lengthVariations.append(LengthVariation(width: self.parseNumberFromLengthVariation(lvKey), value: lvValue))
                         }
                         expressions.append(Expression(pattern: pattern, value: lengthVariations.last!.value, lengthVariations: lengthVariations))
@@ -112,7 +112,7 @@ class LoadedTranslationsProcessor {
     :param: string A string that contains length variation string like @100.
     :returns: A number parsed from the string.
     */
-    private class func parseNumberFromLengthVariation(_ string: String) -> Int {
+    fileprivate class func parseNumberFromLengthVariation(_ string: String) -> Int {
         return (Regex.matchInString(string, pattern: "@(\\d+)", capturingGroupIdx: 1)! as NSString).integerValue
     }
 }

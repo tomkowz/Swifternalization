@@ -3,7 +3,7 @@ import Foundation
 /**
 Represents json content.
 */
-internal typealias JSONDictionary = Dictionary<String, AnyObject>
+internal typealias JSONDictionary = [String : Any]
 
 /**
 Simple JSON file loader.
@@ -28,8 +28,8 @@ final class JSONFileLoader {
     :param: bundle A bundle when file is located.
     :returns: dictionary with expressions or empty dictionary if cannot load a file.
     */
-    class func loadExpressions(_ countryCode: CountryCode, bundle: Bundle) -> Dictionary<String, String> {
-        return self.load("expressions", bundle: bundle)?[countryCode] as? Dictionary<String, String> ?? [:]
+    class func loadExpressions(_ countryCode: CountryCode, bundle: Bundle) -> [String : String] {
+        return self.load("expressions", bundle: bundle)?[countryCode] as? [String : String] ?? [:]
     }
     
     /**
@@ -41,9 +41,10 @@ final class JSONFileLoader {
     :returns: JSON or nil if file cannot be loaded.
     */
     private class func load(_ fileName: String, bundle: Bundle) -> JSONDictionary? {
-        if let fileURL = bundle.urlForResource(fileName, withExtension: "json") {
+        if let fileURL = bundle.url(forResource: fileName, withExtension: "json") {
             return load(fileURL)
         }
+    
         print("Cannot find file \(fileName).json.")
         return nil
     }
