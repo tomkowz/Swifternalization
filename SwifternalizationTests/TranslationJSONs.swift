@@ -10,7 +10,7 @@ import Foundation
 
 class TranslationJSONs {
     
-    class func base() -> Dictionary<String, AnyObject> {
+    class func base() -> [String : Any] {
         return [
             "key-1": "value-1",
             "key-2": [
@@ -32,7 +32,7 @@ class TranslationJSONs {
         ]
     }
     
-    class func en() -> Dictionary<String, AnyObject> {
+    class func en() -> [String : Any] {
         return [
             "key-1": "en-value-1",
             "key-2": [

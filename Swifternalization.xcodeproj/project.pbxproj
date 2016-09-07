@@ -388,10 +388,14 @@
 				TargetAttributes = {
 					6D5004471B3EF91600A54B36 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = NPGLBT5EYF;
+						DevelopmentTeamName = "Snupps Limited";
 						LastSwiftMigration = 0800;
 					};
 					6D5004521B3EF91600A54B36 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = NPGLBT5EYF;
+						DevelopmentTeamName = "Snupps Limited";
 						LastSwiftMigration = 0800;
 					};
 				};

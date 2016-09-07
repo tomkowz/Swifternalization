@@ -46,7 +46,7 @@ class RegexExpressionParser: ExpressionParser {
     :returns: `RegexPattern` or nil when there is no regular expression 
             in the pattern.
     */
-    private func regexPattern() -> RegexPattern? {
+    fileprivate func regexPattern() -> RegexPattern? {
         if let regex = Regex.firstMatchInString(pattern, pattern: "(?<=^\(ExpressionPatternType.Regex.rawValue):).*") {
             return regex
         } else {

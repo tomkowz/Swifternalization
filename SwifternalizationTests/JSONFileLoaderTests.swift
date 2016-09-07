@@ -12,7 +12,7 @@ import XCTest
 class JSONFileLoaderTests: XCTestCase {
     
     // Expressions
-    func loadExpressions(_ cc: CountryCode) -> Dictionary<String, String> {
+    func loadExpressions(_ cc: CountryCode) -> [String : String] {
         return JSONFileLoader.loadExpressions(cc, bundle: Bundle.testBundle())
     }
     

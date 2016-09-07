@@ -26,5 +26,5 @@ struct LoadedTranslation {
     /** 
     A content of translation just loaded from a file user in future processing.
     */
-    let content: Dictionary<String, AnyObject>
+    let content: [String : Any]
 }
