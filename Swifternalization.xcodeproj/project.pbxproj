@@ -388,7 +388,6 @@
 				TargetAttributes = {
 					6D5004471B3EF91600A54B36 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = NPGLBT5EYF;
 						DevelopmentTeamName = "Snupps Limited";
 						LastSwiftMigration = 0800;
 					};
@@ -641,6 +640,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -663,6 +663,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
