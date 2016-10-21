@@ -46,4 +46,14 @@ class SharedBaseExpressionTests: XCTestCase {
         XCTAssertTrue(expression.validate("3"), "Should match 3")
         XCTAssertFalse(expression.validate("1"), "Should not match 1")
     }
+    
+    func testIssue21() {
+        let bundle = NSBundle(forClass: SharedBaseExpressionTests.self)
+        Swifternalization.configure(bundle)
+        let strOne = I18n.localizedString("issue21", intValue: 1)
+        let strOther = I18n.localizedString("issue21", intValue: 15)
+        
+        XCTAssertEqual(strOne, "1 follow request")
+        XCTAssertEqual(String(format: strOther, 15), "15 follow requests")
+    }
 }

@@ -26,5 +26,10 @@
         ">20": ">20 things"
     },
     
-    "put.?.here.format": "put %@ here"
+    "put.?.here.format": "put %@ here",
+    
+    "issue21": {
+        "one": "1 follow request",
+        "other": "%d follow requests"
+    }
 }
