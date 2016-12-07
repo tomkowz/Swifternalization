@@ -31,7 +31,7 @@ class LoadedTranslationsProcessor {
     :param: prerferedLanguageTranslations An array of prefered language translations.
     :param: sharedExpressions An array of shared expressions.
     */
-    class func processTranslations(baseTranslations: [LoadedTranslation], preferedLanguageTranslations: [LoadedTranslation], sharedExpressions: [SharedExpression]) -> [Translation] {
+    class func processTranslations(_ baseTranslations: [LoadedTranslation], preferedLanguageTranslations: [LoadedTranslation], sharedExpressions: [SharedExpression]) -> [Translation] {
         /*
         Find those base translations that are not contained in prefered language 
         translations.
@@ -52,12 +52,12 @@ class LoadedTranslationsProcessor {
         */
         return translationsReadyToProcess.map({
             switch $0.type {
-            case .Simple:
+            case .simple:
                 // Simple translation with key and value.
                 let value = $0.content[$0.key] as! String
                 return Translation(key: $0.key, expressions: [Expression(pattern: $0.key, value: value)])
                 
-            case .WithExpressions:
+            case .withExpressions:
                 /*
                 Translation that contains expression.
                 Every time when new expressions is about to create, the shared 
@@ -71,7 +71,7 @@ class LoadedTranslationsProcessor {
                 }
                 return Translation(key: $0.key, expressions: expressions)
                 
-            case .WithLengthVariations:
+            case .withLengthVariations:
                 // Translation contains length expressions like @100, @200, etc.
                 var lengthVariations = [LengthVariation]()
                 for (key, value) in $0.content as! Dictionary<String, String> {
@@ -79,7 +79,7 @@ class LoadedTranslationsProcessor {
                 }
                 return Translation(key: $0.key, expressions: [Expression(pattern: $0.key, value: lengthVariations.last!.value, lengthVariations: lengthVariations)])
 
-            case .WithExpressionsAndLengthVariations:
+            case .withExpressionsAndLengthVariations:
                 /*
                 The most advanced translation type. It contains expressions
                 that contain length variations or just simple expressions.
@@ -112,7 +112,7 @@ class LoadedTranslationsProcessor {
     :param: string A string that contains length variation string like @100.
     :returns: A number parsed from the string.
     */
-    private class func parseNumberFromLengthVariation(string: String) -> Int {
+    private class func parseNumberFromLengthVariation(_ string: String) -> Int {
         return (Regex.matchInString(string, pattern: "@(\\d+)", capturingGroupIdx: 1)! as NSString).integerValue
     }
 }

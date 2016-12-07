@@ -12,8 +12,8 @@ import XCTest
 class JSONFileLoaderTests: XCTestCase {
     
     // Expressions
-    func loadExpressions(cc: CountryCode) -> Dictionary<String, String> {
-        return JSONFileLoader.loadExpressions(cc, bundle: NSBundle.testBundle())
+    func loadExpressions(_ cc: CountryCode) -> Dictionary<String, String> {
+        return JSONFileLoader.loadExpressions(cc, bundle: Bundle.testBundle())
     }
     
     func testShouldLoadBaseExpressions() {
@@ -33,8 +33,8 @@ class JSONFileLoaderTests: XCTestCase {
     }
     
     // Translations
-    func loadTranslations(cc: CountryCode) -> JSONDictionary {
-        return JSONFileLoader.loadTranslations(cc, bundle: NSBundle.testBundle())
+    func loadTranslations(_ cc: CountryCode) -> JSONDictionary {
+        return JSONFileLoader.loadTranslations(cc, bundle: Bundle.testBundle())
     }
 
     func testShouldLoadBaseTranslations() {

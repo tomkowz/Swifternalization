@@ -11,7 +11,7 @@ import XCTest
 
 class InequalityExtendedExpressionParserTests: XCTestCase {
     
-    func createMatcher(pattern: ExpressionPattern) -> InequalityExtendedExpressionMatcher {
+    func createMatcher(_ pattern: ExpressionPattern) -> InequalityExtendedExpressionMatcher {
         return InequalityExtendedExpressionParser(pattern).parse() as! InequalityExtendedExpressionMatcher
     }
     

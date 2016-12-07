@@ -12,11 +12,11 @@ final class TranslationsLoader {
         translations.
     :returns: Array of `LoadedTranslation` objects from specified file.
     */
-    class func loadTranslations(json: Dictionary<String, AnyObject>) -> [LoadedTranslation] {
+    class func loadTranslations(_ json: Dictionary<String, AnyObject>) -> [LoadedTranslation] {
         var loadedTranslations = [LoadedTranslation]()
         for (key, value) in json {
             if value is String {
-                loadedTranslations.append(LoadedTranslation(type: .Simple, key: key, content: [key: value]))
+                loadedTranslations.append(LoadedTranslation(type: .simple, key: key, content: [key: value]))
             } else {
                 let dictionary = value as! JSONDictionary
                 if let type = detectElementType(dictionary) {
@@ -36,7 +36,7 @@ final class TranslationsLoader {
     :params: element A dictionary that will be analyzed.
     :returns: translation type of a dictionary.
     */
-    private class func detectElementType(element: JSONDictionary) -> LoadedTranslationType? {
+    private class func detectElementType(_ element: JSONDictionary) -> LoadedTranslationType? {
         // Method counts dicts and strings occurences and return proper type.
         var dicts = 0
         var strings = 0
@@ -57,10 +57,10 @@ final class TranslationsLoader {
         */
         if strings > 0 && dicts == 0 {
             let key = element.keys.first!
-            let toIndex = key.startIndex.advancedBy(1)
-            return key.substringToIndex(toIndex) == "@" ? .WithLengthVariations : .WithExpressions
+            let toIndex = key.characters.index(key.startIndex, offsetBy: 1)
+            return key.substring(to: toIndex) == "@" ? .withLengthVariations : .withExpressions
         } else if strings >= 0 && dicts > 0 {
-            return .WithExpressionsAndLengthVariations
+            return .withExpressionsAndLengthVariations
         }
         
         // Not supported type should be nil.

@@ -12,7 +12,7 @@ import Swifternalization
 
 class InequalityExpressionParserTests: XCTestCase {
 
-    func createMatcher(pattern: ExpressionPattern) -> InequalityExpressionMatcher {
+    func createMatcher(_ pattern: ExpressionPattern) -> InequalityExpressionMatcher {
         return InequalityExpressionParser(pattern).parse() as! InequalityExpressionMatcher
     }
     

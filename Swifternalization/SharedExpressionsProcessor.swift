@@ -40,7 +40,7 @@ class SharedExpressionsProcessor {
             expression.json.
     :returns: array of shared expressions for Base and preferred language.
     */
-    class func processSharedExpression(preferedLanguage: CountryCode, preferedLanguageExpressions: [SharedExpression], baseLanguageExpressions: [SharedExpression]) -> [SharedExpression] {
+    class func processSharedExpression(_ preferedLanguage: CountryCode, preferedLanguageExpressions: [SharedExpression], baseLanguageExpressions: [SharedExpression]) -> [SharedExpression] {
         /*
         Get unique base expressions that are not presented in prefered language
         expressions. Those from base will be used in a case when programmer 
@@ -79,7 +79,7 @@ class SharedExpressionsProcessor {
     :returns: Shared expressions for specific language. If there is no
     expression for passed language empty array is returned.
     */
-    private class func loadBuiltInExpressions(language: CountryCode) -> [SharedExpression] {
+    private class func loadBuiltInExpressions(_ language: CountryCode) -> [SharedExpression] {
         switch language {
         case "pl": return SharedPolishExpression.allExpressions()
         default: return []

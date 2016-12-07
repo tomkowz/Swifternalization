@@ -67,7 +67,7 @@ class InequalityExpressionParser: ExpressionParser {
     
     :returns: A value or nil if value cannot be found.
     */
-    func getValue(regex: String, failureMessage: String, capturingGroupIdx: Int? = nil) -> Double? {
+    func getValue(_ regex: String, failureMessage: String, capturingGroupIdx: Int? = nil) -> Double? {
         if let value = Regex.matchInString(pattern, pattern: regex, capturingGroupIdx: capturingGroupIdx) {
             return NSString(string: value).doubleValue
         } else {
@@ -84,7 +84,7 @@ class InequalityExpressionParser: ExpressionParser {
     
     :returns: A sign or nil if value cannot be found.
     */
-    func getSign(regex: String, failureMessage: String, capturingGroupIdx: Int? = nil) -> InequalitySign? {
+    func getSign(_ regex: String, failureMessage: String, capturingGroupIdx: Int? = nil) -> InequalitySign? {
         if let rawValue = Regex.matchInString(pattern, pattern: regex, capturingGroupIdx: capturingGroupIdx),
             let sign = InequalitySign(rawValue: rawValue) {
                 return sign
