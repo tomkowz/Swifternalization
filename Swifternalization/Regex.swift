@@ -20,14 +20,14 @@ final class Regex {
     :param: pattern A regex pattern.
     :returns: `String` that matches pattern or nil.
     */
-    class func matchInString(str: String, pattern: String, capturingGroupIdx: Int?) -> String? {
+    class func matchInString(_ str: String, pattern: String, capturingGroupIdx: Int?) -> String? {
         var resultString: String?
         
-        let range = NSMakeRange(0, str.startIndex.distanceTo(str.endIndex))
-        regexp(pattern)?.enumerateMatchesInString(str, options: NSMatchingOptions.ReportCompletion, range: range, usingBlock: { result, flags, stop in
+        let range = NSMakeRange(0, str.characters.distance(from: str.startIndex, to: str.endIndex))
+        regexp(pattern)?.enumerateMatches(in: str, options: NSRegularExpression.MatchingOptions.reportCompletion, range: range, using: { result, flags, stop in
             if let result = result {
-                if let capturingGroupIdx = capturingGroupIdx where result.numberOfRanges > capturingGroupIdx {
-                    resultString = self.substring(str, range: result.rangeAtIndex(capturingGroupIdx))
+                if let capturingGroupIdx = capturingGroupIdx, result.numberOfRanges > capturingGroupIdx {
+                    resultString = self.substring(str, range: result.rangeAt(capturingGroupIdx))
                 } else {
                     resultString = self.substring(str, range: result.range)
                 }
@@ -45,8 +45,8 @@ final class Regex {
     :param: pattern A regexp pattern.
     :returns: `String` that matches pattern or nil.
     */
-    class func firstMatchInString(str: String, pattern: String) -> String? {
-        if let result = regexp(pattern)?.firstMatchInString(str, options: .ReportCompletion, range: NSMakeRange(0, str.startIndex.distanceTo(str.endIndex))) {
+    class func firstMatchInString(_ str: String, pattern: String) -> String? {
+        if let result = regexp(pattern)?.firstMatch(in: str, options: .reportCompletion, range: NSMakeRange(0, str.characters.distance(from: str.startIndex, to: str.endIndex))) {
             return substring(str, range: result.range)
         }
         return nil
@@ -59,9 +59,9 @@ final class Regex {
     :param: pattern A regexp pattern.
     :returns: Array of `Strings`s. If nothing found empty array is returned.
     */
-    class func matchesInString(str: String, pattern: String) -> [String] {
+    class func matchesInString(_ str: String, pattern: String) -> [String] {
         var matches = [String]()
-        if let results = regexp(pattern)?.matchesInString(str, options: .ReportCompletion, range: NSMakeRange(0, str.startIndex.distanceTo(str.endIndex))) {
+        if let results = regexp(pattern)?.matches(in: str, options: .reportCompletion, range: NSMakeRange(0, str.characters.distance(from: str.startIndex, to: str.endIndex))) {
             for result in results {
                 matches.append(substring(str, range: result.range))
             }
@@ -76,9 +76,9 @@ final class Regex {
     :param: pattern A regexp pattern.
     :returns: `NSRegularExpression` object or nil if it cannot be created.
     */
-    private class func regexp(pattern: String) -> NSRegularExpression? {
+    private class func regexp(_ pattern: String) -> NSRegularExpression? {
         do {
-            return try NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive)
+            return try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
         } catch let error as NSError {
             print(error)
         }
@@ -92,10 +92,10 @@ final class Regex {
     :param: range A range that tells which part of `str` will be substracted.
     :returns: A string contained in `range`.
     */
-    private class func substring(str: String, range: NSRange) -> String {
-        let startRange = str.startIndex.advancedBy(range.location)
-        let endRange = startRange.advancedBy(range.length)
+    private class func substring(_ str: String, range: NSRange) -> String {
+        let startRange = str.characters.index(str.startIndex, offsetBy: range.location)
+        let endRange = str.characters.index(startRange, offsetBy: range.length)
         
-        return str.substringWithRange(startRange..<endRange)
+        return str.substring(with: startRange..<endRange)
     }
 }

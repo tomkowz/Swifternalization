@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension NSBundle {
-    class func testBundle() -> NSBundle {
-        return NSBundle(forClass: JSONFileLoaderTests.self)
+extension Bundle {
+    class func testBundle() -> Bundle {
+        return Bundle(for: JSONFileLoaderTests.self)
     }
 }

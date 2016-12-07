@@ -10,7 +10,7 @@ import Foundation
 
 class ExpressionJSONs {
     
-    class func base() -> Dictionary<String, String> {
+    class func base() -> [String : String] {
         return [
             "key1": "val1",
             "key2": "val2",
@@ -18,7 +18,7 @@ class ExpressionJSONs {
         ]
     }
     
-    class func en() -> Dictionary<String, String> {
+    class func en() -> [String : String] {
         return [
             "key3": "val3",
             "key4": "val4",

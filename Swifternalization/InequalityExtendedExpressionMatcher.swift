@@ -41,7 +41,7 @@ struct InequalityExtendedExpressionMatcher: ExpressionMatcher {
     
     :returns: `true` if value matches, otherwise `false`.
     */
-    func validate(val: String) -> Bool {
+    func validate(_ val: String) -> Bool {
         return leftMatcher.validate(val) && rightMatcher.validate(val)
     }
 }
