@@ -40,7 +40,7 @@ final class JSONFileLoader {
     :param: bundle A bundle when file is located.
     :returns: JSON or nil if file cannot be loaded.
     */
-    private class func load(_ fileName: String, bundle: Bundle) -> JSONDictionary? {
+    class func load(_ fileName: String, bundle: Bundle) -> JSONDictionary? {
         if let fileURL = bundle.url(forResource: fileName, withExtension: "json") {
             return load(fileURL)
         }

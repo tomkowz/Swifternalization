@@ -191,7 +191,16 @@ final public class Swifternalization {
     Get preferred language of user's device.
     */
     private func getPreferredLanguage(_ bundle: Bundle) -> CountryCode {
-        // Get preferred language, the one which is set on user's device
-        return bundle.preferredLocalizations.first! as CountryCode
+        // Get preferred language, the one which is set on user's device and that we have a file for
+        let all = bundle.preferredLocalizations
+        let first = all.first! as CountryCode
+        var supported: CountryCode?
+        for lang in all {
+            if let _ = JSONFileLoader.load(lang, bundle: bundle) {
+                supported = lang
+                break
+            }
+        }
+        return supported ?? first
     }
 }
