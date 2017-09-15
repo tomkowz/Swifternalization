@@ -11,14 +11,14 @@ import XCTest
 
 class LoadedTranslationsProcessorTests: XCTestCase {
     
-    private func _baseExpressions() -> Dictionary<String, String> {
+    private func _baseExpressions() -> [String : String] {
         return [
             "e1": "ie:x=1",
             "e2": "ie:x=2"
         ]
     }
     
-    private func _enExpressions() -> Dictionary<String, String> {
+    private func _enExpressions() -> [String : String] {
         return [
             "e1": "ie:x=1",
             "e2": "ie:x=2",
@@ -27,7 +27,7 @@ class LoadedTranslationsProcessorTests: XCTestCase {
         ]
     }
     
-    private func _baseTranslations() -> Dictionary<String, AnyObject> {
+    private func _baseTranslations() -> [String : Any] {
         return [
             "k1": "v1",
             "k2": "v2",
@@ -36,7 +36,7 @@ class LoadedTranslationsProcessorTests: XCTestCase {
         ]
     }
     
-    private func _enTranslations() -> Dictionary<String, AnyObject> {
+    private func _enTranslations() -> [String : Any] {
         return [
             "k1": "v1",
             "k2": [
@@ -72,7 +72,7 @@ class LoadedTranslationsProcessorTests: XCTestCase {
         let enTranslations = TranslationsLoader.loadTranslations(_enTranslations())
         var translations = LoadedTranslationsProcessor.processTranslations(baseTranslations, preferedLanguageTranslations: enTranslations, sharedExpressions: expressions)
         
-        translations.sortInPlace({$0.key < $1.key})
+        translations.sort(by: {$0.key < $1.key})
         
         XCTAssertEqual(translations.count, 4, "")
         
@@ -99,10 +99,10 @@ class LoadedTranslationsProcessorTests: XCTestCase {
         
         // Get patterns of expressions
         var k3ExpressionPatterns: [String] = k3Translation.expressions.map({ $0.pattern })
-        k3ExpressionPatterns.sortInPlace({$0 < $1})
+        k3ExpressionPatterns.sort(by: {$0 < $1})
         
         var k3ExpressionsToMatch: [String] = [_enExpressions()["e1"]!, _enExpressions()["e2"]!]
-        k3ExpressionsToMatch.sortInPlace({$0 < $1})
+        k3ExpressionsToMatch.sort(by: {$0 < $1})
         
         XCTAssertEqual(k3ExpressionPatterns, k3ExpressionsToMatch, "")
         
@@ -115,10 +115,10 @@ class LoadedTranslationsProcessorTests: XCTestCase {
         
         // Get patterns of expressions
         var k4ExpressionPatterns: [String] = k4Translation.expressions.map({ $0.pattern })
-        k4ExpressionPatterns.sortInPlace({$0 < $1})
+        k4ExpressionPatterns.sort(by: {$0 < $1})
         
         var k4ExpressionsToMatch: [String] = [_enExpressions()["e2"]!, _enExpressions()["e3"]!, _enExpressions()["e4"]!]
-        k4ExpressionsToMatch.sortInPlace({$0 < $1})
+        k4ExpressionsToMatch.sort(by: {$0 < $1})
         
         XCTAssertEqual(k4ExpressionPatterns, k4ExpressionsToMatch, "")
     }

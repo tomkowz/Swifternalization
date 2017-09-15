@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Swifternalization"
-  s.version      = "1.3.1"
+  s.version      = "1.3.2"
   s.summary      = "Swift Framework which helps in localizing apps using JSON files."
 
   s.homepage     = "https://github.com/tomkowz/Swifternalization"
@@ -13,10 +13,8 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '8.0'
 
-  s.source       = { :git => "https://github.com/tomkowz/Swifternalization.git", :tag => "v1.3.1" }
+  s.source       = { :git => "https://github.com/tomkowz/Swifternalization.git", :tag => "v1.3.2" }
   
-  s.documentation_url   = 'http://szulctomasz.com/docs/swifternalization/public/'
-
   s.source_files  = 'Classes', 'Swifternalization/**/*.{swift,h}'
   s.requires_arc = true
 

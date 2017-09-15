@@ -48,7 +48,7 @@ class SharedBaseExpressionTests: XCTestCase {
     }
     
     func testIssue21() {
-        let bundle = NSBundle(forClass: SharedBaseExpressionTests.self)
+        let bundle = Bundle(for: SharedBaseExpressionTests.self)
         Swifternalization.configure(bundle)
         let strOne = I18n.localizedString("issue21", intValue: 1)
         let strOther = I18n.localizedString("issue21", intValue: 15)
