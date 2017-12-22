@@ -111,54 +111,55 @@ There are 6 cases in English and 9 cases in Polish. Notice that without addition
 
 This is how localizable files will look:
 
-    base.json
-    ---------
-    "time-seconds": {
-        "one": "%d second ago"
-        "other": "%d seconds ago"
-    },
+```json
+base.json
+---------
+"time-seconds": {
+    "one": "%d second ago"
+    "other": "%d seconds ago"
+},
 
-    "time-minutes": {
-        "one": "%d minute ago"
-        "other": "%d minutes ago"
-    },
+"time-minutes": {
+    "one": "%d minute ago"
+    "other": "%d minutes ago"
+},
 
-    "time-hours": {
-        "one": "%d hours ago"
-        "other": "%d hours ago"
-    }
+"time-hours": {
+    "one": "%d hours ago"
+    "other": "%d hours ago"
+}
 
-	pl.json
-	-------
-	"time-seconds": {
-		"one": "1 sekundę temu",
-		"few": "%d sekundy temu",
-		"many": "%d sekund temu"
-	},
+pl.json
+-------
+"time-seconds": {
+    "one": "1 sekundę temu",
+    "few": "%d sekundy temu",
+    "many": "%d sekund temu"
+},
 
-	"time-minutes": {
-		"one": "1 minutę temu",
-		"few": "%d minuty temu",
-		"many": "%d minut temu"
-	},
+"time-minutes": {
+    "one": "1 minutę temu",
+    "few": "%d minuty temu",
+    "many": "%d minut temu"
+},
 
-	"time-hours": {
-		"one": "1 godzinę temu",
-		"few": "%d godziny temu",
-		"many": "%d godzin temu"
-	}
-
+"time-hours": {
+    "one": "1 godzinę temu",
+    "few": "%d godziny temu",
+    "many": "%d godzin temu"
+}
+```
 - "one", "few", "many", "other" - those are shared expressions already built into Swifternalization - covered below.
 - You can add own expressions to handle specific cases - covered below.
 
 As mentioned the logic is implemented into framework so if you want to get one of a localized string you have to make a simple call.
-
-	Swifternalization.localizedString("time-seconds", intValue: 10)
-
+```swift
+Swifternalization.localizedString("time-seconds", intValue: 10)
+```
 or with `I18n` *typealias* (*I-18-letters-n, Internalization*):
-
-	I18n.localizedString("time-seconds", intValue: 10)
-
+```swift
+I18n.localizedString("time-seconds", intValue: 10)
+```
 The *key* and *intValue* parameters are validated by loaded expressions and proper version of a string is returned - covered below.
 
 ## Features
@@ -166,27 +167,28 @@ The *key* and *intValue* parameters are validated by loaded expressions and prop
 ### Pluralization
 Swifternalization drops necessity of using *stringdicts* files like following one to support pluralization in localized strings. Instead of that you can simply define expressions that cover such cases.
 
-	<plist version="1.0">
-	    <dict>
-	        <key>%d file(s) remaining</key>
-	        <dict>
-	            <key>NSStringLocalizedFormatKey</key>
-	            <string>%#@files@</string>
-	            <key>files</key>
-	            <dict>
-	                <key>NSStringFormatSpecTypeKey</key>
-	                <string>NSStringPluralRuleType</string>
-	                <key>NSStringFormatValueTypeKey</key>
-	                <string>d</string>
-	                <key>one</key>
-	                <string>%d file remaining</string>
-	                <key>other</key>
-	                <string>%d files remaining</string>
-	            </dict>
-	        </dict>
-	    </dict>
-	</plist>
-
+```XML
+<plist version="1.0">
+    <dict>
+        <key>%d file(s) remaining</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@files@</string>
+            <key>files</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d file remaining</string>
+                <key>other</key>
+                <string>%d files remaining</string>
+            </dict>
+        </dict>
+    </dict>
+</plist>
+```
 No more *stringsdict* files!
 
 ### Length Variations
@@ -198,33 +200,36 @@ Swifternalization drops necessity of using such file and it is not necessary to 
 
 To use length variations feature your translation file should has entries like this:
 
-    base.json
-    ---------
-    "forgot-password": {
-    	"@200": "Forgot Password? Help.",
-    	"@300": "Forgot Your Password? Use Help.",
-    	"@400": "Do not remember Your Password?" Use Help.""
-    }
+```json
+base.json
+---------
+"forgot-password": {
+    "@200": "Forgot Password? Help.",
+    "@300": "Forgot Your Password? Use Help.",
+    "@400": "Do not remember Your Password?" Use Help.""
+}
+```
 
 The number after `@` sign is max width of a screen or bounds that a string fits to. E.g. the second string will be returned if passed fitting width as a paramter is be greater than 200 and less or equal 300.
 
 To get the second localized string the call looks like below:
 
-    I18n.localizedString("forgot-password", fittingWidth: 300) // 201 - 300
-
+```swift
+I18n.localizedString("forgot-password", fittingWidth: 300) // 201 - 300
+```
 You can mix expressions with length variations. Following example shows it:
+```json
+base.json
+---------
+"car": {
+    "ie:x=1": {
+        "@100": "One car",
+        "@200": "You've got one car"
+    },
 
-    base.json
-    ---------
-    "car": {
-        "ie:x=1": {
-            @100: "One car",
-            @200: "You've got one car"
-        },
-
-        "more": "You've got few cars"
-    }
-
+    "more": "You've got few cars"
+}
+```
 ## Expressions
 There are few *expression types*. Every expression type has their own *parser* and *matcher* but they work internally so you don't need to worry about them.
 
@@ -244,12 +249,13 @@ It is composed of several elements:
 
 Example:
 
-	"cars": {
-		"ie:x=1": "1 car",
-		"ie:x=0": "no cars",
-		"ie:x>1": "%d cars"
-	}
-
+```json
+"cars": {
+    "ie:x=1": "1 car",
+    "ie:x=0": "no cars",
+    "ie:x>1": "%d cars"
+}
+```
 
 ### Inequality Extended Expressions
 This is extended version of *inequality* expression. It is composed of 2 values, one value "marker" and two inequality signs.
@@ -260,10 +266,11 @@ This is extended version of *inequality* expression. It is composed of 2 values,
 
 Expample:
 
-	"tomatos": {
-		"iex:2<x<10": "%d tomatos is between 2 and 10"
-	}
-
+```json
+"tomatos": {
+    "iex:2<x<10": "%d tomatos is between 2 and 10"
+}
+```
 ### Regex Expressions
 This is the most powerful type of expression. It takes regular expression ;)
 
@@ -271,23 +278,23 @@ This is the most powerful type of expression. It takes regular expression ;)
 - *string* - it takes string with regular expression
 
 Example: (police cars in Polish language)
-
-	"police-cars": {
-		"exp:^1$": "1 samochód policyjny",
-		"exp:(((?!1).[2-4]{1})$)|(^[2-4]$)": "%d samochody policyjne",
-		"exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])": "%d samochodów policyjnych"
-	}
-
+```json
+"police-cars": {
+    "exp:^1$": "1 samochód policyjny",
+    "exp:(((?!1).[2-4]{1})$)|(^[2-4]$)": "%d samochody policyjne",
+    "exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])": "%d samochodów policyjnych"
+}
+```
 Powerful stuff, isn't it? :>
 
 PS. There is built-in solution for Polish language so you can use it with doing just this:
-
-	"police-cars": {
-		"one": "1 samochód policyjny",
-		"few": "%d samochody policyjne",
-		"many": "%d samochodów policyjnych"
-	}
-
+```json
+"police-cars": {
+    "one": "1 samochód policyjny",
+    "few": "%d samochody policyjne",
+    "many": "%d samochodów policyjnych"
+}
+```
 This is called *"Shared Built-In Expression"* and is covered below.
 
 ### Shared Expressions
@@ -306,15 +313,17 @@ If you want to use the same expression in multiple files there is no necessity t
 
 What you need to do is to create *expressions.json* file with following structure:
 
-    {
-    	"base": {
-    		"one": "ie:x>1"
-    	},
+```json
+{
+    "base": {
+        "one": "ie:x>1"
+    },
 
-    	"pl": {
-    		// ... other than "one" because "one" is available here too.
-    	}
+    "pl": {
+        // ... other than "one" because "one" is available here too.
     }
+}
+```
 
 Now in *pl.json*, *en.json* and so on you have to use it as below:
 
@@ -374,91 +383,91 @@ Before you get a first localized string you have to configure Swifternalization 
 If you do not call `configure()` it will use `NSBundle.mainBundle()` by default internally.
 
 It will get languages from bundle which was used to configure it. So, if it does not translate you string, please make sure that you added Localizations in Project > Info > Localizations section - the same place like for regular localizations.
-
-    I18n.configure(bundle) // if files are in another bundle
-
+```swift
+I18n.configure(bundle) // if files are in another bundle
+```
 ### Creating file with Shared Expressions
 
 Shared Expressions must be placed in *expressions.json*. Syntax of a file looks like below:
+```json
+{
+    "base": {
+        "ten": "ie:x=10",
+        ">20": "ie:x>20",
+        "custom-pl-few": "exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])"
+    },
 
-	{
-	    "base": {
-	        "ten": "ie:x=10",
-	        ">20": "ie:x>20",
-	        "custom-pl-few": "exp:(.*(?=1).[0-9]$)|(^[05-9]$)|(.*(?!1).[0156789])"
-	    },
-
-	    "pl": {
-	        "few": "exp:(((?!1).[2-4]{1})$)|(^[2-4]$)",
-	        "two": "ie:x=2",
-	        "three": "ie:x=3"
-	    }
-	}
-
-In pseudo-language:
-
-    {
-    	"language-1": {
-    		"shared-expression-key-1": "expression-1",
-    		"shared-expression-key-2": "expression-2"
-    	},
-
-    	"language-2": {
-    		"shared-expression-key-1": "expression-1"
-    	}
+    "pl": {
+        "few": "exp:(((?!1).[2-4]{1})$)|(^[2-4]$)",
+        "two": "ie:x=2",
+        "three": "ie:x=3"
     }
+}
+```
+In pseudo-language:
+```json
+{
+    "language-1": {
+        "shared-expression-key-1": "expression-1",
+        "shared-expression-key-2": "expression-2"
+    },
 
+    "language-2": {
+        "shared-expression-key-1": "expression-1"
+    }
+}
+```
 Expressions from the files may be used inside localizable files. All the shared expressions for different languages are placed in the same file because there will be just few expressions for every language. Mostly the expression will be defined in *base* variant because if expression is in *base* it is also available in every other language too. So, "ten" is available in "pl", but "three" is not available in "base".
 
 
 ### Creating file with localization per country
 
 Localizable file contains translations for specific language. The files might look like below:
+```json
+{
+    "welcome-key": "welcome",
 
-	{
-	    "welcome-key": "welcome",
-
-	    "cars": {
-	        "one": "one car",
-	        "ie:x>=2": "%d cars",
-	        "ie:x<=-2": "minus %d cars"
-	    }
-	}
-
+    "cars": {
+        "one": "one car",
+        "ie:x>=2": "%d cars",
+        "ie:x<=-2": "minus %d cars"
+    }
+}
+```
 Name of a file should be the same like country code. e.g. for English it is *en.json*, for Polish it is *pl.json*, for base localization it is *base.json*, etc.
 
 There are few things that you can place in such files. More complex file will look like below:
+```json
+{
+    "welcome": "welcome",
 
-	{
-		"welcome": "welcome",
+    "cars": {
+        "one": {
+            "@100": "one car",
+            "@200": "You have one car",
+            "@400": "You have got one car"
+        },
 
-		"cars": {
-			"one": {
-				"@100": "one car",
-				"@200": "You have one car",
-				"@400": "You have got one car"
-			},
-
-			"other": "%d cars"
-		}
-	}
-
+        "other": "%d cars"
+    }
+}
+```
 In pseudo-language:
+```json
+{
+    "key": "value",
 
-	{
-		"key": "value",
+    "key": {
+        "expression-1": {
+            "length-variation-1": "value-1",
+            "length-variation-2": "value-2",
+            "length-variation-3": "value-3"
+        },
 
-		"key": {
-			"expression-1": {
-				"length-variation-1": "value-1",
-				"length-variation-2": "value-2",
-				"length-variation-3": "value-3"
-			},
-
-			"expression-2": "value"
-		}
-	}
-
+        "expression-2": "value"
+    }
+}
+```
 
 ### Getting localized string
 
@@ -474,20 +483,20 @@ These methods have many optional paramters and you can omit them if you want. Th
 First method called `localizedString(_:fittingWidth:defaultValue:comment:)` allows you to get value for simple key without expression.
 
 Examples:
-
-    I18n.localizedString("welcome")
-    I18n.localizedString("welcome", fittingWidth: 200)
-    I18n.localizedString("welcome", defaultValue: "Welcome", comment: "Displayed on app start")
-
+```swift
+I18n.localizedString("welcome")
+I18n.localizedString("welcome", fittingWidth: 200)
+I18n.localizedString("welcome", defaultValue: "Welcome", comment: "Displayed on app start")
+```
 Next method `localizedString(_:stringValue:fittingWidth:defaultValue:comment:)` allows you to get a localized string for string value that match an expression. Actually the string value will contain number inside in most cases or some other string that you would like to match.
-
-    I18n.localizedString("cars", stringValue: "5")
-    // Other cases similar to above example
-
+```json
+I18n.localizedString("cars", stringValue: "5")
+// Other cases similar to above example
+```
 The last method `localizedString(_:intValue:fittingWidth:defaultValue:comment:)` allows you to get a localized string for int value. This method calls the above one and just turn the int value into string because all the framework operates on strings.
-
-	I18n.localizedString("cars", intValue: 5)
-
+```swift
+I18n.localizedString("cars", intValue: 5)
+```
 ## Contribution
 Swifternalization is open sourced so everyone may contribute if want to. If you want to develop it just fork the repo, do your work and create pull request. If you have some idea or question feel free to create issue and add proper tag for it.
 
