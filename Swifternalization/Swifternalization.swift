@@ -25,7 +25,9 @@ localizations.
 Before calling any method that return localized string call `configure:`.
 */
 final public class Swifternalization {
+    private static var _selectedLang: CountryCode = Bundle.main.preferredLocalizations.first! as CountryCode
     /**
+
     Shared instance of Swifternalization used internally.
     */
     private static let sharedInstance = Swifternalization()
@@ -42,7 +44,11 @@ final public class Swifternalization {
     private var configured = false
     
     // MARK: Public Methods
-    
+    public class func setLanguage(lng:String)
+    {
+        _selectedLang = lng;
+        Swifternalization.configure()
+    }
     /**
     Call the method to configure Swifternalization.
     
@@ -192,6 +198,7 @@ final public class Swifternalization {
     */
     private func getPreferredLanguage(_ bundle: Bundle) -> CountryCode {
         // Get preferred language, the one which is set on user's device
-        return bundle.preferredLocalizations.first! as CountryCode
+        //return bundle.preferredLocalizations.first! as CountryCode
+        return Swifternalization._selectedLang
     }
 }
