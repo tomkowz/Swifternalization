@@ -27,7 +27,7 @@ final class Regex {
         regexp(pattern)?.enumerateMatches(in: str, options: NSRegularExpression.MatchingOptions.reportCompletion, range: range, using: { result, flags, stop in
             if let result = result {
                 if let capturingGroupIdx = capturingGroupIdx, result.numberOfRanges > capturingGroupIdx {
-                    resultString = self.substring(str, range: result.rangeAt(capturingGroupIdx))
+                    resultString = self.substring(str, range: result.range(at: capturingGroupIdx))
                 } else {
                     resultString = self.substring(str, range: result.range)
                 }

@@ -5,6 +5,9 @@
 # Swifternalization
 Swift library that helps in localizing apps in a different, better, simpler, more powerful way than system localization does. It uses json files instead of strings files.
 
+# Swift 3
+Swift 3 compatible version is available on `swift3` branch. No pod available yet, though. Encountering issue with code sign and xcode 8 during validating podspec. Will try to solve it.
+
 # Features
 - [x] Pluralization support - Without using *stringdict* files
 - [x] Length variations support - Supported since iOS 8.0 (instead of iOS 9.0 like system does) and avoids using *stringsdict* files
