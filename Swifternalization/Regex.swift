@@ -23,7 +23,7 @@ final class Regex {
     class func matchInString(_ str: String, pattern: String, capturingGroupIdx: Int?) -> String? {
         var resultString: String?
         
-        let range = NSMakeRange(0, str.characters.distance(from: str.startIndex, to: str.endIndex))
+        let range = NSMakeRange(0, str.distance(from: str.startIndex, to: str.endIndex))
         regexp(pattern)?.enumerateMatches(in: str, options: NSRegularExpression.MatchingOptions.reportCompletion, range: range, using: { result, flags, stop in
             if let result = result {
                 if let capturingGroupIdx = capturingGroupIdx, result.numberOfRanges > capturingGroupIdx {
@@ -46,7 +46,7 @@ final class Regex {
     :returns: `String` that matches pattern or nil.
     */
     class func firstMatchInString(_ str: String, pattern: String) -> String? {
-        if let result = regexp(pattern)?.firstMatch(in: str, options: .reportCompletion, range: NSMakeRange(0, str.characters.distance(from: str.startIndex, to: str.endIndex))) {
+        if let result = regexp(pattern)?.firstMatch(in: str, options: .reportCompletion, range: NSMakeRange(0, str.distance(from: str.startIndex, to: str.endIndex))) {
             return substring(str, range: result.range)
         }
         return nil
@@ -61,7 +61,7 @@ final class Regex {
     */
     class func matchesInString(_ str: String, pattern: String) -> [String] {
         var matches = [String]()
-        if let results = regexp(pattern)?.matches(in: str, options: .reportCompletion, range: NSMakeRange(0, str.characters.distance(from: str.startIndex, to: str.endIndex))) {
+        if let results = regexp(pattern)?.matches(in: str, options: .reportCompletion, range: NSMakeRange(0, str.distance(from: str.startIndex, to: str.endIndex))) {
             for result in results {
                 matches.append(substring(str, range: result.range))
             }
@@ -93,9 +93,9 @@ final class Regex {
     :returns: A string contained in `range`.
     */
     private class func substring(_ str: String, range: NSRange) -> String {
-        let startRange = str.characters.index(str.startIndex, offsetBy: range.location)
-        let endRange = str.characters.index(startRange, offsetBy: range.length)
+        let startRange = str.index(str.startIndex, offsetBy: range.location)
+        let endRange = str.index(startRange, offsetBy: range.length)
         
-        return str.substring(with: startRange..<endRange)
+        return String(str[startRange..<endRange])
     }
 }
