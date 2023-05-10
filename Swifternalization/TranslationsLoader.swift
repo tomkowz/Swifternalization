@@ -57,8 +57,8 @@ final class TranslationsLoader {
         */
         if strings > 0 && dicts == 0 {
             let key = element.keys.first!
-            let toIndex = key.characters.index(key.startIndex, offsetBy: 1)
-            return key.substring(to: toIndex) == "@" ? .withLengthVariations : .withExpressions
+            let toIndex = key.index(key.startIndex, offsetBy: 1)
+            return String(key[..<toIndex]) == "@" ? .withLengthVariations : .withExpressions
         } else if strings >= 0 && dicts > 0 {
             return .withExpressionsAndLengthVariations
         }
